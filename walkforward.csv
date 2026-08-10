@@ -1,0 +1,48 @@
+date,fight,rule,wager,result,pnl,bal
+2026-05-30,Sergei Pavlovich vs Tallison Teixeira,GAP120,1u Teixeira +210,LOSS (KO/TKO),-100.0,-100.0
+2026-05-30,Cameron Smotherman vs Kai Asakura,FLIP,2u Smotherman +285,LOSS (KO/TKO),-200.0,-300.0
+2026-06-06,Brendan Allen vs Edmen Shahbazyan,GAP167,1u Shahbazyan +285,LOSS (U-DEC),-100.0,-400.0
+2026-06-06,Bryce Mitchell vs Santiago Luna,FLIP,2u Luna +210,LOSS (SUB),-200.0,-600.0
+2026-06-06,Iwo Baraniewski vs Junior Tafa,GAP146,1u Baraniewski +220,WIN (KO/TKO),220.0,-380.0
+2026-06-06,Alessandro Costa vs Matt Schnell,GAP379,1u Schnell +400,LOSS (KO/TKO),-100.0,-480.0
+2026-06-06,John Yannis vs Marcus McGhee,GAP316,1u Yannis +350,LOSS (U-DEC),-100.0,-580.0
+2026-06-06,Bruno Silva vs Edgar Chairez,FLIP,2u Chairez -110,WIN (SUB),182.0,-398.0
+2026-06-06,Chelsea Chandler vs Priscila Cachoeira,GAP106,1u Chandler -110,WIN (SUB),91.0,-307.0
+2026-06-06,Joanderson Brito vs Jordan Leavitt,GAP274,1u Leavitt +330,LOSS (SUB),-100.0,-407.0
+2026-06-14,Aiemann Zahabi vs Sean Omalley,GAP169,1u Zahabi +300,LOSS (KO/TKO),-100.0,-507.0
+2026-06-14,Derrick Lewis vs Josh Hokit,GAP136,1u Lewis +330,LOSS (KO/TKO),-100.0,-607.0
+2026-06-14,Mauricio Ruffy vs Michael Chandler,GAP420,1u Chandler +500,LOSS (KO/TKO),-100.0,-707.0
+2026-06-14,Bo Nickal vs Kyle Daukaus,GAP112,1u Daukaus +250,LOSS (KO/TKO),-100.0,-807.0
+2026-06-14,Diego Lopes vs Steve Garcia,FLIP,2u Garcia +190,LOSS (KO/TKO),-200.0,-1007.0
+2026-06-20,Ion Cutelaba vs Navajo Stirling,GAP149,1u Cutelaba +275,LOSS (KO/TKO),-100.0,-1107.0
+2026-06-20,Andre Fili vs Vinicius Oliveira,GAP115,1u Oliveira -225,WIN (KO/TKO),44.0,-1063.0
+2026-06-20,Andre Lima vs Kevin Borjas,GAP315,1u Borjas +450,WIN (U-DEC),450.0,-613.0
+2026-06-20,Bia Mesquita vs Melissa Mullins,GAP309,1u Mullins +450,LOSS (SUB),-100.0,-713.0
+2026-06-20,Allan Nascimento vs Mitch Raposo,GAP142,1u Raposo +210,WIN (S-DEC),210.0,-503.0
+2026-06-20,Karol Rosa vs Luana Santos,FLIP,2u Santos +100,WIN (U-DEC),200.0,-303.0
+2026-06-27,Manuel Torres vs Rafael Fiziev,FLIP,2u Torres -186,LOSS (KO/TKO),-200.0,-503.0
+2026-06-27,Michel Pereira vs Shara Magomedov,GAP165,1u Pereira +250,LOSS (U-DEC),-100.0,-603.0
+2026-06-27,Matheus Camilo vs Nazim Sadykhov,FLIP,2u Camilo +170,WIN (KO/TKO),340.0,-263.0
+2026-06-27,Asu Almabayev vs Charles Johnson,GAP126,1u Johnson +275,LOSS (SUB),-100.0,-363.0
+2026-06-27,Abus Magomedov vs Michal Oleksiejczuk,FLIP,2u Oleksiejczuk +165,LOSS (SUB),-200.0,-563.0
+2026-06-27,Abdul Rakhman Yakhyaev vs Julius Walker,GAP355,1u Walker +385,LOSS (KO/TKO),-100.0,-663.0
+2026-06-27,Andrey Pulyaev vs Nursulton Ruziboev,GAP101,1u Pulyaev +190,LOSS (SUB),-100.0,-763.0
+2026-07-11,Conor McGregor vs Max Holloway,GAP103,1u McGregor +230,LOSS (KO/TKO),-100.0,-863.0
+2026-07-11,Nikita Krylov vs Robert Whittaker,FLIP,2u Whittaker -104,WIN (KO/TKO),192.0,-671.0
+2026-07-11,Adrian Yanez vs Cody Garbrandt,GAP142,1u Garbrandt +210,LOSS (KO/TKO),-100.0,-771.0
+2026-07-11,Alessandro Costa vs Cody Durden,GAP150,1u Durden +250,LOSS (SUB),-100.0,-871.0
+2026-07-18,Dricus Du Plessis vs Kamaru Usman,GAP111,1u Usman +205,LOSS (U-DEC),-100.0,-971.0
+2026-07-18,Chase Hooper vs Mitch Ramirez,GAP183,1u Hooper -255,WIN (SUB),39.0,-931.0
+2026-07-18,Alberto Montes vs Tommy McMillen,FLIP,2u McMillen +125,WIN (KO/TKO),250.0,-681.0
+2026-07-18,Alden Coria vs Stewart Nicoll,GAP375,1u Nicoll +550,LOSS (U-DEC),-100.0,-781.0
+2026-07-25,Bogdan Guskov vs Magomed Ankalaev,GAP159,1u Guskov +250,LOSS (KO/TKO),-100.0,-881.0
+2026-07-25,Islam Dulatov vs Wellington Turman,GAP359,1u Turman +420,no result,0.0,-881.0
+2026-07-25,Sam Patterson vs Santiago Ponzinibbio,GAP284,1u Ponzinibbio +350,LOSS (KO/TKO),-100.0,-981.0
+2026-07-25,Mike Davis vs Nurullo Aliev,GAP105,1u Aliev -172,WIN (U-DEC),58.0,-923.0
+2026-08-01,Daniel Rodriguez vs Uros Medic,GAP376,1u Rodriguez +386,LOSS (KO/TKO),-100.0,-1023.0
+2026-08-01,Dusko Todorovic vs Robert Valentin,FLIP,2u Todorovic +110,LOSS (SUB),-200.0,-1223.0
+2026-08-01,Kyle Prepolec vs Mateusz Rebecki,GAP178,1u Prepolec +385,LOSS (KO/TKO),-100.0,-1323.0
+2026-08-01,Josias Musasa vs Mark Vologdin,FLIP,2u Vologdin -2049,no result,0.0,-1323.0
+2026-08-08,Mateusz Gamrot vs Quillan Salkilld,FLIP,2u Salkilld +111,WIN (SUB),222.0,-1101.0
+2026-08-08,Darren Elkins vs Yadier Del Valle,GAP108,1u Elkins +263,LOSS (KO/TKO),-100.0,-1201.0
+2026-08-08,Bruno Lopes vs Diyar Nurgozhay,FLIP,2u Nurgozhay +186,WIN (KO/TKO),372.0,-829.0

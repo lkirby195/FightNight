@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FightNight — UFC 330 Projections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F6F3; --ink:#10131A; --ink2:#3A3F4A; --mut:#878D99;
+  --red:#C5352C; --blue:#1F4FBF; --line:#D8DAD5; --hit:#0E6B46;
+  --mono:'IBM Plex Mono',monospace; --disp:'Anton',sans-serif; --body:'Archivo',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
+a{color:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+/* ---------- top ledger bar ---------- */
+.topbar{background:var(--ink);color:var(--paper)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 20px;flex-wrap:wrap}
+.wordmark{font-family:var(--disp);font-size:22px;letter-spacing:.04em}
+.wordmark span{color:var(--red)}
+.ledger{display:flex;gap:22px;font-family:var(--mono);font-size:12px}
+.ledger b{display:block;font-size:15px;font-weight:600}
+.ledger .pos{color:#7BD8AC}
+.ledger small{color:#9AA0AC;text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+
+/* ---------- event hero ---------- */
+.hero{border-bottom:3px solid var(--ink);padding:34px 0 26px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);display:flex;gap:14px;flex-wrap:wrap}
+.kicker .dot::before{content:"■";font-size:8px;vertical-align:2px;margin-right:14px;color:var(--red)}
+h1{font-family:var(--disp);font-size:clamp(44px,8vw,84px);line-height:.95;letter-spacing:.005em;margin:10px 0 14px;text-transform:uppercase}
+h1 .vs{color:var(--mut);font-size:.55em;vertical-align:.18em;margin:0 .1em}
+.stamp{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--ink);padding:7px 12px;font-family:var(--mono);font-size:12.5px;background:#fff}
+.stamp b{font-weight:600}
+.stamp .live{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){.stamp .live{animation:none}}
+
+/* ---------- the calls ---------- */
+.calls{padding:26px 0 6px}
+.secthead{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.secthead h2{font-family:var(--disp);font-size:20px;letter-spacing:.05em;text-transform:uppercase}
+.secthead p{font-family:var(--mono);font-size:12px;color:var(--ink2)}
+.cardrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:820px){.cardrow{grid-template-columns:1fr}}
+.call{background:#fff;border:2px solid var(--ink);padding:16px 16px 14px;position:relative}
+.call .tag{position:absolute;top:-11px;left:12px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px}
+.call h3{font-family:var(--body);font-weight:700;font-size:17px;margin:6px 0 2px}
+.call .nums{font-family:var(--mono);font-size:13px;color:var(--ink2);margin-bottom:8px}
+.call .nums b{color:var(--ink);font-weight:600}
+.call p{font-size:13.5px;color:var(--ink2)}
+.call .move{font-family:var(--mono);font-size:12px;margin-top:10px;display:inline-block;padding:3px 8px;border:1.5px solid var(--ink)}
+.call .move.pos{background:var(--ink);color:#fff}
+
+/* ---------- table ---------- */
+.board{padding:26px 0 8px}
+.legend{display:flex;gap:18px;font-family:var(--mono);font-size:11.5px;color:var(--ink2);margin-bottom:10px;flex-wrap:wrap}
+.legend i{font-style:normal}
+.legend .sw{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:6px}
+table{width:100%;border-collapse:collapse;background:#fff;border:3px solid var(--ink)}
+thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:9px 10px;text-align:left;font-weight:500}
+tbody td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.main td{background:#FCFCFA}
+.bout{min-width:210px}
+.fname{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px}
+.fname + .fname{margin-top:3px}
+.corner{width:4px;height:16px;flex:none}
+.corner.r{background:var(--red)}.corner.b{background:var(--blue)}
+.pickside{position:relative}
+.pickside::after{content:"PICK";font-family:var(--mono);font-size:9px;letter-spacing:.08em;background:var(--ink);color:#fff;padding:1.5px 5px;margin-left:8px}
+.mono{font-family:var(--mono);font-size:13.5px;white-space:nowrap}
+.dim{color:var(--mut)}
+.pct{font-weight:600}
+.movecell{min-width:190px}
+.track{position:relative;height:10px;background:var(--paper);border:1.5px solid var(--ink);margin:4px 0}
+.seg{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(90deg,var(--ink2) 0 3px,transparent 3px 6px);opacity:.55}
+.seg.tous{background:var(--ink);opacity:1}
+.tick{position:absolute;top:-5px;bottom:-5px;width:3px;background:var(--red)}
+.endcap{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink2)}
+.mlabels{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--mut)}
+.badge{font-family:var(--mono);font-size:12px;font-weight:600;white-space:nowrap}
+.badge.pos{color:var(--hit)}
+.badge.neg{color:var(--red)}
+.nop{font-family:var(--mono);font-size:12px;color:var(--mut)}
+
+/* ---------- foot ---------- */
+.method{margin:26px 0 40px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media(max-width:820px){.method{grid-template-columns:1fr}}
+.mbox{border-top:3px solid var(--ink);padding-top:12px}
+.mbox h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.mbox p{font-size:13.5px;color:var(--ink2);margin-bottom:8px}
+.mbox p b{color:var(--ink)}
+footer{background:var(--ink);color:#9AA0AC;font-family:var(--mono);font-size:11.5px}
+footer .wrap{padding:14px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="wordmark">FIGHT<span>NIGHT</span></div>
+    <div class="ledger">
+      <div><small>Ledger CLV / pick</small><b class="pos">+2.04 pts</b></div>
+      <div><small>Picks graded</small><b>5,982</b></div>
+      <div><small>Beat the close</small><b>56%</b></div>
+      <div><small>Positive years</small><b>2018–26</b></div>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker"><span>UFC 330</span><span class="dot">T-Mobile Arena · Las Vegas</span><span class="dot">Sat Aug 15, 2026</span></div>
+    <h1>Makhachev <span class="vs">vs</span> Machado&nbsp;Garry</h1>
+    <div class="stamp"><span class="live"></span> Projections published <b>Sun Aug 9, 14:02 UTC</b> — 6 days before close · lines shown: open (Aug 4) → now</div>
+  </div>
+</header>
+
+<section class="calls">
+  <div class="wrap">
+    <div class="secthead"><h2>The Calls</h2><p>largest model–market disagreements · where the ledger gets made</p></div>
+    <div class="cardrow">
+      <div class="call"><span class="tag">Steam confirmed</span>
+        <h3>Myktybek Orolbai</h3>
+        <div class="nums">model <b>81%</b> · fair <b>−426</b> · opened −325</div>
+        <p>Hottest line on the card — 409 moves in five days, all in our direction. Market now −569 and still short of our number.</p>
+        <span class="move pos">+8.7 pts to us since open</span>
+      </div>
+      <div class="call"><span class="tag">Flip call · live</span>
+        <h3>Neil Magny</h3>
+        <div class="nums">model <b>64%</b> · fair <b>−174</b> · opened +105</div>
+        <p>Opened as the underdog; we published him the favorite. The market has already flipped him to −109 and is drifting toward our line.</p>
+        <span class="move pos">+3.4 pts to us since open</span>
+      </div>
+      <div class="call"><span class="tag">Contrarian flag</span>
+        <h3>Gillian Robertson</h3>
+        <div class="nums">model <b>61%</b> · fair <b>−155</b> · now +201</div>
+        <p>Our largest disagreement (~22 pts): the board says Dern −244; the model says Robertson is the actual favorite. On record either way.</p>
+        <span class="move">−2.5 pts against, so far</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board">
+  <div class="wrap">
+    <div class="secthead"><h2>Full Card</h2><p>12 bouts · model % / fair line / market open → now</p></div>
+    <div class="legend">
+      <i><span class="sw" style="background:var(--red)"></span>our fair line</i>
+      <i><span class="sw" style="background:var(--ink)"></span>market moved toward us</i>
+      <i><span class="sw" style="background:repeating-linear-gradient(90deg,var(--ink2) 0 3px,#fff 3px 6px)"></span>moved away</i>
+    </div>
+    <table>
+      <thead><tr>
+        <th>Bout</th><th>Model</th><th>Fair</th><th>Open</th><th>Now</th><th>Line movement</th><th>CLV</th>
+      </tr></thead>
+      <tbody>
+        <tr class="main">
+          <td class="bout"><div class="fname"><span class="corner r"></span>Islam Makhachev<span style="font-family:var(--mono);font-size:10px;color:var(--mut)">&nbsp;C</span></div><div class="fname"><span class="corner b"></span>Ian Machado Garry</div></td>
+          <td class="mono"><span class="pct">65%</span><br><span class="dim">35%</span></td>
+          <td class="mono">−183<br><span class="dim">+183</span></td>
+          <td class="mono">−400<br><span class="dim">+330</span></td>
+          <td class="mono">−369<br><span class="dim">+294</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:56%;width:5%"></span><span class="endcap" style="left:56%"></span><span class="tick" style="left:38%"></span></div><div class="mlabels"><span>we say: champ overpriced — no bet</span></div></td>
+          <td class="badge pos">+1.9</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Mackenzie Dern</div><div class="fname pickside"><span class="corner b"></span>Gillian Robertson</div></td>
+          <td class="mono"><span class="dim">39%</span><br><span class="pct">61%</span></td>
+          <td class="mono"><span class="dim">+155</span><br>−155</td>
+          <td class="mono">−211<br><span class="dim">+181</span></td>
+          <td class="mono">−244<br><span class="dim">+201</span></td>
+          <td class="movecell"><div class="track"><span class="seg" style="left:64%;width:4%"></span><span class="endcap" style="left:68%"></span><span class="tick" style="left:39%"></span></div><div class="mlabels"><span>market steaming Dern; we hold</span></div></td>
+          <td class="badge neg">−2.5</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Jose Ochoa</div><div class="fname"><span class="corner b"></span>Charles Johnson</div></td>
+          <td class="mono"><span class="pct">70%</span><br><span class="dim">30%</span></td>
+          <td class="mono">−230<br><span class="dim">+230</span></td>
+          <td class="mono">−290<br><span class="dim">+237</span></td>
+          <td class="mono">−372<br><span class="dim">+274</span></td>
+          <td class="movecell"><div class="track"><span class="seg" style="left:74%;width:5%"></span><span class="endcap" style="left:79%"></span><span class="tick" style="left:70%"></span></div><div class="mlabels"><span>agree on side, milder on price</span></div></td>
+          <td class="badge neg">−3.2</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Mansur Abdul-Malik</div><div class="fname"><span class="corner b"></span>Dustin Stoltzfus</div></td>
+          <td class="mono"><span class="pct">66%</span><br><span class="dim">34%</span></td>
+          <td class="mono">−190<br><span class="dim">+190</span></td>
+          <td class="mono">−650<br><span class="dim">+476</span></td>
+          <td class="mono">−556<br><span class="dim">+412</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:80%;width:5%"></span><span class="endcap" style="left:80%"></span><span class="tick" style="left:66%"></span></div><div class="mlabels"><span>drifting toward our number</span></div></td>
+          <td class="badge pos">+2.0</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Esteban Ribovics</div><div class="fname"><span class="corner b"></span>Edson Barboza</div></td>
+          <td class="mono"><span class="pct">64%</span><br><span class="dim">36%</span></td>
+          <td class="mono">−177<br><span class="dim">+177</span></td>
+          <td class="mono">−300<br><span class="dim">+245</span></td>
+          <td class="mono">−410<br><span class="dim">+335</span></td>
+          <td class="movecell"><div class="track"><span class="seg" style="left:75%;width:5%"></span><span class="endcap" style="left:80%"></span><span class="tick" style="left:64%"></span></div><div class="mlabels"><span>steam past us on the favorite</span></div></td>
+          <td class="badge neg">−5.6</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname pickside"><span class="corner r"></span>Jalin Turner</div><div class="fname"><span class="corner b"></span>Kaue Fernandes</div></td>
+          <td class="mono"><span class="pct">56%</span><br><span class="dim">44%</span></td>
+          <td class="mono">−129<br><span class="dim">+129</span></td>
+          <td class="mono">−200<br><span class="dim">+174</span></td>
+          <td class="mono">−161<br><span class="dim">+129</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:56%;width:11%"></span><span class="endcap" style="left:56%"></span><span class="tick" style="left:56%"></span></div><div class="mlabels"><span>market walked back to our line</span></div></td>
+          <td class="badge pos">+6.1</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Joel Alvarez</div><div class="fname"><span class="corner b"></span>Chidi Njokuani</div></td>
+          <td class="mono"><span class="pct">72%</span><br><span class="dim">28%</span></td>
+          <td class="mono">−256<br><span class="dim">+256</span></td>
+          <td class="mono">−300<br><span class="dim">+245</span></td>
+          <td class="mono">−258<br><span class="dim">+215</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:72%;width:4%"></span><span class="endcap" style="left:72%"></span><span class="tick" style="left:72%"></span></div><div class="mlabels"><span>converged onto our fair line</span></div></td>
+          <td class="badge pos">+2.7</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Vicente Luque</div><div class="fname"><span class="corner b"></span>Tresean Gore</div></td>
+          <td class="mono"><span class="pct">73%</span><br><span class="dim">27%</span></td>
+          <td class="mono">−269<br><span class="dim">+269</span></td>
+          <td class="mono">−110<br><span class="dim">−110</span></td>
+          <td class="mono">+110<br><span class="dim">−135</span></td>
+          <td class="movecell"><div class="track"><span class="seg" style="left:44%;width:6%"></span><span class="endcap" style="left:50%"></span><span class="tick" style="left:73%"></span></div><div class="mlabels"><span>contrarian: board drifting to Gore</span></div></td>
+          <td class="badge neg">−4.7</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname pickside"><span class="corner r"></span>Donte Johnson</div><div class="fname"><span class="corner b"></span>Eric McConico</div></td>
+          <td class="mono"><span class="pct">65%</span><br><span class="dim">35%</span></td>
+          <td class="mono">−186<br><span class="dim">+186</span></td>
+          <td class="mono">−225<br><span class="dim">+189</span></td>
+          <td class="mono">−240<br><span class="dim">+198</span></td>
+          <td class="movecell"><div class="track"><span class="seg" style="left:69%;width:2%"></span><span class="endcap" style="left:71%"></span><span class="tick" style="left:65%"></span></div><div class="mlabels"><span>quiet line, mild lean priced in</span></div></td>
+          <td class="badge neg">−1.1</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Rafael Tobias</div><div class="fname"><span class="corner b"></span>Lucas Fernando</div></td>
+          <td class="mono nop" colspan="1">no projection</td>
+          <td class="mono dim">—</td>
+          <td class="mono">−205<br><span class="dim">+177</span></td>
+          <td class="mono">−260<br><span class="dim">+192</span></td>
+          <td class="movecell"><div class="mlabels"><span class="nop">UFC debutant — model holds no history, publishes no number</span></div></td>
+          <td class="nop">—</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname pickside"><span class="corner r"></span>Neil Magny</div><div class="fname"><span class="corner b"></span>Ramiz Brahimaj</div></td>
+          <td class="mono"><span class="pct">64%</span><br><span class="dim">36%</span></td>
+          <td class="mono">−174<br><span class="dim">+174</span></td>
+          <td class="mono">+105<br><span class="dim">−125</span></td>
+          <td class="mono">−109<br><span class="dim">−108</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:48%;width:4%"></span><span class="endcap" style="left:48%"></span><span class="tick" style="left:64%"></span></div><div class="mlabels"><span>flipped to favorite — our call</span></div></td>
+          <td class="badge pos">+3.4</td>
+        </tr>
+        <tr>
+          <td class="bout"><div class="fname"><span class="corner r"></span>Myktybek Orolbai</div><div class="fname"><span class="corner b"></span>Jeremiah Wells</div></td>
+          <td class="mono"><span class="pct">81%</span><br><span class="dim">19%</span></td>
+          <td class="mono">−426<br><span class="dim">+426</span></td>
+          <td class="mono">−325<br><span class="dim">+263</span></td>
+          <td class="mono">−569<br><span class="dim">+443</span></td>
+          <td class="movecell"><div class="track"><span class="seg tous" style="left:76%;width:9%"></span><span class="endcap" style="left:76%"></span><span class="tick" style="left:81%"></span></div><div class="mlabels"><span>409 line moves · steaming to us</span></div></td>
+          <td class="badge pos">+8.7</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="wrap method">
+  <div class="mbox">
+    <h4>How to read this page</h4>
+    <p><b>Model %</b> is the win probability from a rating-plus-statistics model trained only on fights that happened before this card. <b>Fair</b> is that probability written as a betting line with no vig. The movement bar shows where the market opened, where it is now, and where our fair line sits (red tick) — a solid bar means the market has moved toward our number since open.</p>
+    <p><b>CLV</b> (closing line value) is the honest scoreboard: not "did we win the fight," but "did the market's final price move toward our published number." It cannot be faked after the fact, and it converges about ten times faster than win-loss records. Full methodology and the complete graded ledger, every pick since 2012, are public.</p>
+  </div>
+  <div class="mbox">
+    <h4>Straight talk</h4>
+    <p>We do not beat the closing line, and no public picker credibly does. Our claim is narrower and proven: the model reaches the market's final answer days early. Debutants get no number — no UFC history, no projection. This page is analysis, not betting advice.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>FIGHTNIGHT · projections timestamped at publication · ledger graded against BestFightOdds consensus</span>
+    <span>next card: UFC Shanghai · Aug 29</span>
+  </div>
+</footer>
+
+</body>
+</html>

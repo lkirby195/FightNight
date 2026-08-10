@@ -1,5 +1,6 @@
-__pycache__/
-*.pyc
-*.log
-nohup.out
-.DS_Store
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+pandas>=2.0
+scikit-learn>=1.4
+numpy>=1.26
