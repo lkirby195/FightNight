@@ -3,12 +3,13 @@
 Requires:
   data/bfo_lines.csv        (scrape_bfo.py)
   data/fights_v2.csv        (scrape_v2.py)
-  data/model_only_preds.csv (this script regenerates if absent)
+  data/features_v2.csv      (features.py, via stage2.load)
 
 CRITICAL: predictions must contain NO market input. Stacked probabilities
 incorporate the closing line and make any CLV measurement circular.
 
-Outputs: data/bfo_joined.csv, data/clv_eval_full.csv + console report.
+Outputs: data/model_only_preds.csv (regenerated on EVERY run, never reused),
+data/bfo_joined.csv, data/clv_eval_full.csv + console report.
 """
 from __future__ import annotations
 
@@ -89,9 +90,7 @@ def join_bfo():
 
 
 def main():
-    import os
-    M = (pd.read_csv("data/model_only_preds.csv")
-         if os.path.exists("data/model_only_preds.csv") else gen_model_preds())
+    M = gen_model_preds()      # always regenerate; a stale file must never be reused
     J = join_bfo()
     D = M.merge(J, on="fight_id")
     inv = lambda x: 1.0 / x

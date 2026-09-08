@@ -65,6 +65,16 @@ probabilities by at most 0.001 and pulled in two bets sitting exactly on the
 0.65 threshold (Cerrone-Stephens 2012, Jackson-Soukhamthath 2019); the other
 seven additions are the Aug-Sep 2026 cards.
 
+**Source of record for the historical figures:**
+`data/model_only_preds_frozen_2026-09-08.csv`, a byte-for-byte copy of
+`data/model_only_preds.csv` as of 2026-09-08 (walk-forward probabilities
+2012-2024 and 2026 through 2026-09-05; 2025 is sealed and has no rows). The
+2012-2025 rows of the full sim above are quoted from that snapshot only.
+`clv_eval.py` regenerates the live `data/model_only_preds.csv` on every run, so
+a later data refresh can move historical probabilities again; diff the live
+file against the snapshot and do not re-quote the historical figures from a
+refreshed file.
+
 t is the one-sample t-statistic of per-bet return on stake. The rule was chosen
 on this same history, so the in-sample t overstates the evidence; the live
 record from 2026-09-08 forward is the out-of-sample test.
