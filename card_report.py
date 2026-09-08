@@ -6,15 +6,22 @@ Builds fighter states from all fights STRICTLY BEFORE event-date (leakage-safe),
 projects every bout with the frozen Stage 2 model (trained <2026), pulls
 BFO opening/closing mean lines, grades CLV, and joins results if the event
 is in data/fights_v2.csv.
+
+For an event dated today or later the BFO fetches bypass the disk cache and
+the current line of every bout is recorded in data/placeable_lines.csv (see
+record_placeable): the price that could actually be bet when the pick went on
+record. betting_system.py settles live bets at the earliest such capture.
 """
 from __future__ import annotations
 
+import csv
 import json
+import os
 import re
 import sys
 import unicodedata
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 
 import numpy as np
 import pandas as pd
@@ -34,7 +41,7 @@ PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
 
 def norm(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z ]", "", s.lower()).strip()
+    return re.sub(r"[^a-z ]", "", s.lower().replace("-", " ")).strip()
 
 
 def build_states(cutoff: date):
@@ -87,9 +94,13 @@ def build_states(cutoff: date):
     return eng, car, meta
 
 
-def get_card(slug):
+def get_card(slug, fresh=False):
+    """Bouts with opening and latest mean lines from the BFO event page.
+    fresh=True bypasses the disk cache (future events: the latest tick must be
+    the price on the board now, not whenever the page was first cached)."""
     from bs4 import BeautifulSoup
-    soup = BeautifulSoup(fetch(f"https://www.bestfightodds.com/events/{slug}"), "lxml")
+    soup = BeautifulSoup(fetch(f"https://www.bestfightodds.com/events/{slug}",
+                               refresh=fresh), "lxml")
     bouts = []
     for tr in soup.select("tr[id^=mu-]"):
         mid = tr["id"].split("-")[1]
@@ -100,13 +111,50 @@ def get_card(slug):
         a2 = tr2.select_one("a[href^='/fighters/']") if tr2 else None
         if a1 and a2:
             mu = int(mid)
-            s1, s2 = series_summary(ggd(mu, 1)), series_summary(ggd(mu, 2))
+            s1 = series_summary(ggd(mu, 1, refresh=fresh))
+            s2 = series_summary(ggd(mu, 2, refresh=fresh))
             if s1 and s2:
                 bouts.append(dict(mu=mu, f1=a1.get_text(strip=True),
                                   f2=a2.get_text(strip=True),
                                   f1_open=s1[0], f1_close=s1[1],
                                   f2_open=s2[0], f2_close=s2[1]))
     return bouts
+
+
+PLACEABLE = "data/placeable_lines.csv"
+PLACEABLE_COLS = ["event_date", "bfo_slug", "mu", "fighter1", "fighter2",
+                  "f1_line", "f2_line", "captured_at"]
+
+
+def record_placeable(slug, ev_date_s, bouts, path=PLACEABLE):
+    """Append the current line of every bout of a FUTURE event to `path`: the
+    price that could actually be bet when the pick went on record
+    (betting_system.py settles live bets at the EARLIEST capture per bout).
+    Append-only: rows already on file are never rewritten or replaced. One row
+    per bout per run, stamped with the run's captured_at; a bout whose lines
+    are identical to a row already on file (same mu, f1_line, f2_line) is
+    skipped, so a re-run that finds nothing moved adds nothing. Never called
+    for past events."""
+    now = datetime.now().astimezone().isoformat(timespec="seconds")
+    seen = set()
+    have = os.path.exists(path) and os.path.getsize(path) > 0
+    if have:
+        with open(path, newline="") as fh:
+            for r in csv.DictReader(fh):
+                seen.add((r["mu"], float(r["f1_line"]), float(r["f2_line"])))
+    new = [b for b in bouts
+           if (str(b["mu"]), float(b["f1_close"]), float(b["f2_close"])) not in seen]
+    with open(path, "a", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=PLACEABLE_COLS)
+        if not have:
+            w.writeheader()
+        for b in new:
+            w.writerow(dict(event_date=ev_date_s, bfo_slug=slug, mu=str(b["mu"]),
+                            fighter1=b["f1"], fighter2=b["f2"],
+                            f1_line=b["f1_close"], f2_line=b["f2_close"],
+                            captured_at=now))
+    print(f"placeable lines -> {path}: {len(new)} appended, "
+          f"{len(bouts) - len(new)} unchanged ({now})")
 
 
 def fit_model():
@@ -123,14 +171,17 @@ def fit_model():
 def main(slug, ev_date_s):
     ev_date = date.fromisoformat(ev_date_s)
     eng, car, meta = build_states(ev_date)
-    byname = {}
+    byname, byjoined = {}, {}
     for fid, fo in eng.fighters.items():
         byname.setdefault(norm(fo.name), fid)
+        byjoined.setdefault(norm(fo.name).replace(" ", ""), fid)
 
     def find(name):
         n = norm(name)
         if n in byname:
             return byname[n]
+        if n.replace(" ", "") in byjoined:      # BFO "Sangcha-An" vs "Sangcha'an"
+            return byjoined[n.replace(" ", "")]
         t = n.split()
         c = [fid for nm, fid in byname.items()
              if nm.endswith(" " + t[-1]) and nm.split()[0][:3] == t[0][:3]]
@@ -145,7 +196,8 @@ def main(slug, ev_date_s):
         return pre, car[fid].snapshot(ev_date, mt.get("dob"), mt.get("height"),
                                       mt.get("reach"), mt.get("stance"))
 
-    bouts = get_card(slug)
+    future = ev_date >= date.today()
+    bouts = get_card(slug, fresh=future)        # live prices for a future card
     rows, keep = [], []
     for b in bouts:
         i1, i2 = find(b["f1"]), find(b["f2"])
@@ -207,6 +259,8 @@ def main(slug, ev_date_s):
     if clvs:
         print(f"\ncard CLV: {np.mean(clvs)*100:+.2f} pts over {len(clvs)} projected"
               + (f" | picks {w}-{n-w}" if n else ""))
+    if future:
+        record_placeable(slug, ev_date_s, bouts)
 
 
 if __name__ == "__main__":

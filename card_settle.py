@@ -67,9 +67,10 @@ def paired_summary(js1, js2):
     return p1[0][1], d1, p2[0][1], d2, len(pairs), t, skipped
 
 
-def get_card_clean(slug):
+def get_card_clean(slug, fresh=False):
     from bs4 import BeautifulSoup
-    soup = BeautifulSoup(fetch(f"https://www.bestfightodds.com/events/{slug}"), "lxml")
+    soup = BeautifulSoup(fetch(f"https://www.bestfightodds.com/events/{slug}",
+                               refresh=fresh), "lxml")
     bouts, total_skipped = [], 0
     for tr in soup.select("tr[id^=mu-]"):
         mid = tr["id"].split("-")[1]
@@ -81,7 +82,7 @@ def get_card_clean(slug):
         if not (a1 and a2):
             continue
         mu = int(mid)
-        s = paired_summary(ggd(mu, 1), ggd(mu, 2))
+        s = paired_summary(ggd(mu, 1, refresh=fresh), ggd(mu, 2, refresh=fresh))
         if s is None:
             continue
         f1o, f1c, f2o, f2c, _, _, skipped = s

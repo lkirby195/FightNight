@@ -6,7 +6,9 @@ of (timestamp_ms, decimal_odds) for the cross-book mean line.
 
 First tick = opening line, last tick = closing line.
 
-Polite: 0.45s spacing, disk cache (cache_bfo/), resumable.
+Polite: 0.45s spacing, disk cache (cache_bfo/), resumable. Incremental by
+matchup id: a bout already in data/bfo_lines.csv (or already written this run
+under another slug for the same event) is never written twice.
 """
 from __future__ import annotations
 
@@ -35,10 +37,12 @@ S.headers.update({"User-Agent": UA})
 _last = [0.0]
 
 
-def fetch(url: str, binary=False) -> str:
+def fetch(url: str, binary=False, refresh=False) -> str:
+    """Cached GET. refresh=True re-downloads and overwrites the cached copy
+    (card_report uses it for future events, whose lines are still moving)."""
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key)
-    if os.path.exists(path):
+    if os.path.exists(path) and not refresh:
         with open(path, "rb") as fh:
             b = fh.read()
         return b if binary else b.decode("utf-8", "replace")
@@ -64,18 +68,26 @@ def rot47(s: str) -> str:
                    for c in s)
 
 
-def ggd(mu: int, p: int):
-    raw = fetch(f"{BASE}/api/ggd?m={mu}&p={p}")
+def ggd(mu: int, p: int, refresh=False):
+    raw = fetch(f"{BASE}/api/ggd?m={mu}&p={p}", refresh=refresh)
     raw = re.sub(r"[^A-Za-z0-9+/=]", "", raw)
     dec = base64.b64decode(raw + "=" * (-len(raw) % 4)).decode("latin-1")
     return json.loads(rot47(dec))
 
 
+# UFC MMA cards only: "ufc" must be a hyphen-delimited token of the slug
+# (ufc-…, noche-ufc-…). Feeder and grappling brands that share the token are
+# excluded (road-to-ufc-…, ufc-bjj-…, ufc-fight-pass-invitational-…).
+UFC_SLUG = re.compile(r"^(?!road-to-ufc-)(?!ufc-bjj)(?!ufc-fight-pass-)"
+                      r"(?:[^-]+-)*ufc(?:-|$)")
+
+
 def ufc_event_slugs():
+    """-> sorted (slug, lastmod) pairs for every UFC event in the sitemap."""
     xml = fetch(f"{BASE}/sitemap-events.xml")
-    ent = re.findall(r"<loc>https://www\.bestfightodds\.com/events/(ufc[^<]*)</loc>"
+    ent = re.findall(r"<loc>https://www\.bestfightodds\.com/events/([^<]+)</loc>"
                      r"\s*<lastmod>([^<]+)</lastmod>", xml)
-    return sorted(set(ent))
+    return sorted({e for e in ent if UFC_SLUG.match(e[0])})
 
 
 DATE_RE = re.compile(r"(January|February|March|April|May|June|July|August|"
@@ -169,7 +181,8 @@ def main(start_year=2022, end_year=2027):
                             "f2_open": s2[0], "f2_close": s2[1],
                             "f1_ticks": s1[2], "f2_ticks": s2[2],
                             "t_open": s1[3], "t_close": s1[4]})
-                n_done += 1
+                done.add(str(b["mu"]))   # one row per matchup even if the
+                n_done += 1              # sitemap lists the event twice
                 if n_done % 100 == 0:
                     fh.flush()
                     print(f"  {n_done} bouts ({slug})", flush=True)

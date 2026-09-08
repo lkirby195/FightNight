@@ -863,18 +863,6 @@ ufc-330-4237,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-15,44359,Chidi Nj
 ufc-330-4237,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-15,44348,Jeremiah Wells,Myktybek Orolbai,3.63,5.32,1.30769,1.17575,325,325,1785849125000,1786140790000
 ufc-330-4237,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-15,44350,Neil Magny,Ramiz Brahimaj,2.05,1.90909,1.8,1.92593,135,135,1785849125000,1786140785000
 ufc-330-4237,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-15,44355,Lucas Fernando,Rafael Tobias,1.4878,1.42373,2.77,2.92,35,35,1785849605000,1786140785000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,43741,Ian Machado Garry,Islam Makhachev,4.3,3.91,1.25,1.271,204,204,1781737206000,1786140781000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,43742,Gillian Robertson,Mackenzie Dern,2.81,3.0,1.47393,1.40984,195,195,1781737206000,1786140782000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44352,Charles Johnson,Jose Ochoa,3.37,3.82,1.34483,1.26882,12,12,1785849366000,1786140783000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44347,Dustin Stoltzfus,Mansur Abdul-Malik,5.76,5.24,1.15385,1.17986,97,97,1785848405000,1786140784000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44351,Edson Barboza,Esteban Ribovics,3.45,4.22,1.33333,1.2439,41,41,1785849245000,1786140785000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44349,Jalin Turner,Kaue Fernandes,1.5,1.65359,2.74,2.29,190,190,1785849125000,1786140786000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44353,Tresean Gore,Vicente Luque,1.90909,1.75758,1.90909,2.1,83,83,1785849366000,1786140785000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44354,Donte Johnson,Eric McConico,1.44444,1.40984,2.89,2.98,42,42,1785849605000,1786140785000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44359,Chidi Njokuani,Joel Alvarez,3.45,3.03,1.33333,1.3876,52,52,1785877445000,1786140789000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44348,Jeremiah Wells,Myktybek Orolbai,3.63,5.32,1.30769,1.17575,325,325,1785849125000,1786140790000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44350,Neil Magny,Ramiz Brahimaj,2.05,1.90909,1.8,1.92593,135,135,1785849125000,1786140785000
-ufc-330-4297,UFC 330 Odds: Makhachev vs. Machado Garry,2026-08-16,44355,Lucas Fernando,Rafael Tobias,1.4878,1.42373,2.77,2.92,35,35,1785849605000,1786140785000
 ufc-3307,UFC for July 28 | Best Fight Odds,2024-07-28,35038,Belal Muhammad,Leon Edwards,3.4,3.06,1.33557,1.37736,1325,1325,1715891600000,1722141371000
 ufc-3307,UFC for July 28 | Best Fight Odds,2024-07-28,35040,Curtis Blaydes,Tom Aspinall,2.64,4.07,1.50505,1.24096,424,424,1715892554000,1722139701000
 ufc-3307,UFC for July 28 | Best Fight Odds,2024-07-28,35039,Bobby Green,Paddy Pimblett,1.52083,2.16,2.6,1.72464,831,831,1715892554000,1722138248000
@@ -1418,68 +1406,6 @@ ufc-belgrade-4285,UFC Belgrade Odds: Medić vs Rodriguez on Aug 1st,2026-08-01,4
 ufc-belgrade-4285,UFC Belgrade Odds: Medić vs Rodriguez on Aug 1st,2026-08-01,44230,Alexander Poppeck,Jovan Leka,3.5,3.62,1.33333,1.29674,149,149,1784924166000,1785594632000
 ufc-belgrade-4285,UFC Belgrade Odds: Medić vs Rodriguez on Aug 1st,2026-08-01,44229,Marina Spasic,Stephanie Luciano,3.5,3.64,1.33333,1.3012,131,131,1784924166000,1785593432000
 ufc-belgrade-4285,UFC Belgrade Odds: Medić vs Rodriguez on Aug 1st,2026-08-01,44224,Josias Musasa,Mark Vologdin,1.0488,1.79365,1.0488,1.5,48,48,1785040832000,1785106112000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40035,Keven Carrasco,Mikey Musumeci,9.0,17.0,1.06667,1.025,3,3,1759275366000,1759360807000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40036,Carlos Henrique,Matheus Gabriel,1.5,1.95238,2.5,1.86957,8,8,1759275366000,1759449487000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40037,Kennedy Maciel,Samuel Nagai,1.52632,1.44444,2.45,2.9,10,10,1759275366000,1759411087000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40038,Alexandria Enriquez,Cassia Moura,2.5,3.5,1.5,1.33333,9,9,1759275366000,1759444687000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40039,Gustavo Batista,Jansen Gomes,2.7,2.65,1.4,1.52632,10,10,1759275366000,1759449487000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40040,Andy Murasaki,Kris Olivo,1.52632,1.14286,2.45,6.0,9,9,1759275366000,1759449487000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40041,Andy Varela,Daniel Sathler,1.33333,1.2,3.0,4.75,9,9,1759275366000,1759444209000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40042,Ana Mayordomo,Shye Lilly,2.0,1.37736,1.71429,3.25,19,19,1759275366000,1759444209000
-ufc-bjj-3-3874,UFC BJJ 3 for October 3 | Best Fight Odds,2025-10-03,40043,Michael Jalen Fonacier,Pedro Nakano,1.2,1.11111,4.0,7.0,3,3,1759275366000,1759367767000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41078,Andrew Tackett,Elijah Dorsey,1.2,1.06667,4.0,9.5,7,7,1765330684000,1765486685000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41079,Ronaldo Junior,William Tackett,3.5,4.6,1.25,1.21739,8,8,1765330684000,1765498566000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41080,Aurelie Le Vern,Raquel Canuto,4.0,2.95,1.2,1.43478,10,10,1765330684000,1765494725000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41081,Amanda Alequin,Mayssa Bastos,3.0,4.5,1.33333,1.22222,7,7,1765330684000,1765492085000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41082,Alan Sanchez,Renato Canuto,6.5,6.5,1.1,1.125,4,4,1765330684000,1765486206000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41083,Dorian Olivarez,Samuel Nagai,1.25,1.16667,3.5,5.25,7,7,1765330804000,1765404244000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41084,Andy Varela,Robby Malof,1.1,1.1,6.5,8.0,4,4,1765330804000,1765404244000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41085,Bella Mir,Rana Willink,1.2,1.31746,4.0,3.65,14,14,1765330804000,1765498566000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41086,Landon Elmore,Nate Hernandez,1.5,1.125,2.5,6.5,6,6,1765330804000,1765486206000
-ufc-bjj-4-3989,UFC BJJ 4 for December 12 | Best Fight Odds,2025-12-12,41087,Jussier Formiga,Lucas Pinheiro,2.7,6.0,1.4,1.14286,8,8,1765330804000,1765492686000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42052,Mason Fowler,Pedro Machado,1.1,1.07143,6.5,9.0,5,5,1773190326000,1773349086000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42053,Cassia Moura,Ffion Davies,5.25,2.7,1.125,1.5,12,12,1773190326000,1773359887000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42054,Elder Cruz,Nick Rodriguez,6.5,5.25,1.1,1.16667,7,7,1773190326000,1773358806000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42055,Marcos Mendes,Meyram Maquine,2.45,4.5,1.52632,1.22222,7,7,1773190326000,1773349086000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42056,Ana Rodrigues,Jasmine Rocha,1.5,1.31746,2.5,3.65,7,7,1773190326000,1773338166000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42057,Devhonte Johnson,Lucas Norat,1.06667,1.0303,9.5,15.0,5,5,1773190326000,1773258245000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42058,Joao Miyao,Jussier Formiga,1.2,1.30303,4.0,3.7,26,26,1773190326000,1773358207000
-ufc-bjj-6-4088,UFC BJJ 6 for March 13 | Best Fight Odds,2026-03-13,42059,Caio Vinicius Santos,Manuel Ribimar,2.0,4.75,1.71429,1.2,9,9,1773190326000,1773359527000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42685,Andrew Tackett,Vagner Rocha,1.08333,1.025,8.5,17.0,6,6,1774924204000,1775172728000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42686,Carlos Henrique,Lucas Valente,2.5,1.84034,1.5,1.9901,9,9,1774924204000,1775173685000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42687,Aurelie Le Vern,Rebeca Lima,1.16667,1.24096,4.5,4.15,6,6,1774924204000,1775157365000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42689,Renato Canuto,Yonathan Cardenas,1.2,1.06667,4.0,9.5,4,4,1774924324000,1775076125000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42690,Adele Fornarino,Alex Enriquez,1.06667,1.11111,10.5,7.0,9,9,1774924564000,1775172486000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42691,Kenzo Biyong,Raphael Ferreira,3.5,8.0,1.25,1.1,4,4,1774924564000,1774985164000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42692,Maria Carolina Joia,Rana Willink,3.0,2.7,1.33333,1.5,7,7,1774924564000,1775174165000
-ufc-bjj-7-4123,UFC BJJ 7 for April 3 | Best Fight Odds,2026-04-03,42725,Declan Moody,Patrick Gaudio,1.25,1.55556,3.5,2.55,13,13,1775072764000,1775163966000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43358,Kevin Dantzler,Mikey Musumeci,6.5,26.0,1.1,1.01,6,6,1779144722000,1779227042000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43359,Cassia Moura,Sabrina Gondim,1.2,1.03333,4.0,10.0,6,6,1779145082000,1779381602000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43360,Manuel Ribamar,William Tackett,3.5,4.25,1.25,1.18182,7,7,1779145322000,1779399722000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43361,Danilo Moreira,Ethan Crelinsten,3.0,7.75,1.33333,1.07407,5,5,1779145443000,1779381602000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43362,Andy Varela,Jett Thompson,1.5,1.36364,2.5,2.85,7,7,1779145443000,1779382443000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43363,Keith Krikorian,Landon Elmore,1.4,2.25,2.7,1.60606,15,15,1779145562000,1779404403000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43364,Liam Crelinsten,Max Livingston,3.0,1.64516,1.33333,2.15,26,26,1779145562000,1779403682000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43365,Azamat Bakytov,Thomas David,2.35,1.44444,1.57143,2.6,16,16,1779145803000,1779406682000
-ufc-bjj-8-4197,UFC BJJ 8 for May 22 | Best Fight Odds,2026-05-21,43405,Derek Rayfield,Jett Thompson,3.4,3.5,1.35714,1.33333,2,2,1779393363000,1779399722000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43535,Devhonte Johnson,Mason Fowler,4.0,3.5,1.2,1.33333,11,11,1780367645000,1780612085000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43537,Joao Nicolite,Nick Rodriguez,6.5,13.0,1.1,1.04,4,4,1780367765000,1780541285000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43538,Amanda Bruse,Ffion Davies,6.5,11.0,1.1,1.05,4,4,1780367765000,1780514165000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43539,Bella Mir,Nichelle Johnson,1.25,1.08333,3.5,8.5,5,5,1780367765000,1780514165000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43540,Achilles Rocha,Filipe Pimentel,1.2,1.16667,4.0,5.25,4,4,1780367765000,1780550286000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43541,John Chandler,Raphael Ferreira,4.0,6.5,1.2,1.125,6,6,1780367765000,1780514405000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43542,Mourece Ramirez,Victor Delibero,2.1,2.85,1.66667,1.45455,25,25,1780367765000,1780593005000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43543,Amanda Mazza,Juliana Lima,3.0,7.5,1.33333,1.1,10,10,1780367765000,1780546445000
-ufc-bjj-9-4220,UFC BJJ 9 for June 5 | Best Fight Odds,2026-06-05,43592,Gilbert Burns,Horlando Monteiro,1.25,1.18182,4.0,5.0,3,3,1780514044000,1780609565000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41685,Mikey Musumeci,Shay Montague,1.08333,1.02,8.5,19.0,5,5,1770771482000,1770929043000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41686,Ronaldo Junior,Tarik Hopstock,1.25,1.1,3.5,8.0,16,16,1770771482000,1770929523000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41687,Andy Murasaki,Andy Varela,2.1,1.57143,1.66667,2.5,10,10,1770771482000,1770929523000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41688,Landon Elmore,Rerisson Gabriel,1.125,1.41667,5.25,3.05,13,13,1770771482000,1770932643000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41689,Rebeca Lima,Taylor Hishaw,1.83333,2.28,1.83333,1.67568,14,14,1770771482000,1770941403000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41690,Carol Brunacio,Mona Bailey,1.66667,1.5,2.1,2.7,7,7,1770771482000,1770929523000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41691,Carlos Oliveira,Jalen Fonacier,3.5,7.0,1.25,1.11111,11,11,1770771482000,1770929043000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41692,Jonnatas Gracie,Lucas Yan,1.14286,1.07143,5.0,9.0,5,5,1770772802000,1770943443000
-ufc-bjj5-4050,UFC BJJ5 for February 13 | Best Fight Odds,2026-02-13,41693,Nicholas Maglicic,Nicholas Meregali,7.0,7.0,1.06667,1.11111,13,13,1770773042000,1770929043000
 ufc-fight-night-201-2320,UFC Fight Night 201 for January 15 | Best Fight Odds,2022-01-15,24820,Calvin Cattar,Giga Chikadze,2.5,2.94,1.57143,1.41841,175,175,1633727167000,1642300227000
 ufc-fight-night-201-2320,UFC Fight Night 201 for January 15 | Best Fight Odds,2022-01-15,25335,Chase Sherman,Jake Collier,1.86957,2.14,1.95238,1.72464,115,115,1639001290000,1642298969000
 ufc-fight-night-201-2320,UFC Fight Night 201 for January 15 | Best Fight Odds,2022-01-15,25329,Brandon Royval,Rogerio Bontorin,1.90909,1.5988,1.90909,2.38,123,123,1639001290000,1642297108000
@@ -2331,18 +2257,6 @@ ufc-fight-night-vera-vs-cruz-2552,UFC Fight Night Odds: Vera vs. Cruz for August
 ufc-fight-night-vera-vs-cruz-2552,UFC Fight Night Odds: Vera vs. Cruz for August 13 | Best Fight Odds,2022-08-13,27948,Ode' Osbourne,Tyson Nam,1.45455,1.25575,2.85,4.06,110,110,1659491534000,1660424299000
 ufc-fight-night-vera-vs-cruz-2552,UFC Fight Night Odds: Vera vs. Cruz for August 13 | Best Fight Odds,2022-08-13,28071,Jason Witt,Josh Quinlan,3.1,3.33,1.4,1.34483,44,44,1659852006000,1660422335000
 ufc-fight-night-vera-vs-cruz-2552,UFC Fight Night Odds: Vera vs. Cruz for August 13 | Best Fight Odds,2022-08-13,28049,Da'mon Blackshear,Youssef Zalal,2.45,2.11,1.58824,1.74074,60,60,1659845890000,1660421451000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29636,Luke Griffith,Mason Fowler,4.0,3.4,1.25,1.33333,5,5,1671160814000,1671162374000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29634,Mason Fowler,Patrick Gaudio,1.4878,1.06667,2.65,8.5,5,5,1671158174000,1671159136000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29635,Luke Griffith,Oliver Taza,1.36364,1.16667,3.15,5.25,3,3,1671159136000,1671159615000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29606,Gordon Ryan,Nick Rodriguez,1.08333,1.05,7.5,11.0,4,4,1671066014000,1671142935000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29559,Bia Mesquita,Miesha Tate,1.16667,1.09843,5.0,6.67,10,10,1670966893000,1671138255000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29560,Dan Manasoiu,Ricardo Evangelista,1.28571,1.16584,3.75,5.0,8,8,1670966893000,1671146849000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29561,Haisam Rida,Patrick Gaudio,2.0,1.65789,1.76923,2.18,12,12,1670966894000,1671123734000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29562,Mason Fowler,Pat Shahgholi,1.44444,1.15432,2.85,5.32,12,12,1670966894000,1671153133000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29564,Oliver Taza,Richie Martinez,1.60606,1.26738,2.35,3.92,15,15,1670967014000,1671147495000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29558,Gordon Ryan,Vinny Magalhaes,1.05,1.05,12.0,10.0,5,5,1671037589000,1671146849000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29563,Andy Varela,Nick Rodriguez,4.1,4.05,1.25,1.23585,2,2,1671037709000,1671103833000
-ufc-fight-pass-invitational-3-2740,UFC Fight Pass Invitational 3 for December 15 | Best Fight Odds,2022-12-15,29607,Andy Varela,Luke Griffith,3.4,5.58,1.33333,1.15385,6,6,1671066014000,1671146908000
 ufc-freedom-fights-250-4082,UFC Freedom Fight 250 Odds: Topuria vs. Gaethje,2026-06-15,41453,Ilia Topuria,Justin Gaethje,1.2,1.5,4.85,3.95,847,847,1769353323000,1781529603000
 ufc-freedom-fights-250-4082,UFC Freedom Fight 250 Odds: Topuria vs. Gaethje,2026-06-15,41922,Alex Pereira,Ciryl Gane,2.6,1.86957,1.54054,1.9901,870,870,1772291046000,1781496152000
 ufc-freedom-fights-250-4082,UFC Freedom Fight 250 Odds: Topuria vs. Gaethje,2026-06-15,42001,Aiemann Zahabi,Sean Omalley,4.0,4.52,1.25,1.22422,840,840,1772940722000,1781493632000
@@ -7965,22 +7879,10 @@ ufc-331-4302,UFC 331: Van vs. Pantoja 2 Odds,2026-09-19,44756,Charles Jourdain,M
 ufc-331-4302,UFC 331: Van vs. Pantoja 2 Odds,2026-09-19,44758,Brunno Ferreira,Edmen Shahbazyan,1.86957,2.34,1.95238,1.6135,44,44,1788291606000,1788888478000
 ufc-331-4302,UFC 331: Van vs. Pantoja 2 Odds,2026-09-19,44757,Casey O'Neill,Eduarda Moura,1.5,1.55866,2.74,2.45,90,90,1788291487000,1788888479000
 ufc-331-4302,UFC 331: Van vs. Pantoja 2 Odds,2026-09-19,44759,Giga Chikadze,Joanderson Brito,4.34,3.66,1.23529,1.28986,69,69,1788291606000,1788888479000
-ufc-331-4303,UFC 331: Van vs. Pantoja 2 Odds,2026-09-10,44756,Charles Jourdain,Marlon Vera,1.60976,1.40161,2.44,3.02,58,58,1788291487000,1788888477000
-ufc-331-4303,UFC 331: Van vs. Pantoja 2 Odds,2026-09-10,44758,Brunno Ferreira,Edmen Shahbazyan,1.86957,2.34,1.95238,1.6135,44,44,1788291606000,1788888478000
-ufc-331-4303,UFC 331: Van vs. Pantoja 2 Odds,2026-09-10,44757,Casey O'Neill,Eduarda Moura,1.5,1.55866,2.74,2.45,90,90,1788291487000,1788888479000
-ufc-331-4303,UFC 331: Van vs. Pantoja 2 Odds,2026-09-10,44759,Giga Chikadze,Joanderson Brito,4.34,3.66,1.23529,1.28986,69,69,1788291606000,1788888479000
 ufc-332-4330,UFC 332 for October 4 | Best Fight Odds,2026-10-04,44794,Natalia Silva,Wang Cong,1.4,1.40816,3.07,2.97,8,8,1788651242000,1788888481000
 ufc-332-4330,UFC 332 for October 4 | Best Fight Odds,2026-10-04,44602,Deiveson Figueiredo,Payton Talbott,3.07,5.03,1.4,1.18182,6,6,1787254447000,1788888482000
 ufc-333-4321,UFC 333: Volkanovski vs Evloev Odds,2026-10-24,44524,Alexander Volkanovski,Movsar Evloev,1.83333,1.87719,1.90909,1.91743,29,29,1786854143000,1788888483000
 ufc-333-4321,UFC 333: Volkanovski vs Evloev Odds,2026-10-24,41066,Merab Dvalishvili,Petr Yan,2.5,2.48,1.57143,1.54645,38,38,1765180802000,1788888484000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44525,Andrew Tackett,Jonnatas Gracie,1.11111,1.08333,6.0,8.5,3,3,1787085726000,1787268607000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44526,Briana Ste-Marie,Rebeca Lima,1.625,1.90909,2.2,1.90909,16,16,1787085726000,1787264287000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44527,Bre Stikk,Cassia Moura,4.25,15.0,1.18182,1.0303,4,4,1787085726000,1787254328000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44528,Adele Fornarino,Carol Brunacio,1.04,1.05556,9.0,10.0,4,4,1787085726000,1787268607000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44529,Fedor Nikolov,William Tackett,6.0,10.0,1.11111,1.05556,4,4,1787085726000,1787268607000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44530,Jalen Fonacier,Mourece Ramirez,1.11111,1.06667,6.0,9.5,4,4,1787085726000,1787254328000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44531,Andy Varela,Vagner Rocha,2.0,2.6,1.71429,1.54645,12,12,1787085846000,1787264768000
-ufc-bjj-10-4322,UFC BJJ 10 for August 21 | Best Fight Odds,2026-08-21,44532,Ana Lima,Danielle Kelly,3.5,2.44,1.25,1.60976,25,25,1787085846000,1787267888000
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44570,Dan Hooker,Salahdine Parnasse,4.0,4.73,1.25,1.21186,138,138,1787212474000,1788644792000
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44615,Axel Sola,Fares Ziam,2.53,2.23,1.57143,1.66667,119,119,1787528523000,1788643232000
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44616,Michael Page,Nursulton Ruziboev,1.60606,1.43668,2.45,5.59,171,171,1787528523000,1788642511000
@@ -7995,8 +7897,6 @@ ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-0
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44625,Klaudia Sygula,Nora Cornolle,3.07,6.0,1.4,1.87719,140,140,1787571843000,1788627871000
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44626,Luis Felipe Dias,Matthieu Duclos,1.33333,1.90909,3.45,2.0,163,163,1787571843000,1788625952000
 ufc-fight-night-4326,UFC Fight Night for September 5 | Best Fight Odds,2026-09-05,44627,Delphine Benouaich,Sofia Montenegro,2.3,1.64103,1.66667,3.74,155,155,1787571843000,1788624752000
-ufc-glendale-4328,UFC Glendale for September 12 | Best Fight Odds,2026-09-12,44593,Jean Silva,Jose Delgado,1.27778,1.22989,3.95,4.2,26,26,1787252046000,1788888503000
-ufc-glendale-4328,UFC Glendale for September 12 | Best Fight Odds,2026-09-12,44719,Ramiro Jimenez,Rodrigo Vera,2.15,2.13,1.74074,1.73529,3,3,1788294746000,1788888504000
 ufc-sacramento-4311,UFC Sacramento for August 23 | Best Fight Odds,2026-08-23,44521,Anthony Wint,Terrance Chatman,1.09091,1.08496,8.09,8.17,286,286,1786757166000,1787444431000
 ufc-sacramento-4320,UFC Sacramento for August 22 | Best Fight Odds,2026-08-22,44429,Anthony Hernandez,Gregory Rodrigues,1.60606,7.92,2.45,2.5,140,140,1786473606000,1787453552000
 ufc-sacramento-4320,UFC Sacramento for August 22 | Best Fight Odds,2026-08-22,44431,Serghei Spivac,Vitor Petrino,3.0,6.33,1.42553,1.59524,105,105,1786473606000,1787450552000
@@ -8025,3 +7925,18 @@ ufc-shanghai-4257,UFC Shanghai Odds: Nurmagomedov vs Song Predictions,2026-08-29
 ufc-shanghai-4257,UFC Shanghai Odds: Nurmagomedov vs Song Predictions,2026-08-29,44580,Julia Polastri,Xiong Jingnan,1.68493,1.49505,2.26,2.71,130,130,1787239567000,1787989472000
 ufc-shanghai-4257,UFC Shanghai Odds: Nurmagomedov vs Song Predictions,2026-08-29,44591,Cameron Nelson,Ding Meng,1.66667,2.03,2.3,3.68,204,204,1787242807000,1787988752000
 ufc-vegas-120-4301,UFC Vegas 120 for August 8 | Best Fight Odds,2026-08-08,44409,Gianni Vazquez,Miles Johns,2.35,3.03,1.57143,1.44053,93,93,1786110245000,1786226792000
+noche-ufc-4299,Noche UFC for August 13 | Best Fight Odds,2026-08-13,44360,Jean Silva,Yair Rodriguez,1.4,1.27778,3.07,3.71,14,14,1785878765000,1786314383000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44696,Brandon Moreno,Joseph Morales,1.58824,2.01,2.49,1.8,48,48,1788212526000,1788898281000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44700,Marwan Rahiki,Tommy McMillen,2.15,2.45,1.74074,1.55866,71,71,1788212766000,1788898282000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44697,Alexa Grasso,Manon Fiorot,2.84,2.91,1.46296,1.40984,24,24,1788212646000,1788898283000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44698,Curtis Blaydes,Waldo Cortes-Acosta,2.1,2.77,1.76923,1.45249,53,53,1788212646000,1788898284000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44699,Dan Ige,David Martinez,3.3,3.73,1.35714,1.27473,30,30,1788212646000,1788898284000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44701,Edgar Chairez,Tim Elliott,1.57143,1.47847,2.53,2.66,53,53,1788212887000,1788898285000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44718,Ignacio Bahamondes,Muslim Salikhov,1.33333,1.18692,3.45,4.87,26,26,1788216726000,1788898286000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44702,Djorden Santos,Yousri Belgaroui,5.46,6.31,1.16667,1.1321,23,23,1788213006000,1788898287000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44703,Drakkar Klose,Tommy Gantt,4.83,4.76,1.2,1.19157,13,13,1788213006000,1788898288000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44720,Rafa Garcia,Rongzhu,1.66667,2.56,2.3,1.52083,71,71,1788216726000,1788898289000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44793,Jessie Rosas,Sean King,2.3,2.27,1.66667,1.56497,61,61,1788649083000,1788898290000
+noche-ufc-4318,Noche UFC for September 13 | Best Fight Odds,2026-09-13,44721,Jj Aldrich,Regina Tarin,3.45,3.3,1.33333,1.33445,28,28,1788216726000,1788898291000
+ufc-glendale-4328,UFC Glendale for September 12 | Best Fight Odds,2026-09-12,44593,Jean Silva,Jose Delgado,1.27778,1.22989,3.95,4.2,26,26,1787252046000,1788888503000
+ufc-glendale-4328,UFC Glendale for September 12 | Best Fight Odds,2026-09-12,44719,Ramiro Jimenez,Rodrigo Vera,2.15,2.13,1.74074,1.73529,3,3,1788294746000,1788888504000

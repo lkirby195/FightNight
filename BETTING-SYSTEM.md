@@ -28,8 +28,10 @@ Constants in `betting_system.py`: `FLIP_CONF = 0.65`, `FLIP_UNITS = 1`,
   prior years), `data/bfo_joined.csv` (BFO open/close per fight), `data/fights_v2.csv`.
 - Pre-filter: skip bouts whose opening implied-probability sum is outside
   [1.00, 1.12] (odds sanity).
-- One bet per qualifying bout, on the model's pick, settled at that side's
-  opening decimal price. P&L is in units; 1u = $100 in the printed summary.
+- One bet per qualifying bout, on the model's pick. The sim settles at that
+  side's opening decimal price; live bets with a captured placeable line settle
+  there instead (see "Placeable vs open"). P&L is in units; 1u = $100 in the
+  printed summary.
 - 2025 is a sealed holdout: there are no 2025 model predictions, so the sim
   covers 2012-2024 and 2026.
 
@@ -75,6 +77,12 @@ a later data refresh can move historical probabilities again; diff the live
 file against the snapshot and do not re-quote the historical figures from a
 refreshed file.
 
+Post-snapshot change, 2026-09-08: the hyphenated-name fix in `norm()`
+(`clv_eval.py`, `card_report.py`; BFO "Cortes-Acosta" now meets UFC Stats
+"Cortes Acosta") added 27 joined fights to `data/bfo_joined.csv`, none of which
+triggers a bet, so the figures above stand and the live preds file still
+matches the snapshot byte for byte.
+
 t is the one-sample t-statistic of per-bet return on stake. The rule was chosen
 on this same history, so the in-sample t overstates the evidence; the live
 record from 2026-09-08 forward is the out-of-sample test.
@@ -92,14 +100,19 @@ paired-tick overround filter in `card_settle.py` recovers the last pre-fight boo
 code and regenerate. Columns:
 
 ```
-event_date, event, fight_id, fighter, rule, live, units, open_line, clean_close,
-clv_pts, result, pnl
+event_date, event, fight_id, fighter, rule, live, units, open_line,
+placeable_line, clean_close, clv_pts, result, pnl, pnl_at_open
 ```
 
-`open_line` / `clean_close` are American odds for the side bet. `clean_close`
-is the last pre-fight paired tick (the `card_settle.py` overround rule), so it
-is safe for cards still carrying in-play ticks. `clv_pts` is the bet side's
-vig-free close minus open in probability points. `pnl` is in units.
+`open_line` / `placeable_line` / `clean_close` are American odds for the side
+bet. `placeable_line` is the price on the board when the pick went on record
+(the earliest `data/placeable_lines.csv` capture; empty when none was
+captured). `clean_close` is the last pre-fight paired tick (the
+`card_settle.py` overround rule), so it is safe for cards still carrying
+in-play ticks. `clv_pts` is the bet side's vig-free close minus open in
+probability points. `pnl` is in units, settled at `placeable_line` where
+present and at `open_line` otherwise; `pnl_at_open` is the open-line
+settlement for every row.
 
 The ledger only covers bouts present in `data/model_only_preds.csv` and
 `data/bfo_joined.csv`; cards scraped after the last `clv_eval.py` run are not in
@@ -108,6 +121,37 @@ it until those files are regenerated.
 `data/legacy_favtier_ledger.csv` is the abandoned favorites-tier system
 (3u/2u/1u by price band), ending 2026-03-28 plus the Paris FLIP row. Kept for
 the record; not the system described here.
+
+## Placeable vs open
+
+`card_report.py` often runs after lines have moved, so a P&L settled at
+`open_line` is not a price that could have been bet. One ledger, two prices:
+
+- When `card_report.py` is run for an event dated today or later, it
+  re-fetches the BFO line histories (cache bypassed) and appends one row per
+  bout to `data/placeable_lines.csv` (`event_date, bfo_slug, mu, fighter1,
+  fighter2, f1_line, f2_line, captured_at`): the current mean line at report
+  time, stamped with the run's timestamp. The file is append-only: rows
+  already on file are never rewritten or replaced. A bout whose lines are
+  identical to a row already on file (same `mu`, `f1_line`, `f2_line`) is
+  skipped, so a re-run that finds nothing moved adds nothing, and every line
+  movement seen at report time becomes a further row. Past events are never
+  written.
+- `placeable_line` in the ledger is the bet side's line from the EARLIEST
+  captured row for that bout (smallest `captured_at`), i.e. the price at the
+  time the pick went on record; later captures are informational only.
+  live=0 rows and rows with no captured line leave it empty.
+- `pnl` for live=1 rows with a placeable line is settled at `placeable_line`;
+  everything else is settled at `open_line` as before. `pnl_at_open` keeps the
+  open-line figure for every row. `clv_pts` is unchanged (open to clean close).
+- `LIVE RECORD` prints both figures, `P&L (placeable)` and `P&L (open)`;
+  `FULL SIM` is the pure sim at open.
+- Backfill: the 26 live bets on record before 2026-09-08 have no captured
+  line, so their `placeable_line` is empty and their `pnl` is unchanged. The
+  first capture is Noche UFC Glendale (2026-09-12).
+
+The rule constants are untouched (`FLIP_CONF`, `FLIP_UNITS`, `GAP_PTS`,
+`GAP_UNITS`).
 
 ## Live vs backfilled
 
@@ -123,5 +167,5 @@ The `live` column separates two kinds of ledger rows.
 
 The live record is the only admissible evidence for the rule. Backfilled rows
 exist to keep the sim complete and are never quoted as results.
-`betting_system.py` prints both: `LIVE RECORD` (live = 1 only) and `FULL SIM`
-(all rows).
+`betting_system.py` prints both: `LIVE RECORD` (live = 1 only, P&L at the
+placeable line and at open) and `FULL SIM` (all rows, at open).
