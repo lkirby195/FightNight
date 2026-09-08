@@ -127,16 +127,20 @@ the record; not the system described here.
 `card_report.py` often runs after lines have moved, so a P&L settled at
 `open_line` is not a price that could have been bet. One ledger, two prices:
 
-- When `card_report.py` (or `card_settle.py`) is run for an event dated today
-  or later, it re-fetches the BFO line histories (cache bypassed) and records
-  one row per bout in `data/placeable_lines.csv` (`event_date, bfo_slug, mu,
-  fighter1, fighter2, f1_line, f2_line, captured_at`): the current mean line
-  at report time. One row per bout per calendar day: a re-run on the same day
-  replaces that day's row, a run on a later day appends a new one. Past events
-  are never written.
+- When `card_report.py` is run for an event dated today or later, it
+  re-fetches the BFO line histories (cache bypassed) and appends one row per
+  bout to `data/placeable_lines.csv` (`event_date, bfo_slug, mu, fighter1,
+  fighter2, f1_line, f2_line, captured_at`): the current mean line at report
+  time, stamped with the run's timestamp. The file is append-only: rows
+  already on file are never rewritten or replaced. A bout whose lines are
+  identical to a row already on file (same `mu`, `f1_line`, `f2_line`) is
+  skipped, so a re-run that finds nothing moved adds nothing, and every line
+  movement seen at report time becomes a further row. Past events are never
+  written.
 - `placeable_line` in the ledger is the bet side's line from the EARLIEST
-  captured row for that bout, i.e. the price at the time the pick went on
-  record. live=0 rows and rows with no captured line leave it empty.
+  captured row for that bout (smallest `captured_at`), i.e. the price at the
+  time the pick went on record; later captures are informational only.
+  live=0 rows and rows with no captured line leave it empty.
 - `pnl` for live=1 rows with a placeable line is settled at `placeable_line`;
   everything else is settled at `open_line` as before. `pnl_at_open` keeps the
   open-line figure for every row. `clv_pts` is unchanged (open to clean close).

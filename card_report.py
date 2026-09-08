@@ -127,30 +127,34 @@ PLACEABLE_COLS = ["event_date", "bfo_slug", "mu", "fighter1", "fighter2",
 
 
 def record_placeable(slug, ev_date_s, bouts, path=PLACEABLE):
-    """Record the current line of every bout of a FUTURE event: the price that
-    could actually be bet when the pick went on record (betting_system.py
-    settles live bets at the earliest capture). One row per bout per capture
-    day: a re-run on the same calendar day replaces that day's row, a run on a
-    later day adds one. Never called for past events."""
+    """Append the current line of every bout of a FUTURE event to `path`: the
+    price that could actually be bet when the pick went on record
+    (betting_system.py settles live bets at the EARLIEST capture per bout).
+    Append-only: rows already on file are never rewritten or replaced. One row
+    per bout per run, stamped with the run's captured_at; a bout whose lines
+    are identical to a row already on file (same mu, f1_line, f2_line) is
+    skipped, so a re-run that finds nothing moved adds nothing. Never called
+    for past events."""
     now = datetime.now().astimezone().isoformat(timespec="seconds")
-    rows = []
-    if os.path.exists(path):
+    seen = set()
+    have = os.path.exists(path) and os.path.getsize(path) > 0
+    if have:
         with open(path, newline="") as fh:
-            rows = list(csv.DictReader(fh))
-    mus = {str(b["mu"]) for b in bouts}
-    rows = [r for r in rows
-            if not (r["mu"] in mus and r["captured_at"][:10] == now[:10])]
-    for b in bouts:
-        rows.append(dict(event_date=ev_date_s, bfo_slug=slug, mu=str(b["mu"]),
-                         fighter1=b["f1"], fighter2=b["f2"],
-                         f1_line=b["f1_close"], f2_line=b["f2_close"],
-                         captured_at=now))
-    rows.sort(key=lambda r: (r["event_date"], int(r["mu"]), r["captured_at"]))
-    with open(path, "w", newline="") as fh:
+            for r in csv.DictReader(fh):
+                seen.add((r["mu"], float(r["f1_line"]), float(r["f2_line"])))
+    new = [b for b in bouts
+           if (str(b["mu"]), float(b["f1_close"]), float(b["f2_close"])) not in seen]
+    with open(path, "a", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=PLACEABLE_COLS)
-        w.writeheader()
-        w.writerows(rows)
-    print(f"recorded {len(bouts)} placeable lines -> {path} ({now})")
+        if not have:
+            w.writeheader()
+        for b in new:
+            w.writerow(dict(event_date=ev_date_s, bfo_slug=slug, mu=str(b["mu"]),
+                            fighter1=b["f1"], fighter2=b["f2"],
+                            f1_line=b["f1_close"], f2_line=b["f2_close"],
+                            captured_at=now))
+    print(f"placeable lines -> {path}: {len(new)} appended, "
+          f"{len(bouts) - len(new)} unchanged ({now})")
 
 
 def fit_model():
