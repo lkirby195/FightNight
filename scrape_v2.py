@@ -117,6 +117,13 @@ def scrape_event_fights(event: dict) -> list[dict]:
             "a_sub_att": _int(txt[5][0] if txt[5] else ""),
             "b_sub_att": _int(txt[5][1] if len(txt[5]) > 1 else ""),
         })
+    # UFC Stats lists the main event first. Number bouts chronologically
+    # (1 = first bout of the night, N = main event) to match data/fights_v2.csv
+    # and the frozen v1 replay order: tournament-era fighters fought several
+    # times per night, so within-card order changes the Glicko replay.
+    n = len(fights)
+    for f in fights:
+        f["bout_order"] = n + 1 - f["bout_order"]
     return fights
 
 
@@ -157,7 +164,8 @@ FIGHT_COLS = ["fight_id", "event_id", "event_date", "event_name", "bout_order",
               "outcome", "method", "method_detail", "round", "time",
               "weight_class", "title_bout",
               "a_kd", "b_kd", "a_sig_str", "b_sig_str",
-              "a_td", "b_td", "a_sub_att", "b_sub_att"]
+              "a_td", "b_td", "a_sub_att", "b_sub_att",
+              "a_mw", "b_mw"]   # missed-weight flags: not on UFC Stats, carried over
 FIGHTER_COLS = ["fighter_id", "name", "record", "height_in", "reach_in", "stance", "dob"]
 
 
@@ -177,8 +185,19 @@ def main(which="A"):
             fights += scrape_event_fights(ev)
             if i % 50 == 0:
                 print(f"  {i}/{len(events)} events, {len(fights)} fights", flush=True)
+        # Missed-weight flags (a_mw/b_mw, 0/1) are not on UFC Stats. Carry them
+        # over from the existing file by fight_id so a re-scrape does not drop
+        # them; fights not in the previous file default to 0 (unverified).
+        prev = {}
+        if os.path.exists(f"{OUT}/fights_v2.csv"):
+            with open(f"{OUT}/fights_v2.csv", encoding="utf-8") as fh:
+                for r in csv.DictReader(fh):
+                    prev[r["fight_id"]] = (r.get("a_mw") or "0", r.get("b_mw") or "0")
+        for f in fights:
+            f["a_mw"], f["b_mw"] = prev.get(f["fight_id"], ("0", "0"))
+        n_mw = sum((f["a_mw"] == "1") + (f["b_mw"] == "1") for f in fights)
         write_csv(f"{OUT}/fights_v2.csv", FIGHT_COLS, fights)
-        print(f"wrote {OUT}/fights_v2.csv  n={len(fights)}")
+        print(f"wrote {OUT}/fights_v2.csv  n={len(fights)}  missed-weight flags carried over: {n_mw}")
     if which in ("B", "AB"):
         ids = set()
         with open(f"{OUT}/fights_v2.csv", encoding="utf-8") as fh:
