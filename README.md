@@ -21,7 +21,7 @@ gap; incremental gain over the recalibrated close is +0.00075 pooled
 (t = 1.68, n = 5,466) — real-looking, below significance, era-dependent.
 
 Full analysis: `RESULTS-v2.md`. Rating-engine math: `mma-glicko2-spec.md`.
-Betting system: `BETTING-SYSTEM.md` (KISS rule, validated 2012–2026, t=2.43).
+Betting system: `BETTING-SYSTEM.md` (KISS rule, validated 2012–2026, t=2.42).
 
 ## Pipeline
 
@@ -84,5 +84,5 @@ data/legacy_favtier_ledger.csv
 
 ## v1 engine
 
-`engine.py` + `best_params.json` (tau=0.2, sigma0=0.05, S_udec=0.80,
+`engine.py` + `best_params.json` (tau=0.2, sigma0=0.06, S_udec=0.80,
 S_sdec=0.55). Key finding: split decisions carry almost no skill signal.

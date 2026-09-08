@@ -20,7 +20,7 @@ python3 pipeline/tune.py          # parameter grid search (train 2014-2019, repo
 - `fights.csv` — 8,794 fights, 1994-2026, with missed-weight flags
 - `ratings.csv` — all 2,722 fighters: rating, RD, sigma, record
 - `preds.csv` — pre-fight win probabilities for every fight (backtest artifact)
-- `best_params.json` — tuned parameters (tau=0.2, sigma0=0.05, S_udec=0.80, S_sdec=0.55)
+- `best_params.json` — tuned parameters (tau=0.2, sigma0=0.06 effective, S_udec=0.80, S_sdec=0.55)
 - `odds-raw.csv` — public closing-odds dataset (2010-2026), for market.py
 
 ## Headline results (2025+ holdout, n=656)

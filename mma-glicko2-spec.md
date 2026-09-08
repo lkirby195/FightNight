@@ -188,7 +188,7 @@ last_fight_date = fight_date ; fight_count += 1
 |---|---|---|
 | Initial rating r₀ | 1500 | Fixed |
 | Initial RD₀ | 350 | Fixed (also the RD cap) |
-| Initial volatility σ₀ | 0.06 → **0.05 (tuned)** | Tuned |
+| Initial volatility σ₀ | **0.06 (effective)** | Tuned value 0.05 was never applied: `engine.SIGMA0` is set after import, but `Fighter.sigma` defaults to the value bound at class creation (0.06). The §11 validation results were produced at 0.06. Sensitivity to σ₀ in the 0.05–0.06 range is flat (Δ log-loss 0.0001 on 2020+). |
 | System constant τ | 0.5 → **0.2 (tuned)** | Tuned (flat across 0.05–0.2; volatility machinery contributes little at MMA sample sizes) |
 | Standard downtime | 1 year | Fixed (design decision) |
 | S: unanimous dec | 0.90 → **0.80 (tuned)** | Tuned |
@@ -255,6 +255,13 @@ fights 2020+, ~87% coverage).
   because S is capped at 1.0 for finishes.
 - Volatility solver carries iteration caps (k-search ≤ 200, Illinois ≤ 100)
   as numerical safety rails.
+- σ₀ ran at 0.06, not the tuned 0.05. `engine.SIGMA0 = 0.05` is assigned after
+  import (features.py, card_report.py, and the v1 tuner), but `Fighter.sigma`
+  defaults to the SIGMA0 value bound at class creation, so the assignment never
+  took effect; the tuner's σ₀ grid was therefore a no-op too. Every frozen
+  rating and every result in this section was produced at 0.06.
+  `best_params.json` now records 0.06. Sensitivity in the 0.05–0.06 range is
+  flat (Δ log-loss +0.0001 on 2020+, +0.0001 on 2025+, 0.06 marginally better).
 
 **Tuning (per §9):** three grid rounds, selection on 2014–2019 train log-loss
 only. Locked: τ = 0.2, σ₀ = 0.05, S(U-DEC) = 0.80, S(S-DEC) = 0.55. Round 3
