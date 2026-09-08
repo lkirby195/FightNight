@@ -64,7 +64,7 @@ data/fighters_v2.csv        2,722 fighters
 data/fight_details_v2.csv   8,773 bouts: attempts, control time, strike splits
 data/features_v2.csv        model-ready pre-fight features (leakage-safe)
 data/market.csv             vig-free closing probs (public odds dataset join)
-data/bfo_lines.csv          7,962 bouts: opening + closing mean lines 2010-2026
+data/bfo_lines.csv          7,941 bouts: opening + closing mean lines 2010-2026
 data/model_only_preds.csv   walk-forward model-only probs (no market input)
 data/clv_eval_full.csv      per-fight CLV records
 data/walkforward.csv        per-fight loss diffs vs recalibrated close
