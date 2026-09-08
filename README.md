@@ -84,5 +84,5 @@ data/legacy_favtier_ledger.csv
 
 ## v1 engine
 
-`engine.py` + `best_params.json` (tau=0.2, sigma0=0.05, S_udec=0.80,
+`engine.py` + `best_params.json` (tau=0.2, sigma0=0.06, S_udec=0.80,
 S_sdec=0.55). Key finding: split decisions carry almost no skill signal.
