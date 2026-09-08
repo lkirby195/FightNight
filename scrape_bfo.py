@@ -37,10 +37,12 @@ S.headers.update({"User-Agent": UA})
 _last = [0.0]
 
 
-def fetch(url: str, binary=False) -> str:
+def fetch(url: str, binary=False, refresh=False) -> str:
+    """Cached GET. refresh=True re-downloads and overwrites the cached copy
+    (card_report uses it for future events, whose lines are still moving)."""
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key)
-    if os.path.exists(path):
+    if os.path.exists(path) and not refresh:
         with open(path, "rb") as fh:
             b = fh.read()
         return b if binary else b.decode("utf-8", "replace")
@@ -66,8 +68,8 @@ def rot47(s: str) -> str:
                    for c in s)
 
 
-def ggd(mu: int, p: int):
-    raw = fetch(f"{BASE}/api/ggd?m={mu}&p={p}")
+def ggd(mu: int, p: int, refresh=False):
+    raw = fetch(f"{BASE}/api/ggd?m={mu}&p={p}", refresh=refresh)
     raw = re.sub(r"[^A-Za-z0-9+/=]", "", raw)
     dec = base64.b64decode(raw + "=" * (-len(raw) % 4)).decode("latin-1")
     return json.loads(rot47(dec))

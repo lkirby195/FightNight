@@ -15,11 +15,19 @@ is GENERATED, never hand-edited. clean_close is the last pre-fight paired tick
 use it as-is, the rest are re-read from the BFO line history (cache_bfo/).
 live=1 marks bets whose card report was run before the event (see LIVE_CARDS);
 live=0 rows are backfilled after the fact and are never quoted as results.
-Two summaries are printed: LIVE RECORD (live=1 only) and FULL SIM (all bets).
+placeable_line is the bet side's price at the EARLIEST data/placeable_lines.csv
+capture for that bout (card_report.py writes one when it reports a future
+event): the price on the board when the pick went on record. live=1 rows with
+a placeable line settle pnl there; every other row settles at open_line.
+pnl_at_open keeps the open-line settlement for all rows; clv_pts is always
+open -> clean_close.
+Two summaries are printed: LIVE RECORD (live=1 only, P&L at placeable and at
+open) and FULL SIM (all bets, at open).
 """
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import unicodedata
 
@@ -40,8 +48,10 @@ LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
               "2026-09-05"}   # UFC Paris
 
 LEDGER = "data/system_ledger.csv"
+PLACEABLE = "data/placeable_lines.csv"      # written by card_report.py
 LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "units",
-               "open_line", "clean_close", "clv_pts", "result", "pnl"]
+               "open_line", "placeable_line", "clean_close", "clv_pts", "result",
+               "pnl", "pnl_at_open"]
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))
 amp = lambda q: np.where(q >= .5, -100 * q / (1 - q), 100 * (1 - q) / q)
@@ -50,7 +60,8 @@ amp = lambda q: np.where(q >= .5, -100 * q / (1 - q), 100 * (1 - q) / q)
 def load():
     M = pd.read_csv("data/model_only_preds.csv")
     J = pd.read_csv("data/bfo_joined.csv")
-    fv = pd.read_csv("data/fights_v2.csv")[["fight_id", "event_date"]]
+    fv = pd.read_csv("data/fights_v2.csv")[["fight_id", "event_date", "event_name",
+                                            "bout_order", "fighter_a", "fighter_b"]]
     D = M.merge(J, on="fight_id").merge(fv, on="fight_id")
     D = D.dropna(subset=["y_a", "a_open", "b_open"])
     imp = 1 / D.a_open + 1 / D.b_open
@@ -82,24 +93,41 @@ def run(D):
     gp["u"], gp["rule"], gp["pnl"] = GAP_UNITS, "GAP", settle(GAP_UNITS, gp)
     B = pd.concat([fl, gp]).sort_values("event_date")
     B["live"] = B.event_date.map(is_live).astype(int)
+    B["pnl_at_open"] = B.pnl
+    B["placeable"] = placeable_prices(B)        # decimal; NaN when none captured
+    has = B.placeable.notna()
+    B.loc[has, "pnl"] = np.where(B.pnl_at_open[has] > 0,
+                                 B.u[has] * (B.placeable[has] - 1),
+                                 -B.u[has].astype(float))
     return B
 
 
-def report(B, label):
+def _summ(B, col, tag=""):
+    pnl, r = B[col].sum(), B[col] / B.u
+    t = r.mean() / (r.std(ddof=1) / np.sqrt(len(r))) if len(r) > 1 else float("nan")
+    return (f"P&L{tag} {pnl:+.1f}u (${pnl*100:+,.0f})  ROI {pnl/B.u.sum():+.1%}  "
+            f"t={t:.2f}")
+
+
+def report(B, label, placeable=False):
+    """One summary block. placeable=True (LIVE RECORD) settles at the placeable
+    line where one was captured and also prints the open-line figure; otherwise
+    every bet is settled at open (pure sim)."""
+    print()
     if len(B) == 0:
-        print()
         print(f"{label}: 0 bets")
         return
-    staked = B.u.sum()
-    pnl = B.pnl.sum()
-    w, l = int((B.pnl > 0).sum()), int((B.pnl < 0).sum())
-    r = B.pnl / B.u
-    t = r.mean() / (r.std(ddof=1) / np.sqrt(len(r))) if len(r) > 1 else float("nan")
-    print(f"\n{label}: {len(B)} bets  {w}-{l}  staked {staked:.0f}u  "
-          f"P&L {pnl:+.1f}u (${pnl*100:+,.0f})  ROI {pnl/staked:+.1%}  t={t:.2f}")
+    col = "pnl" if placeable else "pnl_at_open"
+    w, l = int((B[col] > 0).sum()), int((B[col] < 0).sum())
+    head = f"{label}: {len(B)} bets  {w}-{l}  staked {B.u.sum():.0f}u  "
+    if placeable:
+        print(head + _summ(B, "pnl", " (placeable)"))
+        print("    " + _summ(B, "pnl_at_open", " (open)"))
+    else:
+        print(head + _summ(B, col))
     for rl, g in B.groupby("rule"):
-        print(f"    {rl}: {len(g)} bets  {int((g.pnl>0).sum())}-{int((g.pnl<0).sum())}  "
-              f"ROI {g.pnl.sum()/g.u.sum():+.1%}")
+        print(f"    {rl}: {len(g)} bets  {int((g[col]>0).sum())}-{int((g[col]<0).sum())}  "
+              f"ROI {g[col].sum()/g.u.sum():+.1%}")
 
 
 def _lastn(s):
@@ -141,16 +169,40 @@ def _clean_close(bl, r):
     return (f1c, f2c) if a_is_f1 else (f2c, f1c)
 
 
+def placeable_prices(B):
+    """Decimal price of the bet side at the EARLIEST placeable_lines.csv capture
+    for each live=1 bet (the price on the board when the pick went on record).
+    NaN for live=0 rows and for live rows with no capture (every row before
+    2026-09-08, when captures began)."""
+    out = pd.Series(np.nan, index=B.index)
+    if not os.path.exists(PLACEABLE):
+        return out
+    pl = pd.read_csv(PLACEABLE)
+    if len(pl) == 0:
+        return out
+    pl["d"] = pd.to_datetime(pl.event_date)
+    bl = pd.read_csv("data/bfo_lines.csv")
+    bl["d"] = pd.to_datetime(bl.event_date)
+    for i, r in B[B.live == 1].iterrows():
+        if not ((pl.d - pd.Timestamp(r.event_date)).abs().dt.days <= 3).any():
+            continue                            # nothing captured for this card
+        mu, a_is_f1 = _bfo_mu(bl, r)
+        c = pl[pl.mu == mu].sort_values("captured_at")
+        if len(c):
+            x = c.iloc[0]
+            out.loc[i] = float(x.f1_line) if bool(r.mod1) == a_is_f1 else float(x.f2_line)
+    return out
+
+
 def write_ledger(B, path=LEDGER):
     """Write every triggered bet in B to `path`, sorted by date then bout order.
-    open_line / clean_close are American odds of the bet side; clv_pts is the
-    bet side's vig-free close minus open, in prob points; pnl is in units."""
-    fv = pd.read_csv("data/fights_v2.csv")[["fight_id", "event_name", "bout_order",
-                                            "fighter_a", "fighter_b"]]
+    open_line / placeable_line / clean_close are American odds of the bet side;
+    clv_pts is the bet side's vig-free close minus open, in prob points; pnl
+    (placeable where captured, else open) and pnl_at_open are in units."""
     bl = pd.read_csv("data/bfo_lines.csv")
     bl["d"] = pd.to_datetime(bl.event_date)
     rows = []
-    for _, r in B.merge(fv, on="fight_id").iterrows():
+    for _, r in B.iterrows():
         ac, bc = _clean_close(bl, r)
         pick_a = bool(r.mod1)
         o, c = (r.a_open, ac) if pick_a else (r.b_open, bc)
@@ -161,14 +213,19 @@ def write_ledger(B, path=LEDGER):
                          fighter=r.fighter_a if pick_a else r.fighter_b,
                          rule=r.rule, live=int(r.live), units=int(r.u),
                          open_line=int(round(float(am(o)))),
+                         placeable_line=("" if pd.isna(r.placeable)
+                                         else int(round(float(am(r.placeable))))),
                          clean_close=int(round(float(am(c)))),
                          clv_pts=round((qc - qo) * 100, 2),
                          result="WIN" if r.pnl > 0 else "LOSS",
-                         pnl=round(float(r.pnl), 4), _bo=r.bout_order))
+                         pnl=round(float(r.pnl), 4),
+                         pnl_at_open=round(float(r.pnl_at_open), 4),
+                         _bo=r.bout_order))
     L = (pd.DataFrame(rows, columns=LEDGER_COLS + ["_bo"])
          .sort_values(["event_date", "_bo"]).drop(columns="_bo"))
     L.to_csv(path, index=False)
-    print(f"wrote {path}: {len(L)} rows  staked {L.units.sum()}u  P&L {L.pnl.sum():+.1f}u")
+    print(f"wrote {path}: {len(L)} rows  staked {L.units.sum()}u  "
+          f"P&L {L.pnl.sum():+.1f}u (at open {L.pnl_at_open.sum():+.1f}u)")
 
 
 if __name__ == "__main__":
@@ -182,7 +239,7 @@ if __name__ == "__main__":
     if a.year != "all":
         D = D[D.year == int(a.year)]
     B = run(D)
-    report(B[B.live == 1], f"LIVE RECORD ({a.year})")
+    report(B[B.live == 1], f"LIVE RECORD ({a.year})", placeable=True)
     report(B, f"FULL SIM ({a.year})")
     if a.write_ledger:
         write_ledger(B)
