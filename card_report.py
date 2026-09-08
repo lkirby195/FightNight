@@ -184,12 +184,12 @@ def main(slug, ev_date_s):
     for b in bouts:
         key = tuple(sorted([norm(b["f1"]), norm(b["f2"])]))
         r = win.get(key)
-        rt = f"{r[0].split()[-1].title()} ({r[1]})" if r else "—"
+        rt = f"{r[0].split()[-1].title()} ({r[1]})" if r else "-"
         line = f"{am(b['f1_open'])}/{am(b['f2_open'])}"
         cl = f"{am(b['f1_close'])}/{am(b['f2_close'])}"
         if b["mu"] not in preds:
-            print(f"{b['f1']+' / '+b['f2']:40s}{'debut—no proj':>13}{'':>12}"
-                  f"{line:>12}{cl:>12}{'—':>8}  {rt}")
+            print(f"{b['f1']+' / '+b['f2']:40s}{'debut-no proj':>13}{'':>12}"
+                  f"{line:>12}{cl:>12}{'-':>8}  {rt}")
             continue
         p = preds[b["mu"]]
         qo, qc = vf(b["f1_open"], b["f2_open"]), vf(b["f1_close"], b["f2_close"])
@@ -200,7 +200,7 @@ def main(slug, ev_date_s):
             n += 1
             hit = (p > 0.5) == (r[0] == norm(b["f1"]))
             w += hit
-            ok = " ✓" if hit else " ✗"
+            ok = " W" if hit else " L"
         print(f"{b['f1']+' / '+b['f2']:40s}{f'{p:.0%}/{1-p:.0%}':>13}"
               f"{amp(p)+'/'+amp(1-p):>12}{line:>12}{cl:>12}{clv*100:>+7.1f}p"
               f"  {rt}{ok}")
