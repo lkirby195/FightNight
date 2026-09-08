@@ -48,6 +48,7 @@ pipeline/betting_system.py  KISS betting rule (flip>=65% + gap>=100pts, flat 1u)
 
 Run order: `scrape_v2.py A` -> `B` -> `C` -> `scrape_bfo.py 2010 2027` ->
 `features.py` -> `walkforward.py` -> `clv_eval.py`.
+`python replay_check.py  # merge gate: must pass` (after any re-scrape, before committing data)
 
 All scrapers are disk-cached (`cache/`, `cache_bfo/`) and resumable; re-runs
 cost zero network requests. Be polite: built-in delays, do not remove.
