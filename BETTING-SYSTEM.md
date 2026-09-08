@@ -35,21 +35,35 @@ Constants in `betting_system.py`: `FLIP_CONF = 0.65`, `FLIP_UNITS = 1`,
 
 ## Historical sim at the frozen rule
 
-`python betting_system.py all` (data through 2026-07-25):
+`python betting_system.py all` (data through 2026-09-05):
 
 ```
-BETTING SYSTEM (all): 524 bets  303-221  staked 524u  P&L +56.7u ($+5,671)  ROI +10.8%  t=2.43
-    FLIP: 273 bets  129-144  ROI +13.2%
-    GAP: 251 bets  174-77  ROI +8.2%
+LIVE RECORD (all): 26 bets  19-7  staked 26u  P&L +9.3u ($+930)  ROI +35.8%  t=2.05
+    FLIP: 13 bets  7-6  ROI +19.6%
+    GAP: 13 bets  12-1  ROI +51.9%
+
+FULL SIM (all): 533 bets  307-226  staked 533u  P&L +57.1u ($+5,710)  ROI +10.7%  t=2.42
+    FLIP: 281 bets  132-149  ROI +12.7%
+    GAP: 252 bets  175-77  ROI +8.5%
 ```
 
 `python betting_system.py 2026`:
 
 ```
-BETTING SYSTEM (2026): 23 bets  17-6  staked 23u  P&L +8.5u ($+851)  ROI +37.0%  t=2.00
-    FLIP: 11 bets  6-5  ROI +22.3%
-    GAP: 12 bets  11-1  ROI +50.5%
+LIVE RECORD (2026): 26 bets  19-7  staked 26u  P&L +9.3u ($+930)  ROI +35.8%  t=2.05
+    FLIP: 13 bets  7-6  ROI +19.6%
+    GAP: 13 bets  12-1  ROI +51.9%
+
+FULL SIM (2026): 30 bets  20-10  staked 30u  P&L +7.4u ($+741)  ROI +24.7%  t=1.44
+    FLIP: 17 bets  8-9  ROI +3.9%
+    GAP: 13 bets  12-1  ROI +51.9%
 ```
+
+The freeze-day figure (data through 2026-07-25) was 524 bets, 303-221, +56.7u,
+t=2.43. Regenerating `model_only_preds.csv` on 2026-09-08 moved historical
+probabilities by at most 0.001 and pulled in two bets sitting exactly on the
+0.65 threshold (Cerrone-Stephens 2012, Jackson-Soukhamthath 2019); the other
+seven additions are the Aug-Sep 2026 cards.
 
 t is the one-sample t-statistic of per-bet return on stake. The rule was chosen
 on this same history, so the in-sample t overstates the evidence; the live
@@ -68,7 +82,7 @@ paired-tick overround filter in `card_settle.py` recovers the last pre-fight boo
 code and regenerate. Columns:
 
 ```
-event_date, event, fight_id, fighter, rule, units, open_line, clean_close,
+event_date, event, fight_id, fighter, rule, live, units, open_line, clean_close,
 clv_pts, result, pnl
 ```
 
@@ -84,3 +98,20 @@ it until those files are regenerated.
 `data/legacy_favtier_ledger.csv` is the abandoned favorites-tier system
 (3u/2u/1u by price band), ending 2026-03-28 plus the Paris FLIP row. Kept for
 the record; not the system described here.
+
+## Live vs backfilled
+
+The `live` column separates two kinds of ledger rows.
+
+- **live = 1**: the card report was run before the event, so the pick and the
+  opening price were on record before the fight. That is every card from
+  2026-01 through 2026-07-25 plus the dates listed in `LIVE_CARDS` in
+  `betting_system.py`. Add each new card's date there when its report is run
+  pre-event.
+- **live = 0**: backfilled after the fact from scraped lines; the opening price
+  was not obtainable at the time.
+
+The live record is the only admissible evidence for the rule. Backfilled rows
+exist to keep the sim complete and are never quoted as results.
+`betting_system.py` prints both: `LIVE RECORD` (live = 1 only) and `FULL SIM`
+(all rows).

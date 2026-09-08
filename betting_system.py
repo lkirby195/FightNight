@@ -13,6 +13,9 @@ requested year(s) to data/system_ledger.csv -- the ledger of record. That file
 is GENERATED, never hand-edited. clean_close is the last pre-fight paired tick
 (card_settle.paired_summary); bouts whose raw BFO close is already a clean book
 use it as-is, the rest are re-read from the BFO line history (cache_bfo/).
+live=1 marks bets whose card report was run before the event (see LIVE_CARDS);
+live=0 rows are backfilled after the fact and are never quoted as results.
+Two summaries are printed: LIVE RECORD (live=1 only) and FULL SIM (all bets).
 """
 from __future__ import annotations
 
@@ -28,8 +31,16 @@ GAP_PTS = 100
 FLIP_UNITS = 1     # flat; set 2 for the higher-variance variant
 GAP_UNITS = 1
 
+# Live record: every card from LIVE_FROM through LIVE_THROUGH was reported
+# pre-event, plus the dates in LIVE_CARDS. ADD EACH NEW CARD'S DATE TO LIVE_CARDS
+# WHEN ITS REPORT IS RUN PRE-EVENT; anything else is backfilled (live=0).
+LIVE_FROM, LIVE_THROUGH = "2026-01-01", "2026-07-25"
+LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
+              "2026-08-29",   # UFC Shanghai
+              "2026-09-05"}   # UFC Paris
+
 LEDGER = "data/system_ledger.csv"
-LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "units",
+LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "units",
                "open_line", "clean_close", "clv_pts", "result", "pnl"]
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))
@@ -60,15 +71,25 @@ def settle(units, sub):
     return np.where(won, units * (dec - 1), -float(units))
 
 
+def is_live(event_date: str) -> bool:
+    return LIVE_FROM <= event_date <= LIVE_THROUGH or event_date in LIVE_CARDS
+
+
 def run(D):
     fl = D[D.flip & (D.conf >= FLIP_CONF)].copy()
     gp = D[(~D.flip) & (D.gap_pts >= GAP_PTS)].copy()
     fl["u"], fl["rule"], fl["pnl"] = FLIP_UNITS, "FLIP", settle(FLIP_UNITS, fl)
     gp["u"], gp["rule"], gp["pnl"] = GAP_UNITS, "GAP", settle(GAP_UNITS, gp)
-    return pd.concat([fl, gp]).sort_values("event_date")
+    B = pd.concat([fl, gp]).sort_values("event_date")
+    B["live"] = B.event_date.map(is_live).astype(int)
+    return B
 
 
 def report(B, label):
+    if len(B) == 0:
+        print()
+        print(f"{label}: 0 bets")
+        return
     staked = B.u.sum()
     pnl = B.pnl.sum()
     w, l = int((B.pnl > 0).sum()), int((B.pnl < 0).sum())
@@ -138,7 +159,7 @@ def write_ledger(B, path=LEDGER):
         rows.append(dict(event_date=r.event_date, event=r.event_name,
                          fight_id=r.fight_id,
                          fighter=r.fighter_a if pick_a else r.fighter_b,
-                         rule=r.rule, units=int(r.u),
+                         rule=r.rule, live=int(r.live), units=int(r.u),
                          open_line=int(round(float(am(o)))),
                          clean_close=int(round(float(am(c)))),
                          clv_pts=round((qc - qo) * 100, 2),
@@ -161,6 +182,7 @@ if __name__ == "__main__":
     if a.year != "all":
         D = D[D.year == int(a.year)]
     B = run(D)
-    report(B, f"BETTING SYSTEM ({a.year})")
+    report(B[B.live == 1], f"LIVE RECORD ({a.year})")
+    report(B, f"FULL SIM ({a.year})")
     if a.write_ledger:
         write_ledger(B)

@@ -21,7 +21,7 @@ gap; incremental gain over the recalibrated close is +0.00075 pooled
 (t = 1.68, n = 5,466) — real-looking, below significance, era-dependent.
 
 Full analysis: `RESULTS-v2.md`. Rating-engine math: `mma-glicko2-spec.md`.
-Betting system: `BETTING-SYSTEM.md` (KISS rule, validated 2012–2026, t=2.43).
+Betting system: `BETTING-SYSTEM.md` (KISS rule, validated 2012–2026, t=2.42).
 
 ## Pipeline
 
