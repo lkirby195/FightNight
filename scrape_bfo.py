@@ -6,7 +6,9 @@ of (timestamp_ms, decimal_odds) for the cross-book mean line.
 
 First tick = opening line, last tick = closing line.
 
-Polite: 0.45s spacing, disk cache (cache_bfo/), resumable.
+Polite: 0.45s spacing, disk cache (cache_bfo/), resumable. Incremental by
+matchup id: a bout already in data/bfo_lines.csv (or already written this run
+under another slug for the same event) is never written twice.
 """
 from __future__ import annotations
 
@@ -71,11 +73,19 @@ def ggd(mu: int, p: int):
     return json.loads(rot47(dec))
 
 
+# UFC MMA cards only: "ufc" must be a hyphen-delimited token of the slug
+# (ufc-…, noche-ufc-…). Feeder and grappling brands that share the token are
+# excluded (road-to-ufc-…, ufc-bjj-…, ufc-fight-pass-invitational-…).
+UFC_SLUG = re.compile(r"^(?!road-to-ufc-)(?!ufc-bjj)(?!ufc-fight-pass-)"
+                      r"(?:[^-]+-)*ufc(?:-|$)")
+
+
 def ufc_event_slugs():
+    """-> sorted (slug, lastmod) pairs for every UFC event in the sitemap."""
     xml = fetch(f"{BASE}/sitemap-events.xml")
-    ent = re.findall(r"<loc>https://www\.bestfightodds\.com/events/(ufc[^<]*)</loc>"
+    ent = re.findall(r"<loc>https://www\.bestfightodds\.com/events/([^<]+)</loc>"
                      r"\s*<lastmod>([^<]+)</lastmod>", xml)
-    return sorted(set(ent))
+    return sorted({e for e in ent if UFC_SLUG.match(e[0])})
 
 
 DATE_RE = re.compile(r"(January|February|March|April|May|June|July|August|"
@@ -169,7 +179,8 @@ def main(start_year=2022, end_year=2027):
                             "f2_open": s2[0], "f2_close": s2[1],
                             "f1_ticks": s1[2], "f2_ticks": s2[2],
                             "t_open": s1[3], "t_close": s1[4]})
-                n_done += 1
+                done.add(str(b["mu"]))   # one row per matchup even if the
+                n_done += 1              # sitemap lists the event twice
                 if n_done % 100 == 0:
                     fh.flush()
                     print(f"  {n_done} bouts ({slug})", flush=True)
