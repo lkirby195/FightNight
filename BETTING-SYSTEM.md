@@ -60,3 +60,27 @@ record from 2026-09-08 forward is the out-of-sample test.
 Use `card_settle.py <bfo-slug> <YYYY-MM-DD>` (not `card_report.py`) for any event
 less than ~4 months old: BFO keeps in-play ticks in the line history, and the
 paired-tick overround filter in `card_settle.py` recovers the last pre-fight book.
+
+## Ledger of record
+
+`data/system_ledger.csv` is written by `python betting_system.py <year|all>
+--write-ledger` and is never hand-edited: to change it, fix the inputs or the
+code and regenerate. Columns:
+
+```
+event_date, event, fight_id, fighter, rule, units, open_line, clean_close,
+clv_pts, result, pnl
+```
+
+`open_line` / `clean_close` are American odds for the side bet. `clean_close`
+is the last pre-fight paired tick (the `card_settle.py` overround rule), so it
+is safe for cards still carrying in-play ticks. `clv_pts` is the bet side's
+vig-free close minus open in probability points. `pnl` is in units.
+
+The ledger only covers bouts present in `data/model_only_preds.csv` and
+`data/bfo_joined.csv`; cards scraped after the last `clv_eval.py` run are not in
+it until those files are regenerated.
+
+`data/legacy_favtier_ledger.csv` is the abandoned favorites-tier system
+(3u/2u/1u by price band), ending 2026-03-28 plus the Paris FLIP row. Kept for
+the record; not the system described here.

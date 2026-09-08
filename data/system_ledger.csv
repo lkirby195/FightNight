@@ -1,29 +1,24 @@
-date,event,fight,p_model,p_market,line,units,result,pnl
-2026-01-24,UFC 324: Gaethje vs. Pimblett,Umar Nurmagomedov vs Deiveson Figueiredo,0.925,0.901,-1500,3,WIN,20.0
-2026-01-24,UFC 324: Gaethje vs. Pimblett,Ateba Gautier vs Andrey Pulyaev,0.904,0.874,-1000,2,WIN,20.0
-2026-01-24,UFC 324: Gaethje vs. Pimblett,Ty Miller vs Adam Fugitt,0.8,0.776,-420,1,WIN,24.0
-2026-01-31,UFC 325: Volkanovski vs. Lopes 2,Quillan Salkilld vs Jamie Mullarkey,0.912,0.88,-1100,3,WIN,27.0
-2026-01-31,UFC 325: Volkanovski vs. Lopes 2,Benoit Saint Denis vs Dan Hooker,0.807,0.766,-400,2,WIN,50.0
-2026-01-31,UFC 325: Volkanovski vs. Lopes 2,Cam Rowston vs Cody Brundage,0.786,0.753,-360,1,WIN,28.0
-2026-02-07,UFN: Bautista vs. Oliveira,Daniil Donchenko vs Alex Morono,0.892,0.865,-900,3,WIN,33.0
-2026-02-07,UFN: Bautista vs. Oliveira,Michal Oleksiejczuk vs Marc-Andre Barriault,0.834,0.799,-490,2,WIN,41.0
-2026-02-07,UFN: Bautista vs. Oliveira,Javid Basharat vs Gianni Vazquez,0.834,0.808,-300,1,WIN,33.0
-2026-02-21,UFN: Strickland vs. Hernandez,Carli Judice vs Juliana Miller,0.889,0.861,-850,3,WIN,35.0
-2026-02-21,UFN: Strickland vs. Hernandez,Alden Coria vs Luis Gurule,0.818,0.765,-390,2,WIN,51.0
-2026-02-21,UFN: Strickland vs. Hernandez,Yadier del Valle vs Jordan Leavitt,0.784,0.771,-405,1,LOSS,-100.0
-2026-02-28,UFN: Moreno vs. Kavanagh,Francis Marshall vs Erik Silva,0.89,0.857,-820,3,WIN,37.0
-2026-02-28,UFN: Moreno vs. Kavanagh,Santiago Luna vs Angel Pacheco,0.889,0.85,-770,2,WIN,26.0
-2026-02-28,UFN: Moreno vs. Kavanagh,Ryan Gandra vs Jose Daniel Medina,0.868,0.845,-720,1,WIN,14.0
-2026-03-07,UFC 326: Holloway vs. Oliveira 2,Donte Johnson vs Cody Brundage,0.894,0.865,-900,3,WIN,33.0
-2026-03-07,UFC 326: Holloway vs. Oliveira 2,Raul Rosas Jr. vs Rob Font,0.763,0.726,-310,2,WIN,65.0
-2026-03-07,UFC 326: Holloway vs. Oliveira 2,Caio Borralho vs Reinier de Ridder,0.669,0.669,-230,1,WIN,43.0
-2026-03-14,UFN: Emmett vs. Vallejos,Bia Mesquita vs Montse Rendon,0.872,0.848,-750,3,WIN,40.0
-2026-03-14,UFN: Emmett vs. Vallejos,Kevin Vallejos vs Josh Emmett,0.848,0.807,-520,2,WIN,38.0
-2026-03-14,UFN: Emmett vs. Vallejos,Myktybek Orolbai vs Chris Curtis,0.843,0.795,-480,1,WIN,21.0
-2026-03-21,UFN: Evloev vs. Murphy,Mario Pinto vs Felipe Franco,0.881,0.858,-900,3,WIN,33.0
-2026-03-21,UFN: Evloev vs. Murphy,Mantas Kondratavicius vs Antonio Trocoli,0.869,0.839,-750,2,WIN,27.0
-2026-03-21,UFN: Evloev vs. Murphy,Iwo Baraniewski vs Austen Lane,0.813,0.813,-590,1,WIN,17.0
-2026-03-28,UFN: Adesanya vs. Pyfer,Michael Chiesa vs Niko Price,0.882,0.854,-901,3,WIN,33.0
-2026-03-28,UFN: Adesanya vs. Pyfer,Alexia Thainara vs Bruna Brasil,0.825,0.781,-480,2,WIN,42.0
-2026-03-28,UFN: Adesanya vs. Pyfer,Navajo Stirling vs Bruno Lopes,0.807,0.77,-440,1,WIN,23.0
-2026-09-05,UFN: Hooker vs. Parnasse,Klaudia Sygula vs Nora Cornolle,0.738,0.313,207,1,LOSS,-100.0
+event_date,event,fight_id,fighter,rule,units,open_line,clean_close,clv_pts,result,pnl
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,2bbfbb234c255249,Klaudia Sygula,GAP,1,-300,-184,-10.49,WIN,0.3333
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,fb4b1754d510b0d0,Vinicius Oliveira,FLIP,1,120,114,0.83,LOSS,-1.0
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,ac39c1f00ae31e58,Alden Coria,GAP,1,-210,-413,11.49,WIN,0.4762
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,dc6f6c8228390ebb,Melquizael Costa,GAP,1,-125,-247,14.86,WIN,0.8
+2026-03-14,UFC Fight Night: Emmett vs. Vallejos,f26c0bdf7689aea2,Myktybek Orolbai,GAP,1,-250,-481,10.31,WIN,0.4
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,bfd17ed83ec5b598,Brando Pericic,FLIP,1,145,-243,28.31,WIN,1.45
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,3b9f50f07d9a1601,Nathaniel Wood,FLIP,1,130,212,-11.46,WIN,1.3
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,1c50e43770ba84fc,Casey O'Neill,FLIP,1,110,-125,7.15,WIN,1.1
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,fa96d6252579b51e,Ignacio Bahamondes,GAP,1,-200,-330,8.5,LOSS,-1.0
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,74bb036ef0493bf7,Alice Pereira,GAP,1,-110,-146,6.85,WIN,0.9091
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,7924f10aac3543de,Robert Ruchala,FLIP,1,250,206,3.8,LOSS,-1.0
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,610a640a0cd81ce5,Dom Mar Fan,FLIP,1,175,148,3.83,LOSS,-1.0
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,00bde62cac38e5e9,Colby Thicknesse,GAP,1,-110,-129,3.83,WIN,0.9091
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,a564219e7a964aa6,Brando Pericic,FLIP,1,135,-120,11.49,WIN,1.35
+2026-05-09,UFC 328: Chimaev vs. Strickland,ffcb47e17eebe6a6,Grant Dawson,GAP,1,-110,-136,5.57,WIN,0.9091
+2026-05-30,UFC Fight Night: Song vs. Figueiredo,00959e29e4a10e26,Cameron Smotherman,FLIP,1,285,250,2.47,LOSS,-1.0
+2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,1,-110,-141,6.94,WIN,0.9091
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,1,100,-114,3.63,WIN,1.0
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,1,-225,-281,3.87,WIN,0.4444
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,1,125,-224,26.05,WIN,1.25
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,1,-255,-365,5.98,WIN,0.3922
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,1,-172,-250,10.4,WIN,0.5814
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,61280e5644189c61,Saygid Izagakhmaev,FLIP,1,175,242,-5.92,LOSS,-1.0
