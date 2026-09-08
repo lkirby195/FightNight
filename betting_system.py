@@ -1,8 +1,8 @@
 """FightNight betting system — apply the KISS rule and settle.
 
-Rule (at the OPENING line; pre-registered spec: FLIP 2u, GAP 1u):
-  FLIP: model picks the market underdog AND model prob >= 0.60  -> 2 units
-  GAP : model agrees on favorite AND prices them >= 100 American pts stronger  -> 1 unit
+Rule (flat 1 unit at the OPENING line):
+  FLIP: model picks the market underdog AND model prob >= 0.65
+  GAP : model agrees on favorite AND prices them >= 100 American pts stronger
 Pre-filter: skip bouts whose opening implied-prob sum is outside [1.00, 1.12].
 
 Requires: data/model_only_preds.csv, data/bfo_joined.csv, data/fights_v2.csv
@@ -15,9 +15,9 @@ import sys
 import numpy as np
 import pandas as pd
 
-FLIP_CONF = 0.60
+FLIP_CONF = 0.65
 GAP_PTS = 100
-FLIP_UNITS = 2     # pre-registered spec: FLIP at 2u, GAP at 1u
+FLIP_UNITS = 1     # flat; set 2 for the higher-variance variant
 GAP_UNITS = 1
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))

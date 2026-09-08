@@ -42,7 +42,7 @@ pipeline/clv_eval.py    CLV eval vs opening lines (model-only probs; see the
                         circularity warning in the docstring)
 pipeline/card_report.py Per-event report: model %, fair line, open/close, CLV,
                         results. Usage: card_report.py <bfo-slug> <YYYY-MM-DD>
-pipeline/betting_system.py  KISS betting rule (flip>=60% at 2u, gap>=100pts at 1u).
+pipeline/betting_system.py  KISS betting rule (flip>=65% + gap>=100pts, flat 1u).
                         Usage: betting_system.py [year|all]
 ```
 

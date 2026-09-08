@@ -15,7 +15,7 @@ All of them are v1-era and are **not needed for the v2 pipeline**
 | `data/mw_cache.json` | v1 missed-weight cache built by `v1/mw_chunked.py` (Wikipedia crawler) | missing |
 | `data/preds.csv` | v1 replay predictions (output of `v1/run.py` / `v1/final_eval.py`) | missing |
 | `data/odds-raw.csv` | v1 historical closing-odds input to `v1/market.py` | missing |
-| `BETTING-SYSTEM.md` | Betting-rule doc referenced by `README.md` | missing (the uploaded file under that name was actually `.gitignore`) |
+| `BETTING-SYSTEM.md` | Betting-rule doc referenced by `README.md` | recreated 2026-09-08 (the uploaded file under that name was actually `.gitignore`) |
 
 Note: the v1 scripts in `v1/` carry an `os.chdir(_ROOT/data)` + `sys.path.insert(_ROOT/src)`
 preamble from the original v1 layout; they are kept for the record and are not
