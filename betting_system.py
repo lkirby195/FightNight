@@ -104,7 +104,7 @@ def report(B, label):
 
 def _lastn(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    p = re.sub(r"[^a-z ]", "", s.lower()).split()
+    p = re.sub(r"[^a-z ]", "", s.lower().replace("-", " ")).split()
     return p[-1] if p else ""
 
 

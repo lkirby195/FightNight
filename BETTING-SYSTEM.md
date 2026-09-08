@@ -75,6 +75,12 @@ a later data refresh can move historical probabilities again; diff the live
 file against the snapshot and do not re-quote the historical figures from a
 refreshed file.
 
+Post-snapshot change, 2026-09-08: the hyphenated-name fix in `norm()`
+(`clv_eval.py`, `card_report.py`; BFO "Cortes-Acosta" now meets UFC Stats
+"Cortes Acosta") added 27 joined fights to `data/bfo_joined.csv`, none of which
+triggers a bet, so the figures above stand and the live preds file still
+matches the snapshot byte for byte.
+
 t is the one-sample t-statistic of per-bet return on stake. The rule was chosen
 on this same history, so the in-sample t overstates the evidence; the live
 record from 2026-09-08 forward is the out-of-sample test.

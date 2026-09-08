@@ -34,7 +34,7 @@ PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
 
 def norm(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z ]", "", s.lower()).strip()
+    return re.sub(r"[^a-z ]", "", s.lower().replace("-", " ")).strip()
 
 
 def build_states(cutoff: date):
@@ -123,14 +123,17 @@ def fit_model():
 def main(slug, ev_date_s):
     ev_date = date.fromisoformat(ev_date_s)
     eng, car, meta = build_states(ev_date)
-    byname = {}
+    byname, byjoined = {}, {}
     for fid, fo in eng.fighters.items():
         byname.setdefault(norm(fo.name), fid)
+        byjoined.setdefault(norm(fo.name).replace(" ", ""), fid)
 
     def find(name):
         n = norm(name)
         if n in byname:
             return byname[n]
+        if n.replace(" ", "") in byjoined:      # BFO "Sangcha-An" vs "Sangcha'an"
+            return byjoined[n.replace(" ", "")]
         t = n.split()
         c = [fid for nm, fid in byname.items()
              if nm.endswith(" " + t[-1]) and nm.split()[0][:3] == t[0][:3]]
