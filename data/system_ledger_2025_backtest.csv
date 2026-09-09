@@ -1,0 +1,35 @@
+event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,pnl_placed,open_line,placeable_line,clean_close,clv_pts,result,method,round,pnl,pnl_at_open
+2025-01-18,UFC 311: Makhachev vs. Moicano,938081fae11dcbbf,Zach Reese,FLIP,0,1,208.9,350.0,0,0.0,-0.0,160,,152,1.03,LOSS,KO/TKO,1,-1.0,-1.0
+2025-02-01,UFC Fight Night: Adesanya vs. Imavov,775788423f5eeb99,Fares Ziam,FLIP,0,1,143.91,179.97,1,0.9,1.8,200,,120,12.19,WIN,U-DEC,3,2.0,2.0
+2025-02-08,UFC 312: Du Plessis vs. Strickland 2,d13849f49f99bf01,Dricus Du Plessis,GAP,0,1,126.49,92.15,1,1.0,0.7692,-130,,-219,11.42,WIN,U-DEC,5,0.7692,0.7692
+2025-02-15,UFC Fight Night: Cannonier vs. Rodrigues,f4817d5cbe9be532,Ketlen Souza,FLIP,0,1,211.52,88.59,1,0.5,-0.5,124,,-107,6.56,LOSS,S-DEC,3,-1.0,-1.0
+2025-02-15,UFC Fight Night: Cannonier vs. Rodrigues,365e2d891b98b86d,Gregory Rodrigues,FLIP,0,1,139.75,100.04,1,0.93,-0.93,110,,-242,21.96,LOSS,KO/TKO,4,-1.0,-1.0
+2025-02-22,UFC Fight Night: Cejudo vs. Song,b6475543ab6d20c9,Modestas Bukauskas,GAP,0,1,139.95,282.49,1,0.93,0.3121,-298,,-281,-1.3,WIN,KO/TKO,1,0.3356,0.3356
+2025-03-08,UFC 313: Pereira vs. Ankalaev,79f1c9f97d83ec83,Iasmin Lucindo,FLIP,0,1,164.6,114.01,1,0.75,-0.75,105,,-137,8.54,LOSS,U-DEC,3,-1.0,-1.0
+2025-03-15,UFC Fight Night: Vettori vs. Dolidze 2,1c62a7444808d97f,Josiane Nunes,GAP,0,1,194.51,128.52,1,0.54,-0.54,-225,,-168,-6.39,LOSS,KO/TKO,1,-1.0,-1.0
+2025-03-15,UFC Fight Night: Vettori vs. Dolidze 2,d8f40b82364b6411,Alexander Hernandez,GAP,0,1,106.66,163.09,1,1.0,0.5714,-175,,-197,2.46,WIN,U-DEC,3,0.5714,0.5714
+2025-03-22,UFC Fight Night: Edwards vs. Brady,2a1071689c3af9df,Chris Padilla,FLIP,0,1,250.85,144.01,1,0.5,0.525,105,,105,1.06,WIN,S-DEC,3,1.05,1.05
+2025-03-29,UFC Fight Night: Moreno vs. Erceg,5ba7dd466e30169f,Ronaldo Rodriguez,GAP,0,1,237.59,234.69,0,0.0,-0.0,-150,,-188,6.63,LOSS,U-DEC,3,-1.0,-1.0
+2025-03-29,UFC Fight Night: Moreno vs. Erceg,0f20c1d7c44fa5fe,Raul Rosas Jr.,GAP,0,1,180.3,131.89,1,0.64,0.1922,-333,,-518,8.74,WIN,U-DEC,3,0.3003,0.3003
+2025-03-29,UFC Fight Night: Moreno vs. Erceg,8fc8d66ad0074ab0,Manuel Torres,FLIP,0,1,180.78,91.49,1,0.64,0.5818,-110,,-125,4.14,WIN,KO/TKO,1,0.9091,0.9091
+2025-04-12,UFC 314: Volkanovski vs. Lopes,d05cb4c4135ce402,Paddy Pimblett,FLIP,0,1,152.44,150.38,1,0.84,0.9576,114,,-160,14.16,WIN,KO/TKO,3,1.14,1.14
+2025-05-31,UFC Fight Night: Blanchfield vs. Barber,2521fed000747f47,Jordan Leavitt,GAP,0,1,156.43,152.88,1,0.81,0.4909,-165,,-249,9.14,WIN,SUB,1,0.6061,0.6061
+2025-06-07,UFC 316: Dvalishvili vs. O'Malley 2,f0488a4486a64af0,Khaos Williams,GAP,0,1,137.51,350.0,1,0.95,-0.95,-188,,-192,0.82,LOSS,U-DEC,3,-1.0,-1.0
+2025-06-07,UFC 316: Dvalishvili vs. O'Malley 2,df5dac45fc585fb0,Mario Bautista,FLIP,0,1,127.09,350.0,1,1.0,1.63,163,,153,1.67,WIN,U-DEC,3,1.63,1.63
+2025-06-21,UFC Fight Night: Hill vs. Rountree Jr.,5fcf18bcd2a020f1,Ismail Naurdiev,FLIP,0,1,169.88,125.48,1,0.72,-0.72,163,,152,2.53,LOSS,U-DEC,3,-1.0,-1.0
+2025-06-21,UFC Fight Night: Hill vs. Rountree Jr.,36ec204f47e4d613,Myktybek Orolbai,GAP,0,1,205.25,350.0,0,0.0,0.0,-150,,-172,3.13,WIN,SUB,1,0.6667,0.6667
+2025-06-21,UFC Fight Night: Hill vs. Rountree Jr.,8e5744c664fec3e9,Curtis Blaydes,GAP,0,1,97.73,350.0,1,1.0,0.4,-250,,-252,2.25,WIN,S-DEC,3,0.4,0.4
+2025-06-21,UFC Fight Night: Hill vs. Rountree Jr.,a1afc16e21d1a807,Ignacio Bahamondes,FLIP,0,1,138.96,119.48,1,0.94,-0.94,110,,-141,10.21,LOSS,U-DEC,3,-1.0,-1.0
+2025-07-12,UFC Fight Night: Lewis vs. Teixeira,f368475c366c6d85,Steve Garcia,GAP,0,1,144.32,105.75,1,0.9,0.6,-150,,-144,0.29,WIN,U-DEC,3,0.6667,0.6667
+2025-07-26,UFC Fight Night: Whittaker vs. De Ridder,0a598768f5c8d540,Martin Buday,FLIP,0,1,159.09,350.0,1,0.79,1.817,230,,212,2.07,WIN,U-DEC,3,2.3,2.3
+2025-07-26,UFC Fight Night: Whittaker vs. De Ridder,6b8be0ee3e569ad2,Reinier de Ridder,FLIP,0,1,196.94,89.86,1,0.52,0.7904,152,,125,4.83,WIN,S-DEC,5,1.52,1.52
+2025-08-09,UFC Fight Night: Dolidze vs. Hernandez,3d6571790c21527c,Julius Walker,GAP,0,1,272.88,237.19,0,0.0,0.0,-649,,-720,2.75,WIN,U-DEC,3,0.1541,0.1541
+2025-08-09,UFC Fight Night: Dolidze vs. Hernandez,646c79a7ecd12e5f,Iasmin Lucindo,GAP,0,1,150.91,87.55,1,0.85,0.4857,-175,,-184,2.51,WIN,U-DEC,3,0.5714,0.5714
+2025-08-16,UFC 319: Du Plessis vs. Chimaev,9fa6a029f7f8241c,Lerone Murphy,FLIP,0,1,128.46,350.0,1,1.0,1.05,105,,128,-4.9,WIN,KO/TKO,1,1.05,1.05
+2025-09-06,UFC Fight Night: Imavov vs. Borralho,5cd2dd6075fadcce,Kaue Fernandes,GAP,0,1,199.31,350.0,0,0.0,0.0,-160,,-224,7.06,WIN,KO/TKO,1,0.625,0.625
+2025-09-06,UFC Fight Night: Imavov vs. Borralho,23dbe713c4294c66,Marcin Tybura,GAP,0,1,91.55,350.0,1,1.0,-1.0,-138,,-118,-2.69,LOSS,KO/TKO,1,-1.0,-1.0
+2025-09-13,Noche UFC: Lopes vs. Silva,352839a03b428e74,Claudio Puelles,FLIP,0,1,141.7,123.61,1,0.92,-0.92,-110,,-133,5.41,LOSS,S-DEC,3,-1.0,-1.0
+2025-10-04,UFC 320: Ankalaev vs. Pereira 2,7b34aa1eb09b8301,Daniel Santos,FLIP,0,1,194.71,274.55,0,0.0,0.0,102,,-139,8.87,WIN,KO/TKO,2,1.02,1.02
+2025-11-15,UFC 322: Della Maddalena vs. Makhachev,1a5378e32e8519ef,Matheus Camilo,FLIP,0,1,266.14,133.76,1,0.5,0.55,110,,-169,14.3,WIN,U-DEC,3,1.1,1.1
+2025-11-15,UFC 322: Della Maddalena vs. Makhachev,477af74ea3cbba8b,Michael Morales,FLIP,0,1,149.23,122.71,1,0.86,0.819,-105,,120,-5.48,WIN,KO/TKO,1,0.9524,0.9524
+2025-12-13,UFC Fight Night: Royval vs. Kape,0fca825e14429c1f,Neil Magny,FLIP,0,1,77.78,350.0,0,0.0,-0.0,375,,390,-0.66,LOSS,SUB,1,-1.0,-1.0
