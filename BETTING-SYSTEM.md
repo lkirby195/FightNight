@@ -22,6 +22,60 @@ pre-registration point: the live record from 2026-09-08 forward is the test.
 Constants in `betting_system.py`: `FLIP_CONF = 0.65`, `FLIP_UNITS = 1`,
 `GAP_PTS = 100`, `GAP_UNITS = 1`.
 
+## Placement policy v1 (frozen 2026-09-09)
+
+The signal rules above decide what is logged; the placement policy decides
+which signals are placed and at what stake. Every signal is still recorded at
+flat 1u (`units`, `pnl`, `pnl_at_open`); the policy adds `placed` and
+`stake_u`, and `pnl_placed` = `stake_u` x `pnl` per unit. Inputs are the
+pre-fight rating deviation (RD) of both fighters from `data/prefight_rd.csv`
+(written by `prefight_rd.py`: the time-inflated RD on the public scale,
+exactly what `card_report.build_states` sees before the bout) and the backed
+side's American price (`placeable_line` where captured, else `open_line`).
+
+```
+1. Price cap : backed side +250 or longer -> not placed        SKIP_LINE_MAX = 250
+2. Unknowns  : both fighters RD > 160 -> not placed            UNKNOWN_RD = 160
+3. RD ramp   : 1u up to a backed-side RD of 130, falling       RAMP_LO, RAMP_HI = 130, 200
+               linearly to 0.5u at RD 200, floored at 0.5u
+```
+
+Rationale: edge concentrates where the backed fighter is well-measured, and
+signals where both fighters are unknown have netted to zero since 2018.
+Kelly / edge-proportional sizing was tested and rejected: the model
+probability is overconfident by 15-20 points on the selected bets, so sizing
+on it would put the most money on the least-evidenced picks.
+
+Signal rules (frozen 2026-09-08) and placement policy (frozen 2026-09-09)
+have separate freeze dates, and both records are reported: the flat signal
+record (`LIVE RECORD` / `FULL SIM`) and the placed record (the
+`PLACED (policy v1)` block printed under each, settled the same way as the
+block above it). The policy is a pure function of existing ledger columns, so
+it is applied retroactively to every row; the placed figures before
+2026-09-09 are in-sample, like the rule's own sim. `card_report.py` prints the
+stake next to each rule-fired pick (`1.00u`, `0.72u`, or `skip: both unknown`
+/ `skip: +275`), using the same `stake_units` function.
+
+Placed record at the freeze (`python betting_system.py all`, data through
+2026-09-05):
+
+```
+LIVE RECORD (all): 26 bets  19-7  ...  P&L (placeable) +9.3u
+PLACED (policy v1): 16 placed of 26 signals  13-3  staked 12.5u  P&L +6.2u ($+624)  ROI +50.0%  t=2.32
+    FLIP: 6 placed  4-2  ROI +60.9%
+    GAP: 10 placed  9-1  ROI +43.2%
+
+FULL SIM (all): 533 bets  307-226  ...  P&L +57.1u
+PLACED (policy v1): 218 placed of 533 signals  147-71  staked 185.0u  P&L +56.0u ($+5,601)  ROI +30.3%  t=4.42
+    FLIP: 110 placed  67-43  ROI +43.4%
+    GAP: 108 placed  80-28  ROI +16.6%
+```
+
+Of the 503 signals from 2012-2024, 200 are placed: 133-67, staked 170.8u,
++49.9u (the flat signal record over the same rows is unchanged at +49.7u).
+Of the 30 signals of 2026, 18 are placed: 14-4, staked 14.3u, +6.1u. Skips:
+305 signals with both fighters unknown, 10 at +250 or longer.
+
 ## Inputs, pre-filter, settlement
 
 - Inputs: `data/model_only_preds.csv` (walk-forward model, trained strictly on
@@ -100,8 +154,9 @@ paired-tick overround filter in `card_settle.py` recovers the last pre-fight boo
 code and regenerate. Columns:
 
 ```
-event_date, event, fight_id, fighter, rule, live, units, open_line,
-placeable_line, clean_close, clv_pts, result, pnl, pnl_at_open
+event_date, event, fight_id, fighter, rule, live, units, rd_self, rd_opp,
+placed, stake_u, pnl_placed, open_line, placeable_line, clean_close, clv_pts,
+result, method, round, pnl, pnl_at_open
 ```
 
 `open_line` / `placeable_line` / `clean_close` are American odds for the side
@@ -112,7 +167,10 @@ captured). `clean_close` is the last pre-fight paired tick (the
 in-play ticks. `clv_pts` is the bet side's vig-free close minus open in
 probability points. `pnl` is in units, settled at `placeable_line` where
 present and at `open_line` otherwise; `pnl_at_open` is the open-line
-settlement for every row.
+settlement for every row. `rd_self` / `rd_opp` are the pre-fight RDs of the
+backed fighter and the opponent, and `placed` / `stake_u` / `pnl_placed` the
+placement-policy decision and its P&L (see "Placement policy v1"); `method` /
+`round` are the bout's finish from `fights_v2.csv`.
 
 The ledger only covers bouts present in `data/model_only_preds.csv` and
 `data/bfo_joined.csv`; cards scraped after the last `clv_eval.py` run are not in
