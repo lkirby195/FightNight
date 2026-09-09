@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}How it works · {{ brand }}{% endblock %}
+{% block content %}
+<header class="hero">
+  <p class="kicker">How it works</p>
+  <h1>One rating system, two rules, no exceptions</h1>
+</header>
+
+{# DRAFT COPY: placeholder until the final plain-language text is supplied. #}
+<div class="prose">
+  <h2>The rating</h2>
+  <p>Every UFC fight since 1994 goes through the same rating system, in order, one at
+  a time. A win over a strong opponent moves you up more than a win over a weak one;
+  a finish counts for more than a split decision. Each fighter also carries a margin
+  of error that shrinks with every bout and grows during a layoff. The rankings sort
+  by rating minus that margin, so a fighter has to keep earning their place.</p>
+
+  <h2>The pick</h2>
+  <p>Before each card we combine the ratings with what each fighter has actually done
+  in the cage (pace, finishes, takedowns, age, layoffs, reach) to put a number on
+  every fight: our probability that each side wins. The number is fixed and posted
+  before the fights happen, and never changed afterwards. Our pick is simply the
+  side with the higher number.</p>
+
+  <h2>The bet</h2>
+  <p>Most weeks the odds and our numbers agree, and we do nothing. We bet only when
+  they disagree in one of two specific ways, and the bar for each was fixed on
+  {{ rule_freeze }}:</p>
+  <ul>
+    <li><b>The underdog rule.</b> The odds have a fighter as the underdog, but our
+    number has that fighter winning at least {{ (flip * 100) | round | int }}% of the time.</li>
+    <li><b>The price rule.</b> We agree with the favourite, but the odds are at least
+    {{ gap }} points shorter than our number says they should be.</li>
+  </ul>
+  <p>How much we bet was fixed on {{ policy_freeze }}: one unit (${{ 100 }}) when the
+  fighter we're backing has a solid track record, sliding to half a unit as the record
+  thins out. We don't bet at all when our fighter is a bigger underdog than
+  +{{ skip_line | int }} (more than {{ (skip_line / 100) | round(1) }}-to-1 against), or when
+  neither fighter has enough results to trust.</p>
+
+  <h2>Keeping it honest</h2>
+  <p>Picks and bets are posted before each event and timestamped. Every page on this
+  site is generated from the public ledger and committed alongside it, so any change
+  after a fight would be visible. Results are graded at the price that was on the board
+  when the pick went up, not the opening line and not the closing line.</p>
+
+  <h2>The numbers</h2>
+  <p>Three things were frozen and dated, and none of them are tuned on results since:</p>
+  <ul>
+    <li>Ratings engine and its parameters: frozen {{ ratings_freeze }}.</li>
+    <li>Betting rules: frozen {{ rule_freeze }}.</li>
+    <li>Stake sizing: frozen {{ policy_freeze }}.</li>
+  </ul>
+  <p>Across {{ "{:,}".format(n) }} fights from {{ years }}, when our number disagreed with
+  the opening odds by 10 points, the closing odds moved about
+  <b>{{ "%.1f" | format(move10) }} points our way</b>. Taken at the opening line and graded
+  against the close, our picks averaged <b>{{ "%+.2f" | format(clv) }} points</b> of
+  closing-line value per fight.</p>
+  <div class="tablewrap">
+  <table class="small">
+    <thead><tr><th>Forecaster</th><th class="r">Log-loss ({{ years }}, n={{ "{:,}".format(n) }})</th></tr></thead>
+    <tbody>
+      <tr><td>Our model, no market input</td><td class="r mono">{{ "%.4f" | format(ll_model) }}</td></tr>
+      <tr><td>Opening odds, margin removed</td><td class="r mono">{{ "%.4f" | format(ll_open) }}</td></tr>
+      <tr><td>Closing odds, margin removed</td><td class="r mono">{{ "%.4f" | format(ll_close) }}</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="dim">Lower is better. The closing market knows more than we do; our claim is
+  narrower: we reach the market's answer early, and we only bet the gaps it leaves open.</p>
+</div>
+{% endblock %}
