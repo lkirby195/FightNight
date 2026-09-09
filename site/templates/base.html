@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ brand }}{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/">{{ brand }}</a>
+    <nav class="nav">
+      <a href="/rankings/" {% if nav == "rankings" %}class="on"{% endif %}>Rankings</a>
+      <a href="/this-week/" {% if nav == "this-week" %}class="on"{% endif %}>This week</a>
+      <a href="/record/" {% if nav == "record" %}class="on"{% endif %}>Our record</a>
+      <a href="/how-it-works/" {% if nav == "how" %}class="on"{% endif %}>How it works</a>
+    </nav>
+    <button class="numbers-toggle" id="numbers-toggle" type="button" aria-pressed="false">Show the numbers</button>
+  </div>
+</div>
+
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>{{ brand }} · results through {{ data_through }} · built {{ as_of }}</span>
+    <span>Every page is generated from the public ledger and committed with it. Analysis, not betting advice.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // "Show the numbers": reveals the .num columns on every table.
+  var btn = document.getElementById('numbers-toggle');
+  function setNumbers(on) {
+    document.body.classList.toggle('numbers', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Hide the numbers' : 'Show the numbers';
+    try { localStorage.setItem('numbers', on ? '1' : '0'); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('numbers'); } catch (e) {}
+  if (saved === '1') setNumbers(true);
+  btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
+
+  // Tabs and pills: [data-tab="x"] buttons show [data-panel="x"] in the same group.
+  document.querySelectorAll('[data-tab]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var g = b.getAttribute('data-group');
+      document.querySelectorAll('[data-tab][data-group="' + g + '"]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      document.querySelectorAll('[data-panel][data-group="' + g + '"]').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
+      var sel = document.querySelector('select[data-cards][data-for="' + b.getAttribute('data-tab') + '"]');
+      if (sel) sel.dispatchEvent(new Event('change'));
+    });
+  });
+
+  // Card dropdown: shows the chosen [data-card] block.
+  document.querySelectorAll('select[data-cards]').forEach(function (sel) {
+    sel.addEventListener('change', function () {
+      document.querySelectorAll('[data-card]').forEach(function (c) { c.hidden = c.getAttribute('data-card') !== sel.value; });
+    });
+  });
+  var first = document.querySelector('select[data-cards]');
+  if (first) first.dispatchEvent(new Event('change'));
+})();
+</script>
+</body>
+</html>

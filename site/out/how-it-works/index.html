@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works · SPLIT DECISION</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <a class="wordmark" href="/">SPLIT DECISION</a>
+    <nav class="nav">
+      <a href="/rankings/" >Rankings</a>
+      <a href="/this-week/" >This week</a>
+      <a href="/record/" >Our record</a>
+      <a href="/how-it-works/" class="on">How it works</a>
+    </nav>
+    <button class="numbers-toggle" id="numbers-toggle" type="button" aria-pressed="false">Show the numbers</button>
+  </div>
+</div>
+
+<main class="wrap">
+<header class="hero">
+  <p class="kicker">How it works</p>
+  <h1>One rating system, two rules, no exceptions</h1>
+</header>
+
+<div class="prose">
+  <h2>The rating</h2>
+  <p>Every UFC fight since 1994 goes through the same rating system, in order, one at
+  a time. A win over a strong opponent moves you up more than a win over a weak one;
+  a finish counts for more than a split decision. Each fighter also carries a margin
+  of error that shrinks with every bout and grows during a layoff. The rankings sort
+  by rating minus that margin, so a fighter has to keep earning their place.</p>
+
+  <h2>The pick</h2>
+  <p>Before each card we combine the ratings with what each fighter has actually done
+  in the cage (pace, finishes, takedowns, age, layoffs, reach) to put a number on
+  every fight: our probability that each side wins. The number is fixed and posted
+  before the fights happen, and never changed afterwards. Our pick is simply the
+  side with the higher number.</p>
+
+  <h2>The bet</h2>
+  <p>Most weeks the odds and our numbers agree, and we do nothing. We bet only when
+  they disagree in one of two specific ways, and the bar for each was fixed on
+  2026-09-08:</p>
+  <ul>
+    <li><b>The underdog rule.</b> The odds have a fighter as the underdog, but our
+    number has that fighter winning at least 65% of the time.</li>
+    <li><b>The price rule.</b> We agree with the favourite, but the odds are at least
+    100 points shorter than our number says they should be.</li>
+  </ul>
+  <p>How much we bet was fixed on 2026-09-09: one unit ($100) when the
+  fighter we're backing has a solid track record, sliding to half a unit as the record
+  thins out. We don't bet at all when our fighter is a bigger underdog than
+  +250 (more than 2.5-to-1 against), or when
+  neither fighter has enough results to trust.</p>
+
+  <h2>Keeping it honest</h2>
+  <p>Picks and bets are posted before each event and timestamped. Every page on this
+  site is generated from the public ledger and committed alongside it, so any change
+  after a fight would be visible. Results are graded at the price that was on the board
+  when the pick went up, not the opening line and not the closing line.</p>
+
+  <h2>The numbers</h2>
+  <p>Three things were frozen and dated, and none of them are tuned on results since:</p>
+  <ul>
+    <li>Ratings engine and its parameters: frozen 2026-07-25.</li>
+    <li>Betting rules: frozen 2026-09-08.</li>
+    <li>Stake sizing: frozen 2026-09-09.</li>
+  </ul>
+  <p>Across 3,571 fights from 2018–2026, when our number disagreed with
+  the opening odds by 10 points, the closing odds moved about
+  <b>2.4 points our way</b>. Taken at the opening line and graded
+  against the close, our picks averaged <b>+2.26 points</b> of
+  closing-line value per fight.</p>
+  <div class="tablewrap">
+  <table class="small">
+    <thead><tr><th>Forecaster</th><th class="r">Log-loss (2018–2026, n=3,571)</th></tr></thead>
+    <tbody>
+      <tr><td>Our model, no market input</td><td class="r mono">0.6496</td></tr>
+      <tr><td>Opening odds, margin removed</td><td class="r mono">0.6249</td></tr>
+      <tr><td>Closing odds, margin removed</td><td class="r mono">0.5938</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="dim">Lower is better. The closing market knows more than we do; our claim is
+  narrower: we reach the market's answer early, and we only bet the gaps it leaves open.</p>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>SPLIT DECISION · results through Sat Sep 5, 2026 · built Wed Sep 9, 2026</span>
+    <span>Every page is generated from the public ledger and committed with it. Analysis, not betting advice.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // "Show the numbers": reveals the .num columns on every table.
+  var btn = document.getElementById('numbers-toggle');
+  function setNumbers(on) {
+    document.body.classList.toggle('numbers', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    btn.textContent = on ? 'Hide the numbers' : 'Show the numbers';
+    try { localStorage.setItem('numbers', on ? '1' : '0'); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('numbers'); } catch (e) {}
+  if (saved === '1') setNumbers(true);
+  btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
+
+  // Tabs and pills: [data-tab="x"] buttons show [data-panel="x"] in the same group.
+  document.querySelectorAll('[data-tab]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var g = b.getAttribute('data-group');
+      document.querySelectorAll('[data-tab][data-group="' + g + '"]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      document.querySelectorAll('[data-panel][data-group="' + g + '"]').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
+      var sel = document.querySelector('select[data-cards][data-for="' + b.getAttribute('data-tab') + '"]');
+      if (sel) sel.dispatchEvent(new Event('change'));
+    });
+  });
+
+  // Card dropdown: shows the chosen [data-card] block.
+  document.querySelectorAll('select[data-cards]').forEach(function (sel) {
+    sel.addEventListener('change', function () {
+      document.querySelectorAll('[data-card]').forEach(function (c) { c.hidden = c.getAttribute('data-card') !== sel.value; });
+    });
+  });
+  var first = document.querySelector('select[data-cards]');
+  if (first) first.dispatchEvent(new Event('change'));
+})();
+</script>
+</body>
+</html>

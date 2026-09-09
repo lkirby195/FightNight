@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Rankings · {{ brand }}{% endblock %}
+{% block content %}
+<header class="hero">
+  <p class="kicker">Rankings</p>
+  <h1>Who's actually best</h1>
+  <p class="lede">Every UFC fight since 1994 run through one rating system. No voting, no
+  promotion. A fighter needs a bout since {{ eligible_since }} to be listed.</p>
+</header>
+
+<div class="pills" role="tablist">
+  {% for l in lists %}
+  <button type="button" data-tab="{{ l.key }}" data-group="div" class="pill{% if loop.first %} on{% endif %}">{{ l.label }}</button>
+  {% endfor %}
+</div>
+
+{% for l in lists %}
+<section data-panel="{{ l.key }}" data-group="div" {% if not loop.first %}hidden{% endif %}>
+  <div class="tablewrap">
+  <table class="rank">
+    <thead><tr>
+      <th class="r">#</th><th>Fighter</th><th class="r">Rating</th><th>Last 3</th><th>Last fight</th><th class="r">Move</th>
+      <th class="num r">RD</th><th class="num r">Rating − RD</th>
+    </tr></thead>
+    <tbody>
+    {% for r in l.rows %}
+    <tr>
+      <td class="r mono">{{ r.rank }}</td>
+      <td><span class="fname">{{ r.name }}</span>{% if l.key == "p4p" and r.division %}<span class="div">{{ r.division }}</span>{% endif %}</td>
+      <td class="r mono rating">{{ r.rating_i }}</td>
+      <td class="dots">{% for x in r.last3 %}<span class="dot {{ x }}" title="{{ x }}"></span>{% endfor %}</td>
+      <td class="last">{{ r.last }} <span class="dim">{{ r.last_date }}</span></td>
+      <td class="r mono move {% if r.move.startswith('▲') %}up{% elif r.move.startswith('▼') %}down{% endif %}">{{ r.move }}</td>
+      <td class="num r mono">{{ r.rd_i }}</td>
+      <td class="num r mono">{{ (r.score) | round | int }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endfor %}
+
+<div class="cards2">
+  <div class="card">
+    <h3>Reading the rating</h3>
+    <p>Everyone starts at <b>1500</b>. Around <b>1800</b> is a solid contender.
+    <b>2000 and up</b> is title territory: only a handful of fighters get there at a time.</p>
+    <p>We rank by the rating minus how unsure we are of it. A fighter who has fought
+    often and recently gets full credit; a long layoff or a thin record costs a fighter
+    places until the results come in.</p>
+  </div>
+  {% if explainer %}
+  <div class="card">
+    <h3>Why {{ explainer.one.name }} is above {{ explainer.two.name }}</h3>
+    <p>{{ explainer.two.name }} has the higher rating ({{ explainer.two.rating_i }} against
+    {{ explainer.one.rating_i }}) but we're less sure of it: fewer or older results, so a
+    wider margin of error ({{ explainer.two.rd_i }} points against {{ explainer.one.rd_i }}).
+    Rating minus that margin puts {{ explainer.one.name }} first.</p>
+  </div>
+  {% endif %}
+</div>
+
+{% if rising %}
+<section class="rising">
+  <h2>Rising</h2>
+  <p class="dim">High ratings we can't vouch for yet. Too few or too old results to rank; watch this space.</p>
+  <ul>
+    {% for r in rising %}
+    <li><span class="fname">{{ r.name }}</span>{% if r.division %} <span class="div">{{ r.division }}</span>{% endif %}
+      <span class="mono">{{ r.rating_i }}</span> <span class="dim">{{ r.last }} {{ r.last_date }}</span>
+      <span class="num mono dim">RD {{ r.rd_i }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

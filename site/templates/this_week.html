@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}This week · {{ brand }}{% endblock %}
+{% block content %}
+{% if not event %}
+<header class="hero">
+  <p class="kicker">This week</p>
+  <h1>Picks for {{ next_name }} post Thursday.</h1>
+  <p class="lede">Picks go up before the odds settle and are timestamped when they do.
+  Until then, see <a href="/record/">our record</a>.</p>
+</header>
+{% else %}
+<header class="hero">
+  <p class="kicker">This week · {{ event.date_text }}</p>
+  <h1>{{ event.name }}</h1>
+  <p class="stamp">Picks posted {{ event.posted_text }}</p>
+  <p class="lede">{{ event.summary }}</p>
+</header>
+
+<div class="tablewrap">
+<table class="card-table">
+  <thead><tr>
+    <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Our bet</th>
+    <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Now</th>
+    <th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+  </tr></thead>
+  <tbody>
+  {% for b in event.bouts %}
+  <tr{% if b.main %} class="main"{% endif %}>
+    <td class="bout">{% if b.main %}<span class="tag">Main event</span>{% endif %}
+      <span class="fname">{{ b.f1 }}</span><span class="vs">vs</span><span class="fname">{{ b.f2 }}</span></td>
+    <td class="pick">{{ b.pick_text }}{% if b.tag %} <span class="flag">{{ b.tag }}</span>{% endif %}</td>
+    <td class="odds">{{ b.odds_text }}</td>
+    <td class="bet {{ b.bet_kind }}">{{ b.bet_text }}</td>
+    <td class="num mono">{{ b.num.model_line }}</td>
+    <td class="num mono">{{ b.num.open }}</td>
+    <td class="num mono">{{ b.num.placeable }}</td>
+    <td class="num mono">{{ b.num.now }}</td>
+    <td class="num mono">{{ b.num.rule }}</td>
+    <td class="num mono r">{{ b.num.stake_u }}</td>
+    <td class="num mono">{{ b.num.rd }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+<p class="foot">{{ stake_note }} Odds are the market's numbers with the bookmaker's margin taken out,
+as they stood when this page was built.</p>
+{% endif %}
+{% endblock %}

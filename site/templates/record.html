@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Our record · {{ brand }}{% endblock %}
+{% block content %}
+<header class="hero">
+  <p class="kicker">Our record</p>
+  <h1>Every pick, every bet, on the record</h1>
+  <p class="lede">Bets are ${{ 100 }} a unit. 2026 is live money: picks posted before each event.
+  2025 is a backtest of the same rules, settled at opening odds with no money down.
+  <a href="/record/ledger.csv">Download the ledger</a>.</p>
+</header>
+
+<div class="tabs" role="tablist">
+  {% for t in tabs %}
+  <button type="button" data-tab="{{ t.key }}" data-group="year" class="tab{% if loop.first %} on{% endif %}">
+    {{ t.label }}{% if t.badge %} <span class="badge {{ t.badge | lower }}" title="{{ t.tip }}">{{ t.badge }}</span>{% endif %}
+  </button>
+  {% endfor %}
+</div>
+
+{% for t in tabs %}
+<section data-panel="{{ t.key }}" data-group="year" {% if not loop.first %}hidden{% endif %}>
+  <div class="tiles">
+    <div class="tile"><small>Bets</small><b>{{ t.tiles.w }}–{{ t.tiles.l }}</b><span class="dim">{{ t.tiles.bets }} placed</span></div>
+    <div class="tile"><small>Net</small><b class="{{ 'pos' if t.tiles.pos else 'neg' }}">{{ t.tiles.net }}</b><span class="dim">at $100 a unit</span></div>
+  </div>
+  {% if t.cards %}
+  <label class="cardpick">Card
+    <select data-cards data-for="{{ t.key }}">
+      {% for c in t.cards %}<option value="{{ c.key }}">{{ c.name }} · {{ c.date_text }}</option>{% endfor %}
+    </select>
+  </label>
+  {% else %}
+  <p class="dim">No cards yet.</p>
+  {% endif %}
+</section>
+{% endfor %}
+
+{% for key, c in cards.items() %}
+<article data-card="{{ c.key }}" hidden class="finished">
+  <header class="cardhead">
+    <h2>{{ c.name }}</h2>
+    <p class="stamp">{{ c.date_text }} · {{ c.posted_text }}</p>
+  </header>
+
+  <h3>Our bets</h3>
+  {% if c.bets %}
+  <div class="tablewrap">
+  <table class="bets">
+    <thead><tr>
+      <th>Bet</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    {% for b in c.bets %}
+    <tr>
+      <td class="mono">{{ b.stake }}</td>
+      <td class="pick">{{ b.pick }} <span class="dim">over {{ b.opp }}</span></td>
+      <td class="odds">{{ b.odds_text }}</td>
+      <td class="result {{ 'hit' if b.won else 'miss' }}"><b>{{ b.result }}</b> <span class="dim">· {{ b.how }}</span></td>
+      <td class="num mono">{{ b.num.model_line }}</td>
+      <td class="num mono">{{ b.num.open }}</td>
+      <td class="num mono">{{ b.num.placeable }}</td>
+      <td class="num mono">{{ b.num.close }}</td>
+      <td class="num mono r">{{ b.num.clv }}</td>
+      <td class="num mono">{{ b.num.rule }}</td>
+      <td class="num mono r">{{ b.num.stake_u }}</td>
+      <td class="num mono">{{ b.num.rd }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot><tr><td colspan="12"><b>{{ c.w }}–{{ c.l }}</b> · net <b class="{{ 'pos' if c.net_u >= 0 else 'neg' }}">{{ c.net }}</b></td></tr></tfoot>
+  </table>
+  </div>
+  {% else %}
+  <p class="nobets">No bets on this card.</p>
+  {% endif %}
+
+  <h3>Every fight <span class="dim">picks right {{ c.hits }} of {{ c.total }}</span></h3>
+  <div class="tablewrap">
+  <table class="card-table">
+    <thead><tr>
+      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    {% for f in c.fights %}
+    <tr{% if f.main %} class="main"{% endif %}>
+      <td class="bout">{% if f.main %}<span class="tag">Main event</span>{% endif %}
+        <span class="fname">{{ f.f1 }}</span><span class="vs">vs</span><span class="fname">{{ f.f2 }}</span></td>
+      <td class="pick">{{ f.pick_text }}{% if f.tag %} <span class="flag">{{ f.tag }}</span>{% endif %}</td>
+      <td class="odds">{{ f.odds_text }}</td>
+      <td class="result {{ f.mark_kind }}"><b class="mark">{{ f.mark }}</b> <span class="dim">{{ f.result }}</span></td>
+      <td class="num mono">{{ f.num.model_line }}</td>
+      <td class="num mono">{{ f.num.open }}</td>
+      <td class="num mono">{{ f.num.placeable }}</td>
+      <td class="num mono">{{ f.num.close }}</td>
+      <td class="num mono r">{{ f.num.clv }}</td>
+      <td class="num mono">{{ f.num.rule }}</td>
+      <td class="num mono r">{{ f.num.stake_u }}</td>
+      <td class="num mono">{{ f.num.rd }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</article>
+{% endfor %}
+<p class="foot">Picks right counts fights where we named a side and there was a winner:
+coin flips, draws and no contests are shown but not counted. Cards we did not post
+picks for before the event are not part of the live record.</p>
+{% endblock %}

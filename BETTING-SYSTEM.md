@@ -89,6 +89,20 @@ Of the 30 signals of 2026, 18 are placed: 14-4, staked 14.3u, +6.1u. Skips:
 - 2025 is a sealed holdout: there are no 2025 model predictions, so the sim
   covers 2012-2024 and 2026.
 
+## 2025 backtest (sealed one-shot, for display only)
+
+`data/system_ledger_2025_backtest.csv` and
+`data/model_only_preds_2025_backtest.csv` were written ONCE on 2026-09-09 by
+`site/backtest_2025.py`: the walk-forward Stage 2 fit on fights before
+2025-01-01 (the `clv_eval.py` recipe), the frozen rule above (2026-09-08) and
+placement policy v1 (2026-09-09) over the 2025 cards, settled at the opening
+line (`live=0`, no placeable line, no money down). They feed the public site's
+2025 tab and nothing else: a sealed read for display, not an input to model
+selection, and never regenerated (the script refuses to run if the files
+exist). `data/model_only_preds.csv` and `data/system_ledger.csv` are untouched.
+At the seal: 34 signals, 22-12, +8.3u flat; placed 27, 18-9, staked 21.9u,
++7.1u.
+
 ## Historical sim at the frozen rule
 
 `python betting_system.py all` (data through 2026-09-05):
