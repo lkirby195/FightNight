@@ -1,534 +1,534 @@
-event_date,event,fight_id,fighter,rule,live,units,open_line,placeable_line,clean_close,clv_pts,result,pnl,pnl_at_open
-2012-01-14,UFC 142: Aldo vs Mendes,7bb603674999e675,Felipe Arantes,FLIP,0,1,175,,155,4.21,WIN,1.75,1.75
-2012-01-20,UFC on FX: Guillard vs Miller,fc91f1e448f35797,Christian Morecraft,FLIP,0,1,150,,185,-3.87,LOSS,-1.0,-1.0
-2012-01-28,UFC on FOX: Evans vs Davis,e8a167bb84082832,Michael Johnson,FLIP,0,1,165,,225,-5.37,WIN,1.65,1.65
-2012-01-28,UFC on FOX: Evans vs Davis,c63a050af0692daf,Mike Russow,GAP,0,1,-210,,-105,-13.79,WIN,0.4762,0.4762
-2012-02-04,UFC 143: Diaz vs Condit,6ecc59654c2f519f,Matthew Riddle,GAP,0,1,-350,,-365,3.38,WIN,0.2857,0.2857
-2012-02-04,UFC 143: Diaz vs Condit,d019250cc6d93527,Alex Caceres,FLIP,0,1,110,,115,0.63,LOSS,-1.0,-1.0
-2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,74e92a66b29674a9,John Albert,FLIP,0,1,200,,220,-0.46,LOSS,-1.0,-1.0
-2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,5f7a1ba6e016b249,Walel Watson,FLIP,0,1,200,,235,-2.22,LOSS,-1.0,-1.0
-2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,f10d3d4ffd5a4922,Ronny Markes,FLIP,0,1,155,,-140,19.63,WIN,1.55,1.55
-2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,e93d07a18ca847c8,Stefan Struve,FLIP,0,1,105,,101,2.68,WIN,1.05,1.05
-2012-02-25,UFC 144: Edgar vs Henderson,eac1c31f1b3d11f3,Yushin Okami,FLIP,0,1,240,,-410,51.04,LOSS,-1.0,-1.0
-2012-02-25,UFC 144: Edgar vs Henderson,319053a9de63ab85,Cheick Kongo,GAP,0,1,-210,,-280,8.56,LOSS,-1.0,-1.0
-2012-03-02,UFC on FX: Alves vs Kampmann,01e5e4099f03f20e,Court McGee,FLIP,0,1,130,,-125,13.58,LOSS,-1.0,-1.0
-2012-04-14,UFC on FUEL TV: Gustafsson vs Silva,8aa637fc26a01581,Cyrille Diabate,FLIP,0,1,160,,177,-1.34,WIN,1.6,1.6
-2012-04-14,UFC on FUEL TV: Gustafsson vs Silva,93096cfccdbf4fe8,Alexander Gustafsson,GAP,0,1,-210,,-260,7.28,WIN,0.4762,0.4762
-2012-04-21,UFC 145: Jones vs Evans,eaf8782e4e03139b,Marcus Brimage,FLIP,0,1,220,,215,1.37,WIN,2.2,2.2
-2012-04-21,UFC 145: Jones vs Evans,06eb7492a27bb19a,Keith Wisniewski,FLIP,0,1,180,,135,8.74,LOSS,-1.0,-1.0
-2012-04-21,UFC 145: Jones vs Evans,a6c02fb0b18e916c,Travis Browne,GAP,0,1,-185,,-300,12.11,WIN,0.5405,0.5405
-2012-04-21,UFC 145: Jones vs Evans,c1c8b38d315d487b,Mark Bocek,GAP,0,1,-195,,-290,10.04,WIN,0.5128,0.5128
-2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,ade59be2e9bc1108,Rafael Dos Anjos,GAP,0,1,-260,,-338,6.97,WIN,0.3846,0.3846
-2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,4655930eb83446c7,TJ Grant,GAP,0,1,-390,,-422,2.82,WIN,0.2564,0.2564
-2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,49818fb1520ce956,Jeremy Stephens,FLIP,0,1,200,,200,1.21,LOSS,-1.0,-1.0
-2012-05-26,UFC 146: Dos Santos vs Mir,d5457867cbd0caf7,Daniel Pineda,FLIP,0,1,165,,104,11.47,LOSS,-1.0,-1.0
-2012-05-26,UFC 146: Dos Santos vs Mir,a6a1adfeab7f7bb7,Kyle Kingsbury,FLIP,0,1,170,,208,-3.59,LOSS,-1.0,-1.0
-2012-05-26,UFC 146: Dos Santos vs Mir,de8e1dd07ad49c94,CB Dollaway,FLIP,0,1,130,,148,-1.93,WIN,1.3,1.3
-2012-05-26,UFC 146: Dos Santos vs Mir,9cdeb62aa9092713,Edson Barboza,GAP,0,1,-310,,-525,10.49,LOSS,-1.0,-1.0
-2012-05-26,UFC 146: Dos Santos vs Mir,b187bdcc2ceba00f,Darren Elkins,FLIP,0,1,290,,235,4.63,WIN,2.9,2.9
-2012-05-26,UFC 146: Dos Santos vs Mir,cd2a60453f8ac133,Stipe Miocic,FLIP,0,1,100,,-167,14.65,WIN,1.0,1.0
-2012-06-01,The Ultimate Fighter: Live Finale,fe1ce9e3a38a734b,Max Holloway,GAP,0,1,-145,,-145,2.83,WIN,0.6897,0.6897
-2012-06-01,The Ultimate Fighter: Live Finale,1c245dc63a0b9d51,Michael Chiesa,FLIP,0,1,200,,233,-1.82,WIN,2.0,2.0
-2012-06-08,UFC on FX: Johnson vs McCall,2ccecfdd7683043e,Jared Papazian,GAP,0,1,-155,,-165,3.12,LOSS,-1.0,-1.0
-2012-06-22,UFC on FX: Maynard vs Guida,00731068c3195f7f,Ramsey Nijem,GAP,0,1,-195,,-150,-4.2,WIN,0.5128,0.5128
-2012-06-23,UFC 147: Silva vs Franklin 2,00c20fa576380ac8,John Teixeira,FLIP,0,1,120,,168,-5.94,LOSS,-1.0,-1.0
-2012-06-23,UFC 147: Silva vs Franklin 2,1b80d5696c2dc640,Rich Franklin,GAP,0,1,-125,,-139,5.63,WIN,0.8,0.8
-2012-07-07,UFC 148: Silva vs Sonnen 2,8e7b1dfc608a2ef4,Yoislandy Izquierdo,FLIP,0,1,-105,,-187,16.45,LOSS,-1.0,-1.0
-2012-07-07,UFC 148: Silva vs Sonnen 2,21751a3cc69e5aae,Mike Easton,GAP,0,1,-115,,100,-1.69,WIN,0.8696,0.8696
-2012-07-11,UFC on FUEL TV: Munoz vs Weidman,d6dcbf543d7e303d,Alex Caceres,FLIP,0,1,125,,-110,7.91,WIN,1.25,1.25
-2012-07-21,UFC 149: Faber vs Barao,b6620177ac975ff2,Tim Boetsch,FLIP,0,1,200,,283,-5.68,WIN,2.0,2.0
-2012-08-04,UFC on FOX: Shogun vs Vera,758ec6b5d55c1b09,Philip De Fries,GAP,0,1,-205,,-215,1.54,WIN,0.4878,0.4878
-2012-09-22,UFC 152: Jones vs Belfort,307b12b9f08a4cbf,Charles Oliveira,FLIP,0,1,220,,-235,38.72,LOSS,-1.0,-1.0
-2012-09-29,UFC on FUEL TV: Struve vs Miocic,e34d313fbe1c28f1,Brad Tavares,GAP,0,1,-175,,-165,0.96,WIN,0.5714,0.5714
-2012-09-29,UFC on FUEL TV: Struve vs Miocic,26f876a7fb1020e1,Kyle Kingsbury,FLIP,0,1,100,,220,-15.72,LOSS,-1.0,-1.0
-2012-10-05,UFC on FX: Browne vs Bigfoot,8802182074bf4a3a,Jake Ellenberger,GAP,0,1,-350,,-320,1.09,WIN,0.2857,0.2857
-2012-10-13,UFC 153: Silva vs Bonnar,297a3fe0edd6f1c5,Gleison Tibau,GAP,0,1,-160,,-130,-2.66,WIN,0.625,0.625
-2012-11-10,UFC Macao: Franklin vs Le,1a113ac3255f3ac3,Rich Franklin,GAP,0,1,-300,,-429,8.63,LOSS,-1.0,-1.0
-2012-11-17,UFC 154: St-Pierre vs Condit,1f7c1c741b06a3ed,Cyrille Diabate,GAP,0,1,-120,,-130,4.86,WIN,0.8333,0.8333
-2012-12-08,UFC on FOX: Henderson vs Diaz,b57345c34f6d2ab3,Ramsey Nijem,GAP,0,1,-175,,-230,7.35,WIN,0.5714,0.5714
-2012-12-08,UFC on FOX: Henderson vs Diaz,405cbbcaa79db24b,Mike Swick,GAP,0,1,-140,,-147,3.73,LOSS,-1.0,-1.0
-2012-12-08,UFC on FOX: Henderson vs Diaz,bc72dac46f0383f1,Nate Diaz,FLIP,0,1,130,,180,-6.39,LOSS,-1.0,-1.0
-2012-12-15,The Ultimate Fighter: Team Carwin vs. Team Nelson Finale,8935fc5943a78c20,John Cofer,FLIP,0,1,140,,-110,10.74,LOSS,-1.0,-1.0
-2012-12-15,The Ultimate Fighter: Team Carwin vs. Team Nelson Finale,5bcc7204a43cf34e,Matt Mitrione,FLIP,0,1,175,,168,1.98,LOSS,-1.0,-1.0
-2013-01-19,UFC on FX: Belfort vs Bisping,4d231d5d5f815085,CB Dollaway,GAP,0,1,-180,,130,-18.32,WIN,0.5556,0.5556
-2013-02-16,UFC on FUEL TV: Barao vs McDonald,16ba92318ff66d4a,Phil Harris,FLIP,0,1,180,,180,1.72,WIN,1.8,1.8
-2013-02-16,UFC on FUEL TV: Barao vs McDonald,f509d5ffcc3f46fe,Motonobu Tezuka,FLIP,0,1,140,,121,4.74,LOSS,-1.0,-1.0
-2013-02-16,UFC on FUEL TV: Barao vs McDonald,d607908be8b19273,Andy Ogle,FLIP,0,1,170,,138,6.36,WIN,1.7,1.7
-2013-02-16,UFC on FUEL TV: Barao vs McDonald,493b7a8e3253b133,Dustin Poirier,GAP,0,1,-145,,-112,-3.69,LOSS,-1.0,-1.0
-2013-03-02,UFC on FUEL TV: Silva vs. Stann,e830cb1df07f3466,Yushin Okami,FLIP,0,1,170,,180,0.11,WIN,1.7,1.7
-2013-03-02,UFC on FUEL TV: Silva vs. Stann,c996b2ff10a915b1,Stefan Struve,GAP,0,1,-180,,-207,5.02,LOSS,-1.0,-1.0
-2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,438f5404c43303b8,Tom Lawlor,GAP,0,1,-145,,-137,1.5,WIN,0.6897,0.6897
-2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,bc0779b232828e67,Michael Johnson,GAP,0,1,-195,,-300,10.21,LOSS,-1.0,-1.0
-2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,4e69c86d09c9f782,Mike Easton,FLIP,0,1,140,,138,1.73,LOSS,-1.0,-1.0
-2013-04-20,UFC on FOX: Henderson vs Melendez,c8a48abe3263f796,Clifford Starks,GAP,0,1,-125,,158,-12.95,LOSS,-1.0,-1.0
-2013-04-20,UFC on FOX: Henderson vs Melendez,56ad1de1924984ad,Anthony Njokuani,GAP,0,1,-210,,-180,-0.77,WIN,0.4762,0.4762
-2013-04-20,UFC on FOX: Henderson vs Melendez,786033c27fdaa020,Tim Means,FLIP,0,1,125,,100,6.18,LOSS,-1.0,-1.0
-2013-04-20,UFC on FOX: Henderson vs Melendez,3566c8e9d3a9caa8,Francis Carmont,GAP,0,1,-125,,-115,0.74,WIN,0.8,0.8
-2013-04-20,UFC on FOX: Henderson vs Melendez,56ce29bdb1fe9abf,Nate Diaz,GAP,0,1,-160,,-145,0.13,LOSS,-1.0,-1.0
-2013-04-20,UFC on FOX: Henderson vs Melendez,4dd561df1ca58ab8,Frank Mir,FLIP,0,1,250,,325,-3.9,LOSS,-1.0,-1.0
-2013-04-27,UFC 159: Jones vs Sonnen,6d6a1834e0d18f0c,Steven Siler,FLIP,0,1,100,,-117,6.1,WIN,1.0,1.0
-2013-04-27,UFC 159: Jones vs Sonnen,44ad16cd4e6c93d7,Cody McKenzie,FLIP,0,1,120,,187,-8.52,WIN,1.2,1.2
-2013-04-27,UFC 159: Jones vs Sonnen,fb30b2752d3dc1eb,Sheila Gaff,FLIP,0,1,400,,453,-1.4,LOSS,-1.0,-1.0
-2013-04-27,UFC 159: Jones vs Sonnen,59ad5b88804afbf5,Rustam Khabilov,GAP,0,1,-310,,-192,-7.17,WIN,0.3226,0.3226
-2013-04-27,UFC 159: Jones vs Sonnen,c29850ed8d9d1073,Phil Davis,GAP,0,1,-300,,-285,1.56,WIN,0.3333,0.3333
-2013-04-27,UFC 159: Jones vs Sonnen,04e6a26fe2a4017d,Cheick Kongo,FLIP,0,1,170,,208,-3.12,LOSS,-1.0,-1.0
-2013-05-18,UFC on FX: Belfort vs. Rockhold,8aff100107d0ba11,Azamat Gashimov,FLIP,0,1,150,,-122,15.43,LOSS,-1.0,-1.0
-2013-05-18,UFC on FX: Belfort vs. Rockhold,4b4c4df2778538d9,Paulo Thiago,GAP,0,1,-210,,-195,0.73,WIN,0.4762,0.4762
-2013-05-18,UFC on FX: Belfort vs. Rockhold,ac269f99e4e53634,Chris Camozzi,FLIP,0,1,425,,463,-0.73,LOSS,-1.0,-1.0
-2013-06-08,UFC on FUEL TV: Nogueira vs. Werdum,2692ac9853970e08,Thiago Silva,FLIP,0,1,110,,183,-10.04,WIN,1.1,1.1
-2013-06-08,UFC on FUEL TV: Nogueira vs. Werdum,bd9100f5d4ee6823,William Macario,FLIP,0,1,185,,135,8.6,LOSS,-1.0,-1.0
-2013-06-15,UFC 161: Evans vs Henderson,43d1693f0198a93e,Tyron Woodley,GAP,0,1,-170,,-212,6.64,LOSS,-1.0,-1.0
-2013-06-15,UFC 161: Evans vs Henderson,27ff1bfeb2d50b38,Shawn Jordan,FLIP,0,1,135,,-110,10.15,WIN,1.35,1.35
-2013-06-15,UFC 161: Evans vs Henderson,a4daf2f24acdcd43,Stipe Miocic,FLIP,0,1,180,,230,-3.79,WIN,1.8,1.8
-2013-08-03,UFC 163: Aldo vs Jung,3846db1456151f80,Neil Magny,FLIP,0,1,170,,143,5.2,LOSS,-1.0,-1.0
-2013-08-03,UFC 163: Aldo vs Jung,168413032bb51ce0,Sheila Gaff,FLIP,0,1,180,,183,1.23,LOSS,-1.0,-1.0
-2013-08-17,UFC Fight Night: Shogun vs Sonnen,f12126b5c49a318a,Ramsey Nijem,GAP,0,1,-210,,-195,0.13,LOSS,-1.0,-1.0
-2013-08-17,UFC Fight Night: Shogun vs Sonnen,0f74449bf6f64616,Cole Miller,GAP,0,1,-130,,125,-9.01,LOSS,-1.0,-1.0
-2013-08-17,UFC Fight Night: Shogun vs Sonnen,05dce98da0acefd8,Steven Siler,FLIP,0,1,150,,185,-3.96,WIN,1.5,1.5
-2013-08-17,UFC Fight Night: Shogun vs Sonnen,8e41d022b55277ae,Michael McDonald,GAP,0,1,-215,,-310,9.01,WIN,0.4651,0.4651
-2013-08-31,UFC 164: Henderson vs Pettis 2,b4555cd5b5d2a53f,Nikita Krylov,GAP,0,1,-140,,-135,1.41,LOSS,-1.0,-1.0
-2013-08-31,UFC 164: Henderson vs Pettis 2,336670b46f343d65,Tim Elliott,GAP,0,1,-160,,-235,10.27,WIN,0.625,0.625
-2013-08-31,UFC 164: Henderson vs Pettis 2,aac887ea8a83d7a4,Frank Mir,FLIP,0,1,170,,161,2.6,LOSS,-1.0,-1.0
-2013-09-04,UFC Fight Night: Teixeira vs Bader,9166d2f99369c06b,Yushin Okami,FLIP,0,1,160,,203,-4.28,LOSS,-1.0,-1.0
-2013-09-21,UFC 165: Jones vs Gustafsson,a95be3943ea0f691,Stephen Thompson,GAP,0,1,-280,,-427,9.74,WIN,0.3571,0.3571
-2013-09-21,UFC 165: Jones vs Gustafsson,ca2b48fd007126e0,Khabib Nurmagomedov,GAP,0,1,-260,,-270,3.75,WIN,0.3846,0.3846
-2013-10-09,UFC Fight Night: Maia vs Shields,3a8baa48c9b30d47,Chris Cariaso,FLIP,0,1,120,,140,-2.05,WIN,1.2,1.2
-2013-10-09,UFC Fight Night: Maia vs Shields,3e610c7a2ab31acd,David Mitchell,FLIP,0,1,180,,265,-6.6,LOSS,-1.0,-1.0
-2013-10-09,UFC Fight Night: Maia vs Shields,3fc3179cd800128e,Dong Hyun Kim,FLIP,0,1,135,,155,-1.94,WIN,1.35,1.35
-2013-10-19,UFC 166: Velasquez vs Dos Santos 3,e1ccf09c055bac01,Dustin Pague,FLIP,0,1,100,,135,-4.91,LOSS,-1.0,-1.0
-2013-10-19,UFC 166: Velasquez vs Dos Santos 3,2a5fd0e2728967a5,Nate Marquardt,FLIP,0,1,150,,170,-2.08,LOSS,-1.0,-1.0
-2013-11-06,UFC Fight Night: Fight for the Troops 3,20a83369ee44e1d4,Derek Brunson,GAP,0,1,-230,,-172,-3.76,WIN,0.4348,0.4348
-2013-11-06,UFC Fight Night: Fight for the Troops 3,add991cb839af4ed,Amanda Nunes,FLIP,0,1,100,,113,-0.94,WIN,1.0,1.0
-2013-11-06,UFC Fight Night: Fight for the Troops 3,ce30634422a264f9,Steven Siler,FLIP,0,1,165,,168,0.48,LOSS,-1.0,-1.0
-2013-11-06,UFC Fight Night: Fight for the Troops 3,b35f2071e6dd4b12,Ronny Markes,GAP,0,1,-125,,140,-10.58,LOSS,-1.0,-1.0
-2013-11-06,UFC Fight Night: Fight for the Troops 3,26e876df6d498657,Rafael Natal,FLIP,0,1,230,,320,-5.58,LOSS,-1.0,-1.0
-2013-11-09,UFC Fight Night: Belfort vs Henderson 2,2dd0a47f43dfe8f6,Daron Cruickshank,FLIP,0,1,120,,-145,14.63,LOSS,-1.0,-1.0
-2013-11-09,UFC Fight Night: Belfort vs Henderson 2,0a70601cc9f2426f,Godofredo Pepey,FLIP,0,1,150,,-125,15.34,LOSS,-1.0,-1.0
-2013-11-09,UFC Fight Night: Belfort vs Henderson 2,389c844a1a56177c,Ryan LaFlare,GAP,0,1,-140,,-120,-1.67,WIN,0.7143,0.7143
-2013-11-09,UFC Fight Night: Belfort vs Henderson 2,2d57ce76f7922ed9,Cezar Ferreira,GAP,0,1,-125,,-172,10.59,WIN,0.8,0.8
-2013-11-16,UFC 167: St-Pierre vs Hendricks,1f5c71dd2a0672ac,Josh Koscheck,FLIP,0,1,-115,,100,-1.13,LOSS,-1.0,-1.0
-2013-12-06,UFC Fight Night: Hunt vs Bigfoot,39efb868dbe7e311,Julie Kedzie,GAP,0,1,-190,,-172,-0.56,LOSS,-1.0,-1.0
-2013-12-14,UFC on FOX: Johnson vs. Benavidez 2,f5fb4435faf1ca04,King Green,FLIP,0,1,170,,130,7.32,WIN,1.7,1.7
-2013-12-14,UFC on FOX: Johnson vs. Benavidez 2,00566b4d89565373,Michael McDonald,FLIP,0,1,120,,130,-0.78,LOSS,-1.0,-1.0
-2013-12-28,UFC 168: Weidman vs Silva 2,49c0071ae52fc83a,William Macario,FLIP,0,1,110,,118,-0.0,WIN,1.1,1.1
-2013-12-28,UFC 168: Weidman vs Silva 2,5e4f358e0bcc2f15,Dustin Poirier,GAP,0,1,-170,,-247,9.87,WIN,0.5882,0.5882
-2014-01-04,UFC Fight Night: Saffiedine vs Lim,07d1d120dab41893,Sean Soriano,FLIP,0,1,160,,-116,15.2,LOSS,-1.0,-1.0
-2014-01-04,UFC Fight Night: Saffiedine vs Lim,3ff7d02ef633ee22,Hyun Gyu Lim,FLIP,0,1,135,,193,-7.26,LOSS,-1.0,-1.0
-2014-01-15,UFC Fight Night: Rockhold vs Philippou,1143d37503a9527d,Garett Whiteley,FLIP,0,1,110,,135,-3.07,LOSS,-1.0,-1.0
-2014-01-15,UFC Fight Night: Rockhold vs Philippou,3b8b70b448b0c604,Elias Silverio,GAP,0,1,-125,,-177,11.3,WIN,0.8,0.8
-2014-02-01,UFC 169: Barao vs Faber 2,7a91b26b3e231fff,Neil Magny,FLIP,0,1,125,,128,0.78,WIN,1.25,1.25
-2014-03-01,UFC Fight Night: Kim vs Hathaway,c53a5dca56870ea5,Kazuki Tokudome,FLIP,0,1,140,,180,-4.52,LOSS,-1.0,-1.0
-2014-03-15,UFC 171: Hendricks vs Lawler,364ed6aecfc8d16d,Renee Forte,FLIP,0,1,-115,,-157,10.7,LOSS,-1.0,-1.0
-2014-03-23,UFC Fight Night: Shogun vs Henderson 2,8f120352072bd5ed,Godofredo Pepey,FLIP,0,1,140,,276,-13.39,WIN,1.4,1.4
-2014-04-11,UFC Fight Night: Minotauro vs Nelson,beed8bc1f800de8f,Ramsey Nijem,FLIP,0,1,160,,233,-6.89,WIN,1.6,1.6
-2014-04-11,UFC Fight Night: Minotauro vs Nelson,a2e1e35e4e84e08d,Clay Guida,FLIP,0,1,115,,-138,13.04,WIN,1.15,1.15
-2014-04-19,UFC on FOX: Werdum vs Browne,f8c9a597f719d75c,Jorge Masvidal,GAP,0,1,-190,,-272,9.4,WIN,0.5263,0.5263
-2014-04-26,UFC 172: Jones vs Teixeira,c3455ba522bb37eb,Jessamyn Duke,GAP,0,1,-135,,-137,3.45,LOSS,-1.0,-1.0
-2014-05-10,UFC Fight Night: Brown vs Silva,2b6c2cdccb2cc659,Justin Salas,GAP,0,1,-210,,-295,8.83,WIN,0.4762,0.4762
-2014-05-10,UFC Fight Night: Brown vs Silva,107079f548338ac3,Neil Magny,FLIP,0,1,145,,263,-11.77,WIN,1.45,1.45
-2014-05-31,UFC Fight Night: Munoz vs Mousasi,5b6405eeb6757637,Krzysztof Jotko,GAP,0,1,-140,,-102,-4.98,LOSS,-1.0,-1.0
-2014-06-07,UFC Fight Night: Henderson vs Khabilov,0c2a634606639d71,Roger Narvaez,FLIP,0,1,235,,275,-2.3,LOSS,-1.0,-1.0
-2014-06-07,UFC Fight Night: Henderson vs Khabilov,6597b770486021b8,Lance Benoist,FLIP,0,1,-110,,-103,1.0,WIN,0.9091,0.9091
-2014-06-14,UFC 174: Johnson vs Bagautinov,b72c19b80fb47ba4,Ryan Bader,GAP,0,1,-165,,-163,2.33,WIN,0.6061,0.6061
-2014-06-14,UFC 174: Johnson vs Bagautinov,de65739f00350c58,Rory MacDonald,GAP,0,1,-150,,-115,-3.94,WIN,0.6667,0.6667
-2014-06-28,UFC Fight Night: Swanson vs Stephens,47cabf79c3340581,Andy Enz,GAP,0,1,-180,,-195,3.24,LOSS,-1.0,-1.0
-2014-06-28,UFC Fight Night: Te Huna vs Marquardt,2977a9b5c30d89c1,Roldan Sangcha'an,FLIP,0,1,110,,118,0.39,LOSS,-1.0,-1.0
-2014-06-28,UFC Fight Night: Swanson vs Stephens,7d26a6b4b6845e1b,Clint Hester,FLIP,0,1,120,,143,-2.23,WIN,1.2,1.2
-2014-07-05,UFC 175: Weidman vs Machida,6445b14dbd24ac25,Guilherme Vasconcelos,GAP,0,1,-170,,-172,2.57,LOSS,-1.0,-1.0
-2014-07-16,UFC Fight Night: Cowboy vs Miller,5c30f6535a08d598,Tina Lahdemaki,FLIP,0,1,335,,460,-4.23,LOSS,-1.0,-1.0
-2014-07-16,UFC Fight Night: Cowboy vs Miller,635ee9448fe2ddaf,Yosdenis Cedeno,FLIP,0,1,130,,170,-4.69,WIN,1.3,1.3
-2014-07-16,UFC Fight Night: Cowboy vs Miller,9fc7fcbdb6587265,Jessamyn Duke,GAP,0,1,-140,,123,-10.16,LOSS,-1.0,-1.0
-2014-07-19,UFC Fight Night: McGregor vs Brandao,f6d6b660e1578744,Nikita Krylov,GAP,0,1,-140,,-128,0.73,WIN,0.7143,0.7143
-2014-07-19,UFC Fight Night: McGregor vs Brandao,611ccad0fc46ba51,Norman Parke,GAP,0,1,-315,,-479,8.69,WIN,0.3175,0.3175
-2014-08-16,UFC Fight Night: Bader vs Saint Preux,99dc6aa635a9cf98,Nolan Ticman,FLIP,0,1,130,,113,4.78,LOSS,-1.0,-1.0
-2014-08-16,UFC Fight Night: Bader vs Saint Preux,2573a9a722f238f4,Shawn Jordan,GAP,0,1,-190,,-195,2.42,WIN,0.5263,0.5263
-2014-08-23,UFC Fight Night: Henderson vs Dos Anjos,b2867869d4eb98ce,Aaron Phillips,FLIP,0,1,170,,145,5.06,LOSS,-1.0,-1.0
-2014-08-23,UFC Fight Night: Henderson vs Dos Anjos,954362efa4564d60,Neil Magny,FLIP,0,1,175,,130,8.49,WIN,1.75,1.75
-2014-09-05,UFC Fight Night: Jacare vs Mousasi,c9733393385105cb,Michael Chiesa,FLIP,0,1,100,,-215,20.13,LOSS,-1.0,-1.0
-2014-09-20,UFC Fight Night: Hunt vs Nelson,de2dad48d95305d7,Hyun Gyu Lim,GAP,0,1,-705,,-665,1.9,WIN,0.1418,0.1418
-2014-09-20,UFC Fight Night: Hunt vs Nelson,b516beb27416e492,Alex Caceres,GAP,0,1,-245,,-297,6.68,LOSS,-1.0,-1.0
-2014-09-20,UFC Fight Night: Hunt vs Nelson,26cd506de4221057,Richard Walsh,FLIP,0,1,160,,208,-4.58,LOSS,-1.0,-1.0
-2014-09-20,UFC Fight Night: Hunt vs Nelson,1e797ccd275a98d0,Amir Sadollah,FLIP,0,1,145,,143,1.65,LOSS,-1.0,-1.0
-2014-09-27,UFC 178: Johnson vs Cariaso,b1b82605646eb850,Amanda Nunes,FLIP,0,1,200,,188,2.67,LOSS,-1.0,-1.0
-2014-10-04,UFC Fight Night: Nelson vs Story,6c62796d9b7e94a0,Krzysztof Jotko,GAP,0,1,-140,,-143,3.56,WIN,0.7143,0.7143
-2014-10-04,UFC Fight Night: MacDonald vs Saffiedine,64542fe846b9aea9,Rory MacDonald,GAP,0,1,-350,,-430,6.09,WIN,0.2857,0.2857
-2014-10-25,UFC 179: Aldo vs Mendes 2,a90fde18a088f99b,Wilson Reis,GAP,0,1,-165,,-220,8.48,WIN,0.6061,0.6061
-2014-11-07,UFC Fight Night: Rockhold vs Bisping,2faa7b48b4d51cab,Jake Matthews,GAP,0,1,-385,,-487,6.33,WIN,0.2597,0.2597
-2014-11-08,UFC Fight Night 56: Shogun vs Saint Preux,fadb129e71d8fc22,Jorge de Oliveira,FLIP,0,1,220,,388,-9.49,LOSS,-1.0,-1.0
-2014-11-15,UFC 180: Werdum vs Hunt,07f9fc40f1e6aa87,Jessica Eye,GAP,0,1,-270,,-297,4.9,WIN,0.3704,0.3704
-2014-11-15,UFC 180: Werdum vs Hunt,1e1a09bbedf7781d,Hector Urbina,FLIP,0,1,190,,153,6.53,WIN,1.9,1.9
-2014-11-15,UFC 180: Werdum vs Hunt,925f745c03ebd638,Chris Heatherly,FLIP,0,1,145,,235,-9.47,LOSS,-1.0,-1.0
-2014-12-06,UFC 181: Hendricks vs Lawler II,60030b35e276d338,Corey Anderson,GAP,0,1,-385,,-474,5.94,WIN,0.2597,0.2597
-2014-12-13,UFC on FOX: Dos Santos vs Miocic,a4816be2c49e3942,David Michaud,GAP,0,1,-185,,-240,7.24,WIN,0.5405,0.5405
-2015-01-03,UFC 182: Jones vs Cormier,e0f49380b9d31de0,Alexis Dufresne,GAP,0,1,-185,,-225,5.96,LOSS,-1.0,-1.0
-2015-01-03,UFC 182: Jones vs Cormier,57385188587c83b9,Jon Jones,GAP,0,1,-170,,-198,4.04,WIN,0.5882,0.5882
-2015-01-18,UFC Fight Night: McGregor vs Siver,4d3cd5ecf4276c92,Sean O'Connell,GAP,0,1,-140,,-227,13.71,WIN,0.7143,0.7143
-2015-01-24,UFC on FOX: Gustafsson vs Johnson,96f09d5db68951ef,Viktor Pesta,FLIP,0,1,180,,363,-12.0,WIN,1.8,1.8
-2015-01-31,UFC 183: Silva vs Diaz,5b0ebb843af7465e,Ildemar Alcantara,GAP,0,1,-210,,-159,-3.82,WIN,0.4762,0.4762
-2015-02-14,UFC Fight Night: Henderson vs Thatch,60820d105e57d5d6,Patrick Walsh,FLIP,0,1,-115,,-121,4.07,LOSS,-1.0,-1.0
-2015-02-22,UFC Fight Night: Bigfoot vs Mir,82e713f037e37fe9,Sean Strickland,GAP,0,1,-210,,-205,1.76,LOSS,-1.0,-1.0
-2015-02-28,UFC 184: Rousey vs Zingano,f3e1c02ce14bccfe,Derrick Lewis,GAP,0,1,-385,,-702,10.67,WIN,0.2597,0.2597
-2015-02-28,UFC 184: Rousey vs Zingano,31e62d34abc3a762,Raquel Pennington,FLIP,0,1,335,,423,-3.16,LOSS,-1.0,-1.0
-2015-03-14,UFC 185: Pettis vs Dos Anjos,0027e179b743c86c,Jared Rosholt,GAP,0,1,-230,,-305,8.02,WIN,0.4348,0.4348
-2015-04-04,UFC Fight Night: Mendes vs Lamas,8cf571afc2618df4,Lauren Murphy,FLIP,0,1,115,,-120,8.83,LOSS,-1.0,-1.0
-2015-04-04,UFC Fight Night: Mendes vs Lamas,12c600dc64edb403,Dustin Poirier,GAP,0,1,-150,,-149,2.06,WIN,0.6667,0.6667
-2015-04-11,UFC Fight Night: Gonzaga vs Cro Cop 2,6a7892754af30685,Gabriel Gonzaga,GAP,0,1,-155,,-212,8.73,LOSS,-1.0,-1.0
-2015-04-18,UFC on FOX: Machida vs Rockhold,6b92396d42918366,Corey Anderson,GAP,0,1,-230,,-400,12.1,LOSS,-1.0,-1.0
-2015-05-09,UFC Fight Night: Miocic vs Hunt,979269d4ab5784af,Brendan O'Reilly,FLIP,0,1,110,,118,-0.0,WIN,1.1,1.1
-2015-05-16,UFC Fight Night: Edgar vs Faber,49749ee78bc54a48,Roldan Sangcha'an,FLIP,0,1,150,,133,3.66,LOSS,-1.0,-1.0
-2015-05-16,UFC Fight Night: Edgar vs Faber,14a40f30e0cb22c9,Neil Magny,FLIP,0,1,110,,-125,9.0,WIN,1.1,1.1
-2015-05-23,UFC 187: Johnson vs Cormier,c2f0a53cd67e1736,Dong Hyun Kim,GAP,0,1,-270,,-212,-2.36,WIN,0.3704,0.3704
-2015-06-06,UFC Fight Night: Boetsch vs Henderson,cad44cd2466fb68f,Anthony Birchak,FLIP,0,1,170,,173,0.69,WIN,1.7,1.7
-2015-06-13,UFC 188: Velasquez vs Werdum,fd776d7b554a85d0,Gilbert Melendez,GAP,0,1,-165,,-162,1.69,LOSS,-1.0,-1.0
-2015-06-20,UFC Fight Night: Jedrzejczyk vs Penne,312c742e614f8993,Taylor Lapilus,FLIP,0,1,190,,253,-4.61,WIN,1.9,1.9
-2015-06-20,UFC Fight Night: Jedrzejczyk vs Penne,447462bc8e540f10,Makwan Amirkhani,GAP,0,1,-265,,-260,3.03,WIN,0.3774,0.3774
-2015-07-11,UFC 189: Mendes vs McGregor,ecb4534c0066c5f3,Rory MacDonald,GAP,0,1,-140,,-160,5.78,LOSS,-1.0,-1.0
-2015-07-11,UFC 189: Mendes vs McGregor,70290140b6a8e038,Conor McGregor,FLIP,0,1,100,,-182,15.54,WIN,1.0,1.0
-2015-07-15,UFC Fight Night: Mir vs Duffee,c3b733bf084c2cd0,Andrew Craig,FLIP,0,1,135,,220,-9.87,LOSS,-1.0,-1.0
-2015-07-15,UFC Fight Night: Mir vs Duffee,b8019af428c064ef,Kevin Lee,GAP,0,1,-175,,-294,12.95,WIN,0.5714,0.5714
-2015-07-18,UFC Fight Night: Bisping vs Leites,9cbdbbc414d6dd83,Marcus Brimage,FLIP,0,1,100,,126,-3.02,LOSS,-1.0,-1.0
-2015-07-25,UFC on FOX: Dillashaw vs. Barao II,23a75c0338d25abc,Ramsey Nijem,GAP,0,1,-180,,-157,-1.43,LOSS,-1.0,-1.0
-2015-07-25,UFC on FOX: Dillashaw vs. Barao II,23fd9d50a99665fe,Bryan Caraway,FLIP,0,1,130,,123,2.47,WIN,1.3,1.3
-2015-07-25,UFC on FOX: Dillashaw vs. Barao II,cd55220a7b1378c4,Tom Lawlor,FLIP,0,1,130,,180,-6.5,WIN,1.3,1.3
-2015-08-01,UFC 190: Rousey vs Correia,2116affb9c8f193b,Patrick Cummins,GAP,0,1,-155,,-187,6.5,WIN,0.6452,0.6452
-2015-08-08,UFC Fight Night: Teixeira vs Saint Preux,bd6d144f5c0b6cab,Amanda Nunes,FLIP,0,1,185,,225,-2.82,WIN,1.85,1.85
-2015-08-23,UFC Fight Night: Holloway vs Oliveira,2d23ca9d8abc0c97,Elias Silverio,GAP,0,1,-185,,-245,7.23,LOSS,-1.0,-1.0
-2015-08-23,UFC Fight Night: Holloway vs Oliveira,2c01f4df404ff6ee,Neil Magny,FLIP,0,1,110,,170,-8.53,WIN,1.1,1.1
-2015-09-26,UFC Fight Night: Barnett vs Nelson,b82b243982fcb2ac,Kajan Johnson,GAP,0,1,-270,,-310,4.95,WIN,0.3704,0.3704
-2015-10-03,UFC 192: Cormier vs Gustafsson,bdc1561ed4c6e22f,Julianna Pena,GAP,0,1,-180,,-257,8.92,WIN,0.5556,0.5556
-2015-11-07,UFC Fight Night: Belfort vs Henderson 3,d2198a7ae05b24c1,Jimmie Rivera,FLIP,0,1,160,,148,2.83,WIN,1.6,1.6
-2015-11-21,UFC Fight Night: Magny vs Gastelum,2a702055a79d95a7,Bartosz Fabinski,GAP,0,1,-230,,-177,-3.33,WIN,0.4348,0.4348
-2015-11-28,UFC Fight Night: Henderson vs Masvidal,5a79d4b9a8f8352f,Dong Hyun Ma,FLIP,0,1,145,,110,7.12,LOSS,-1.0,-1.0
-2015-11-28,UFC Fight Night: Henderson vs Masvidal,a09bfdaa83d99efb,Dooho Choi,GAP,0,1,-210,,-255,5.57,WIN,0.4762,0.4762
-2015-12-10,UFC Fight Night: Namajunas vs. VanZant,d8fe965281e2e312,Paige VanZant,GAP,0,1,-165,,-141,-1.96,LOSS,-1.0,-1.0
-2015-12-19,UFC on FOX: Dos Anjos vs. Cowboy 2,e1ec8774466db669,Vicente Luque,FLIP,0,1,-115,,-127,4.73,WIN,0.8696,0.8696
-2015-12-19,UFC on FOX: Dos Anjos vs. Cowboy 2,7c883cf0b5eedc59,Josh Samman,GAP,0,1,-165,,-212,7.04,LOSS,-1.0,-1.0
-2016-01-02,UFC 195: Lawler vs Condit,b46b27222e62aec1,Michinori Tanaka,GAP,0,1,-135,,-142,3.71,WIN,0.7407,0.7407
-2016-01-02,UFC 195: Lawler vs Condit,4fa02674b920ff0a,Dustin Poirier,FLIP,0,1,155,,136,3.84,WIN,1.55,1.55
-2016-02-06,UFC Fight Night: Hendricks vs Thompson,640dbb5a89c0aad6,Derrick Lewis,GAP,0,1,-120,,-107,-0.55,WIN,0.8333,0.8333
-2016-02-06,UFC Fight Night: Hendricks vs Thompson,37008594c087470c,Ovince Saint Preux,GAP,0,1,-380,,-410,3.66,WIN,0.2632,0.2632
-2016-02-06,UFC Fight Night: Hendricks vs Thompson,a3935c950c40462b,Jared Rosholt,FLIP,0,1,105,,-102,3.18,LOSS,-1.0,-1.0
-2016-02-21,UFC Fight Night: Cowboy vs Cowboy,e508ba268cb295c0,Anthony Hamilton,FLIP,0,1,125,,-102,6.71,LOSS,-1.0,-1.0
-2016-03-19,UFC Fight Night: Hunt vs Mir,aa92030dfd8b5d40,Rin Nakai,GAP,0,1,-140,,110,-8.12,LOSS,-1.0,-1.0
-2016-04-10,UFC Fight Night: Rothwell vs Dos Santos,d1d7400c131ed40e,Alejandro Perez,GAP,0,1,-120,,130,-7.98,WIN,0.8333,0.8333
-2016-04-10,UFC Fight Night: Rothwell vs Dos Santos,eb53ec8983cb2a95,Timothy Johnson,FLIP,0,1,150,,-109,11.87,WIN,1.5,1.5
-2016-05-29,UFC Fight Night: Almeida vs Garbrandt,934718256f4d082c,Jessica Eye,FLIP,0,1,135,,110,5.65,LOSS,-1.0,-1.0
-2016-06-04,UFC 199: Rockhold vs. Bisping 2,e06f96f3484ad74a,Jessica Andrade,FLIP,0,1,160,,-132,18.57,WIN,1.6,1.6
-2016-06-18,UFC Fight Night: MacDonald vs Thompson,4cf7792aef993be1,Chris Beal,FLIP,0,1,100,,105,0.6,LOSS,-1.0,-1.0
-2016-06-18,UFC Fight Night: MacDonald vs Thompson,c69c5830064fd591,Olivier Aubin-Mercier,GAP,0,1,-315,,-432,6.85,WIN,0.3175,0.3175
-2016-07-07,UFC Fight Night: Dos Anjos vs. Alvarez,5cf03fdfe557803f,Marco Beltran,FLIP,0,1,135,,100,7.75,WIN,1.35,1.35
-2016-07-07,UFC Fight Night: Dos Anjos vs. Alvarez,9a984ea967886979,Derrick Lewis,FLIP,0,1,130,,110,4.96,WIN,1.3,1.3
-2016-07-09,UFC 200: Tate vs Nunes,9d7a798f0c20c04a,Diego Sanchez,FLIP,0,1,-120,,-122,2.73,LOSS,-1.0,-1.0
-2016-07-13,UFC Fight Night: McDonald vs. Lineker,5b6451f3f83c719c,Cody Pfister,FLIP,0,1,200,,223,-1.19,LOSS,-1.0,-1.0
-2016-07-13,UFC Fight Night: McDonald vs. Lineker,2d205cc1da2e7930,Cristina Stanciu,GAP,0,1,-175,,-160,-0.3,LOSS,-1.0,-1.0
-2016-07-23,UFC on FOX: Holm vs. Shevchenko,435c93cb89016fd1,Jason Knight,FLIP,0,1,190,,108,14.13,WIN,1.9,1.9
-2016-07-30,UFC 201: Lawler vs. Woodley,09c092dc766fa3f9,Cesar Arzamendia,FLIP,0,1,-110,,-106,1.03,LOSS,-1.0,-1.0
-2016-07-30,UFC 201: Lawler vs. Woodley,3cf1d67a20ae1c18,Erik Perez,FLIP,0,1,-105,,-150,10.85,WIN,0.9524,0.9524
-2016-08-06,UFC Fight Night: Rodriguez vs. Caceres,cb76509b5c2f2a90,David Teymur,FLIP,0,1,-105,,-135,8.12,WIN,0.9524,0.9524
-2016-08-27,UFC on FOX: Maia vs. Condit,df33799f117000cb,Enrique Barzola,FLIP,0,1,145,,123,4.71,LOSS,-1.0,-1.0
-2016-09-03,UFC Fight Night: Arlovski vs. Barnett,f24144fbe9e32c10,Taylor Lapilus,GAP,0,1,-170,,-156,-0.07,WIN,0.5882,0.5882
-2016-09-24,UFC Fight Night: Cyborg vs. Lansberg,0e9b7e682e0a79f1,Luan Chagas,FLIP,0,1,135,,-145,17.04,LOSS,-1.0,-1.0
-2016-10-01,UFC Fight Night: Lineker vs. Dodson,4efbd869aa0211d2,Curtis Blaydes,GAP,0,1,-190,,-232,5.24,WIN,0.5263,0.5263
-2016-10-01,UFC Fight Night: Lineker vs. Dodson,a27a9b7b8194e8fc,Henrique da Silva,GAP,0,1,-125,,-127,2.83,WIN,0.8,0.8
-2016-10-01,UFC Fight Night: Lineker vs. Dodson,3a8cc4cda195d758,Alex Oliveira,FLIP,0,1,200,,253,-3.75,WIN,2.0,2.0
-2016-11-05,UFC Fight Night: Dos Anjos vs. Ferguson,588a39cab19065bc,Marco Beltran,FLIP,0,1,-115,,-140,7.15,LOSS,-1.0,-1.0
-2016-11-12,UFC 205: Alvarez vs McGregor,1d7015553debd1c8,Conor McGregor,GAP,0,1,-145,,-160,2.62,WIN,0.6897,0.6897
-2016-11-19,UFC Fight Night: Bader vs. Nogueira,30a2c7e5b90e6d74,Justin Scoggins,GAP,0,1,-165,,-155,0.47,LOSS,-1.0,-1.0
-2016-11-26,UFC Fight Night: Whittaker vs. Brunson,314aea77cd24210f,Danielle Taylor,FLIP,0,1,115,,-110,6.65,WIN,1.15,1.15
-2016-11-26,UFC Fight Night: Whittaker vs. Brunson,2cab927474cb6e62,Yusuke Kasuya,FLIP,0,1,150,,143,1.94,LOSS,-1.0,-1.0
-2016-12-09,UFC Fight Night: Lewis vs. Abdurakhimov,14e7bb7a9d49450d,Corey Anderson,GAP,0,1,-475,,-405,-0.19,WIN,0.2105,0.2105
-2016-12-09,UFC Fight Night: Lewis vs. Abdurakhimov,cb1e57b5f8c92922,Derrick Lewis,GAP,0,1,-190,,-250,6.8,WIN,0.5263,0.5263
-2016-12-10,UFC 206: Holloway vs. Pettis,07b98dbf5d2c62a2,Kelvin Gastelum,FLIP,0,1,130,,104,6.21,WIN,1.3,1.3
-2016-12-17,UFC on FOX: VanZant vs. Waterson,1ca4274019680d23,Bojan Velickovic,GAP,0,1,-210,,-161,-4.0,LOSS,-1.0,-1.0
-2017-01-28,UFC on FOX: Shevchenko vs. Pena,637f561cd731fb44,Aljamain Sterling,FLIP,0,1,-120,,128,-7.57,LOSS,-1.0,-1.0
-2017-03-04,UFC 209: Woodley vs. Thompson 2,2d4743a82fc55642,Albert Morales,FLIP,0,1,-105,,-152,11.29,WIN,0.9524,0.9524
-2017-03-04,UFC 209: Woodley vs. Thompson 2,c79b862be039d9f0,Alistair Overeem,GAP,0,1,-135,,-130,1.53,WIN,0.7407,0.7407
-2017-03-04,UFC 209: Woodley vs. Thompson 2,7ac4b9823b1e139b,David Teymur,FLIP,0,1,170,,290,-9.91,WIN,1.7,1.7
-2017-03-11,UFC Fight Night: Belfort vs. Gastelum,76602c3658d70273,Kevin Lee,FLIP,0,1,-110,,-170,12.86,WIN,0.9091,0.9091
-2017-03-11,UFC Fight Night: Belfort vs. Gastelum,24f156a78bd32026,Alex Oliveira,FLIP,0,1,125,,175,-6.61,WIN,1.25,1.25
-2017-03-18,UFC Fight Night: Manuwa vs. Anderson,0bb419537705fb04,Lucie Pudilova,FLIP,0,1,325,,318,0.97,LOSS,-1.0,-1.0
-2017-03-18,UFC Fight Night: Manuwa vs. Anderson,1e5c66d12761d4fe,Marlon Vera,FLIP,0,1,145,,130,3.48,WIN,1.45,1.45
-2017-04-08,UFC 210: Cormier vs. Johnson 2,a68672f66e12a3c2,Thiago Alves,FLIP,0,1,170,,111,10.91,WIN,1.7,1.7
-2017-04-15,UFC on FOX: Johnson vs. Reis,677e98ae5834ba70,Aljamain Sterling,GAP,0,1,-215,,-387,12.46,WIN,0.4651,0.4651
-2017-04-22,UFC Fight Night: Swanson vs. Lobov,c0c587cb52de929b,Danielle Taylor,FLIP,0,1,170,,-110,15.3,WIN,1.7,1.7
-2017-05-13,UFC 211: Miocic vs. Dos Santos,362a5b3cd4a70330,Krzysztof Jotko,GAP,0,1,-150,,-175,5.93,LOSS,-1.0,-1.0
-2017-05-28,UFC Fight Night: Gustafsson vs. Teixeira,78e38f1ad43c3479,Omari Akhmedov,FLIP,0,1,145,,223,-8.64,WIN,1.45,1.45
-2017-06-03,UFC 212: Aldo vs. Holloway,88e0de323a83f241,Luan Chagas,GAP,0,1,-165,,-260,11.45,WIN,0.6061,0.6061
-2017-06-03,UFC 212: Aldo vs. Holloway,228879162d8be605,Raphael Assuncao,FLIP,0,1,160,,223,-6.25,WIN,1.6,1.6
-2017-06-25,UFC Fight Night: Chiesa vs. Lee,3a4d2a933a3c7291,BJ Penn,FLIP,0,1,140,,114,5.61,LOSS,-1.0,-1.0
-2017-07-07,The Ultimate Fighter: Redemption Finale,c94c3e4bbed24421,Ashley Yoder,FLIP,0,1,175,,275,-8.14,LOSS,-1.0,-1.0
-2017-07-07,The Ultimate Fighter: Redemption Finale,5934de85b9c53e7c,Dhiego Lima,FLIP,0,1,185,,148,6.46,LOSS,-1.0,-1.0
-2017-07-07,The Ultimate Fighter: Redemption Finale,0d5356c506111a57,Michael Johnson,FLIP,0,1,-120,,-158,9.41,LOSS,-1.0,-1.0
-2017-07-22,UFC Fight Night: Weidman vs. Gastelum,573908b71b361312,Marlon Vera,FLIP,0,1,150,,190,-4.72,WIN,1.5,1.5
-2017-07-22,UFC Fight Night: Weidman vs. Gastelum,bcf842992f9accdc,Jeremy Kennedy,GAP,0,1,-245,,-299,6.38,WIN,0.4082,0.4082
-2017-07-22,UFC Fight Night: Weidman vs. Gastelum,4f07c6724682cd00,Chase Sherman,GAP,0,1,-230,,-237,2.54,WIN,0.4348,0.4348
-2017-07-29,UFC 214: Cormier vs. Jones 2,4f4806952ba2a72c,Eric Shelton,FLIP,0,1,110,,128,-1.82,LOSS,-1.0,-1.0
-2017-08-05,UFC Fight Night: Pettis vs. Moreno,a3723f0f672b0912,Joseph Morales,FLIP,0,1,140,,100,8.5,WIN,1.4,1.4
-2017-09-09,UFC 215: Nunes vs Shevchenko 2,7020840980f723b9,Luis Henrique,FLIP,0,1,150,,175,-2.87,LOSS,-1.0,-1.0
-2017-09-09,UFC 215: Nunes vs Shevchenko 2,6afaf0ca45431a11,Tyson Pedro,FLIP,0,1,100,,-142,10.53,LOSS,-1.0,-1.0
-2017-09-22,UFC Fight Night: Saint Preux vs. Okami,37cdf5bd5c975a5d,Chan-Mi Jeon,FLIP,0,1,-110,,135,-6.92,LOSS,-1.0,-1.0
-2017-10-07,UFC 216: Ferguson vs. Lee,53ee6c3591483193,Fabricio Werdum,GAP,0,1,-270,,-210,-2.84,WIN,0.3704,0.3704
-2017-11-04,UFC 217: Bisping vs. St-Pierre,56d8cc470841f454,Ricardo Ramos,GAP,0,1,-130,,-188,11.38,WIN,0.7692,0.7692
-2017-11-11,UFC Fight Night: Poirier vs. Pettis,60de5efe5b439c8b,Sage Northcutt,GAP,0,1,-245,,-183,-3.61,WIN,0.4082,0.4082
-2017-11-18,UFC Fight Night: Werdum vs. Tybura,23b6ffc0223f8cce,Nadia Kassem,GAP,0,1,-165,,-203,6.3,WIN,0.6061,0.6061
-2017-11-18,UFC Fight Night: Werdum vs. Tybura,6971094300073d47,Tai Tuivasa,GAP,0,1,-190,,-173,-0.69,WIN,0.5263,0.5263
-2017-11-25,UFC Fight Night: Bisping vs. Gastelum,9f428684f3db247f,Alex Garcia,FLIP,0,1,140,,190,-6.14,WIN,1.4,1.4
-2017-12-09,UFC Fight Night: Swanson vs. Ortega,061081f46950fdb0,Carls John De Tomas,FLIP,0,1,180,,333,-10.77,LOSS,-1.0,-1.0
-2017-12-09,UFC Fight Night: Swanson vs. Ortega,1aaa1a9ceecd6063,Aljamain Sterling,FLIP,0,1,135,,131,2.1,LOSS,-1.0,-1.0
-2018-01-14,UFC Fight Night: Stephens vs. Choi,0820a29a03d58282,Paige VanZant,GAP,0,1,-145,,-123,-1.87,LOSS,-1.0,-1.0
-2018-01-20,UFC 220: Miocic vs. Ngannou,1b0fa021b1158121,Enrique Barzola,GAP,0,1,-215,,-282,7.11,WIN,0.4651,0.4651
-2018-02-03,UFC Fight Night: Machida vs. Anders,0da43c3ec0e11650,Marcelo Golm,GAP,0,1,-185,,-171,-0.29,LOSS,-1.0,-1.0
-2018-02-10,UFC 221: Romero vs. Rockhold,0d7dc1ed5eb995e4,Jake Matthews,FLIP,0,1,130,,128,1.58,WIN,1.3,1.3
-2018-02-10,UFC 221: Romero vs. Rockhold,cd67f6ddb2920193,Curtis Blaydes,GAP,0,1,-120,,-190,13.54,WIN,0.8333,0.8333
-2018-02-10,UFC 221: Romero vs. Rockhold,9444cfe0c7c0f6a7,Luke Rockhold,FLIP,0,1,150,,-185,24.97,LOSS,-1.0,-1.0
-2018-02-18,UFC Fight Night: Cerrone vs. Medeiros,aeac1209f15157ed,Sage Northcutt,GAP,0,1,-215,,-370,11.39,WIN,0.4651,0.4651
-2018-02-24,UFC Fight Night: Emmett vs. Stephens,04970dfa4d531e39,Sam Alvey,FLIP,0,1,200,,182,3.01,WIN,2.0,2.0
-2018-02-24,UFC Fight Night: Emmett vs. Stephens,9c79433a4686f3fc,Ovince Saint Preux,GAP,0,1,-135,,-164,7.39,LOSS,-1.0,-1.0
-2018-04-14,UFC Fight Night: Poirier vs. Gaethje,418a7100e490e791,Yushin Okami,GAP,0,1,-120,,-126,3.46,WIN,0.8333,0.8333
-2018-04-14,UFC Fight Night: Poirier vs. Gaethje,bfae2fb50efbdb0f,Dustin Poirier,GAP,0,1,-130,,-124,1.13,WIN,0.7692,0.7692
-2018-04-21,UFC Fight Night: Barboza vs. Lee,a22add1024153ddb,Corey Anderson,FLIP,0,1,145,,-164,21.27,WIN,1.45,1.45
-2018-04-21,UFC Fight Night: Barboza vs. Lee,a017d5806eaa6018,Merab Dvalishvili,FLIP,0,1,175,,-110,16.14,LOSS,-1.0,-1.0
-2018-04-21,UFC Fight Night: Barboza vs. Lee,dbb0ca0198ac514a,Kevin Lee,FLIP,0,1,-105,,-163,12.96,WIN,0.9524,0.9524
-2018-05-12,UFC 224: Nunes vs. Pennington,d86e31793564cd31,Kelvin Gastelum,FLIP,0,1,-105,,-104,1.56,WIN,0.9524,0.9524
-2018-05-19,UFC Fight Night: Maia vs. Usman,47f42aa7cf851a29,Kamaru Usman,GAP,0,1,-175,,-525,21.24,WIN,0.5714,0.5714
-2018-05-27,UFC Fight Night: Thompson vs. Till,b3096e8dd4e90718,Gina Mazany,FLIP,0,1,145,,-162,21.44,LOSS,-1.0,-1.0
-2018-06-01,UFC Fight Night: Rivera vs. Moraes,7969abc596485189,Jarred Brooks,FLIP,0,1,185,,121,11.03,LOSS,-1.0,-1.0
-2018-06-23,UFC Fight Night: Cowboy vs. Edwards,28c70663b99560a8,Leon Edwards,FLIP,0,1,115,,-244,25.18,WIN,1.15,1.15
-2018-07-06,The Ultimate Fighter: Undefeated Finale,760b90b0805e0fbf,Alessio Di Chirico,FLIP,0,1,160,,116,8.33,WIN,1.6,1.6
-2018-07-14,UFC Fight Night: Dos Santos vs. Ivanov,48d21357134ca51a,Justin Scoggins,FLIP,0,1,125,,-102,6.71,LOSS,-1.0,-1.0
-2018-07-14,UFC Fight Night: Dos Santos vs. Ivanov,35ebaf80f8730b14,Junior Dos Santos,GAP,0,1,-120,,-190,13.45,WIN,0.8333,0.8333
-2018-08-25,UFC Fight Night: Gaethje vs. Vick,3b701c0a0525341b,Eryk Anders,GAP,0,1,-280,,-1225,20.42,WIN,0.3571,0.3571
-2018-08-25,UFC Fight Night: Gaethje vs. Vick,d6f6ac29008509db,James Vick,FLIP,0,1,-115,,-142,6.68,LOSS,-1.0,-1.0
-2018-09-08,UFC 228: Woodley vs. Till,f3bebb48771a414a,Niko Price,FLIP,0,1,145,,-110,11.4,LOSS,-1.0,-1.0
-2018-09-15,UFC Fight Night: Hunt vs. Oleinik,dd0a3aedba5cee87,Thiago Alves,FLIP,0,1,175,,348,-12.27,LOSS,-1.0,-1.0
-2018-10-27,UFC Fight Night: Oezdemir vs. Smith,6fd7f6f1deaef4e8,Sean Strickland,FLIP,0,1,-110,,106,-1.81,WIN,0.9091,0.9091
-2018-11-17,UFC Fight Night: Magny vs. Ponzinibbio,410aca28fda60f76,Bartosz Fabinski,FLIP,0,1,280,,123,18.42,LOSS,-1.0,-1.0
-2018-11-24,UFC Fight Night: Blaydes vs. Ngannou 2,438fbdd4cf27e324,Hu Yaozong,FLIP,0,1,175,,-120,18.31,LOSS,-1.0,-1.0
-2018-11-24,UFC Fight Night: Blaydes vs. Ngannou 2,12e12307414dafc6,Curtis Blaydes,FLIP,0,1,115,,-243,24.8,LOSS,-1.0,-1.0
-2018-12-01,UFC Fight Night: Dos Santos vs. Tuivasa,70feb2bfc12b97d4,Justin Willis,FLIP,0,1,115,,-109,6.33,WIN,1.15,1.15
-2018-12-15,UFC Fight Night: Lee vs. Iaquinta,c0ab927864bb6e98,Zak Ottow,FLIP,0,1,225,,237,-0.37,WIN,2.25,2.25
-2018-12-29,UFC 232: Jones vs. Gustafsson 2,9ee818e10dcf3b45,Corey Anderson,GAP,0,1,-110,,110,-4.52,WIN,0.9091,0.9091
-2019-01-19,UFC Fight Night: Cejudo vs. Dillashaw,3dd0951b8855137d,Alexander Hernandez,GAP,0,1,-130,,-208,13.1,LOSS,-1.0,-1.0
-2019-02-02,UFC Fight Night: Assuncao vs. Moraes 2,9192053a3884aadf,Ricardo Ramos,FLIP,0,1,145,,-164,21.25,LOSS,-1.0,-1.0
-2019-02-23,UFC Fight Night: Blachowicz vs. Santos,c827f5212a34bf2e,Chris Fishgold,FLIP,0,1,110,,-252,23.07,WIN,1.1,1.1
-2019-03-02,UFC 235: Jones vs. Smith,7a26c9407ef64e10,Edmen Shahbazyan,GAP,0,1,-145,,-152,3.08,WIN,0.6897,0.6897
-2019-03-02,UFC 235: Jones vs. Smith,97dabff880f33202,Robbie Lawler,FLIP,0,1,145,,232,-9.51,LOSS,-1.0,-1.0
-2019-03-02,UFC 235: Jones vs. Smith,851645c373f50e16,Kamaru Usman,FLIP,0,1,105,,167,-8.93,WIN,1.05,1.05
-2019-03-23,UFC Fight Night: Thompson vs. Pettis,ced0e31df74f27d6,Jesus Pinedo,FLIP,0,1,165,,255,-8.38,LOSS,-1.0,-1.0
-2019-03-30,UFC Fight Night: Barboza vs. Gaethje,a0163cdde4ec785d,Jack Hermansson,GAP,0,1,-120,,-152,7.9,WIN,0.8333,0.8333
-2019-04-13,UFC 236: Holloway vs. Poirier 2,8da5849a6e7307bf,Montel Jackson,FLIP,0,1,250,,-585,55.12,WIN,2.5,2.5
-2019-04-20,UFC Fight Night: Overeem vs. Oleinik,e458ace6a440b738,Krzysztof Jotko,GAP,0,1,-130,,-216,14.02,WIN,0.7692,0.7692
-2019-04-27,UFC Fight Night: Jacare vs. Hermansson,c68e57c19c82d500,Greg Hardy,GAP,0,1,-265,,-307,5.0,WIN,0.3774,0.3774
-2019-05-11,UFC 237: Namajunas vs. Andrade,707cb14717df5960,Luana Carolina,FLIP,0,1,250,,-173,33.72,WIN,2.5,2.5
-2019-06-08,UFC 238: Cejudo vs. Moraes,17753b728e5404aa,Aljamain Sterling,FLIP,0,1,-115,,-167,11.16,WIN,0.8696,0.8696
-2019-06-22,UFC Fight Night: Moicano vs. The Korean Zombie,13129c1f044fdd47,Montana De La Rosa,FLIP,0,1,145,,153,-0.44,LOSS,-1.0,-1.0
-2019-07-06,UFC 239: Jones vs. Santos,70af72a72b31fe4d,Jorge Masvidal,FLIP,0,1,170,,178,-0.09,WIN,1.7,1.7
-2019-08-10,UFC Fight Night: Shevchenko vs. Carmouche 2,cb4dd24535ef2d94,Raulian Paiva,FLIP,0,1,-105,,-118,4.6,LOSS,-1.0,-1.0
-2019-08-10,UFC Fight Night: Shevchenko vs. Carmouche 2,8da94b2c1c0443d4,Oskar Piechota,FLIP,0,1,220,,180,4.91,LOSS,-1.0,-1.0
-2019-09-07,UFC 242: Khabib vs. Poirier,066756ea40b134a7,Curtis Blaydes,GAP,0,1,-275,,-516,12.24,WIN,0.3636,0.3636
-2019-09-21,UFC Fight Night: Rodriguez vs. Stephens,d9c0351cd21e40e0,Sergio Pettis,GAP,0,1,-265,,-322,6.06,WIN,0.3774,0.3774
-2019-09-21,UFC Fight Night: Rodriguez vs. Stephens,49b2a6a93d529981,Martin Bravo,FLIP,0,1,-120,,-136,5.34,LOSS,-1.0,-1.0
-2019-09-28,UFC Fight Night: Hermansson vs. Cannonier,9c7b6a20f35fb708,Alex Oliveira,GAP,0,1,-185,,-150,-3.41,LOSS,-1.0,-1.0
-2019-09-28,UFC Fight Night: Hermansson vs. Cannonier,975840814b233bcd,Danilo Belluardo,FLIP,0,1,280,,445,-7.14,LOSS,-1.0,-1.0
-2019-10-05,UFC 243: Whittaker vs. Adesanya,578987d534a0d205,Maki Pitolo,GAP,0,1,-195,,-400,14.38,LOSS,-1.0,-1.0
-2019-10-12,UFC Fight Night: Joanna vs. Waterson,2d7f29ec900a8948,Amanda Ribas,FLIP,0,1,175,,155,4.02,WIN,1.75,1.75
-2019-10-18,UFC Fight Night: Reyes vs. Weidman,38d6c2538ce6ec4c,Randy Costa,FLIP,0,1,125,,131,0.01,WIN,1.25,1.25
-2019-10-18,UFC Fight Night: Reyes vs. Weidman,076c98ac0561521f,Manny Bermudez,FLIP,0,1,105,,-175,14.46,LOSS,-1.0,-1.0
-2019-10-18,UFC Fight Night: Reyes vs. Weidman,d2dc6fb05ad78d80,Yair Rodriguez,GAP,0,1,-110,,-131,4.36,WIN,0.9091,0.9091
-2019-10-26,UFC Fight Night: Maia vs. Askren,89266a872e1f92d9,Laureano Staropoli,FLIP,0,1,170,,140,5.45,LOSS,-1.0,-1.0
-2019-10-26,UFC Fight Night: Maia vs. Askren,b2d05ae88f820421,Beneil Dariush,GAP,0,1,-195,,-183,-0.24,WIN,0.5128,0.5128
-2019-10-26,UFC Fight Night: Maia vs. Askren,241a0833e1c76804,Demian Maia,FLIP,0,1,125,,140,-1.5,WIN,1.25,1.25
-2019-11-09,UFC Fight Night: Zabit vs. Kattar,f820c6292e19d854,Klidson Abreu,FLIP,0,1,190,,115,12.5,LOSS,-1.0,-1.0
-2019-11-16,UFC Fight Night: Blachowicz vs. Jacare,9e1ecdb9a8856a8c,Wellington Turman,FLIP,0,1,180,,-153,25.19,WIN,1.8,1.8
-2019-12-14,UFC 245: Usman vs. Covington,d42410f6f1039ab5,Chase Hooper,GAP,0,1,-155,,-157,1.18,WIN,0.6452,0.6452
-2020-01-18,UFC 246: McGregor vs. Cowboy,760b5b16b4931a77,Maycee Barber,GAP,0,1,-400,,-964,9.18,LOSS,-1.0,-1.0
-2020-02-29,UFC Fight Night: Benavidez vs. Figueiredo,533d0b5c0adfa15f,Ismail Naurdiev,GAP,0,1,-150,,-130,-2.86,LOSS,-1.0,-1.0
-2020-03-07,UFC 248: Adesanya vs. Romero,b46f2f007b622bce,Israel Adesanya,GAP,0,1,-185,,-285,9.99,WIN,0.5405,0.5405
-2020-05-13,UFC Fight Night: Smith vs. Teixeira,46c050a827ee83d6,Alexander Hernandez,FLIP,0,1,120,,145,-4.52,LOSS,-1.0,-1.0
-2020-05-16,UFC Fight Night: Overeem vs. Harris,ce0748519d5ea5c6,Alistair Overeem,FLIP,0,1,130,,135,-0.96,WIN,1.3,1.3
-2020-05-30,UFC Fight Night: Woodley vs. Burns,1e9a2b197ebff074,Spike Carlyle,FLIP,0,1,130,,-104,7.75,LOSS,-1.0,-1.0
-2020-06-06,UFC 250: Nunes vs. Spencer,1c7ea3928c7d0ad8,Maki Pitolo,FLIP,0,1,140,,144,-0.73,WIN,1.4,1.4
-2020-06-06,UFC 250: Nunes vs. Spencer,f2cd665eab69876a,Chase Hooper,FLIP,0,1,-110,,-218,16.84,LOSS,-1.0,-1.0
-2020-07-11,UFC 251: Usman vs. Masvidal,5d6fb4acfe5cc8a1,Martin Day,FLIP,0,1,-110,,-122,2.36,LOSS,-1.0,-1.0
-2020-07-11,UFC 251: Usman vs. Masvidal,0e8d5c16eb9cb1cf,Raulian Paiva,GAP,0,1,-115,,-160,8.24,WIN,0.8696,0.8696
-2020-07-11,UFC 251: Usman vs. Masvidal,137646de0ffd9c35,Marcin Tybura,GAP,0,1,-145,,-137,-0.35,WIN,0.6897,0.6897
-2020-07-11,UFC 251: Usman vs. Masvidal,cd8cdb539deaa47f,Volkan Oezdemir,GAP,0,1,-150,,-189,5.16,LOSS,-1.0,-1.0
-2020-08-08,UFC Fight Night: Lewis vs. Oleinik,1308213458d8596b,Justin Jaynes,FLIP,0,1,185,,103,13.3,LOSS,-1.0,-1.0
-2020-08-08,UFC Fight Night: Lewis vs. Oleinik,cfb189e326553f0a,Beneil Dariush,GAP,0,1,-160,,-218,6.44,WIN,0.625,0.625
-2020-08-15,UFC 252: Miocic vs. Cormier 3,3e4b8bd71e8bceb2,TJ Brown,GAP,0,1,-195,,-140,-6.9,LOSS,-1.0,-1.0
-2020-08-15,UFC 252: Miocic vs. Cormier 3,0d9e9127c62811f9,Herbert Burns,GAP,0,1,-200,,-275,7.35,LOSS,-1.0,-1.0
-2020-08-15,UFC 252: Miocic vs. Cormier 3,7200343d2e957cf3,Sean O'Malley,FLIP,0,1,185,,-285,37.65,LOSS,-1.0,-1.0
-2020-08-22,UFC Fight Night: Munhoz vs. Edgar,0ccc86f7d0e84c3e,Jordan Wright,GAP,0,1,-150,,-123,-5.28,WIN,0.6667,0.6667
-2020-09-05,UFC Fight Night: Overeem vs. Sakai,7930c605c6a6ec88,Montana De La Rosa,FLIP,0,1,-110,,164,-13.41,LOSS,-1.0,-1.0
-2020-09-05,UFC Fight Night: Overeem vs. Sakai,0e809b7e37681783,Ovince Saint Preux,FLIP,0,1,-105,,134,-7.7,WIN,0.9524,0.9524
-2020-09-12,UFC Fight Night: Waterson vs. Hill,463fc1fd1f17befb,Bryan Barberena,GAP,0,1,-225,,-232,0.28,WIN,0.4444,0.4444
-2020-09-19,UFC Fight Night: Covington vs. Woodley,579f3280456ad450,Jerome Rivera,FLIP,0,1,125,,165,-5.1,LOSS,-1.0,-1.0
-2020-09-19,UFC Fight Night: Covington vs. Woodley,aa08ebe1a69c76ca,Mirsad Bektic,GAP,0,1,-275,,-335,3.06,LOSS,-1.0,-1.0
-2020-09-26,UFC 253: Adesanya vs. Costa,5fb63c34935acce9,Aleksa Camur,GAP,0,1,-130,,-152,3.08,LOSS,-1.0,-1.0
-2020-10-17,UFC Fight Night: Ortega vs. The Korean Zombie,948da1b7ebbb06b3,Jimmy Crute,GAP,0,1,-180,,-278,8.83,WIN,0.5556,0.5556
-2020-10-24,UFC 254: Khabib vs. Gaethje,ccfe7b0d29c5440c,Alexander Volkov,GAP,0,1,-160,,-183,2.9,WIN,0.625,0.625
-2020-10-24,UFC 254: Khabib vs. Gaethje,51108eabae8391ca,Robert Whittaker,FLIP,0,1,125,,100,4.75,WIN,1.25,1.25
-2020-10-31,UFC Fight Night: Hall vs. Silva,783761d95060ffc4,Justin Ledet,FLIP,0,1,145,,278,-13.89,LOSS,-1.0,-1.0
-2020-11-14,UFC Fight Night: Felder vs. Dos Anjos,30eb24f7904c2128,Khaos Williams,FLIP,0,1,135,,152,-1.62,WIN,1.35,1.35
-2020-11-21,UFC 255: Figueiredo vs. Perez,90eb22b9eb6ed2a8,Kyle Daukaus,GAP,0,1,-150,,-284,13.14,WIN,0.6667,0.6667
-2020-11-28,UFC Fight Night: Smith vs. Clark,4d56bcd82438e632,Kai Kamaka III,GAP,0,1,-200,,-273,6.37,LOSS,-1.0,-1.0
-2020-12-05,UFC Fight Night: Hermansson vs. Vettori,46860358da8b8d82,Gabriel Benitez,FLIP,0,1,115,,-225,23.09,WIN,1.15,1.15
-2020-12-19,UFC Fight Night: Thompson vs. Neal,62e6eadbb2805760,Cody Durden,FLIP,0,1,135,,134,0.04,LOSS,-1.0,-1.0
-2020-12-19,UFC Fight Night: Thompson vs. Neal,3d35eb2d46bf74de,Khaos Williams,FLIP,0,1,150,,-127,14.83,LOSS,-1.0,-1.0
-2020-12-19,UFC Fight Night: Thompson vs. Neal,c7375d5db21cbaae,Geoff Neal,FLIP,0,1,-105,,-114,1.84,LOSS,-1.0,-1.0
-2021-01-20,UFC Fight Night: Chiesa vs. Magny,57e784028ef2c17d,Matt Schnell,FLIP,0,1,110,,-105,3.09,WIN,1.1,1.1
-2021-01-23,UFC 257: Poirier vs. McGregor,83da743f6dda7dcc,Julianna Pena,GAP,0,1,-140,,-104,-7.7,WIN,0.7143,0.7143
-2021-01-23,UFC 257: Poirier vs. McGregor,a5075f4eaee6036f,Dan Hooker,GAP,0,1,-160,,-159,-0.77,LOSS,-1.0,-1.0
-2021-02-27,UFC Fight Night: Rozenstruik vs. Gane,a7315147a7022a93,Sabina Mazo,GAP,0,1,-240,,-219,-2.58,LOSS,-1.0,-1.0
-2021-03-06,UFC 259: Blachowicz vs. Adesanya,e2abba69c3371618,Uros Medic,FLIP,0,1,105,,-188,15.9,WIN,1.05,1.05
-2021-03-06,UFC 259: Blachowicz vs. Adesanya,d170f6580e1c244f,Kennedy Nzechukwu,FLIP,0,1,144,,192,-6.44,WIN,1.44,1.44
-2021-03-13,UFC Fight Night: Edwards vs. Muhammad,03bdbf2d18f3025d,Ray Rodriguez,FLIP,0,1,260,,237,1.64,LOSS,-1.0,-1.0
-2021-03-20,UFC Fight Night: Brunson vs. Holland,68cf99b6551dc3b3,Trevin Giles,FLIP,0,1,130,,-114,8.85,WIN,1.3,1.3
-2021-04-10,UFC Fight Night: Vettori vs. Holland,e27c28928ed4390f,Joe Solecki,GAP,0,1,-135,,-254,13.24,WIN,0.7407,0.7407
-2021-04-17,UFC Fight Night: Whittaker vs. Gastelum,25d4376e00b16510,Loopy Godinez,GAP,0,1,-185,,-275,7.98,LOSS,-1.0,-1.0
-2021-04-17,UFC Fight Night: Whittaker vs. Gastelum,a850ba762f3c5334,Abdul Razak Alhassan,GAP,0,1,-350,,-317,-2.23,LOSS,-1.0,-1.0
-2021-06-05,UFC Fight Night: Rozenstruik vs. Sakai,58c5d506181812fa,Jordan Leavitt,GAP,0,1,-300,,-214,-7.12,LOSS,-1.0,-1.0
-2021-06-05,UFC Fight Night: Rozenstruik vs. Sakai,f187c7ec92f43828,Marcin Tybura,GAP,0,1,-150,,-178,3.57,WIN,0.6667,0.6667
-2021-06-12,UFC 263: Adesanya vs. Vettori 2,84cde29aebf6c00c,Chase Hooper,FLIP,0,1,155,,-114,12.98,LOSS,-1.0,-1.0
-2021-06-26,UFC Fight Night: Gane vs. Volkov,d988760df61f027c,Marcin Prachnio,GAP,0,1,-193,,-167,-1.38,WIN,0.5181,0.5181
-2021-06-26,UFC Fight Night: Gane vs. Volkov,086c2a0cae0835c4,Shavkat Rakhmonov,GAP,0,1,-150,,-322,14.94,WIN,0.6667,0.6667
-2021-07-24,UFC Fight Night: Sandhagen vs. Dillashaw,4bb77b1d8efc53a9,Kyler Phillips,GAP,0,1,-150,,-310,14.19,LOSS,-1.0,-1.0
-2021-08-07,UFC 265: Lewis vs. Gane,cce232c1b1b2e4a0,Melissa Gatto,GAP,0,1,-110,,-115,0.97,WIN,0.9091,0.9091
-2021-08-21,UFC Fight Night: Cannonier vs. Gastelum,f536ba47f006474a,Kelvin Gastelum,FLIP,0,1,195,,125,10.11,LOSS,-1.0,-1.0
-2021-09-04,UFC Fight Night: Brunson vs. Till,3f76035e52e8819b,Charles Jourdain,GAP,0,1,-170,,-192,2.83,LOSS,-1.0,-1.0
-2021-09-25,UFC 266: Volkanovski vs. Ortega,7abc4520f63f2c06,Uros Medic,GAP,0,1,-185,,-122,-10.43,LOSS,-1.0,-1.0
-2021-09-25,UFC 266: Volkanovski vs. Ortega,e7bb37681652c2c2,Taila Santos,GAP,0,1,-225,,-412,10.25,WIN,0.4444,0.4444
-2021-09-25,UFC 266: Volkanovski vs. Ortega,f085f32bbb3220e1,Chris Daukaus,GAP,0,1,-140,,-215,9.04,WIN,0.7143,0.7143
-2021-10-02,UFC Fight Night: Santos vs. Walker,e7423a91a253b416,Alejandro Perez,GAP,0,1,-200,,-267,5.4,WIN,0.5,0.5
-2021-10-02,UFC Fight Night: Santos vs. Walker,3b7eb8e56052a2af,Joe Solecki,GAP,0,1,-115,,-133,3.44,LOSS,-1.0,-1.0
-2021-10-23,UFC Fight Night: Costa vs. Vettori,7151ae256e6c181b,Jonathan Martinez,FLIP,0,1,140,,-108,9.74,WIN,1.4,1.4
-2021-10-23,UFC Fight Night: Costa vs. Vettori,e078d18fa9ed100d,Nicolae Negumereanu,GAP,0,1,-300,,-244,-4.75,WIN,0.3333,0.3333
-2021-10-23,UFC Fight Night: Costa vs. Vettori,69167b996ce7a7e4,Joselyne Edwards,FLIP,0,1,130,,131,-0.66,LOSS,-1.0,-1.0
-2021-10-30,UFC 267: Blachowicz vs. Teixeira,4a5e5232346993c7,Andre Petroski,GAP,0,1,-110,,-232,16.57,WIN,0.9091,0.9091
-2021-10-30,UFC 267: Blachowicz vs. Teixeira,92c49cb075f612d7,Michal Oleksiejczuk,FLIP,0,1,130,,-107,7.23,WIN,1.3,1.3
-2021-11-20,UFC Fight Night: Vieira vs. Tate,8dd086e2e70144fd,Luana Pinheiro,GAP,0,1,-185,,-417,14.37,WIN,0.5405,0.5405
-2021-12-04,UFC Fight Night: Font vs. Aldo,c74b03337a8441ed,Claudio Puelles,GAP,0,1,-150,,-122,-5.62,WIN,0.6667,0.6667
-2021-12-04,UFC Fight Night: Font vs. Aldo,9e5bbbacf1d92cb4,Brendan Allen,GAP,0,1,-300,,-347,1.76,LOSS,-1.0,-1.0
-2022-01-22,UFC 270: Ngannou vs. Gane,0a0beb5aa9810de4,Kay Hansen,GAP,0,1,-115,,-195,12.22,LOSS,-1.0,-1.0
-2022-02-12,UFC 271: Adesanya vs. Whittaker 2,6708f3a32861038a,William Knight,FLIP,0,1,170,,145,3.46,LOSS,-1.0,-1.0
-2022-02-12,UFC 271: Adesanya vs. Whittaker 2,c16bda7548181613,Jacob Malkoun,FLIP,0,1,170,,-106,13.32,WIN,1.7,1.7
-2022-02-12,UFC 271: Adesanya vs. Whittaker 2,b1e048825b5bbe1c,Casey O'Neill,GAP,0,1,-250,,-387,7.04,WIN,0.4,0.4
-2022-02-19,UFC Fight Night: Walker vs. Hill,ea63f56779100678,Jesse Strader,FLIP,0,1,250,,208,3.43,LOSS,-1.0,-1.0
-2022-02-19,UFC Fight Night: Walker vs. Hill,2d8db91f91f68069,Chas Skelly,GAP,0,1,-220,,-210,-1.3,WIN,0.4546,0.4546
-2022-02-26,UFC Fight Night: Makhachev vs. Green,f087a10a6f2bcc99,Josiane Nunes,GAP,0,1,-175,,-271,8.5,WIN,0.5714,0.5714
-2022-02-26,UFC Fight Night: Makhachev vs. Green,84d633d4a9fbf331,Gregory Rodrigues,GAP,0,1,-200,,-153,-6.32,LOSS,-1.0,-1.0
-2022-03-12,UFC Fight Night: Santos vs. Ankalaev,f10c2c84652ef573,Tafon Nchukwi,GAP,0,1,-145,,163,-20.67,LOSS,-1.0,-1.0
-2022-03-12,UFC Fight Night: Santos vs. Ankalaev,226884e46a10865d,Bruno Silva,FLIP,0,1,145,,174,-4.42,LOSS,-1.0,-1.0
-2022-03-12,UFC Fight Night: Santos vs. Ankalaev,463fac0e48505b62,Terrance McKinney,FLIP,0,1,130,,131,-0.72,LOSS,-1.0,-1.0
-2022-03-26,UFC Fight Night: Blaydes vs. Daukaus,bb31c77bddd1317e,Karol Rosa,GAP,0,1,-200,,-243,3.35,LOSS,-1.0,-1.0
-2022-04-09,UFC 273: Volkanovski vs. The Korean Zombie,9e52a67410f2c879,Kay Hansen,FLIP,0,1,-110,,105,-3.51,LOSS,-1.0,-1.0
-2022-04-09,UFC 273: Volkanovski vs. The Korean Zombie,394b0347b0438622,Khamzat Chimaev,GAP,0,1,-110,,-525,30.49,WIN,0.9091,0.9091
-2022-04-16,UFC Fight Night: Luque vs. Muhammad,eac46cfead228e11,Jordan Leavitt,GAP,0,1,-155,,117,-14.83,WIN,0.6452,0.6452
-2022-04-16,UFC Fight Night: Luque vs. Muhammad,4f6e7159e77d4215,Pat Sabatini,GAP,0,1,-240,,-560,12.73,WIN,0.4167,0.4167
-2022-04-23,UFC Fight Night: Lemos vs. Andrade,e8c57c6259193466,Tyson Pedro,GAP,0,1,-450,,-645,4.18,WIN,0.2222,0.2222
-2022-04-23,UFC Fight Night: Lemos vs. Andrade,6017351e164dbca3,Claudio Puelles,GAP,0,1,-175,,-113,-10.87,WIN,0.5714,0.5714
-2022-04-30,UFC Fight Night: Font vs. Vera,9217ecc287ac482d,Natan Levy,GAP,0,1,-240,,-213,-3.19,WIN,0.4167,0.4167
-2022-05-21,UFC Fight Night: Holm vs. Vieira,1b4d0c9e3c59b33b,Jailton Almeida,GAP,0,1,-300,,-541,8.43,WIN,0.3333,0.3333
-2022-06-04,UFC Fight Night: Volkov vs. Rozenstruik,7e20b0536fbbd560,Jeff Molina,GAP,0,1,-200,,-186,-1.9,WIN,0.5,0.5
-2022-06-11,UFC 275: Teixeira vs. Prochazka,f466cd99d02644e9,Liang Na,FLIP,0,1,130,,-121,10.25,LOSS,-1.0,-1.0
-2022-06-18,UFC Fight Night: Kattar vs. Emmett,4e6218b6b892b017,Damir Ismagulov,GAP,0,1,-180,,-212,2.78,WIN,0.5556,0.5556
-2022-06-18,UFC Fight Night: Kattar vs. Emmett,11e83902f5b8ff63,Joaquin Buckley,FLIP,0,1,140,,182,-6.44,WIN,1.4,1.4
-2022-07-02,UFC 276: Adesanya vs. Cannonier,1c85003f6ec59c9d,Maycee Barber,GAP,0,1,-155,,-329,14.64,WIN,0.6452,0.6452
-2022-07-30,UFC 277: Pena vs. Nunes 2,0366e183296fea07,Joselyne Edwards,FLIP,0,1,130,,-131,12.1,WIN,1.3,1.3
-2022-10-22,UFC 280: Oliveira vs. Makhachev,4011cdf1f182804c,Karol Rosa,GAP,0,1,-275,,-380,4.75,WIN,0.3636,0.3636
-2022-10-29,UFC Fight Night: Kattar vs. Allen,a554a72bb0377213,Arnold Allen,FLIP,0,1,150,,-123,14.1,WIN,1.5,1.5
-2022-11-05,UFC Fight Night: Rodriguez vs. Lemos,71afa8354da2491e,Miranda Maverick,GAP,0,1,-300,,-827,13.29,WIN,0.3333,0.3333
-2022-11-19,UFC Fight Night: Nzechukwu vs. Cutelaba,a3696c847ef6c7f9,Brady Hiestand,GAP,0,1,-135,,-180,7.56,WIN,0.7407,0.7407
-2022-12-03,UFC Fight Night: Thompson vs. Holland,1114cd1515cf3b8f,Francis Marshall,GAP,0,1,-110,,-171,10.53,WIN,0.9091,0.9091
-2022-12-03,UFC Fight Night: Thompson vs. Holland,30abc50a2e71c576,Natan Levy,GAP,0,1,-160,,-225,6.82,WIN,0.625,0.625
-2022-12-17,UFC Fight Night: Cannonier vs. Strickland,8f00da6ea8186ce2,Bryan Battle,FLIP,0,1,130,,128,0.02,LOSS,-1.0,-1.0
-2023-01-14,UFC Fight Night: Strickland vs. Imavov,a4c7d59d340794c0,Umar Nurmagomedov,GAP,0,1,-200,,-933,22.37,WIN,0.5,0.5
-2023-01-21,UFC 283: Teixeira vs. Hill,fcf385ae75191b57,Josiane Nunes,GAP,0,1,-325,,-578,7.65,WIN,0.3077,0.3077
-2023-01-21,UFC 283: Teixeira vs. Hill,911b73db91738da6,Terrance McKinney,GAP,0,1,-131,,-117,-3.07,LOSS,-1.0,-1.0
-2023-01-21,UFC 283: Teixeira vs. Hill,dde7d29cc443e263,Jamahal Hill,GAP,0,1,-150,,-140,-2.12,WIN,0.6667,0.6667
-2023-02-18,UFC Fight Night: Andrade vs. Blanchfield,dcc3da324eb5f26c,Erin Blanchfield,FLIP,0,1,165,,100,11.19,WIN,1.65,1.65
-2023-02-25,UFC Fight Night: Muniz vs. Allen,a7f66f13f953352f,Jordan Leavitt,GAP,0,1,-125,,-131,0.99,WIN,0.8,0.8
-2023-03-04,UFC 285: Jones vs. Gane,c3b9b97467f828d1,Tabatha Ricci,GAP,0,1,-240,,-317,4.74,WIN,0.4167,0.4167
-2023-03-11,UFC Fight Night: Yan vs. Dvalishvili,e9c6bac0d1a5ec0f,Lukasz Brzeski,GAP,0,1,-170,,199,-28.68,LOSS,-1.0,-1.0
-2023-03-18,UFC 286: Edwards vs. Usman 3,dd9cbf6d6284de26,Casey O'Neill,GAP,0,1,-155,,-175,2.2,LOSS,-1.0,-1.0
-2023-06-24,UFC Fight Night: Emmett vs. Topuria,c2cdeb207cce5ceb,Joshua Van,FLIP,0,1,140,,172,-3.78,WIN,1.4,1.4
-2023-06-24,UFC Fight Night: Emmett vs. Topuria,c3ef3cb03edde8bb,Ilia Topuria,GAP,0,1,-200,,-362,10.82,WIN,0.5,0.5
-2023-07-01,UFC Fight Night: Strickland vs. Magomedov,4dc5a41f357a7d85,Grant Dawson,FLIP,0,1,120,,103,4.69,WIN,1.2,1.2
-2023-07-08,UFC 290: Volkanovski vs. Rodriguez,420f7e6530dbc727,Jesus Aguilar,GAP,0,1,-275,,-148,-11.65,WIN,0.3636,0.3636
-2023-07-22,UFC Fight Night: Aspinall vs. Tybura,a8a4c9f98ff73839,Yanal Ashmouz,GAP,0,1,-133,,121,-10.05,LOSS,-1.0,-1.0
-2023-07-29,UFC 291: Poirier vs. Gaethje 2,e5ac7343b6d45188,Vinicius Salvador,FLIP,0,1,150,,142,0.92,LOSS,-1.0,-1.0
-2023-08-19,UFC 292: Sterling vs. O'Malley,62d53ad8f8769666,Austin Hubbard,GAP,0,1,-175,,-174,-0.72,LOSS,-1.0,-1.0
-2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,da6b863cf684e0ae,Rolando Bedoya,GAP,0,1,-225,,-342,7.46,LOSS,-1.0,-1.0
-2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,48231fbd1af53674,Garrett Armfield,GAP,0,1,-175,,-165,-1.9,WIN,0.5714,0.5714
-2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,f7bc845ce74f5fe7,Junior Tafa,GAP,0,1,-125,,-156,5.52,WIN,0.8,0.8
-2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,5531317352862978,Erin Blanchfield,GAP,0,1,-142,,-160,2.46,WIN,0.7042,0.7042
-2023-09-02,UFC Fight Night: Gane vs. Spivac,e3a5a7ede88a2555,Joselyne Edwards,GAP,0,1,-125,,-132,2.29,LOSS,-1.0,-1.0
-2023-10-21,UFC 294: Makhachev vs. Volkanovski 2,18e5af00a8478a0e,Viktoriia Dudakova,GAP,0,1,-275,,-543,12.04,WIN,0.3636,0.3636
-2023-11-04,UFC Fight Night: Almeida vs. Lewis,7df5998eca143c04,Denise Gomes,GAP,0,1,-150,,-140,-0.11,LOSS,-1.0,-1.0
-2023-11-18,UFC Fight Night: Allen vs. Craig,b210b99d9c1c9196,Uros Medic,FLIP,0,1,120,,-106,5.8,LOSS,-1.0,-1.0
-2023-12-02,UFC Fight Night: Dariush vs. Tsarukyan,9feb9500b0fedfcd,Arman Tsarukyan,FLIP,0,1,100,,-284,22.86,WIN,1.0,1.0
-2023-12-09,UFC Fight Night: Song vs. Gutierrez,5a6e894e4b6cc703,Luana Santos,GAP,0,1,-185,,-156,-3.99,WIN,0.5405,0.5405
-2023-12-16,UFC 296: Edwards vs. Covington,3b21a9f48bac4a44,Bryce Mitchell,GAP,0,1,-138,,-263,14.88,LOSS,-1.0,-1.0
-2023-12-16,UFC 296: Edwards vs. Covington,1efc813ccd7a5aba,Shavkat Rakhmonov,GAP,0,1,-245,,-657,14.85,WIN,0.4082,0.4082
-2023-12-16,UFC 296: Edwards vs. Covington,3fa8ee3fdc04fe36,Leon Edwards,FLIP,0,1,165,,-151,21.07,WIN,1.65,1.65
-2024-01-20,UFC 297: Strickland vs. Du Plessis,ab105e5a56b5ee90,Malcolm Gordon,FLIP,0,1,-105,,-205,15.3,LOSS,-1.0,-1.0
-2024-01-20,UFC 297: Strickland vs. Du Plessis,14e53999507c76a7,Dricus Du Plessis,FLIP,0,1,130,,-112,9.32,WIN,1.3,1.3
-2024-02-17,UFC 298: Volkanovski vs. Topuria,9785420602b452f7,Merab Dvalishvili,FLIP,0,1,114,,-301,26.75,WIN,1.14,1.14
-2024-02-24,UFC Fight Night: Moreno vs. Royval 2,50dae6b76c9c6490,Muhammad Naimov,GAP,0,1,-250,,-561,12.69,WIN,0.4,0.4
-2024-03-02,UFC Fight Night: Rozenstruik vs. Gaziev,32bd7ed48f5aea7e,Eryk Anders,GAP,0,1,-125,,-534,27.38,WIN,0.8,0.8
-2024-03-09,UFC 299: O'Malley vs. Vera 2,68f7f992603192c6,Jack Della Maddalena,FLIP,0,1,105,,-161,13.18,WIN,1.05,1.05
-2024-03-09,UFC 299: O'Malley vs. Vera 2,270edfb687c0d20c,Kevin Holland,GAP,0,1,-138,,-136,0.8,LOSS,-1.0,-1.0
-2024-03-23,UFC Fight Night: Ribas vs. Namajunas,48ff3f1bcefbf965,Miles Johns,FLIP,0,1,-105,,-142,7.21,WIN,0.9524,0.9524
-2024-03-23,UFC Fight Night: Ribas vs. Namajunas,de7cb625bdec0f91,Trey Ogden,FLIP,0,1,-105,,-133,5.72,WIN,0.9524,0.9524
-2024-03-30,UFC Fight Night: Blanchfield vs. Fiorot,77992b8727382373,Chris Weidman,FLIP,0,1,200,,156,5.28,WIN,2.0,2.0
-2024-04-06,UFC Fight Night: Allen vs. Curtis 2,3cf5e0ebb5f8322c,Dylan Budka,FLIP,0,1,116,,-155,14.06,LOSS,-1.0,-1.0
-2024-04-13,UFC 300: Pereira vs. Hill,01f7c28804746979,Arman Tsarukyan,FLIP,0,1,100,,-205,16.65,WIN,1.0,1.0
-2024-05-04,UFC 301: Pantoja vs. Erceg,c84a29f426f1aab7,Iasmin Lucindo,GAP,0,1,-185,,-388,13.69,WIN,0.5405,0.5405
-2024-05-11,UFC Fight Night: Lewis vs. Nascimento,420a5e3b4010ebef,Chase Hooper,FLIP,0,1,164,,-101,11.45,WIN,1.64,1.64
-2024-06-08,UFC Fight Night: Cannonier vs. Imavov,b20640f9b2634de1,Rayanne dos Santos,FLIP,0,1,144,,-351,35.67,LOSS,-1.0,-1.0
-2024-06-22,UFC Fight Night: Whittaker vs. Aliskerov,8bd5f20f49434c65,Muhammad Naimov,FLIP,0,1,-107,,-135,6.08,LOSS,-1.0,-1.0
-2024-06-29,UFC 303: Pereira vs. Prochazka 2,fbf77262d8da342b,Ian Machado Garry,FLIP,0,1,-105,,-198,14.24,WIN,0.9524,0.9524
-2024-07-20,UFC Fight Night: Lemos vs. Jandiroba,e655774643881e6c,Miranda Maverick,GAP,0,1,-175,,-250,8.92,WIN,0.5714,0.5714
-2024-07-27,UFC 304: Edwards vs. Muhammad 2,d6e240c47ba6034d,Muhammad Mokaev,FLIP,0,1,120,,-209,20.97,WIN,1.2,1.2
-2024-07-27,UFC 304: Edwards vs. Muhammad 2,3e2bde19e752f64b,Paddy Pimblett,FLIP,0,1,160,,-138,18.7,WIN,1.6,1.6
-2024-08-03,UFC Fight Night: Sandhagen vs. Nurmagomedov,d038ff5ac21094f3,Rolando Bedoya,FLIP,0,1,120,,-102,4.63,LOSS,-1.0,-1.0
-2024-08-10,UFC Fight Night: Tybura vs. Spivac 2,7b4284bd3033a319,Danny Barlow,GAP,0,1,-285,,-428,6.38,WIN,0.3509,0.3509
-2024-09-07,UFC Fight Night: Burns vs. Brady,abfd5ac6cf186d8a,Isaac Dulgarian,GAP,0,1,-900,,-2695,6.18,WIN,0.1111,0.1111
-2024-09-28,UFC Fight Night: Moicano vs. Saint Denis,47d978a984a163aa,Victor Altamirano,FLIP,0,1,105,,-124,7.22,LOSS,-1.0,-1.0
-2024-09-28,UFC Fight Night: Moicano vs. Saint Denis,89b772f864acb637,Ion Cutelaba,GAP,0,1,-110,,-103,-1.52,WIN,0.9091,0.9091
-2024-10-05,UFC 307: Pereira vs. Rountree Jr.,eb73b63bbd7b88a7,Iasmin Lucindo,GAP,0,1,-120,,-186,11.19,WIN,0.8333,0.8333
-2024-10-26,UFC 308: Topuria vs. Holloway,bde635a4f345bc3e,Ismail Naurdiev,FLIP,0,1,124,,-170,17.48,WIN,1.24,1.24
-2024-10-26,UFC 308: Topuria vs. Holloway,919e3c5cc6999cb3,Myktybek Orolbai,GAP,0,1,-120,,-287,18.76,LOSS,-1.0,-1.0
-2024-11-09,UFC Fight Night: Magny vs. Prates,154138c8fc89c315,Gerald Meerschaert,FLIP,0,1,205,,254,-4.54,LOSS,-1.0,-1.0
-2024-11-16,UFC 309: Jones vs. Miocic,b35e47f2f58ef026,Jon Jones,GAP,0,1,-298,,-568,9.61,WIN,0.3356,0.3356
-2024-12-07,UFC 310: Pantoja vs. Asakura,0f16d83859d608c7,Chris Weidman,FLIP,0,1,100,,-112,2.61,LOSS,-1.0,-1.0
-2026-02-07,UFC Fight Night: Bautista vs. Oliveira,2bbfbb234c255249,Klaudia Sygula,GAP,1,1,-300,,-184,-10.49,WIN,0.3333,0.3333
-2026-02-07,UFC Fight Night: Bautista vs. Oliveira,fb4b1754d510b0d0,Vinicius Oliveira,FLIP,1,1,120,,114,0.83,LOSS,-1.0,-1.0
-2026-02-21,UFC Fight Night: Strickland vs. Hernandez,ac39c1f00ae31e58,Alden Coria,GAP,1,1,-210,,-413,11.49,WIN,0.4762,0.4762
-2026-02-21,UFC Fight Night: Strickland vs. Hernandez,dc6f6c8228390ebb,Melquizael Costa,GAP,1,1,-125,,-247,14.86,WIN,0.8,0.8
-2026-03-14,UFC Fight Night: Emmett vs. Vallejos,f26c0bdf7689aea2,Myktybek Orolbai,GAP,1,1,-250,,-481,10.31,WIN,0.4,0.4
-2026-03-21,UFC Fight Night: Evloev vs. Murphy,bfd17ed83ec5b598,Brando Pericic,FLIP,1,1,145,,-243,28.31,WIN,1.45,1.45
-2026-03-21,UFC Fight Night: Evloev vs. Murphy,3b9f50f07d9a1601,Nathaniel Wood,FLIP,1,1,130,,212,-11.46,WIN,1.3,1.3
-2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,1c50e43770ba84fc,Casey O'Neill,FLIP,1,1,110,,-125,7.15,WIN,1.1,1.1
-2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,fa96d6252579b51e,Ignacio Bahamondes,GAP,1,1,-200,,-330,8.5,LOSS,-1.0,-1.0
-2026-04-04,UFC Fight Night: Moicano vs. Duncan,74bb036ef0493bf7,Alice Pereira,GAP,1,1,-110,,-146,6.85,WIN,0.9091,0.9091
-2026-04-04,UFC Fight Night: Moicano vs. Duncan,7924f10aac3543de,Robert Ruchala,FLIP,1,1,250,,206,3.8,LOSS,-1.0,-1.0
-2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,610a640a0cd81ce5,Dom Mar Fan,FLIP,1,1,175,,148,3.83,LOSS,-1.0,-1.0
-2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,00bde62cac38e5e9,Colby Thicknesse,GAP,1,1,-110,,-129,3.83,WIN,0.9091,0.9091
-2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,a564219e7a964aa6,Brando Pericic,FLIP,1,1,135,,-120,11.49,WIN,1.35,1.35
-2026-05-09,UFC 328: Chimaev vs. Strickland,ffcb47e17eebe6a6,Grant Dawson,GAP,1,1,-110,,-136,5.57,WIN,0.9091,0.9091
-2026-05-30,UFC Fight Night: Song vs. Figueiredo,00959e29e4a10e26,Cameron Smotherman,FLIP,1,1,285,,250,2.47,LOSS,-1.0,-1.0
-2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,1,1,-110,,-141,6.94,WIN,0.9091,0.9091
-2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,1,1,100,,-114,3.63,WIN,1.0,1.0
-2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,1,1,-225,,-281,3.87,WIN,0.4444,0.4444
-2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,1,1,125,,-224,26.05,WIN,1.25,1.25
-2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,1,1,-255,,-365,5.98,WIN,0.3922,0.3922
-2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,1,1,-172,,-250,10.4,WIN,0.5814,0.5814
-2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,61280e5644189c61,Saygid Izagakhmaev,FLIP,1,1,175,,242,-5.92,LOSS,-1.0,-1.0
-2026-08-01,UFC Fight Night: Medic vs. Rodriguez,4350abb4f1933f88,Mark Vologdin,FLIP,0,1,130,,191,-8.91,LOSS,-1.0,-1.0
-2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,64829a32c78ab656,Louie Sutherland,FLIP,0,1,-110,,-197,13.39,LOSS,-1.0,-1.0
-2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,a10deecfb8558335,Quillan Salkilld,FLIP,0,1,111,,-141,10.41,WIN,1.11,1.11
-2026-08-15,UFC 330: Makhachev vs. Machado Garry,e79e4d13546d2360,Vicente Luque,FLIP,0,1,-110,,110,-4.44,LOSS,-1.0,-1.0
-2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,6206c62fc8f0b71b,Julia Polastri,GAP,1,1,-146,,-202,7.16,WIN,0.6849,0.6849
-2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,73cb6c4e060c4ee9,Denise Gomes,FLIP,1,1,110,,114,-0.21,WIN,1.1,1.1
-2026-09-05,UFC Fight Night: Hooker vs. Parnasse,809ebb0cfdd01ce2,Klaudia Sygula,FLIP,1,1,207,,101,17.72,LOSS,-1.0,-1.0
+event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,pnl_placed,open_line,placeable_line,clean_close,clv_pts,result,method,round,pnl,pnl_at_open
+2012-01-14,UFC 142: Aldo vs Mendes,7bb603674999e675,Felipe Arantes,FLIP,0,1,290.39,350.0,0,0.0,0.0,175,,155,4.21,WIN,U-DEC,3,1.75,1.75
+2012-01-20,UFC on FX: Guillard vs Miller,fc91f1e448f35797,Christian Morecraft,FLIP,0,1,214.69,149.65,1,0.5,-0.5,150,,185,-3.87,LOSS,KO/TKO,1,-1.0,-1.0
+2012-01-28,UFC on FOX: Evans vs Davis,e8a167bb84082832,Michael Johnson,FLIP,0,1,224.59,188.83,0,0.0,0.0,165,,225,-5.37,WIN,U-DEC,3,1.65,1.65
+2012-01-28,UFC on FOX: Evans vs Davis,c63a050af0692daf,Mike Russow,GAP,0,1,209.34,290.44,0,0.0,0.0,-210,,-105,-13.79,WIN,U-DEC,3,0.4762,0.4762
+2012-02-04,UFC 143: Diaz vs Condit,6ecc59654c2f519f,Matthew Riddle,GAP,0,1,156.93,350.0,1,0.81,0.2314,-350,,-365,3.38,WIN,S-DEC,3,0.2857,0.2857
+2012-02-04,UFC 143: Diaz vs Condit,d019250cc6d93527,Alex Caceres,FLIP,0,1,221.94,246.28,0,0.0,-0.0,110,,115,0.63,LOSS,S-DEC,3,-1.0,-1.0
+2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,74e92a66b29674a9,John Albert,FLIP,0,1,290.36,213.67,0,0.0,-0.0,200,,220,-0.46,LOSS,SUB,1,-1.0,-1.0
+2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,5f7a1ba6e016b249,Walel Watson,FLIP,0,1,251.5,290.36,0,0.0,-0.0,200,,235,-2.22,LOSS,U-DEC,3,-1.0,-1.0
+2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,f10d3d4ffd5a4922,Ronny Markes,FLIP,0,1,272.4,139.03,1,0.5,0.775,155,,-140,19.63,WIN,S-DEC,3,1.55,1.55
+2012-02-15,UFC on FUEL TV: Sanchez vs Ellenberger,e93d07a18ca847c8,Stefan Struve,FLIP,0,1,147.09,290.45,1,0.88,0.924,105,,101,2.68,WIN,KO/TKO,2,1.05,1.05
+2012-02-25,UFC 144: Edgar vs Henderson,eac1c31f1b3d11f3,Yushin Okami,FLIP,0,1,123.97,145.46,1,1.0,-1.0,240,,-410,51.04,LOSS,KO/TKO,3,-1.0,-1.0
+2012-02-25,UFC 144: Edgar vs Henderson,319053a9de63ab85,Cheick Kongo,GAP,0,1,115.63,212.06,1,1.0,-1.0,-210,,-280,8.56,LOSS,KO/TKO,1,-1.0,-1.0
+2012-03-02,UFC on FX: Alves vs Kampmann,01e5e4099f03f20e,Court McGee,FLIP,0,1,218.4,199.84,0,0.0,-0.0,130,,-125,13.58,LOSS,U-DEC,3,-1.0,-1.0
+2012-04-14,UFC on FUEL TV: Gustafsson vs Silva,8aa637fc26a01581,Cyrille Diabate,FLIP,0,1,192.95,350.0,0,0.0,0.0,160,,177,-1.34,WIN,M-DEC,3,1.6,1.6
+2012-04-14,UFC on FUEL TV: Gustafsson vs Silva,93096cfccdbf4fe8,Alexander Gustafsson,GAP,0,1,163.19,152.9,1,0.76,0.3619,-210,,-260,7.28,WIN,U-DEC,3,0.4762,0.4762
+2012-04-21,UFC 145: Jones vs Evans,eaf8782e4e03139b,Marcus Brimage,FLIP,0,1,290.39,350.0,0,0.0,0.0,220,,215,1.37,WIN,S-DEC,3,2.2,2.2
+2012-04-21,UFC 145: Jones vs Evans,06eb7492a27bb19a,Keith Wisniewski,FLIP,0,1,240.65,350.0,0,0.0,-0.0,180,,135,8.74,LOSS,S-DEC,3,-1.0,-1.0
+2012-04-21,UFC 145: Jones vs Evans,a6c02fb0b18e916c,Travis Browne,GAP,0,1,184.88,350.0,0,0.0,0.0,-185,,-300,12.11,WIN,SUB,1,0.5405,0.5405
+2012-04-21,UFC 145: Jones vs Evans,c1c8b38d315d487b,Mark Bocek,GAP,0,1,135.03,225.74,1,0.96,0.4923,-195,,-290,10.04,WIN,U-DEC,3,0.5128,0.5128
+2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,ade59be2e9bc1108,Rafael Dos Anjos,GAP,0,1,141.08,262.3,1,0.92,0.3539,-260,,-338,6.97,WIN,SUB,1,0.3846,0.3846
+2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,4655930eb83446c7,TJ Grant,GAP,0,1,150.05,287.0,1,0.86,0.2205,-390,,-422,2.82,WIN,U-DEC,3,0.2564,0.2564
+2012-05-15,UFC on FUEL TV: Korean Zombie vs Poirier,49818fb1520ce956,Jeremy Stephens,FLIP,0,1,117.34,166.92,1,1.0,-1.0,200,,200,1.21,LOSS,U-DEC,3,-1.0,-1.0
+2012-05-26,UFC 146: Dos Santos vs Mir,d5457867cbd0caf7,Daniel Pineda,FLIP,0,1,247.53,204.71,0,0.0,-0.0,165,,104,11.47,LOSS,U-DEC,3,-1.0,-1.0
+2012-05-26,UFC 146: Dos Santos vs Mir,a6a1adfeab7f7bb7,Kyle Kingsbury,FLIP,0,1,165.1,350.0,0,0.0,-0.0,170,,208,-3.59,LOSS,SUB,1,-1.0,-1.0
+2012-05-26,UFC 146: Dos Santos vs Mir,de8e1dd07ad49c94,CB Dollaway,FLIP,0,1,148.35,250.68,1,0.87,1.131,130,,148,-1.93,WIN,U-DEC,3,1.3,1.3
+2012-05-26,UFC 146: Dos Santos vs Mir,9cdeb62aa9092713,Edson Barboza,GAP,0,1,188.18,247.43,0,0.0,-0.0,-310,,-525,10.49,LOSS,KO/TKO,1,-1.0,-1.0
+2012-05-26,UFC 146: Dos Santos vs Mir,b187bdcc2ceba00f,Darren Elkins,FLIP,0,1,201.73,290.41,0,0.0,0.0,290,,235,4.63,WIN,U-DEC,3,2.9,2.9
+2012-05-26,UFC 146: Dos Santos vs Mir,cd2a60453f8ac133,Stipe Miocic,FLIP,0,1,232.79,350.0,0,0.0,0.0,100,,-167,14.65,WIN,KO/TKO,2,1.0,1.0
+2012-06-01,The Ultimate Fighter: Live Finale,fe1ce9e3a38a734b,Max Holloway,GAP,0,1,291.28,290.39,0,0.0,0.0,-145,,-145,2.83,WIN,U-DEC,3,0.6897,0.6897
+2012-06-01,The Ultimate Fighter: Live Finale,1c245dc63a0b9d51,Michael Chiesa,FLIP,0,1,350.0,350.0,0,0.0,0.0,200,,233,-1.82,WIN,SUB,1,2.0,2.0
+2012-06-08,UFC on FX: Johnson vs McCall,2ccecfdd7683043e,Jared Papazian,GAP,0,1,287.01,290.42,0,0.0,-0.0,-155,,-165,3.12,LOSS,SUB,1,-1.0,-1.0
+2012-06-22,UFC on FX: Maynard vs Guida,00731068c3195f7f,Ramsey Nijem,GAP,0,1,246.95,350.0,0,0.0,0.0,-195,,-150,-4.2,WIN,KO/TKO,1,0.5128,0.5128
+2012-06-23,UFC 147: Silva vs Franklin 2,00c20fa576380ac8,John Teixeira,FLIP,0,1,350.0,350.0,0,0.0,-0.0,120,,168,-5.94,LOSS,S-DEC,3,-1.0,-1.0
+2012-06-23,UFC 147: Silva vs Franklin 2,1b80d5696c2dc640,Rich Franklin,GAP,0,1,114.24,141.18,1,1.0,0.8,-125,,-139,5.63,WIN,U-DEC,5,0.8,0.8
+2012-07-07,UFC 148: Silva vs Sonnen 2,8e7b1dfc608a2ef4,Yoislandy Izquierdo,FLIP,0,1,290.36,180.33,0,0.0,-0.0,-105,,-187,16.45,LOSS,U-DEC,3,-1.0,-1.0
+2012-07-07,UFC 148: Silva vs Sonnen 2,21751a3cc69e5aae,Mike Easton,GAP,0,1,256.48,195.06,0,0.0,0.0,-115,,100,-1.69,WIN,U-DEC,3,0.8696,0.8696
+2012-07-11,UFC on FUEL TV: Munoz vs Weidman,d6dcbf543d7e303d,Alex Caceres,FLIP,0,1,201.77,247.02,0,0.0,0.0,125,,-110,7.91,WIN,SUB,2,1.25,1.25
+2012-07-21,UFC 149: Faber vs Barao,b6620177ac975ff2,Tim Boetsch,FLIP,0,1,139.32,350.0,1,0.93,1.86,200,,283,-5.68,WIN,S-DEC,3,2.0,2.0
+2012-08-04,UFC on FOX: Shogun vs Vera,758ec6b5d55c1b09,Philip De Fries,GAP,0,1,238.29,290.4,0,0.0,0.0,-205,,-215,1.54,WIN,SUB,2,0.4878,0.4878
+2012-09-22,UFC 152: Jones vs Belfort,307b12b9f08a4cbf,Charles Oliveira,FLIP,0,1,163.4,203.84,0,0.0,-0.0,220,,-235,38.72,LOSS,KO/TKO,1,-1.0,-1.0
+2012-09-29,UFC on FUEL TV: Struve vs Miocic,e34d313fbe1c28f1,Brad Tavares,GAP,0,1,181.19,350.0,0,0.0,0.0,-175,,-165,0.96,WIN,S-DEC,3,0.5714,0.5714
+2012-09-29,UFC on FUEL TV: Struve vs Miocic,26f876a7fb1020e1,Kyle Kingsbury,FLIP,0,1,158.03,350.0,1,0.8,-0.8,100,,220,-15.72,LOSS,KO/TKO,2,-1.0,-1.0
+2012-10-05,UFC on FX: Browne vs Bigfoot,8802182074bf4a3a,Jake Ellenberger,GAP,0,1,141.39,255.04,1,0.92,0.2629,-350,,-320,1.09,WIN,U-DEC,3,0.2857,0.2857
+2012-10-13,UFC 153: Silva vs Bonnar,297a3fe0edd6f1c5,Gleison Tibau,GAP,0,1,104.63,290.38,1,1.0,0.625,-160,,-130,-2.66,WIN,U-DEC,3,0.625,0.625
+2012-11-10,UFC Macao: Franklin vs Le,1a113ac3255f3ac3,Rich Franklin,GAP,0,1,111.82,226.66,1,1.0,-1.0,-300,,-429,8.63,LOSS,KO/TKO,1,-1.0,-1.0
+2012-11-17,UFC 154: St-Pierre vs Condit,1f7c1c741b06a3ed,Cyrille Diabate,GAP,0,1,181.31,299.75,0,0.0,0.0,-120,,-130,4.86,WIN,SUB,1,0.8333,0.8333
+2012-12-08,UFC on FOX: Henderson vs Diaz,b57345c34f6d2ab3,Ramsey Nijem,GAP,0,1,223.46,290.42,0,0.0,0.0,-175,,-230,7.35,WIN,U-DEC,3,0.5714,0.5714
+2012-12-08,UFC on FOX: Henderson vs Diaz,405cbbcaa79db24b,Mike Swick,GAP,0,1,123.5,122.45,1,1.0,-1.0,-140,,-147,3.73,LOSS,KO/TKO,2,-1.0,-1.0
+2012-12-08,UFC on FOX: Henderson vs Diaz,bc72dac46f0383f1,Nate Diaz,FLIP,0,1,108.64,159.27,1,1.0,-1.0,130,,180,-6.39,LOSS,U-DEC,5,-1.0,-1.0
+2012-12-15,The Ultimate Fighter: Team Carwin vs. Team Nelson Finale,8935fc5943a78c20,John Cofer,FLIP,0,1,290.42,350.0,0,0.0,-0.0,140,,-110,10.74,LOSS,SUB,3,-1.0,-1.0
+2012-12-15,The Ultimate Fighter: Team Carwin vs. Team Nelson Finale,5bcc7204a43cf34e,Matt Mitrione,FLIP,0,1,171.24,151.5,1,0.71,-0.71,175,,168,1.98,LOSS,KO/TKO,1,-1.0,-1.0
+2013-01-19,UFC on FX: Belfort vs Bisping,4d231d5d5f815085,CB Dollaway,GAP,0,1,142.09,350.0,1,0.91,0.5056,-180,,130,-18.32,WIN,S-DEC,3,0.5556,0.5556
+2013-02-16,UFC on FUEL TV: Barao vs McDonald,16ba92318ff66d4a,Phil Harris,FLIP,0,1,281.36,290.42,0,0.0,0.0,180,,180,1.72,WIN,U-DEC,3,1.8,1.8
+2013-02-16,UFC on FUEL TV: Barao vs McDonald,f509d5ffcc3f46fe,Motonobu Tezuka,FLIP,0,1,267.29,211.03,0,0.0,-0.0,140,,121,4.74,LOSS,U-DEC,3,-1.0,-1.0
+2013-02-16,UFC on FUEL TV: Barao vs McDonald,d607908be8b19273,Andy Ogle,FLIP,0,1,290.39,215.87,0,0.0,0.0,170,,138,6.36,WIN,U-DEC,3,1.7,1.7
+2013-02-16,UFC on FUEL TV: Barao vs McDonald,493b7a8e3253b133,Dustin Poirier,GAP,0,1,173.36,182.14,0,0.0,-0.0,-145,,-112,-3.69,LOSS,U-DEC,3,-1.0,-1.0
+2013-03-02,UFC on FUEL TV: Silva vs. Stann,e830cb1df07f3466,Yushin Okami,FLIP,0,1,113.37,231.91,1,1.0,1.7,170,,180,0.11,WIN,S-DEC,3,1.7,1.7
+2013-03-02,UFC on FUEL TV: Silva vs. Stann,c996b2ff10a915b1,Stefan Struve,GAP,0,1,128.52,192.78,1,1.0,-1.0,-180,,-207,5.02,LOSS,KO/TKO,3,-1.0,-1.0
+2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,438f5404c43303b8,Tom Lawlor,GAP,0,1,142.9,225.31,1,0.91,0.6276,-145,,-137,1.5,WIN,SUB,2,0.6897,0.6897
+2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,bc0779b232828e67,Michael Johnson,GAP,0,1,158.14,260.66,1,0.8,-0.8,-195,,-300,10.21,LOSS,SUB,3,-1.0,-1.0
+2013-04-06,UFC on FUEL TV: Mousasi vs Latifi,4e69c86d09c9f782,Mike Easton,FLIP,0,1,196.73,189.57,0,0.0,-0.0,140,,138,1.73,LOSS,S-DEC,3,-1.0,-1.0
+2013-04-20,UFC on FOX: Henderson vs Melendez,c8a48abe3263f796,Clifford Starks,GAP,0,1,233.24,350.0,0,0.0,-0.0,-125,,158,-12.95,LOSS,KO/TKO,1,-1.0,-1.0
+2013-04-20,UFC on FOX: Henderson vs Melendez,56ad1de1924984ad,Anthony Njokuani,GAP,0,1,166.95,350.0,0,0.0,0.0,-210,,-180,-0.77,WIN,KO/TKO,2,0.4762,0.4762
+2013-04-20,UFC on FOX: Henderson vs Melendez,786033c27fdaa020,Tim Means,FLIP,0,1,247.7,350.0,0,0.0,-0.0,125,,100,6.18,LOSS,U-DEC,3,-1.0,-1.0
+2013-04-20,UFC on FOX: Henderson vs Melendez,3566c8e9d3a9caa8,Francis Carmont,GAP,0,1,187.36,350.0,0,0.0,0.0,-125,,-115,0.74,WIN,U-DEC,3,0.8,0.8
+2013-04-20,UFC on FOX: Henderson vs Melendez,56ce29bdb1fe9abf,Nate Diaz,GAP,0,1,105.59,212.01,1,1.0,-1.0,-160,,-145,0.13,LOSS,KO/TKO,2,-1.0,-1.0
+2013-04-20,UFC on FOX: Henderson vs Melendez,4dd561df1ca58ab8,Frank Mir,FLIP,0,1,103.03,350.0,1,1.0,-1.0,250,,325,-3.9,LOSS,U-DEC,3,-1.0,-1.0
+2013-04-27,UFC 159: Jones vs Sonnen,6d6a1834e0d18f0c,Steven Siler,FLIP,0,1,191.51,350.0,0,0.0,0.0,100,,-117,6.1,WIN,U-DEC,3,1.0,1.0
+2013-04-27,UFC 159: Jones vs Sonnen,44ad16cd4e6c93d7,Cody McKenzie,FLIP,0,1,177.44,157.69,1,0.66,0.792,120,,187,-8.52,WIN,U-DEC,3,1.2,1.2
+2013-04-27,UFC 159: Jones vs Sonnen,fb30b2752d3dc1eb,Sheila Gaff,FLIP,0,1,350.0,350.0,0,0.0,-0.0,400,,453,-1.4,LOSS,KO/TKO,1,-1.0,-1.0
+2013-04-27,UFC 159: Jones vs Sonnen,59ad5b88804afbf5,Rustam Khabilov,GAP,0,1,290.39,350.0,0,0.0,0.0,-310,,-192,-7.17,WIN,KO/TKO,1,0.3226,0.3226
+2013-04-27,UFC 159: Jones vs Sonnen,c29850ed8d9d1073,Phil Davis,GAP,0,1,158.37,235.35,1,0.8,0.2667,-300,,-285,1.56,WIN,U-DEC,3,0.3333,0.3333
+2013-04-27,UFC 159: Jones vs Sonnen,04e6a26fe2a4017d,Cheick Kongo,FLIP,0,1,111.06,141.9,1,1.0,-1.0,170,,208,-3.12,LOSS,KO/TKO,1,-1.0,-1.0
+2013-05-18,UFC on FX: Belfort vs. Rockhold,8aff100107d0ba11,Azamat Gashimov,FLIP,0,1,273.41,246.53,0,0.0,-0.0,150,,-122,15.43,LOSS,KO/TKO,2,-1.0,-1.0
+2013-05-18,UFC on FX: Belfort vs. Rockhold,4b4c4df2778538d9,Paulo Thiago,GAP,0,1,139.98,350.0,1,0.93,0.4429,-210,,-195,0.73,WIN,U-DEC,3,0.4762,0.4762
+2013-05-18,UFC on FX: Belfort vs. Rockhold,ac269f99e4e53634,Chris Camozzi,FLIP,0,1,147.18,350.0,0,0.0,-0.0,425,,463,-0.73,LOSS,SUB,1,-1.0,-1.0
+2013-06-08,UFC on FUEL TV: Nogueira vs. Werdum,2692ac9853970e08,Thiago Silva,FLIP,0,1,143.41,350.0,1,0.9,0.99,110,,183,-10.04,WIN,KO/TKO,1,1.1,1.1
+2013-06-08,UFC on FUEL TV: Nogueira vs. Werdum,bd9100f5d4ee6823,William Macario,FLIP,0,1,350.0,350.0,0,0.0,-0.0,185,,135,8.6,LOSS,SUB,2,-1.0,-1.0
+2013-06-15,UFC 161: Evans vs Henderson,43d1693f0198a93e,Tyron Woodley,GAP,0,1,280.96,193.97,0,0.0,-0.0,-170,,-212,6.64,LOSS,S-DEC,3,-1.0,-1.0
+2013-06-15,UFC 161: Evans vs Henderson,27ff1bfeb2d50b38,Shawn Jordan,FLIP,0,1,204.31,131.7,1,0.5,0.675,135,,-110,10.15,WIN,KO/TKO,1,1.35,1.35
+2013-06-15,UFC 161: Evans vs Henderson,a4daf2f24acdcd43,Stipe Miocic,FLIP,0,1,188.56,133.18,1,0.58,1.044,180,,230,-3.79,WIN,U-DEC,3,1.8,1.8
+2013-08-03,UFC 163: Aldo vs Jung,3846db1456151f80,Neil Magny,FLIP,0,1,290.4,254.78,0,0.0,-0.0,170,,143,5.2,LOSS,SUB,1,-1.0,-1.0
+2013-08-03,UFC 163: Aldo vs Jung,168413032bb51ce0,Sheila Gaff,FLIP,0,1,290.37,350.0,0,0.0,-0.0,180,,183,1.23,LOSS,KO/TKO,1,-1.0,-1.0
+2013-08-17,UFC Fight Night: Shogun vs Sonnen,f12126b5c49a318a,Ramsey Nijem,GAP,0,1,185.64,350.0,0,0.0,-0.0,-210,,-195,0.13,LOSS,SUB,1,-1.0,-1.0
+2013-08-17,UFC Fight Night: Shogun vs Sonnen,0f74449bf6f64616,Cole Miller,GAP,0,1,123.99,147.45,1,1.0,-1.0,-130,,125,-9.01,LOSS,U-DEC,3,-1.0,-1.0
+2013-08-17,UFC Fight Night: Shogun vs Sonnen,05dce98da0acefd8,Steven Siler,FLIP,0,1,181.51,194.53,0,0.0,0.0,150,,185,-3.96,WIN,KO/TKO,1,1.5,1.5
+2013-08-17,UFC Fight Night: Shogun vs Sonnen,8e41d022b55277ae,Michael McDonald,GAP,0,1,179.89,173.2,0,0.0,0.0,-215,,-310,9.01,WIN,SUB,2,0.4651,0.4651
+2013-08-31,UFC 164: Henderson vs Pettis 2,b4555cd5b5d2a53f,Nikita Krylov,GAP,0,1,350.0,275.57,0,0.0,-0.0,-140,,-135,1.41,LOSS,KO/TKO,3,-1.0,-1.0
+2013-08-31,UFC 164: Henderson vs Pettis 2,336670b46f343d65,Tim Elliott,GAP,0,1,245.43,256.68,0,0.0,0.0,-160,,-235,10.27,WIN,U-DEC,3,0.625,0.625
+2013-08-31,UFC 164: Henderson vs Pettis 2,aac887ea8a83d7a4,Frank Mir,FLIP,0,1,102.49,195.92,1,1.0,-1.0,170,,161,2.6,LOSS,KO/TKO,1,-1.0,-1.0
+2013-09-04,UFC Fight Night: Teixeira vs Bader,9166d2f99369c06b,Yushin Okami,FLIP,0,1,110.46,267.33,1,1.0,-1.0,160,,203,-4.28,LOSS,KO/TKO,1,-1.0,-1.0
+2013-09-21,UFC 165: Jones vs Gustafsson,a95be3943ea0f691,Stephen Thompson,GAP,0,1,208.34,281.97,0,0.0,0.0,-280,,-427,9.74,WIN,KO/TKO,2,0.3571,0.3571
+2013-09-21,UFC 165: Jones vs Gustafsson,ca2b48fd007126e0,Khabib Nurmagomedov,GAP,0,1,182.89,290.39,0,0.0,0.0,-260,,-270,3.75,WIN,U-DEC,3,0.3846,0.3846
+2013-10-09,UFC Fight Night: Maia vs Shields,3a8baa48c9b30d47,Chris Cariaso,FLIP,0,1,164.47,229.91,0,0.0,0.0,120,,140,-2.05,WIN,KO/TKO,2,1.2,1.2
+2013-10-09,UFC Fight Night: Maia vs Shields,3e610c7a2ab31acd,David Mitchell,FLIP,0,1,207.26,350.0,0,0.0,-0.0,180,,265,-6.6,LOSS,U-DEC,3,-1.0,-1.0
+2013-10-09,UFC Fight Night: Maia vs Shields,3fc3179cd800128e,Dong Hyun Kim,FLIP,0,1,128.53,181.56,1,1.0,1.35,135,,155,-1.94,WIN,KO/TKO,2,1.35,1.35
+2013-10-19,UFC 166: Velasquez vs Dos Santos 3,e1ccf09c055bac01,Dustin Pague,FLIP,0,1,180.14,350.0,0,0.0,-0.0,100,,135,-4.91,LOSS,KO/TKO,2,-1.0,-1.0
+2013-10-19,UFC 166: Velasquez vs Dos Santos 3,2a5fd0e2728967a5,Nate Marquardt,FLIP,0,1,113.69,198.0,1,1.0,-1.0,150,,170,-2.08,LOSS,KO/TKO,1,-1.0,-1.0
+2013-11-06,UFC Fight Night: Fight for the Troops 3,20a83369ee44e1d4,Derek Brunson,GAP,0,1,267.66,350.0,0,0.0,0.0,-230,,-172,-3.76,WIN,SUB,1,0.4348,0.4348
+2013-11-06,UFC Fight Night: Fight for the Troops 3,add991cb839af4ed,Amanda Nunes,FLIP,0,1,286.98,290.37,0,0.0,0.0,100,,113,-0.94,WIN,KO/TKO,1,1.0,1.0
+2013-11-06,UFC Fight Night: Fight for the Troops 3,ce30634422a264f9,Steven Siler,FLIP,0,1,168.7,185.98,0,0.0,-0.0,165,,168,0.48,LOSS,U-DEC,3,-1.0,-1.0
+2013-11-06,UFC Fight Night: Fight for the Troops 3,b35f2071e6dd4b12,Ronny Markes,GAP,0,1,201.52,272.22,0,0.0,-0.0,-125,,140,-10.58,LOSS,KO/TKO,3,-1.0,-1.0
+2013-11-06,UFC Fight Night: Fight for the Troops 3,26e876df6d498657,Rafael Natal,FLIP,0,1,160.67,290.38,0,0.0,-0.0,230,,320,-5.58,LOSS,KO/TKO,1,-1.0,-1.0
+2013-11-09,UFC Fight Night: Belfort vs Henderson 2,2dd0a47f43dfe8f6,Daron Cruickshank,FLIP,0,1,183.07,350.0,0,0.0,-0.0,120,,-145,14.63,LOSS,SUB,2,-1.0,-1.0
+2013-11-09,UFC Fight Night: Belfort vs Henderson 2,0a70601cc9f2426f,Godofredo Pepey,FLIP,0,1,215.2,219.55,0,0.0,-0.0,150,,-125,15.34,LOSS,KO/TKO,1,-1.0,-1.0
+2013-11-09,UFC Fight Night: Belfort vs Henderson 2,389c844a1a56177c,Ryan LaFlare,GAP,0,1,287.05,350.0,0,0.0,0.0,-140,,-120,-1.67,WIN,U-DEC,3,0.7143,0.7143
+2013-11-09,UFC Fight Night: Belfort vs Henderson 2,2d57ce76f7922ed9,Cezar Ferreira,GAP,0,1,254.77,233.49,0,0.0,0.0,-125,,-172,10.59,WIN,S-DEC,3,0.8,0.8
+2013-11-16,UFC 167: St-Pierre vs Hendricks,1f5c71dd2a0672ac,Josh Koscheck,FLIP,0,1,97.57,231.64,1,1.0,-1.0,-115,,100,-1.13,LOSS,KO/TKO,1,-1.0,-1.0
+2013-12-06,UFC Fight Night: Hunt vs Bigfoot,39efb868dbe7e311,Julie Kedzie,GAP,0,1,290.39,350.0,0,0.0,-0.0,-190,,-172,-0.56,LOSS,S-DEC,3,-1.0,-1.0
+2013-12-14,UFC on FOX: Johnson vs. Benavidez 2,f5fb4435faf1ca04,King Green,FLIP,0,1,227.84,270.83,0,0.0,0.0,170,,130,7.32,WIN,U-DEC,3,1.7,1.7
+2013-12-14,UFC on FOX: Johnson vs. Benavidez 2,00566b4d89565373,Michael McDonald,FLIP,0,1,164.5,156.91,1,0.75,-0.75,120,,130,-0.78,LOSS,SUB,2,-1.0,-1.0
+2013-12-28,UFC 168: Weidman vs Silva 2,49c0071ae52fc83a,William Macario,FLIP,0,1,290.42,223.65,0,0.0,0.0,110,,118,-0.0,WIN,U-DEC,3,1.1,1.1
+2013-12-28,UFC 168: Weidman vs Silva 2,5e4f358e0bcc2f15,Dustin Poirier,GAP,0,1,150.46,173.92,1,0.85,0.5,-170,,-247,9.87,WIN,KO/TKO,1,0.5882,0.5882
+2014-01-04,UFC Fight Night: Saffiedine vs Lim,07d1d120dab41893,Sean Soriano,FLIP,0,1,350.0,350.0,0,0.0,-0.0,160,,-116,15.2,LOSS,SUB,2,-1.0,-1.0
+2014-01-04,UFC Fight Night: Saffiedine vs Lim,3ff7d02ef633ee22,Hyun Gyu Lim,FLIP,0,1,235.78,350.0,0,0.0,-0.0,135,,193,-7.26,LOSS,U-DEC,5,-1.0,-1.0
+2014-01-15,UFC Fight Night: Rockhold vs Philippou,1143d37503a9527d,Garett Whiteley,FLIP,0,1,290.37,290.52,0,0.0,-0.0,110,,135,-3.07,LOSS,U-DEC,3,-1.0,-1.0
+2014-01-15,UFC Fight Night: Rockhold vs Philippou,3b8b70b448b0c604,Elias Silverio,GAP,0,1,278.74,264.05,0,0.0,0.0,-125,,-177,11.3,WIN,U-DEC,3,0.8,0.8
+2014-02-01,UFC 169: Barao vs Faber 2,7a91b26b3e231fff,Neil Magny,FLIP,0,1,214.43,350.0,0,0.0,0.0,125,,128,0.78,WIN,U-DEC,3,1.25,1.25
+2014-03-01,UFC Fight Night: Kim vs Hathaway,c53a5dca56870ea5,Kazuki Tokudome,FLIP,0,1,239.67,350.0,0,0.0,-0.0,140,,180,-4.52,LOSS,S-DEC,3,-1.0,-1.0
+2014-03-15,UFC 171: Hendricks vs Lawler,364ed6aecfc8d16d,Renee Forte,FLIP,0,1,212.11,350.0,0,0.0,-0.0,-115,,-157,10.7,LOSS,U-DEC,3,-1.0,-1.0
+2014-03-23,UFC Fight Night: Shogun vs Henderson 2,8f120352072bd5ed,Godofredo Pepey,FLIP,0,1,193.27,350.0,0,0.0,0.0,140,,276,-13.39,WIN,KO/TKO,1,1.4,1.4
+2014-04-11,UFC Fight Night: Minotauro vs Nelson,beed8bc1f800de8f,Ramsey Nijem,FLIP,0,1,161.31,258.77,0,0.0,0.0,160,,233,-6.89,WIN,KO/TKO,1,1.6,1.6
+2014-04-11,UFC Fight Night: Minotauro vs Nelson,a2e1e35e4e84e08d,Clay Guida,FLIP,0,1,106.5,290.37,1,1.0,1.15,115,,-138,13.04,WIN,U-DEC,3,1.15,1.15
+2014-04-19,UFC on FOX: Werdum vs Browne,f8c9a597f719d75c,Jorge Masvidal,GAP,0,1,214.02,253.57,0,0.0,0.0,-190,,-272,9.4,WIN,U-DEC,3,0.5263,0.5263
+2014-04-26,UFC 172: Jones vs Teixeira,c3455ba522bb37eb,Jessamyn Duke,GAP,0,1,290.39,281.45,0,0.0,-0.0,-135,,-137,3.45,LOSS,U-DEC,3,-1.0,-1.0
+2014-05-10,UFC Fight Night: Brown vs Silva,2b6c2cdccb2cc659,Justin Salas,GAP,0,1,186.01,290.4,0,0.0,0.0,-210,,-295,8.83,WIN,KO/TKO,1,0.4762,0.4762
+2014-05-10,UFC Fight Night: Brown vs Silva,107079f548338ac3,Neil Magny,FLIP,0,1,198.67,196.41,0,0.0,0.0,145,,263,-11.77,WIN,U-DEC,3,1.45,1.45
+2014-05-31,UFC Fight Night: Munoz vs Mousasi,5b6405eeb6757637,Krzysztof Jotko,GAP,0,1,290.41,229.27,0,0.0,-0.0,-140,,-102,-4.98,LOSS,SUB,2,-1.0,-1.0
+2014-06-07,UFC Fight Night: Henderson vs Khabilov,0c2a634606639d71,Roger Narvaez,FLIP,0,1,350.0,309.74,0,0.0,-0.0,235,,275,-2.3,LOSS,KO/TKO,2,-1.0,-1.0
+2014-06-07,UFC Fight Night: Henderson vs Khabilov,6597b770486021b8,Lance Benoist,FLIP,0,1,197.43,202.45,0,0.0,0.0,-110,,-103,1.0,WIN,U-DEC,3,0.9091,0.9091
+2014-06-14,UFC 174: Johnson vs Bagautinov,b72c19b80fb47ba4,Ryan Bader,GAP,0,1,111.73,236.08,1,1.0,0.6061,-165,,-163,2.33,WIN,U-DEC,3,0.6061,0.6061
+2014-06-14,UFC 174: Johnson vs Bagautinov,de65739f00350c58,Rory MacDonald,GAP,0,1,132.98,182.22,1,0.98,0.6533,-150,,-115,-3.94,WIN,U-DEC,3,0.6667,0.6667
+2014-06-28,UFC Fight Night: Swanson vs Stephens,47cabf79c3340581,Andy Enz,GAP,0,1,296.0,251.82,0,0.0,-0.0,-180,,-195,3.24,LOSS,S-DEC,3,-1.0,-1.0
+2014-06-28,UFC Fight Night: Te Huna vs Marquardt,2977a9b5c30d89c1,Roldan Sangcha'an,FLIP,0,1,350.0,290.42,0,0.0,-0.0,110,,118,0.39,LOSS,U-DEC,3,-1.0,-1.0
+2014-06-28,UFC Fight Night: Swanson vs Stephens,7d26a6b4b6845e1b,Clint Hester,FLIP,0,1,227.61,290.52,0,0.0,0.0,120,,143,-2.23,WIN,S-DEC,3,1.2,1.2
+2014-07-05,UFC 175: Weidman vs Machida,6445b14dbd24ac25,Guilherme Vasconcelos,GAP,0,1,350.0,275.49,0,0.0,-0.0,-170,,-172,2.57,LOSS,U-DEC,3,-1.0,-1.0
+2014-07-16,UFC Fight Night: Cowboy vs Miller,5c30f6535a08d598,Tina Lahdemaki,FLIP,0,1,350.0,350.0,0,0.0,-0.0,335,,460,-4.23,LOSS,U-DEC,3,-1.0,-1.0
+2014-07-16,UFC Fight Night: Cowboy vs Miller,635ee9448fe2ddaf,Yosdenis Cedeno,FLIP,0,1,290.39,350.0,0,0.0,0.0,130,,170,-4.69,WIN,KO/TKO,1,1.3,1.3
+2014-07-16,UFC Fight Night: Cowboy vs Miller,9fc7fcbdb6587265,Jessamyn Duke,GAP,0,1,247.77,290.37,0,0.0,-0.0,-140,,123,-10.16,LOSS,KO/TKO,1,-1.0,-1.0
+2014-07-19,UFC Fight Night: McGregor vs Brandao,f6d6b660e1578744,Nikita Krylov,GAP,0,1,223.84,217.74,0,0.0,0.0,-140,,-128,0.73,WIN,KO/TKO,1,0.7143,0.7143
+2014-07-19,UFC Fight Night: McGregor vs Brandao,611ccad0fc46ba51,Norman Parke,GAP,0,1,198.42,249.65,0,0.0,0.0,-315,,-479,8.69,WIN,KO/TKO,2,0.3175,0.3175
+2014-08-16,UFC Fight Night: Bader vs Saint Preux,99dc6aa635a9cf98,Nolan Ticman,FLIP,0,1,350.0,350.0,0,0.0,-0.0,130,,113,4.78,LOSS,U-DEC,3,-1.0,-1.0
+2014-08-16,UFC Fight Night: Bader vs Saint Preux,2573a9a722f238f4,Shawn Jordan,GAP,0,1,152.58,290.38,1,0.84,0.4421,-190,,-195,2.42,WIN,KO/TKO,3,0.5263,0.5263
+2014-08-23,UFC Fight Night: Henderson vs Dos Anjos,b2867869d4eb98ce,Aaron Phillips,FLIP,0,1,263.29,280.56,0,0.0,-0.0,170,,145,5.06,LOSS,U-DEC,3,-1.0,-1.0
+2014-08-23,UFC Fight Night: Henderson vs Dos Anjos,954362efa4564d60,Neil Magny,FLIP,0,1,170.21,248.91,0,0.0,0.0,175,,130,8.49,WIN,U-DEC,3,1.75,1.75
+2014-09-05,UFC Fight Night: Jacare vs Mousasi,c9733393385105cb,Michael Chiesa,FLIP,0,1,181.0,116.1,1,0.64,-0.64,100,,-215,20.13,LOSS,KO/TKO,2,-1.0,-1.0
+2014-09-20,UFC Fight Night: Hunt vs Nelson,de2dad48d95305d7,Hyun Gyu Lim,GAP,0,1,218.99,273.05,0,0.0,0.0,-705,,-665,1.9,WIN,KO/TKO,1,0.1418,0.1418
+2014-09-20,UFC Fight Night: Hunt vs Nelson,b516beb27416e492,Alex Caceres,GAP,0,1,150.6,350.0,1,0.85,-0.85,-245,,-297,6.68,LOSS,U-DEC,3,-1.0,-1.0
+2014-09-20,UFC Fight Night: Hunt vs Nelson,26cd506de4221057,Richard Walsh,FLIP,0,1,290.4,241.13,0,0.0,-0.0,160,,208,-4.58,LOSS,S-DEC,3,-1.0,-1.0
+2014-09-20,UFC Fight Night: Hunt vs Nelson,1e797ccd275a98d0,Amir Sadollah,FLIP,0,1,132.73,178.79,1,0.98,-0.98,145,,143,1.65,LOSS,U-DEC,3,-1.0,-1.0
+2014-09-27,UFC 178: Johnson vs Cariaso,b1b82605646eb850,Amanda Nunes,FLIP,0,1,247.06,290.59,0,0.0,-0.0,200,,188,2.67,LOSS,KO/TKO,3,-1.0,-1.0
+2014-10-04,UFC Fight Night: Nelson vs Story,6c62796d9b7e94a0,Krzysztof Jotko,GAP,0,1,242.51,205.95,0,0.0,0.0,-140,,-143,3.56,WIN,U-DEC,3,0.7143,0.7143
+2014-10-04,UFC Fight Night: MacDonald vs Saffiedine,64542fe846b9aea9,Rory MacDonald,GAP,0,1,126.72,289.16,1,1.0,0.2857,-350,,-430,6.09,WIN,KO/TKO,3,0.2857,0.2857
+2014-10-25,UFC 179: Aldo vs Mendes 2,a90fde18a088f99b,Wilson Reis,GAP,0,1,207.15,143.95,1,0.5,0.303,-165,,-220,8.48,WIN,SUB,1,0.6061,0.6061
+2014-11-07,UFC Fight Night: Rockhold vs Bisping,2faa7b48b4d51cab,Jake Matthews,GAP,0,1,290.39,212.83,0,0.0,0.0,-385,,-487,6.33,WIN,SUB,2,0.2597,0.2597
+2014-11-08,UFC Fight Night 56: Shogun vs Saint Preux,fadb129e71d8fc22,Jorge de Oliveira,FLIP,0,1,350.0,290.38,0,0.0,-0.0,220,,388,-9.49,LOSS,U-DEC,3,-1.0,-1.0
+2014-11-15,UFC 180: Werdum vs Hunt,07f9fc40f1e6aa87,Jessica Eye,GAP,0,1,280.12,244.41,0,0.0,0.0,-270,,-297,4.9,WIN,KO/TKO,2,0.3704,0.3704
+2014-11-15,UFC 180: Werdum vs Hunt,1e1a09bbedf7781d,Hector Urbina,FLIP,0,1,350.0,251.52,0,0.0,0.0,190,,153,6.53,WIN,SUB,1,1.9,1.9
+2014-11-15,UFC 180: Werdum vs Hunt,925f745c03ebd638,Chris Heatherly,FLIP,0,1,274.83,350.0,0,0.0,-0.0,145,,235,-9.47,LOSS,KO/TKO,1,-1.0,-1.0
+2014-12-06,UFC 181: Hendricks vs Lawler II,60030b35e276d338,Corey Anderson,GAP,0,1,290.4,350.0,0,0.0,0.0,-385,,-474,5.94,WIN,U-DEC,3,0.2597,0.2597
+2014-12-13,UFC on FOX: Dos Santos vs Miocic,a4816be2c49e3942,David Michaud,GAP,0,1,290.42,247.72,0,0.0,0.0,-185,,-240,7.24,WIN,U-DEC,3,0.5405,0.5405
+2015-01-03,UFC 182: Jones vs Cormier,e0f49380b9d31de0,Alexis Dufresne,GAP,0,1,290.41,350.0,0,0.0,-0.0,-185,,-225,5.96,LOSS,U-DEC,3,-1.0,-1.0
+2015-01-03,UFC 182: Jones vs Cormier,57385188587c83b9,Jon Jones,GAP,0,1,104.91,191.4,1,1.0,0.5882,-170,,-198,4.04,WIN,U-DEC,5,0.5882,0.5882
+2015-01-18,UFC Fight Night: McGregor vs Siver,4d3cd5ecf4276c92,Sean O'Connell,GAP,0,1,227.78,290.42,0,0.0,0.0,-140,,-227,13.71,WIN,KO/TKO,3,0.7143,0.7143
+2015-01-24,UFC on FOX: Gustafsson vs Johnson,96f09d5db68951ef,Viktor Pesta,FLIP,0,1,290.44,350.0,0,0.0,0.0,180,,363,-12.0,WIN,U-DEC,3,1.8,1.8
+2015-01-31,UFC 183: Silva vs Diaz,5b0ebb843af7465e,Ildemar Alcantara,GAP,0,1,186.19,290.44,0,0.0,0.0,-210,,-159,-3.82,WIN,S-DEC,3,0.4762,0.4762
+2015-02-14,UFC Fight Night: Henderson vs Thatch,60820d105e57d5d6,Patrick Walsh,FLIP,0,1,290.43,274.16,0,0.0,-0.0,-115,,-121,4.07,LOSS,U-DEC,3,-1.0,-1.0
+2015-02-22,UFC Fight Night: Bigfoot vs Mir,82e713f037e37fe9,Sean Strickland,GAP,0,1,232.87,251.41,0,0.0,-0.0,-210,,-205,1.76,LOSS,U-DEC,3,-1.0,-1.0
+2015-02-28,UFC 184: Rousey vs Zingano,f3e1c02ce14bccfe,Derrick Lewis,GAP,0,1,212.27,237.04,0,0.0,0.0,-385,,-702,10.67,WIN,KO/TKO,2,0.2597,0.2597
+2015-02-28,UFC 184: Rousey vs Zingano,31e62d34abc3a762,Raquel Pennington,FLIP,0,1,226.09,350.0,0,0.0,-0.0,335,,423,-3.16,LOSS,S-DEC,3,-1.0,-1.0
+2015-03-14,UFC 185: Pettis vs Dos Anjos,0027e179b743c86c,Jared Rosholt,GAP,0,1,194.48,283.47,0,0.0,0.0,-230,,-305,8.02,WIN,KO/TKO,3,0.4348,0.4348
+2015-04-04,UFC Fight Night: Mendes vs Lamas,8cf571afc2618df4,Lauren Murphy,FLIP,0,1,274.72,205.93,0,0.0,-0.0,115,,-120,8.83,LOSS,U-DEC,3,-1.0,-1.0
+2015-04-04,UFC Fight Night: Mendes vs Lamas,12c600dc64edb403,Dustin Poirier,GAP,0,1,129.37,199.89,1,1.0,0.6667,-150,,-149,2.06,WIN,KO/TKO,1,0.6667,0.6667
+2015-04-11,UFC Fight Night: Gonzaga vs Cro Cop 2,6a7892754af30685,Gabriel Gonzaga,GAP,0,1,105.98,135.84,1,1.0,-1.0,-155,,-212,8.73,LOSS,KO/TKO,3,-1.0,-1.0
+2015-04-18,UFC on FOX: Machida vs Rockhold,6b92396d42918366,Corey Anderson,GAP,0,1,256.48,189.88,0,0.0,-0.0,-230,,-400,12.1,LOSS,KO/TKO,3,-1.0,-1.0
+2015-05-09,UFC Fight Night: Miocic vs Hunt,979269d4ab5784af,Brendan O'Reilly,FLIP,0,1,281.52,219.29,0,0.0,0.0,110,,118,-0.0,WIN,U-DEC,3,1.1,1.1
+2015-05-16,UFC Fight Night: Edgar vs Faber,49749ee78bc54a48,Roldan Sangcha'an,FLIP,0,1,287.11,246.07,0,0.0,-0.0,150,,133,3.66,LOSS,SUB,2,-1.0,-1.0
+2015-05-16,UFC Fight Night: Edgar vs Faber,14a40f30e0cb22c9,Neil Magny,FLIP,0,1,143.28,203.24,1,0.91,1.001,110,,-125,9.0,WIN,KO/TKO,2,1.1,1.1
+2015-05-23,UFC 187: Johnson vs Cormier,c2f0a53cd67e1736,Dong Hyun Kim,GAP,0,1,113.73,134.55,1,1.0,0.3704,-270,,-212,-2.36,WIN,SUB,3,0.3704,0.3704
+2015-06-06,UFC Fight Night: Boetsch vs Henderson,cad44cd2466fb68f,Anthony Birchak,FLIP,0,1,287.03,297.12,0,0.0,0.0,170,,173,0.69,WIN,KO/TKO,1,1.7,1.7
+2015-06-13,UFC 188: Velasquez vs Werdum,fd776d7b554a85d0,Gilbert Melendez,GAP,0,1,210.0,303.16,0,0.0,-0.0,-165,,-162,1.69,LOSS,S-DEC,3,-1.0,-1.0
+2015-06-20,UFC Fight Night: Jedrzejczyk vs Penne,312c742e614f8993,Taylor Lapilus,FLIP,0,1,290.35,238.3,0,0.0,0.0,190,,253,-4.61,WIN,KO/TKO,2,1.9,1.9
+2015-06-20,UFC Fight Night: Jedrzejczyk vs Penne,447462bc8e540f10,Makwan Amirkhani,GAP,0,1,267.43,290.38,0,0.0,0.0,-265,,-260,3.03,WIN,SUB,1,0.3774,0.3774
+2015-07-11,UFC 189: Mendes vs McGregor,ecb4534c0066c5f3,Rory MacDonald,GAP,0,1,123.89,122.55,1,1.0,-1.0,-140,,-160,5.78,LOSS,KO/TKO,5,-1.0,-1.0
+2015-07-11,UFC 189: Mendes vs McGregor,70290140b6a8e038,Conor McGregor,FLIP,0,1,167.82,129.53,1,0.73,0.73,100,,-182,15.54,WIN,KO/TKO,2,1.0,1.0
+2015-07-15,UFC Fight Night: Mir vs Duffee,c3b733bf084c2cd0,Andrew Craig,FLIP,0,1,156.98,350.0,1,0.81,-0.81,135,,220,-9.87,LOSS,KO/TKO,2,-1.0,-1.0
+2015-07-15,UFC Fight Night: Mir vs Duffee,b8019af428c064ef,Kevin Lee,GAP,0,1,185.62,253.73,0,0.0,0.0,-175,,-294,12.95,WIN,SUB,1,0.5714,0.5714
+2015-07-18,UFC Fight Night: Bisping vs Leites,9cbdbbc414d6dd83,Marcus Brimage,FLIP,0,1,170.56,350.0,0,0.0,-0.0,100,,126,-3.02,LOSS,KO/TKO,1,-1.0,-1.0
+2015-07-25,UFC on FOX: Dillashaw vs. Barao II,23a75c0338d25abc,Ramsey Nijem,GAP,0,1,145.87,350.0,1,0.89,-0.89,-180,,-157,-1.43,LOSS,S-DEC,3,-1.0,-1.0
+2015-07-25,UFC on FOX: Dillashaw vs. Barao II,23fd9d50a99665fe,Bryan Caraway,FLIP,0,1,165.45,159.74,1,0.75,0.975,130,,123,2.47,WIN,U-DEC,3,1.3,1.3
+2015-07-25,UFC on FOX: Dillashaw vs. Barao II,cd55220a7b1378c4,Tom Lawlor,FLIP,0,1,137.2,178.09,1,0.95,1.235,130,,180,-6.5,WIN,KO/TKO,2,1.3,1.3
+2015-08-01,UFC 190: Rousey vs Correia,2116affb9c8f193b,Patrick Cummins,GAP,0,1,182.86,205.11,0,0.0,0.0,-155,,-187,6.5,WIN,KO/TKO,3,0.6452,0.6452
+2015-08-08,UFC Fight Night: Teixeira vs Saint Preux,bd6d144f5c0b6cab,Amanda Nunes,FLIP,0,1,202.83,197.09,0,0.0,0.0,185,,225,-2.82,WIN,SUB,1,1.85,1.85
+2015-08-23,UFC Fight Night: Holloway vs Oliveira,2d23ca9d8abc0c97,Elias Silverio,GAP,0,1,192.81,265.24,0,0.0,-0.0,-185,,-245,7.23,LOSS,U-DEC,3,-1.0,-1.0
+2015-08-23,UFC Fight Night: Holloway vs Oliveira,2c01f4df404ff6ee,Neil Magny,FLIP,0,1,128.38,132.12,1,1.0,1.1,110,,170,-8.53,WIN,S-DEC,3,1.1,1.1
+2015-09-26,UFC Fight Night: Barnett vs Nelson,b82b243982fcb2ac,Kajan Johnson,GAP,0,1,246.68,216.9,0,0.0,0.0,-270,,-310,4.95,WIN,U-DEC,3,0.3704,0.3704
+2015-10-03,UFC 192: Cormier vs Gustafsson,bdc1561ed4c6e22f,Julianna Pena,GAP,0,1,250.25,207.54,0,0.0,0.0,-180,,-257,8.92,WIN,U-DEC,3,0.5556,0.5556
+2015-11-07,UFC Fight Night: Belfort vs Henderson 3,d2198a7ae05b24c1,Jimmie Rivera,FLIP,0,1,262.51,250.39,0,0.0,0.0,160,,148,2.83,WIN,S-DEC,3,1.6,1.6
+2015-11-21,UFC Fight Night: Magny vs Gastelum,2a702055a79d95a7,Bartosz Fabinski,GAP,0,1,290.43,279.64,0,0.0,0.0,-230,,-177,-3.33,WIN,U-DEC,3,0.4348,0.4348
+2015-11-28,UFC Fight Night: Henderson vs Masvidal,5a79d4b9a8f8352f,Dong Hyun Ma,FLIP,0,1,350.0,274.56,0,0.0,-0.0,145,,110,7.12,LOSS,KO/TKO,3,-1.0,-1.0
+2015-11-28,UFC Fight Night: Henderson vs Masvidal,a09bfdaa83d99efb,Dooho Choi,GAP,0,1,282.72,137.74,1,0.5,0.2381,-210,,-255,5.57,WIN,KO/TKO,1,0.4762,0.4762
+2015-12-10,UFC Fight Night: Namajunas vs. VanZant,d8fe965281e2e312,Paige VanZant,GAP,0,1,224.46,248.65,0,0.0,-0.0,-165,,-141,-1.96,LOSS,SUB,5,-1.0,-1.0
+2015-12-19,UFC on FOX: Dos Anjos vs. Cowboy 2,e1ec8774466db669,Vicente Luque,FLIP,0,1,290.4,290.4,0,0.0,0.0,-115,,-127,4.73,WIN,SUB,1,0.8696,0.8696
+2015-12-19,UFC on FOX: Dos Anjos vs. Cowboy 2,7c883cf0b5eedc59,Josh Samman,GAP,0,1,210.79,163.51,0,0.0,-0.0,-165,,-212,7.04,LOSS,SUB,3,-1.0,-1.0
+2016-01-02,UFC 195: Lawler vs Condit,b46b27222e62aec1,Michinori Tanaka,GAP,0,1,239.01,255.8,0,0.0,0.0,-135,,-142,3.71,WIN,S-DEC,3,0.7407,0.7407
+2016-01-02,UFC 195: Lawler vs Condit,4fa02674b920ff0a,Dustin Poirier,FLIP,0,1,120.71,238.85,1,1.0,1.55,155,,136,3.84,WIN,U-DEC,3,1.55,1.55
+2016-02-06,UFC Fight Night: Hendricks vs Thompson,640dbb5a89c0aad6,Derrick Lewis,GAP,0,1,166.38,350.0,0,0.0,0.0,-120,,-107,-0.55,WIN,KO/TKO,1,0.8333,0.8333
+2016-02-06,UFC Fight Night: Hendricks vs Thompson,37008594c087470c,Ovince Saint Preux,GAP,0,1,140.34,183.12,1,0.93,0.2447,-380,,-410,3.66,WIN,U-DEC,3,0.2632,0.2632
+2016-02-06,UFC Fight Night: Hendricks vs Thompson,a3935c950c40462b,Jared Rosholt,FLIP,0,1,155.6,107.35,1,0.82,-0.82,105,,-102,3.18,LOSS,U-DEC,3,-1.0,-1.0
+2016-02-21,UFC Fight Night: Cowboy vs Cowboy,e508ba268cb295c0,Anthony Hamilton,FLIP,0,1,198.81,290.48,0,0.0,-0.0,125,,-102,6.71,LOSS,U-DEC,3,-1.0,-1.0
+2016-03-19,UFC Fight Night: Hunt vs Mir,aa92030dfd8b5d40,Rin Nakai,GAP,0,1,274.36,216.89,0,0.0,-0.0,-140,,110,-8.12,LOSS,U-DEC,3,-1.0,-1.0
+2016-04-10,UFC Fight Night: Rothwell vs Dos Santos,d1d7400c131ed40e,Alejandro Perez,GAP,0,1,212.32,256.68,0,0.0,0.0,-120,,130,-7.98,WIN,KO/TKO,1,0.8333,0.8333
+2016-04-10,UFC Fight Night: Rothwell vs Dos Santos,eb53ec8983cb2a95,Timothy Johnson,FLIP,0,1,235.95,350.0,0,0.0,0.0,150,,-109,11.87,WIN,U-DEC,3,1.5,1.5
+2016-05-29,UFC Fight Night: Almeida vs Garbrandt,934718256f4d082c,Jessica Eye,FLIP,0,1,190.91,181.12,0,0.0,-0.0,135,,110,5.65,LOSS,U-DEC,3,-1.0,-1.0
+2016-06-04,UFC 199: Rockhold vs. Bisping 2,e06f96f3484ad74a,Jessica Andrade,FLIP,0,1,163.72,248.17,0,0.0,0.0,160,,-132,18.57,WIN,KO/TKO,2,1.6,1.6
+2016-06-18,UFC Fight Night: MacDonald vs Thompson,4cf7792aef993be1,Chris Beal,FLIP,0,1,202.18,235.88,0,0.0,-0.0,100,,105,0.6,LOSS,SUB,3,-1.0,-1.0
+2016-06-18,UFC Fight Night: MacDonald vs Thompson,c69c5830064fd591,Olivier Aubin-Mercier,GAP,0,1,179.28,282.82,0,0.0,0.0,-315,,-432,6.85,WIN,SUB,3,0.3175,0.3175
+2016-07-07,UFC Fight Night: Dos Anjos vs. Alvarez,5cf03fdfe557803f,Marco Beltran,FLIP,0,1,245.66,290.49,0,0.0,0.0,135,,100,7.75,WIN,SUB,2,1.35,1.35
+2016-07-07,UFC Fight Night: Dos Anjos vs. Alvarez,9a984ea967886979,Derrick Lewis,FLIP,0,1,146.37,104.13,1,0.88,1.144,130,,110,4.96,WIN,S-DEC,3,1.3,1.3
+2016-07-09,UFC 200: Tate vs Nunes,9d7a798f0c20c04a,Diego Sanchez,FLIP,0,1,93.88,102.08,1,1.0,-1.0,-120,,-122,2.73,LOSS,KO/TKO,1,-1.0,-1.0
+2016-07-13,UFC Fight Night: McDonald vs. Lineker,5b6451f3f83c719c,Cody Pfister,FLIP,0,1,215.69,241.79,0,0.0,-0.0,200,,223,-1.19,LOSS,U-DEC,3,-1.0,-1.0
+2016-07-13,UFC Fight Night: McDonald vs. Lineker,2d205cc1da2e7930,Cristina Stanciu,GAP,0,1,275.54,238.89,0,0.0,-0.0,-175,,-160,-0.3,LOSS,KO/TKO,1,-1.0,-1.0
+2016-07-23,UFC on FOX: Holm vs. Shevchenko,435c93cb89016fd1,Jason Knight,FLIP,0,1,276.87,240.33,0,0.0,0.0,190,,108,14.13,WIN,S-DEC,3,1.9,1.9
+2016-07-30,UFC 201: Lawler vs. Woodley,09c092dc766fa3f9,Cesar Arzamendia,FLIP,0,1,290.45,272.12,0,0.0,-0.0,-110,,-106,1.03,LOSS,KO/TKO,1,-1.0,-1.0
+2016-07-30,UFC 201: Lawler vs. Woodley,3cf1d67a20ae1c18,Erik Perez,FLIP,0,1,161.01,129.6,1,0.78,0.7429,-105,,-150,10.85,WIN,U-DEC,3,0.9524,0.9524
+2016-08-06,UFC Fight Night: Rodriguez vs. Caceres,cb76509b5c2f2a90,David Teymur,FLIP,0,1,290.4,350.0,0,0.0,0.0,-105,,-135,8.12,WIN,KO/TKO,2,0.9524,0.9524
+2016-08-27,UFC on FOX: Maia vs. Condit,df33799f117000cb,Enrique Barzola,FLIP,0,1,290.46,269.46,0,0.0,-0.0,145,,123,4.71,LOSS,S-DEC,3,-1.0,-1.0
+2016-09-03,UFC Fight Night: Arlovski vs. Barnett,f24144fbe9e32c10,Taylor Lapilus,GAP,0,1,207.72,193.81,0,0.0,0.0,-170,,-156,-0.07,WIN,U-DEC,3,0.5882,0.5882
+2016-09-24,UFC Fight Night: Cyborg vs. Lansberg,0e9b7e682e0a79f1,Luan Chagas,FLIP,0,1,288.48,121.11,1,0.5,-0.5,135,,-145,17.04,LOSS,SUB,3,-1.0,-1.0
+2016-10-01,UFC Fight Night: Lineker vs. Dodson,4efbd869aa0211d2,Curtis Blaydes,GAP,0,1,287.03,293.37,0,0.0,0.0,-190,,-232,5.24,WIN,KO/TKO,2,0.5263,0.5263
+2016-10-01,UFC Fight Night: Lineker vs. Dodson,a27a9b7b8194e8fc,Henrique da Silva,GAP,0,1,283.59,350.0,0,0.0,0.0,-125,,-127,2.83,WIN,SUB,2,0.8,0.8
+2016-10-01,UFC Fight Night: Lineker vs. Dodson,3a8cc4cda195d758,Alex Oliveira,FLIP,0,1,166.74,267.15,0,0.0,0.0,200,,253,-3.75,WIN,KO/TKO,3,2.0,2.0
+2016-11-05,UFC Fight Night: Dos Anjos vs. Ferguson,588a39cab19065bc,Marco Beltran,FLIP,0,1,218.49,211.62,0,0.0,-0.0,-115,,-140,7.15,LOSS,SUB,1,-1.0,-1.0
+2016-11-12,UFC 205: Alvarez vs McGregor,1d7015553debd1c8,Conor McGregor,GAP,0,1,130.13,197.37,1,1.0,0.6897,-145,,-160,2.62,WIN,KO/TKO,2,0.6897,0.6897
+2016-11-19,UFC Fight Night: Bader vs. Nogueira,30a2c7e5b90e6d74,Justin Scoggins,GAP,0,1,166.74,195.84,0,0.0,-0.0,-165,,-155,0.47,LOSS,SUB,2,-1.0,-1.0
+2016-11-26,UFC Fight Night: Whittaker vs. Brunson,314aea77cd24210f,Danielle Taylor,FLIP,0,1,274.55,215.68,0,0.0,0.0,115,,-110,6.65,WIN,S-DEC,3,1.15,1.15
+2016-11-26,UFC Fight Night: Whittaker vs. Brunson,2cab927474cb6e62,Yusuke Kasuya,FLIP,0,1,272.03,350.0,0,0.0,-0.0,150,,143,1.94,LOSS,KO/TKO,2,-1.0,-1.0
+2016-12-09,UFC Fight Night: Lewis vs. Abdurakhimov,14e7bb7a9d49450d,Corey Anderson,GAP,0,1,150.66,156.85,1,0.85,0.179,-475,,-405,-0.19,WIN,KO/TKO,2,0.2105,0.2105
+2016-12-09,UFC Fight Night: Lewis vs. Abdurakhimov,cb1e57b5f8c92922,Derrick Lewis,GAP,0,1,136.8,213.71,1,0.95,0.5,-190,,-250,6.8,WIN,KO/TKO,4,0.5263,0.5263
+2016-12-10,UFC 206: Holloway vs. Pettis,07b98dbf5d2c62a2,Kelvin Gastelum,FLIP,0,1,128.81,179.25,1,1.0,1.3,130,,104,6.21,WIN,KO/TKO,3,1.3,1.3
+2016-12-17,UFC on FOX: VanZant vs. Waterson,1ca4274019680d23,Bojan Velickovic,GAP,0,1,245.78,266.8,0,0.0,-0.0,-210,,-161,-4.0,LOSS,S-DEC,3,-1.0,-1.0
+2017-01-28,UFC on FOX: Shevchenko vs. Pena,637f561cd731fb44,Aljamain Sterling,FLIP,0,1,169.36,142.98,1,0.72,-0.72,-120,,128,-7.57,LOSS,S-DEC,3,-1.0,-1.0
+2017-03-04,UFC 209: Woodley vs. Thompson 2,2d4743a82fc55642,Albert Morales,FLIP,0,1,229.14,350.0,0,0.0,0.0,-105,,-152,11.29,WIN,S-DEC,3,0.9524,0.9524
+2017-03-04,UFC 209: Woodley vs. Thompson 2,c79b862be039d9f0,Alistair Overeem,GAP,0,1,125.75,116.12,1,1.0,0.7407,-135,,-130,1.53,WIN,KO/TKO,3,0.7407,0.7407
+2017-03-04,UFC 209: Woodley vs. Thompson 2,7ac4b9823b1e139b,David Teymur,FLIP,0,1,256.52,244.5,0,0.0,0.0,170,,290,-9.91,WIN,U-DEC,3,1.7,1.7
+2017-03-11,UFC Fight Night: Belfort vs. Gastelum,76602c3658d70273,Kevin Lee,FLIP,0,1,134.32,113.57,1,0.97,0.8818,-110,,-170,12.86,WIN,SUB,2,0.9091,0.9091
+2017-03-11,UFC Fight Night: Belfort vs. Gastelum,24f156a78bd32026,Alex Oliveira,FLIP,0,1,156.95,124.89,1,0.81,1.0125,125,,175,-6.61,WIN,SUB,2,1.25,1.25
+2017-03-18,UFC Fight Night: Manuwa vs. Anderson,0bb419537705fb04,Lucie Pudilova,FLIP,0,1,350.0,284.34,0,0.0,-0.0,325,,318,0.97,LOSS,U-DEC,3,-1.0,-1.0
+2017-03-18,UFC Fight Night: Manuwa vs. Anderson,1e5c66d12761d4fe,Marlon Vera,FLIP,0,1,203.97,116.99,1,0.5,0.725,145,,130,3.48,WIN,KO/TKO,3,1.45,1.45
+2017-04-08,UFC 210: Cormier vs. Johnson 2,a68672f66e12a3c2,Thiago Alves,FLIP,0,1,96.17,102.71,1,1.0,1.7,170,,111,10.91,WIN,U-DEC,3,1.7,1.7
+2017-04-15,UFC on FOX: Johnson vs. Reis,677e98ae5834ba70,Aljamain Sterling,GAP,0,1,155.21,240.22,1,0.82,0.3814,-215,,-387,12.46,WIN,U-DEC,3,0.4651,0.4651
+2017-04-22,UFC Fight Night: Swanson vs. Lobov,c0c587cb52de929b,Danielle Taylor,FLIP,0,1,232.5,210.13,0,0.0,0.0,170,,-110,15.3,WIN,U-DEC,3,1.7,1.7
+2017-05-13,UFC 211: Miocic vs. Dos Santos,362a5b3cd4a70330,Krzysztof Jotko,GAP,0,1,149.05,193.6,1,0.86,-0.86,-150,,-175,5.93,LOSS,S-DEC,3,-1.0,-1.0
+2017-05-28,UFC Fight Night: Gustafsson vs. Teixeira,78e38f1ad43c3479,Omari Akhmedov,FLIP,0,1,151.49,290.42,1,0.85,1.2325,145,,223,-8.64,WIN,S-DEC,3,1.45,1.45
+2017-06-03,UFC 212: Aldo vs. Holloway,88e0de323a83f241,Luan Chagas,GAP,0,1,229.46,290.46,0,0.0,0.0,-165,,-260,11.45,WIN,SUB,2,0.6061,0.6061
+2017-06-03,UFC 212: Aldo vs. Holloway,228879162d8be605,Raphael Assuncao,FLIP,0,1,134.93,350.0,1,0.96,1.536,160,,223,-6.25,WIN,S-DEC,3,1.6,1.6
+2017-06-25,UFC Fight Night: Chiesa vs. Lee,3a4d2a933a3c7291,BJ Penn,FLIP,0,1,90.37,104.12,1,1.0,-1.0,140,,114,5.61,LOSS,M-DEC,3,-1.0,-1.0
+2017-07-07,The Ultimate Fighter: Redemption Finale,c94c3e4bbed24421,Ashley Yoder,FLIP,0,1,281.2,199.18,0,0.0,-0.0,175,,275,-8.14,LOSS,U-DEC,3,-1.0,-1.0
+2017-07-07,The Ultimate Fighter: Redemption Finale,5934de85b9c53e7c,Dhiego Lima,FLIP,0,1,197.21,288.62,0,0.0,-0.0,185,,148,6.46,LOSS,SUB,2,-1.0,-1.0
+2017-07-07,The Ultimate Fighter: Redemption Finale,0d5356c506111a57,Michael Johnson,FLIP,0,1,103.97,350.0,1,1.0,-1.0,-120,,-158,9.41,LOSS,KO/TKO,2,-1.0,-1.0
+2017-07-22,UFC Fight Night: Weidman vs. Gastelum,573908b71b361312,Marlon Vera,FLIP,0,1,179.31,273.71,0,0.0,0.0,150,,190,-4.72,WIN,SUB,1,1.5,1.5
+2017-07-22,UFC Fight Night: Weidman vs. Gastelum,bcf842992f9accdc,Jeremy Kennedy,GAP,0,1,233.9,238.24,0,0.0,0.0,-245,,-299,6.38,WIN,U-DEC,3,0.4082,0.4082
+2017-07-22,UFC Fight Night: Weidman vs. Gastelum,4f07c6724682cd00,Chase Sherman,GAP,0,1,220.04,224.24,0,0.0,0.0,-230,,-237,2.54,WIN,U-DEC,3,0.4348,0.4348
+2017-07-29,UFC 214: Cormier vs. Jones 2,4f4806952ba2a72c,Eric Shelton,FLIP,0,1,290.41,350.0,0,0.0,-0.0,110,,128,-1.82,LOSS,S-DEC,3,-1.0,-1.0
+2017-08-05,UFC Fight Night: Pettis vs. Moreno,a3723f0f672b0912,Joseph Morales,FLIP,0,1,350.0,350.0,0,0.0,0.0,140,,100,8.5,WIN,SUB,1,1.4,1.4
+2017-09-09,UFC 215: Nunes vs Shevchenko 2,7020840980f723b9,Luis Henrique,FLIP,0,1,199.96,350.0,0,0.0,-0.0,150,,175,-2.87,LOSS,U-DEC,3,-1.0,-1.0
+2017-09-09,UFC 215: Nunes vs Shevchenko 2,6afaf0ca45431a11,Tyson Pedro,FLIP,0,1,247.87,144.79,1,0.5,-0.5,100,,-142,10.53,LOSS,U-DEC,3,-1.0,-1.0
+2017-09-22,UFC Fight Night: Saint Preux vs. Okami,37cdf5bd5c975a5d,Chan-Mi Jeon,FLIP,0,1,280.44,350.0,0,0.0,-0.0,-110,,135,-6.92,LOSS,S-DEC,3,-1.0,-1.0
+2017-10-07,UFC 216: Ferguson vs. Lee,53ee6c3591483193,Fabricio Werdum,GAP,0,1,114.02,168.52,1,1.0,0.3704,-270,,-210,-2.84,WIN,SUB,1,0.3704,0.3704
+2017-11-04,UFC 217: Bisping vs. St-Pierre,56d8cc470841f454,Ricardo Ramos,GAP,0,1,266.27,273.99,0,0.0,0.0,-130,,-188,11.38,WIN,KO/TKO,3,0.7692,0.7692
+2017-11-11,UFC Fight Night: Poirier vs. Pettis,60de5efe5b439c8b,Sage Northcutt,GAP,0,1,180.94,290.39,0,0.0,0.0,-245,,-183,-3.61,WIN,U-DEC,3,0.4082,0.4082
+2017-11-18,UFC Fight Night: Werdum vs. Tybura,23b6ffc0223f8cce,Nadia Kassem,GAP,0,1,350.0,224.92,0,0.0,0.0,-165,,-203,6.3,WIN,U-DEC,3,0.6061,0.6061
+2017-11-18,UFC Fight Night: Werdum vs. Tybura,6971094300073d47,Tai Tuivasa,GAP,0,1,350.0,288.49,0,0.0,0.0,-190,,-173,-0.69,WIN,KO/TKO,1,0.5263,0.5263
+2017-11-25,UFC Fight Night: Bisping vs. Gastelum,9f428684f3db247f,Alex Garcia,FLIP,0,1,146.77,350.0,1,0.88,1.232,140,,190,-6.14,WIN,SUB,2,1.4,1.4
+2017-12-09,UFC Fight Night: Swanson vs. Ortega,061081f46950fdb0,Carls John De Tomas,FLIP,0,1,290.41,350.0,0,0.0,-0.0,180,,333,-10.77,LOSS,SUB,2,-1.0,-1.0
+2017-12-09,UFC Fight Night: Swanson vs. Ortega,1aaa1a9ceecd6063,Aljamain Sterling,FLIP,0,1,139.93,237.66,1,0.93,-0.93,135,,131,2.1,LOSS,KO/TKO,1,-1.0,-1.0
+2018-01-14,UFC Fight Night: Stephens vs. Choi,0820a29a03d58282,Paige VanZant,GAP,0,1,173.96,263.32,0,0.0,-0.0,-145,,-123,-1.87,LOSS,U-DEC,3,-1.0,-1.0
+2018-01-20,UFC 220: Miocic vs. Ngannou,1b0fa021b1158121,Enrique Barzola,GAP,0,1,197.77,350.0,0,0.0,0.0,-215,,-282,7.11,WIN,U-DEC,3,0.4651,0.4651
+2018-02-03,UFC Fight Night: Machida vs. Anders,0da43c3ec0e11650,Marcelo Golm,GAP,0,1,278.79,169.72,0,0.0,-0.0,-185,,-171,-0.29,LOSS,U-DEC,3,-1.0,-1.0
+2018-02-10,UFC 221: Romero vs. Rockhold,0d7dc1ed5eb995e4,Jake Matthews,FLIP,0,1,143.97,154.03,1,0.9,1.17,130,,128,1.58,WIN,U-DEC,3,1.3,1.3
+2018-02-10,UFC 221: Romero vs. Rockhold,cd67f6ddb2920193,Curtis Blaydes,GAP,0,1,197.3,107.63,1,0.52,0.4333,-120,,-190,13.54,WIN,U-DEC,3,0.8333,0.8333
+2018-02-10,UFC 221: Romero vs. Rockhold,9444cfe0c7c0f6a7,Luke Rockhold,FLIP,0,1,143.23,128.88,1,0.91,-0.91,150,,-185,24.97,LOSS,KO/TKO,3,-1.0,-1.0
+2018-02-18,UFC Fight Night: Cerrone vs. Medeiros,aeac1209f15157ed,Sage Northcutt,GAP,0,1,172.13,210.37,0,0.0,0.0,-215,,-370,11.39,WIN,U-DEC,3,0.4651,0.4651
+2018-02-24,UFC Fight Night: Emmett vs. Stephens,04970dfa4d531e39,Sam Alvey,FLIP,0,1,116.21,350.0,1,1.0,2.0,200,,182,3.01,WIN,KO/TKO,1,2.0,2.0
+2018-02-24,UFC Fight Night: Emmett vs. Stephens,9c79433a4686f3fc,Ovince Saint Preux,GAP,0,1,110.03,138.76,1,1.0,-1.0,-135,,-164,7.39,LOSS,SUB,1,-1.0,-1.0
+2018-04-14,UFC Fight Night: Poirier vs. Gaethje,418a7100e490e791,Yushin Okami,GAP,0,1,106.25,182.43,1,1.0,0.8333,-120,,-126,3.46,WIN,U-DEC,3,0.8333,0.8333
+2018-04-14,UFC Fight Night: Poirier vs. Gaethje,bfae2fb50efbdb0f,Dustin Poirier,GAP,0,1,102.19,229.04,1,1.0,0.7692,-130,,-124,1.13,WIN,KO/TKO,4,0.7692,0.7692
+2018-04-21,UFC Fight Night: Barboza vs. Lee,a22add1024153ddb,Corey Anderson,FLIP,0,1,128.43,131.09,1,1.0,1.45,145,,-164,21.27,WIN,U-DEC,3,1.45,1.45
+2018-04-21,UFC Fight Night: Barboza vs. Lee,a017d5806eaa6018,Merab Dvalishvili,FLIP,0,1,261.5,350.0,0,0.0,-0.0,175,,-110,16.14,LOSS,SUB,3,-1.0,-1.0
+2018-04-21,UFC Fight Night: Barboza vs. Lee,dbb0ca0198ac514a,Kevin Lee,FLIP,0,1,115.51,99.62,1,1.0,0.9524,-105,,-163,12.96,WIN,KO/TKO,5,0.9524,0.9524
+2018-05-12,UFC 224: Nunes vs. Pennington,d86e31793564cd31,Kelvin Gastelum,FLIP,0,1,113.11,128.63,1,1.0,0.9524,-105,,-104,1.56,WIN,S-DEC,3,0.9524,0.9524
+2018-05-19,UFC Fight Night: Maia vs. Usman,47f42aa7cf851a29,Kamaru Usman,GAP,0,1,150.08,87.04,1,0.86,0.4914,-175,,-525,21.24,WIN,U-DEC,5,0.5714,0.5714
+2018-05-27,UFC Fight Night: Thompson vs. Till,b3096e8dd4e90718,Gina Mazany,FLIP,0,1,236.03,226.32,0,0.0,-0.0,145,,-162,21.44,LOSS,U-DEC,3,-1.0,-1.0
+2018-06-01,UFC Fight Night: Rivera vs. Moraes,7969abc596485189,Jarred Brooks,FLIP,0,1,245.96,350.0,0,0.0,-0.0,185,,121,11.03,LOSS,KO/TKO,2,-1.0,-1.0
+2018-06-23,UFC Fight Night: Cowboy vs. Edwards,28c70663b99560a8,Leon Edwards,FLIP,0,1,137.02,85.95,1,0.95,1.0925,115,,-244,25.18,WIN,U-DEC,5,1.15,1.15
+2018-07-06,The Ultimate Fighter: Undefeated Finale,760b90b0805e0fbf,Alessio Di Chirico,FLIP,0,1,192.43,280.07,0,0.0,0.0,160,,116,8.33,WIN,S-DEC,3,1.6,1.6
+2018-07-14,UFC Fight Night: Dos Santos vs. Ivanov,48d21357134ca51a,Justin Scoggins,FLIP,0,1,145.39,350.0,1,0.89,-0.89,125,,-102,6.71,LOSS,S-DEC,3,-1.0,-1.0
+2018-07-14,UFC Fight Night: Dos Santos vs. Ivanov,35ebaf80f8730b14,Junior Dos Santos,GAP,0,1,116.1,350.0,1,1.0,0.8333,-120,,-190,13.45,WIN,U-DEC,5,0.8333,0.8333
+2018-08-25,UFC Fight Night: Gaethje vs. Vick,3b701c0a0525341b,Eryk Anders,GAP,0,1,202.45,279.68,0,0.0,0.0,-280,,-1225,20.42,WIN,KO/TKO,3,0.3571,0.3571
+2018-08-25,UFC Fight Night: Gaethje vs. Vick,d6f6ac29008509db,James Vick,FLIP,0,1,130.09,199.81,1,1.0,-1.0,-115,,-142,6.68,LOSS,KO/TKO,1,-1.0,-1.0
+2018-09-08,UFC 228: Woodley vs. Till,f3bebb48771a414a,Niko Price,FLIP,0,1,163.34,200.69,0,0.0,-0.0,145,,-110,11.4,LOSS,KO/TKO,1,-1.0,-1.0
+2018-09-15,UFC Fight Night: Hunt vs. Oleinik,dd0a3aedba5cee87,Thiago Alves,FLIP,0,1,94.2,350.0,1,1.0,-1.0,175,,348,-12.27,LOSS,U-DEC,3,-1.0,-1.0
+2018-10-27,UFC Fight Night: Oezdemir vs. Smith,6fd7f6f1deaef4e8,Sean Strickland,FLIP,0,1,133.18,139.24,1,0.98,0.8909,-110,,106,-1.81,WIN,KO/TKO,2,0.9091,0.9091
+2018-11-17,UFC Fight Night: Magny vs. Ponzinibbio,410aca28fda60f76,Bartosz Fabinski,FLIP,0,1,214.89,128.35,0,0.0,-0.0,280,,123,18.42,LOSS,SUB,1,-1.0,-1.0
+2018-11-24,UFC Fight Night: Blaydes vs. Ngannou 2,438fbdd4cf27e324,Hu Yaozong,FLIP,0,1,279.14,225.51,0,0.0,-0.0,175,,-120,18.31,LOSS,U-DEC,3,-1.0,-1.0
+2018-11-24,UFC Fight Night: Blaydes vs. Ngannou 2,12e12307414dafc6,Curtis Blaydes,FLIP,0,1,161.67,143.33,1,0.77,-0.77,115,,-243,24.8,LOSS,KO/TKO,1,-1.0,-1.0
+2018-12-01,UFC Fight Night: Dos Santos vs. Tuivasa,70feb2bfc12b97d4,Justin Willis,FLIP,0,1,232.99,102.27,1,0.5,0.575,115,,-109,6.33,WIN,U-DEC,3,1.15,1.15
+2018-12-15,UFC Fight Night: Lee vs. Iaquinta,c0ab927864bb6e98,Zak Ottow,FLIP,0,1,148.95,350.0,1,0.86,1.935,225,,237,-0.37,WIN,S-DEC,3,2.25,2.25
+2018-12-29,UFC 232: Jones vs. Gustafsson 2,9ee818e10dcf3b45,Corey Anderson,GAP,0,1,118.43,131.94,1,1.0,0.9091,-110,,110,-4.52,WIN,U-DEC,3,0.9091,0.9091
+2019-01-19,UFC Fight Night: Cejudo vs. Dillashaw,3dd0951b8855137d,Alexander Hernandez,GAP,0,1,229.22,83.57,1,0.5,-0.5,-130,,-208,13.1,LOSS,KO/TKO,2,-1.0,-1.0
+2019-02-02,UFC Fight Night: Assuncao vs. Moraes 2,9192053a3884aadf,Ricardo Ramos,FLIP,0,1,202.48,258.52,0,0.0,-0.0,145,,-164,21.25,LOSS,KO/TKO,1,-1.0,-1.0
+2019-02-23,UFC Fight Night: Blachowicz vs. Santos,c827f5212a34bf2e,Chris Fishgold,FLIP,0,1,277.07,253.08,0,0.0,0.0,110,,-252,23.07,WIN,SUB,2,1.1,1.1
+2019-03-02,UFC 235: Jones vs. Smith,7a26c9407ef64e10,Edmen Shahbazyan,GAP,0,1,265.04,248.56,0,0.0,0.0,-145,,-152,3.08,WIN,KO/TKO,1,0.6897,0.6897
+2019-03-02,UFC 235: Jones vs. Smith,97dabff880f33202,Robbie Lawler,FLIP,0,1,102.34,350.0,1,1.0,-1.0,145,,232,-9.51,LOSS,SUB,1,-1.0,-1.0
+2019-03-02,UFC 235: Jones vs. Smith,851645c373f50e16,Kamaru Usman,FLIP,0,1,130.76,110.98,1,0.99,1.0395,105,,167,-8.93,WIN,U-DEC,5,1.05,1.05
+2019-03-23,UFC Fight Night: Thompson vs. Pettis,ced0e31df74f27d6,Jesus Pinedo,FLIP,0,1,269.11,112.5,1,0.5,-0.5,165,,255,-8.38,LOSS,U-DEC,3,-1.0,-1.0
+2019-03-30,UFC Fight Night: Barboza vs. Gaethje,a0163cdde4ec785d,Jack Hermansson,GAP,0,1,141.13,147.48,1,0.92,0.7667,-120,,-152,7.9,WIN,SUB,1,0.8333,0.8333
+2019-04-13,UFC 236: Holloway vs. Poirier 2,8da5849a6e7307bf,Montel Jackson,FLIP,0,1,244.63,175.83,0,0.0,0.0,250,,-585,55.12,WIN,U-DEC,3,2.5,2.5
+2019-04-20,UFC Fight Night: Overeem vs. Oleinik,e458ace6a440b738,Krzysztof Jotko,GAP,0,1,125.78,350.0,1,1.0,0.7692,-130,,-216,14.02,WIN,U-DEC,3,0.7692,0.7692
+2019-04-27,UFC Fight Night: Jacare vs. Hermansson,c68e57c19c82d500,Greg Hardy,GAP,0,1,284.39,245.01,0,0.0,0.0,-265,,-307,5.0,WIN,KO/TKO,1,0.3774,0.3774
+2019-05-11,UFC 237: Namajunas vs. Andrade,707cb14717df5960,Luana Carolina,FLIP,0,1,350.0,242.52,0,0.0,0.0,250,,-173,33.72,WIN,U-DEC,3,2.5,2.5
+2019-06-08,UFC 238: Cejudo vs. Moraes,17753b728e5404aa,Aljamain Sterling,FLIP,0,1,118.16,121.15,1,1.0,0.8696,-115,,-167,11.16,WIN,U-DEC,3,0.8696,0.8696
+2019-06-22,UFC Fight Night: Moicano vs. The Korean Zombie,13129c1f044fdd47,Montana De La Rosa,FLIP,0,1,226.03,234.32,0,0.0,-0.0,145,,153,-0.44,LOSS,U-DEC,3,-1.0,-1.0
+2019-07-06,UFC 239: Jones vs. Santos,70af72a72b31fe4d,Jorge Masvidal,FLIP,0,1,102.09,295.76,1,1.0,1.7,170,,178,-0.09,WIN,KO/TKO,1,1.7,1.7
+2019-08-10,UFC Fight Night: Shevchenko vs. Carmouche 2,cb4dd24535ef2d94,Raulian Paiva,FLIP,0,1,281.86,270.79,0,0.0,-0.0,-105,,-118,4.6,LOSS,KO/TKO,1,-1.0,-1.0
+2019-08-10,UFC Fight Night: Shevchenko vs. Carmouche 2,8da94b2c1c0443d4,Oskar Piechota,FLIP,0,1,207.75,350.0,0,0.0,-0.0,220,,180,4.91,LOSS,SUB,2,-1.0,-1.0
+2019-09-07,UFC 242: Khabib vs. Poirier,066756ea40b134a7,Curtis Blaydes,GAP,0,1,141.09,156.74,1,0.92,0.3345,-275,,-516,12.24,WIN,KO/TKO,2,0.3636,0.3636
+2019-09-21,UFC Fight Night: Rodriguez vs. Stephens,d9c0351cd21e40e0,Sergio Pettis,GAP,0,1,115.19,350.0,1,1.0,0.3774,-265,,-322,6.06,WIN,U-DEC,3,0.3774,0.3774
+2019-09-21,UFC Fight Night: Rodriguez vs. Stephens,49b2a6a93d529981,Martin Bravo,FLIP,0,1,211.26,188.76,0,0.0,-0.0,-120,,-136,5.34,LOSS,KO/TKO,2,-1.0,-1.0
+2019-09-28,UFC Fight Night: Hermansson vs. Cannonier,9c7b6a20f35fb708,Alex Oliveira,GAP,0,1,111.98,191.45,1,1.0,-1.0,-185,,-150,-3.41,LOSS,U-DEC,3,-1.0,-1.0
+2019-09-28,UFC Fight Night: Hermansson vs. Cannonier,975840814b233bcd,Danilo Belluardo,FLIP,0,1,281.33,350.0,0,0.0,-0.0,280,,445,-7.14,LOSS,KO/TKO,1,-1.0,-1.0
+2019-10-05,UFC 243: Whittaker vs. Adesanya,578987d534a0d205,Maki Pitolo,GAP,0,1,350.0,283.14,0,0.0,-0.0,-195,,-400,14.38,LOSS,U-DEC,3,-1.0,-1.0
+2019-10-12,UFC Fight Night: Joanna vs. Waterson,2d7f29ec900a8948,Amanda Ribas,FLIP,0,1,273.02,232.5,0,0.0,0.0,175,,155,4.02,WIN,U-DEC,3,1.75,1.75
+2019-10-18,UFC Fight Night: Reyes vs. Weidman,38d6c2538ce6ec4c,Randy Costa,FLIP,0,1,268.66,283.51,0,0.0,0.0,125,,131,0.01,WIN,KO/TKO,1,1.25,1.25
+2019-10-18,UFC Fight Night: Reyes vs. Weidman,076c98ac0561521f,Manny Bermudez,FLIP,0,1,192.41,180.79,0,0.0,-0.0,105,,-175,14.46,LOSS,SUB,1,-1.0,-1.0
+2019-10-18,UFC Fight Night: Reyes vs. Weidman,d2dc6fb05ad78d80,Yair Rodriguez,GAP,0,1,140.84,84.79,1,0.92,0.8364,-110,,-131,4.36,WIN,U-DEC,3,0.9091,0.9091
+2019-10-26,UFC Fight Night: Maia vs. Askren,89266a872e1f92d9,Laureano Staropoli,FLIP,0,1,234.73,204.37,0,0.0,-0.0,170,,140,5.45,LOSS,U-DEC,3,-1.0,-1.0
+2019-10-26,UFC Fight Night: Maia vs. Askren,b2d05ae88f820421,Beneil Dariush,GAP,0,1,106.41,168.82,1,1.0,0.5128,-195,,-183,-0.24,WIN,SUB,1,0.5128,0.5128
+2019-10-26,UFC Fight Night: Maia vs. Askren,241a0833e1c76804,Demian Maia,FLIP,0,1,84.05,230.1,1,1.0,1.25,125,,140,-1.5,WIN,SUB,3,1.25,1.25
+2019-11-09,UFC Fight Night: Zabit vs. Kattar,f820c6292e19d854,Klidson Abreu,FLIP,0,1,241.01,350.0,0,0.0,-0.0,190,,115,12.5,LOSS,S-DEC,3,-1.0,-1.0
+2019-11-16,UFC Fight Night: Blachowicz vs. Jacare,9e1ecdb9a8856a8c,Wellington Turman,FLIP,0,1,265.19,199.57,0,0.0,0.0,180,,-153,25.19,WIN,U-DEC,3,1.8,1.8
+2019-12-14,UFC 245: Usman vs. Covington,d42410f6f1039ab5,Chase Hooper,GAP,0,1,350.0,208.88,0,0.0,0.0,-155,,-157,1.18,WIN,KO/TKO,1,0.6452,0.6452
+2020-01-18,UFC 246: McGregor vs. Cowboy,760b5b16b4931a77,Maycee Barber,GAP,0,1,206.46,170.93,0,0.0,-0.0,-400,,-964,9.18,LOSS,U-DEC,3,-1.0,-1.0
+2020-02-29,UFC Fight Night: Benavidez vs. Figueiredo,533d0b5c0adfa15f,Ismail Naurdiev,GAP,0,1,206.67,257.84,0,0.0,-0.0,-150,,-130,-2.86,LOSS,U-DEC,3,-1.0,-1.0
+2020-03-07,UFC 248: Adesanya vs. Romero,b46f2f007b622bce,Israel Adesanya,GAP,0,1,140.19,114.3,1,0.93,0.5027,-185,,-285,9.99,WIN,U-DEC,5,0.5405,0.5405
+2020-05-13,UFC Fight Night: Smith vs. Teixeira,46c050a827ee83d6,Alexander Hernandez,FLIP,0,1,171.44,115.53,1,0.7,-0.7,120,,145,-4.52,LOSS,KO/TKO,2,-1.0,-1.0
+2020-05-16,UFC Fight Night: Overeem vs. Harris,ce0748519d5ea5c6,Alistair Overeem,FLIP,0,1,101.9,135.98,1,1.0,1.3,130,,135,-0.96,WIN,KO/TKO,2,1.3,1.3
+2020-05-30,UFC Fight Night: Woodley vs. Burns,1e9a2b197ebff074,Spike Carlyle,FLIP,0,1,290.37,290.41,0,0.0,-0.0,130,,-104,7.75,LOSS,U-DEC,3,-1.0,-1.0
+2020-06-06,UFC 250: Nunes vs. Spencer,1c7ea3928c7d0ad8,Maki Pitolo,FLIP,0,1,288.17,219.63,0,0.0,0.0,140,,144,-0.73,WIN,KO/TKO,2,1.4,1.4
+2020-06-06,UFC 250: Nunes vs. Spencer,f2cd665eab69876a,Chase Hooper,FLIP,0,1,277.9,106.4,1,0.5,-0.5,-110,,-218,16.84,LOSS,U-DEC,3,-1.0,-1.0
+2020-07-11,UFC 251: Usman vs. Masvidal,5d6fb4acfe5cc8a1,Martin Day,FLIP,0,1,280.24,184.75,0,0.0,-0.0,-110,,-122,2.36,LOSS,KO/TKO,3,-1.0,-1.0
+2020-07-11,UFC 251: Usman vs. Masvidal,0e8d5c16eb9cb1cf,Raulian Paiva,GAP,0,1,206.28,350.0,0,0.0,0.0,-115,,-160,8.24,WIN,U-DEC,3,0.8696,0.8696
+2020-07-11,UFC 251: Usman vs. Masvidal,137646de0ffd9c35,Marcin Tybura,GAP,0,1,125.94,350.0,1,1.0,0.6897,-145,,-137,-0.35,WIN,U-DEC,3,0.6897,0.6897
+2020-07-11,UFC 251: Usman vs. Masvidal,cd8cdb539deaa47f,Volkan Oezdemir,GAP,0,1,136.01,350.0,1,0.96,-0.96,-150,,-189,5.16,LOSS,KO/TKO,2,-1.0,-1.0
+2020-08-08,UFC Fight Night: Lewis vs. Oleinik,1308213458d8596b,Justin Jaynes,FLIP,0,1,261.88,202.95,0,0.0,-0.0,185,,103,13.3,LOSS,SUB,3,-1.0,-1.0
+2020-08-08,UFC Fight Night: Lewis vs. Oleinik,cfb189e326553f0a,Beneil Dariush,GAP,0,1,101.95,128.54,1,1.0,0.625,-160,,-218,6.44,WIN,KO/TKO,1,0.625,0.625
+2020-08-15,UFC 252: Miocic vs. Cormier 3,3e4b8bd71e8bceb2,TJ Brown,GAP,0,1,275.65,350.0,0,0.0,-0.0,-195,,-140,-6.9,LOSS,U-DEC,3,-1.0,-1.0
+2020-08-15,UFC 252: Miocic vs. Cormier 3,0d9e9127c62811f9,Herbert Burns,GAP,0,1,226.75,166.9,0,0.0,-0.0,-200,,-275,7.35,LOSS,KO/TKO,2,-1.0,-1.0
+2020-08-15,UFC 252: Miocic vs. Cormier 3,7200343d2e957cf3,Sean O'Malley,FLIP,0,1,179.4,116.9,1,0.65,-0.65,185,,-285,37.65,LOSS,KO/TKO,1,-1.0,-1.0
+2020-08-22,UFC Fight Night: Munhoz vs. Edgar,0ccc86f7d0e84c3e,Jordan Wright,GAP,0,1,350.0,274.01,0,0.0,0.0,-150,,-123,-5.28,WIN,KO/TKO,1,0.6667,0.6667
+2020-09-05,UFC Fight Night: Overeem vs. Sakai,7930c605c6a6ec88,Montana De La Rosa,FLIP,0,1,193.87,196.75,0,0.0,-0.0,-110,,164,-13.41,LOSS,U-DEC,3,-1.0,-1.0
+2020-09-05,UFC Fight Night: Overeem vs. Sakai,0e809b7e37681783,Ovince Saint Preux,FLIP,0,1,95.23,214.79,1,1.0,0.9524,-105,,134,-7.7,WIN,KO/TKO,2,0.9524,0.9524
+2020-09-12,UFC Fight Night: Waterson vs. Hill,463fc1fd1f17befb,Bryan Barberena,GAP,0,1,126.93,290.37,1,1.0,0.4444,-225,,-232,0.28,WIN,U-DEC,3,0.4444,0.4444
+2020-09-19,UFC Fight Night: Covington vs. Woodley,579f3280456ad450,Jerome Rivera,FLIP,0,1,350.0,203.78,0,0.0,-0.0,125,,165,-5.1,LOSS,KO/TKO,2,-1.0,-1.0
+2020-09-19,UFC Fight Night: Covington vs. Woodley,aa08ebe1a69c76ca,Mirsad Bektic,GAP,0,1,133.32,248.78,1,0.98,-0.98,-275,,-335,3.06,LOSS,SUB,3,-1.0,-1.0
+2020-09-26,UFC 253: Adesanya vs. Costa,5fb63c34935acce9,Aleksa Camur,GAP,0,1,266.33,350.0,0,0.0,-0.0,-130,,-152,3.08,LOSS,U-DEC,3,-1.0,-1.0
+2020-10-17,UFC Fight Night: Ortega vs. The Korean Zombie,948da1b7ebbb06b3,Jimmy Crute,GAP,0,1,172.69,290.37,0,0.0,0.0,-180,,-278,8.83,WIN,KO/TKO,1,0.5556,0.5556
+2020-10-24,UFC 254: Khabib vs. Gaethje,ccfe7b0d29c5440c,Alexander Volkov,GAP,0,1,144.84,131.09,1,0.89,0.5563,-160,,-183,2.9,WIN,KO/TKO,2,0.625,0.625
+2020-10-24,UFC 254: Khabib vs. Gaethje,51108eabae8391ca,Robert Whittaker,FLIP,0,1,107.2,136.15,1,1.0,1.25,125,,100,4.75,WIN,U-DEC,3,1.25,1.25
+2020-10-31,UFC Fight Night: Hall vs. Silva,783761d95060ffc4,Justin Ledet,FLIP,0,1,179.44,240.75,0,0.0,-0.0,145,,278,-13.89,LOSS,KO/TKO,1,-1.0,-1.0
+2020-11-14,UFC Fight Night: Felder vs. Dos Anjos,30eb24f7904c2128,Khaos Williams,FLIP,0,1,275.67,174.05,0,0.0,0.0,135,,152,-1.62,WIN,KO/TKO,1,1.35,1.35
+2020-11-21,UFC 255: Figueiredo vs. Perez,90eb22b9eb6ed2a8,Kyle Daukaus,GAP,0,1,307.66,350.0,0,0.0,0.0,-150,,-284,13.14,WIN,U-DEC,3,0.6667,0.6667
+2020-11-28,UFC Fight Night: Smith vs. Clark,4d56bcd82438e632,Kai Kamaka III,GAP,0,1,290.37,264.09,0,0.0,-0.0,-200,,-273,6.37,LOSS,KO/TKO,2,-1.0,-1.0
+2020-12-05,UFC Fight Night: Hermansson vs. Vettori,46860358da8b8d82,Gabriel Benitez,FLIP,0,1,139.42,223.57,1,0.93,1.0695,115,,-225,23.09,WIN,KO/TKO,1,1.15,1.15
+2020-12-19,UFC Fight Night: Thompson vs. Neal,62e6eadbb2805760,Cody Durden,FLIP,0,1,270.04,350.0,0,0.0,-0.0,135,,134,0.04,LOSS,SUB,1,-1.0,-1.0
+2020-12-19,UFC Fight Night: Thompson vs. Neal,3d35eb2d46bf74de,Khaos Williams,FLIP,0,1,227.32,188.42,0,0.0,-0.0,150,,-127,14.83,LOSS,U-DEC,3,-1.0,-1.0
+2020-12-19,UFC Fight Night: Thompson vs. Neal,c7375d5db21cbaae,Geoff Neal,FLIP,0,1,163.81,103.48,1,0.76,-0.76,-105,,-114,1.84,LOSS,U-DEC,5,-1.0,-1.0
+2021-01-20,UFC Fight Night: Chiesa vs. Magny,57e784028ef2c17d,Matt Schnell,FLIP,0,1,153.67,190.01,1,0.83,0.913,110,,-105,3.09,WIN,S-DEC,3,1.1,1.1
+2021-01-23,UFC 257: Poirier vs. McGregor,83da743f6dda7dcc,Julianna Pena,GAP,0,1,156.32,128.95,1,0.81,0.5786,-140,,-104,-7.7,WIN,SUB,3,0.7143,0.7143
+2021-01-23,UFC 257: Poirier vs. McGregor,a5075f4eaee6036f,Dan Hooker,GAP,0,1,102.08,350.0,1,1.0,-1.0,-160,,-159,-0.77,LOSS,KO/TKO,1,-1.0,-1.0
+2021-02-27,UFC Fight Night: Rozenstruik vs. Gane,a7315147a7022a93,Sabina Mazo,GAP,0,1,179.14,133.38,1,0.65,-0.65,-240,,-219,-2.58,LOSS,U-DEC,3,-1.0,-1.0
+2021-03-06,UFC 259: Blachowicz vs. Adesanya,e2abba69c3371618,Uros Medic,FLIP,0,1,350.0,290.51,0,0.0,0.0,105,,-188,15.9,WIN,KO/TKO,1,1.05,1.05
+2021-03-06,UFC 259: Blachowicz vs. Adesanya,d170f6580e1c244f,Kennedy Nzechukwu,FLIP,0,1,232.61,350.0,0,0.0,0.0,144,,192,-6.44,WIN,KO/TKO,2,1.44,1.44
+2021-03-13,UFC Fight Night: Edwards vs. Muhammad,03bdbf2d18f3025d,Ray Rodriguez,FLIP,0,1,270.9,113.2,0,0.0,-0.0,260,,237,1.64,LOSS,SUB,2,-1.0,-1.0
+2021-03-20,UFC Fight Night: Brunson vs. Holland,68cf99b6551dc3b3,Trevin Giles,FLIP,0,1,158.88,248.6,1,0.79,1.027,130,,-114,8.85,WIN,U-DEC,3,1.3,1.3
+2021-04-10,UFC Fight Night: Vettori vs. Holland,e27c28928ed4390f,Joe Solecki,GAP,0,1,225.14,79.35,1,0.5,0.3704,-135,,-254,13.24,WIN,U-DEC,3,0.7407,0.7407
+2021-04-17,UFC Fight Night: Whittaker vs. Gastelum,25d4376e00b16510,Loopy Godinez,GAP,0,1,350.0,193.11,0,0.0,-0.0,-185,,-275,7.98,LOSS,S-DEC,3,-1.0,-1.0
+2021-04-17,UFC Fight Night: Whittaker vs. Gastelum,a850ba762f3c5334,Abdul Razak Alhassan,GAP,0,1,163.41,290.41,0,0.0,-0.0,-350,,-317,-2.23,LOSS,U-DEC,3,-1.0,-1.0
+2021-06-05,UFC Fight Night: Rozenstruik vs. Sakai,58c5d506181812fa,Jordan Leavitt,GAP,0,1,262.29,223.84,0,0.0,-0.0,-300,,-214,-7.12,LOSS,U-DEC,3,-1.0,-1.0
+2021-06-05,UFC Fight Night: Rozenstruik vs. Sakai,f187c7ec92f43828,Marcin Tybura,GAP,0,1,113.97,126.76,1,1.0,0.6667,-150,,-178,3.57,WIN,KO/TKO,1,0.6667,0.6667
+2021-06-12,UFC 263: Adesanya vs. Vettori 2,84cde29aebf6c00c,Chase Hooper,FLIP,0,1,202.82,173.94,0,0.0,-0.0,155,,-114,12.98,LOSS,U-DEC,3,-1.0,-1.0
+2021-06-26,UFC Fight Night: Gane vs. Volkov,d988760df61f027c,Marcin Prachnio,GAP,0,1,201.91,215.75,0,0.0,0.0,-193,,-167,-1.38,WIN,KO/TKO,2,0.5181,0.5181
+2021-06-26,UFC Fight Night: Gane vs. Volkov,086c2a0cae0835c4,Shavkat Rakhmonov,GAP,0,1,279.06,122.03,1,0.5,0.3333,-150,,-322,14.94,WIN,SUB,2,0.6667,0.6667
+2021-07-24,UFC Fight Night: Sandhagen vs. Dillashaw,4bb77b1d8efc53a9,Kyler Phillips,GAP,0,1,213.56,192.22,0,0.0,-0.0,-150,,-310,14.19,LOSS,M-DEC,3,-1.0,-1.0
+2021-08-07,UFC 265: Lewis vs. Gane,cce232c1b1b2e4a0,Melissa Gatto,GAP,0,1,350.0,290.42,0,0.0,0.0,-110,,-115,0.97,WIN,KO/TKO,2,0.9091,0.9091
+2021-08-21,UFC Fight Night: Cannonier vs. Gastelum,f536ba47f006474a,Kelvin Gastelum,FLIP,0,1,96.03,129.52,1,1.0,-1.0,195,,125,10.11,LOSS,U-DEC,5,-1.0,-1.0
+2021-09-04,UFC Fight Night: Brunson vs. Till,3f76035e52e8819b,Charles Jourdain,GAP,0,1,177.47,161.58,0,0.0,-0.0,-170,,-192,2.83,LOSS,SUB,3,-1.0,-1.0
+2021-09-25,UFC 266: Volkanovski vs. Ortega,7abc4520f63f2c06,Uros Medic,GAP,0,1,287.06,189.81,0,0.0,-0.0,-185,,-122,-10.43,LOSS,SUB,1,-1.0,-1.0
+2021-09-25,UFC 266: Volkanovski vs. Ortega,e7bb37681652c2c2,Taila Santos,GAP,0,1,200.38,135.91,1,0.5,0.2222,-225,,-412,10.25,WIN,U-DEC,3,0.4444,0.4444
+2021-09-25,UFC 266: Volkanovski vs. Ortega,f085f32bbb3220e1,Chris Daukaus,GAP,0,1,205.86,148.24,1,0.5,0.3571,-140,,-215,9.04,WIN,KO/TKO,2,0.7143,0.7143
+2021-10-02,UFC Fight Night: Santos vs. Walker,e7423a91a253b416,Alejandro Perez,GAP,0,1,125.89,154.96,1,1.0,0.5,-200,,-267,5.4,WIN,SUB,2,0.5,0.5
+2021-10-02,UFC Fight Night: Santos vs. Walker,3b7eb8e56052a2af,Joe Solecki,GAP,0,1,191.43,143.69,1,0.56,-0.56,-115,,-133,3.44,LOSS,S-DEC,3,-1.0,-1.0
+2021-10-23,UFC Fight Night: Costa vs. Vettori,7151ae256e6c181b,Jonathan Martinez,FLIP,0,1,145.64,350.0,1,0.89,1.246,140,,-108,9.74,WIN,U-DEC,3,1.4,1.4
+2021-10-23,UFC Fight Night: Costa vs. Vettori,e078d18fa9ed100d,Nicolae Negumereanu,GAP,0,1,245.31,191.92,0,0.0,0.0,-300,,-244,-4.75,WIN,KO/TKO,1,0.3333,0.3333
+2021-10-23,UFC Fight Night: Costa vs. Vettori,69167b996ce7a7e4,Joselyne Edwards,FLIP,0,1,232.11,173.88,0,0.0,-0.0,130,,131,-0.66,LOSS,U-DEC,3,-1.0,-1.0
+2021-10-30,UFC 267: Blachowicz vs. Teixeira,4a5e5232346993c7,Andre Petroski,GAP,0,1,290.35,240.1,0,0.0,0.0,-110,,-232,16.57,WIN,SUB,3,0.9091,0.9091
+2021-10-30,UFC 267: Blachowicz vs. Teixeira,92c49cb075f612d7,Michal Oleksiejczuk,FLIP,0,1,161.42,275.7,0,0.0,0.0,130,,-107,7.23,WIN,KO/TKO,1,1.3,1.3
+2021-11-20,UFC Fight Night: Vieira vs. Tate,8dd086e2e70144fd,Luana Pinheiro,GAP,0,1,254.26,223.26,0,0.0,0.0,-185,,-417,14.37,WIN,U-DEC,3,0.5405,0.5405
+2021-12-04,UFC Fight Night: Font vs. Aldo,c74b03337a8441ed,Claudio Puelles,GAP,0,1,203.81,166.26,0,0.0,0.0,-150,,-122,-5.62,WIN,SUB,3,0.6667,0.6667
+2021-12-04,UFC Fight Night: Font vs. Aldo,9e5bbbacf1d92cb4,Brendan Allen,GAP,0,1,163.53,287.87,0,0.0,-0.0,-300,,-347,1.76,LOSS,KO/TKO,2,-1.0,-1.0
+2022-01-22,UFC 270: Ngannou vs. Gane,0a0beb5aa9810de4,Kay Hansen,GAP,0,1,256.65,350.0,0,0.0,-0.0,-115,,-195,12.22,LOSS,U-DEC,3,-1.0,-1.0
+2022-02-12,UFC 271: Adesanya vs. Whittaker 2,6708f3a32861038a,William Knight,FLIP,0,1,188.33,198.71,0,0.0,-0.0,170,,145,3.46,LOSS,U-DEC,3,-1.0,-1.0
+2022-02-12,UFC 271: Adesanya vs. Whittaker 2,c16bda7548181613,Jacob Malkoun,FLIP,0,1,259.25,350.0,0,0.0,0.0,170,,-106,13.32,WIN,U-DEC,3,1.7,1.7
+2022-02-12,UFC 271: Adesanya vs. Whittaker 2,b1e048825b5bbe1c,Casey O'Neill,GAP,0,1,201.59,130.3,1,0.5,0.2,-250,,-387,7.04,WIN,S-DEC,3,0.4,0.4
+2022-02-19,UFC Fight Night: Walker vs. Hill,ea63f56779100678,Jesse Strader,FLIP,0,1,271.1,350.0,0,0.0,-0.0,250,,208,3.43,LOSS,KO/TKO,3,-1.0,-1.0
+2022-02-19,UFC Fight Night: Walker vs. Hill,2d8db91f91f68069,Chas Skelly,GAP,0,1,135.45,275.6,1,0.96,0.4364,-220,,-210,-1.3,WIN,KO/TKO,2,0.4546,0.4546
+2022-02-26,UFC Fight Night: Makhachev vs. Green,f087a10a6f2bcc99,Josiane Nunes,GAP,0,1,282.27,350.0,0,0.0,0.0,-175,,-271,8.5,WIN,U-DEC,3,0.5714,0.5714
+2022-02-26,UFC Fight Night: Makhachev vs. Green,84d633d4a9fbf331,Gregory Rodrigues,GAP,0,1,228.41,350.0,0,0.0,-0.0,-200,,-153,-6.32,LOSS,S-DEC,3,-1.0,-1.0
+2022-03-12,UFC Fight Night: Santos vs. Ankalaev,f10c2c84652ef573,Tafon Nchukwi,GAP,0,1,206.85,350.0,0,0.0,-0.0,-145,,163,-20.67,LOSS,KO/TKO,3,-1.0,-1.0
+2022-03-12,UFC Fight Night: Santos vs. Ankalaev,226884e46a10865d,Bruno Silva,FLIP,0,1,201.68,275.59,0,0.0,-0.0,145,,174,-4.42,LOSS,U-DEC,3,-1.0,-1.0
+2022-03-12,UFC Fight Night: Santos vs. Ankalaev,463fac0e48505b62,Terrance McKinney,FLIP,0,1,227.51,106.53,1,0.5,-0.5,130,,131,-0.72,LOSS,KO/TKO,1,-1.0,-1.0
+2022-03-26,UFC Fight Night: Blaydes vs. Daukaus,bb31c77bddd1317e,Karol Rosa,GAP,0,1,190.73,123.76,1,0.57,-0.57,-200,,-243,3.35,LOSS,U-DEC,3,-1.0,-1.0
+2022-04-09,UFC 273: Volkanovski vs. The Korean Zombie,9e52a67410f2c879,Kay Hansen,FLIP,0,1,230.47,350.0,0,0.0,-0.0,-110,,105,-3.51,LOSS,U-DEC,3,-1.0,-1.0
+2022-04-09,UFC 273: Volkanovski vs. The Korean Zombie,394b0347b0438622,Khamzat Chimaev,GAP,0,1,178.69,104.53,1,0.65,0.5909,-110,,-525,30.49,WIN,U-DEC,3,0.9091,0.9091
+2022-04-16,UFC Fight Night: Luque vs. Muhammad,eac46cfead228e11,Jordan Leavitt,GAP,0,1,206.21,350.0,0,0.0,0.0,-155,,117,-14.83,WIN,S-DEC,3,0.6452,0.6452
+2022-04-16,UFC Fight Night: Luque vs. Muhammad,4f6e7159e77d4215,Pat Sabatini,GAP,0,1,217.95,283.04,0,0.0,0.0,-240,,-560,12.73,WIN,U-DEC,3,0.4167,0.4167
+2022-04-23,UFC Fight Night: Lemos vs. Andrade,e8c57c6259193466,Tyson Pedro,GAP,0,1,163.24,178.56,0,0.0,0.0,-450,,-645,4.18,WIN,KO/TKO,1,0.2222,0.2222
+2022-04-23,UFC Fight Night: Lemos vs. Andrade,6017351e164dbca3,Claudio Puelles,GAP,0,1,182.73,82.77,1,0.62,0.3543,-175,,-113,-10.87,WIN,SUB,1,0.5714,0.5714
+2022-04-30,UFC Fight Night: Font vs. Vera,9217ecc287ac482d,Natan Levy,GAP,0,1,273.81,277.41,0,0.0,0.0,-240,,-213,-3.19,WIN,U-DEC,3,0.4167,0.4167
+2022-05-21,UFC Fight Night: Holm vs. Vieira,1b4d0c9e3c59b33b,Jailton Almeida,GAP,0,1,267.65,196.61,0,0.0,0.0,-300,,-541,8.43,WIN,SUB,1,0.3333,0.3333
+2022-06-04,UFC Fight Night: Volkov vs. Rozenstruik,7e20b0536fbbd560,Jeff Molina,GAP,0,1,254.77,190.89,0,0.0,0.0,-200,,-186,-1.9,WIN,S-DEC,3,0.5,0.5
+2022-06-11,UFC 275: Teixeira vs. Prochazka,f466cd99d02644e9,Liang Na,FLIP,0,1,287.35,241.57,0,0.0,-0.0,130,,-121,10.25,LOSS,KO/TKO,1,-1.0,-1.0
+2022-06-18,UFC Fight Night: Kattar vs. Emmett,4e6218b6b892b017,Damir Ismagulov,GAP,0,1,207.04,290.63,0,0.0,0.0,-180,,-212,2.78,WIN,S-DEC,3,0.5556,0.5556
+2022-06-18,UFC Fight Night: Kattar vs. Emmett,11e83902f5b8ff63,Joaquin Buckley,FLIP,0,1,161.7,282.78,0,0.0,0.0,140,,182,-6.44,WIN,KO/TKO,2,1.4,1.4
+2022-07-02,UFC 276: Adesanya vs. Cannonier,1c85003f6ec59c9d,Maycee Barber,GAP,0,1,152.58,113.67,1,0.84,0.5419,-155,,-329,14.64,WIN,U-DEC,3,0.6452,0.6452
+2022-07-30,UFC 277: Pena vs. Nunes 2,0366e183296fea07,Joselyne Edwards,FLIP,0,1,185.18,144.0,1,0.61,0.793,130,,-131,12.1,WIN,S-DEC,3,1.3,1.3
+2022-10-22,UFC 280: Oliveira vs. Makhachev,4011cdf1f182804c,Karol Rosa,GAP,0,1,172.67,142.63,1,0.7,0.2545,-275,,-380,4.75,WIN,M-DEC,3,0.3636,0.3636
+2022-10-29,UFC Fight Night: Kattar vs. Allen,a554a72bb0377213,Arnold Allen,FLIP,0,1,132.97,116.8,1,0.98,1.47,150,,-123,14.1,WIN,KO/TKO,2,1.5,1.5
+2022-11-05,UFC Fight Night: Rodriguez vs. Lemos,71afa8354da2491e,Miranda Maverick,GAP,0,1,168.26,202.17,0,0.0,0.0,-300,,-827,13.29,WIN,U-DEC,3,0.3333,0.3333
+2022-11-19,UFC Fight Night: Nzechukwu vs. Cutelaba,a3696c847ef6c7f9,Brady Hiestand,GAP,0,1,290.55,281.45,0,0.0,0.0,-135,,-180,7.56,WIN,U-DEC,3,0.7407,0.7407
+2022-12-03,UFC Fight Night: Thompson vs. Holland,1114cd1515cf3b8f,Francis Marshall,GAP,0,1,350.0,241.14,0,0.0,0.0,-110,,-171,10.53,WIN,KO/TKO,2,0.9091,0.9091
+2022-12-03,UFC Fight Night: Thompson vs. Holland,30abc50a2e71c576,Natan Levy,GAP,0,1,236.4,262.12,0,0.0,0.0,-160,,-225,6.82,WIN,U-DEC,3,0.625,0.625
+2022-12-17,UFC Fight Night: Cannonier vs. Strickland,8f00da6ea8186ce2,Bryan Battle,FLIP,0,1,216.76,276.93,0,0.0,-0.0,130,,128,0.02,LOSS,U-DEC,3,-1.0,-1.0
+2023-01-14,UFC Fight Night: Strickland vs. Imavov,a4c7d59d340794c0,Umar Nurmagomedov,GAP,0,1,201.3,163.09,0,0.0,0.0,-200,,-933,22.37,WIN,KO/TKO,1,0.5,0.5
+2023-01-21,UFC 283: Teixeira vs. Hill,fcf385ae75191b57,Josiane Nunes,GAP,0,1,253.87,244.36,0,0.0,0.0,-325,,-578,7.65,WIN,U-DEC,3,0.3077,0.3077
+2023-01-21,UFC 283: Teixeira vs. Hill,911b73db91738da6,Terrance McKinney,GAP,0,1,185.36,350.0,0,0.0,-0.0,-131,,-117,-3.07,LOSS,KO/TKO,2,-1.0,-1.0
+2023-01-21,UFC 283: Teixeira vs. Hill,dde7d29cc443e263,Jamahal Hill,GAP,0,1,149.46,92.46,1,0.86,0.5733,-150,,-140,-2.12,WIN,U-DEC,5,0.6667,0.6667
+2023-02-18,UFC Fight Night: Andrade vs. Blanchfield,dcc3da324eb5f26c,Erin Blanchfield,FLIP,0,1,184.32,94.68,1,0.61,1.0065,165,,100,11.19,WIN,SUB,2,1.65,1.65
+2023-02-25,UFC Fight Night: Muniz vs. Allen,a7f66f13f953352f,Jordan Leavitt,GAP,0,1,177.49,350.0,0,0.0,0.0,-125,,-131,0.99,WIN,KO/TKO,1,0.8,0.8
+2023-03-04,UFC 285: Jones vs. Gane,c3b9b97467f828d1,Tabatha Ricci,GAP,0,1,213.71,160.59,0,0.0,0.0,-240,,-317,4.74,WIN,SUB,2,0.4167,0.4167
+2023-03-11,UFC Fight Night: Yan vs. Dvalishvili,e9c6bac0d1a5ec0f,Lukasz Brzeski,GAP,0,1,284.04,350.0,0,0.0,-0.0,-170,,199,-28.68,LOSS,U-DEC,3,-1.0,-1.0
+2023-03-18,UFC 286: Edwards vs. Usman 3,dd9cbf6d6284de26,Casey O'Neill,GAP,0,1,186.47,121.54,1,0.6,-0.6,-155,,-175,2.2,LOSS,U-DEC,3,-1.0,-1.0
+2023-06-24,UFC Fight Night: Emmett vs. Topuria,c2cdeb207cce5ceb,Joshua Van,FLIP,0,1,350.0,168.74,0,0.0,0.0,140,,172,-3.78,WIN,S-DEC,3,1.4,1.4
+2023-06-24,UFC Fight Night: Emmett vs. Topuria,c3ef3cb03edde8bb,Ilia Topuria,GAP,0,1,174.92,111.7,1,0.68,0.34,-200,,-362,10.82,WIN,U-DEC,5,0.5,0.5
+2023-07-01,UFC Fight Night: Strickland vs. Magomedov,4dc5a41f357a7d85,Grant Dawson,FLIP,0,1,147.05,174.6,1,0.88,1.056,120,,103,4.69,WIN,U-DEC,3,1.2,1.2
+2023-07-08,UFC 290: Volkanovski vs. Rodriguez,420f7e6530dbc727,Jesus Aguilar,GAP,0,1,283.67,281.14,0,0.0,0.0,-275,,-148,-11.65,WIN,KO/TKO,1,0.3636,0.3636
+2023-07-22,UFC Fight Night: Aspinall vs. Tybura,a8a4c9f98ff73839,Yanal Ashmouz,GAP,0,1,290.38,259.68,0,0.0,-0.0,-133,,121,-10.05,LOSS,U-DEC,3,-1.0,-1.0
+2023-07-29,UFC 291: Poirier vs. Gaethje 2,e5ac7343b6d45188,Vinicius Salvador,FLIP,0,1,276.07,196.73,0,0.0,-0.0,150,,142,0.92,LOSS,U-DEC,3,-1.0,-1.0
+2023-08-19,UFC 292: Sterling vs. O'Malley,62d53ad8f8769666,Austin Hubbard,GAP,0,1,161.63,203.74,0,0.0,-0.0,-175,,-174,-0.72,LOSS,SUB,2,-1.0,-1.0
+2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,da6b863cf684e0ae,Rolando Bedoya,GAP,0,1,300.68,155.22,1,0.5,-0.5,-225,,-342,7.46,LOSS,U-DEC,3,-1.0,-1.0
+2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,48231fbd1af53674,Garrett Armfield,GAP,0,1,275.96,290.42,0,0.0,0.0,-175,,-165,-1.9,WIN,KO/TKO,1,0.5714,0.5714
+2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,f7bc845ce74f5fe7,Junior Tafa,GAP,0,1,287.01,158.93,1,0.5,0.4,-125,,-156,5.52,WIN,KO/TKO,1,0.8,0.8
+2023-08-26,UFC Fight Night: Holloway vs. The Korean Zombie,5531317352862978,Erin Blanchfield,GAP,0,1,164.97,153.25,1,0.75,0.5282,-142,,-160,2.46,WIN,U-DEC,3,0.7042,0.7042
+2023-09-02,UFC Fight Night: Gane vs. Spivac,e3a5a7ede88a2555,Joselyne Edwards,GAP,0,1,154.41,350.0,1,0.83,-0.83,-125,,-132,2.29,LOSS,U-DEC,3,-1.0,-1.0
+2023-10-21,UFC 294: Makhachev vs. Volkanovski 2,18e5af00a8478a0e,Viktoriia Dudakova,GAP,0,1,293.32,149.96,1,0.5,0.1818,-275,,-543,12.04,WIN,U-DEC,3,0.3636,0.3636
+2023-11-04,UFC Fight Night: Almeida vs. Lewis,7df5998eca143c04,Denise Gomes,GAP,0,1,211.82,92.87,1,0.5,-0.5,-150,,-140,-0.11,LOSS,U-DEC,3,-1.0,-1.0
+2023-11-18,UFC Fight Night: Allen vs. Craig,b210b99d9c1c9196,Uros Medic,FLIP,0,1,182.25,350.0,0,0.0,-0.0,120,,-106,5.8,LOSS,SUB,2,-1.0,-1.0
+2023-12-02,UFC Fight Night: Dariush vs. Tsarukyan,9feb9500b0fedfcd,Arman Tsarukyan,FLIP,0,1,134.93,91.33,1,0.96,0.96,100,,-284,22.86,WIN,KO/TKO,1,1.0,1.0
+2023-12-09,UFC Fight Night: Song vs. Gutierrez,5a6e894e4b6cc703,Luana Santos,GAP,0,1,275.46,164.39,0,0.0,0.0,-185,,-156,-3.99,WIN,U-DEC,3,0.5405,0.5405
+2023-12-16,UFC 296: Edwards vs. Covington,3b21a9f48bac4a44,Bryce Mitchell,GAP,0,1,138.33,108.85,1,0.94,-0.94,-138,,-263,14.88,LOSS,KO/TKO,1,-1.0,-1.0
+2023-12-16,UFC 296: Edwards vs. Covington,1efc813ccd7a5aba,Shavkat Rakhmonov,GAP,0,1,170.77,94.06,1,0.71,0.2898,-245,,-657,14.85,WIN,SUB,2,0.4082,0.4082
+2023-12-16,UFC 296: Edwards vs. Covington,3fa8ee3fdc04fe36,Leon Edwards,FLIP,0,1,105.28,106.16,1,1.0,1.65,165,,-151,21.07,WIN,U-DEC,5,1.65,1.65
+2024-01-20,UFC 297: Strickland vs. Du Plessis,ab105e5a56b5ee90,Malcolm Gordon,FLIP,0,1,177.3,216.43,0,0.0,-0.0,-105,,-205,15.3,LOSS,SUB,2,-1.0,-1.0
+2024-01-20,UFC 297: Strickland vs. Du Plessis,14e53999507c76a7,Dricus Du Plessis,FLIP,0,1,141.79,95.75,1,0.92,1.196,130,,-112,9.32,WIN,S-DEC,5,1.3,1.3
+2024-02-17,UFC 298: Volkanovski vs. Topuria,9785420602b452f7,Merab Dvalishvili,FLIP,0,1,123.57,110.91,1,1.0,1.14,114,,-301,26.75,WIN,U-DEC,3,1.14,1.14
+2024-02-24,UFC Fight Night: Moreno vs. Royval 2,50dae6b76c9c6490,Muhammad Naimov,GAP,0,1,217.92,269.04,0,0.0,0.0,-250,,-561,12.69,WIN,KO/TKO,1,0.4,0.4
+2024-03-02,UFC Fight Night: Rozenstruik vs. Gaziev,32bd7ed48f5aea7e,Eryk Anders,GAP,0,1,108.37,153.68,1,1.0,0.8,-125,,-534,27.38,WIN,U-DEC,3,0.8,0.8
+2024-03-09,UFC 299: O'Malley vs. Vera 2,68f7f992603192c6,Jack Della Maddalena,FLIP,0,1,160.17,93.8,1,0.78,0.819,105,,-161,13.18,WIN,KO/TKO,3,1.05,1.05
+2024-03-09,UFC 299: O'Malley vs. Vera 2,270edfb687c0d20c,Kevin Holland,GAP,0,1,97.03,350.0,1,1.0,-1.0,-138,,-136,0.8,LOSS,U-DEC,3,-1.0,-1.0
+2024-03-23,UFC Fight Night: Ribas vs. Namajunas,48ff3f1bcefbf965,Miles Johns,FLIP,0,1,162.1,179.23,0,0.0,0.0,-105,,-142,7.21,WIN,U-DEC,3,0.9524,0.9524
+2024-03-23,UFC Fight Night: Ribas vs. Namajunas,de7cb625bdec0f91,Trey Ogden,FLIP,0,1,214.37,187.72,0,0.0,0.0,-105,,-133,5.72,WIN,U-DEC,3,0.9524,0.9524
+2024-03-30,UFC Fight Night: Blanchfield vs. Fiorot,77992b8727382373,Chris Weidman,FLIP,0,1,100.52,139.56,1,1.0,2.0,200,,156,5.28,WIN,U-DEC,3,2.0,2.0
+2024-04-06,UFC Fight Night: Allen vs. Curtis 2,3cf5e0ebb5f8322c,Dylan Budka,FLIP,0,1,350.0,350.0,0,0.0,-0.0,116,,-155,14.06,LOSS,KO/TKO,2,-1.0,-1.0
+2024-04-13,UFC 300: Pereira vs. Hill,01f7c28804746979,Arman Tsarukyan,FLIP,0,1,126.93,81.21,1,1.0,1.0,100,,-205,16.65,WIN,S-DEC,3,1.0,1.0
+2024-05-04,UFC 301: Pantoja vs. Erceg,c84a29f426f1aab7,Iasmin Lucindo,GAP,0,1,210.06,106.22,1,0.5,0.2703,-185,,-388,13.69,WIN,U-DEC,3,0.5405,0.5405
+2024-05-11,UFC Fight Night: Lewis vs. Nascimento,420a5e3b4010ebef,Chase Hooper,FLIP,0,1,140.64,170.42,1,0.92,1.5088,164,,-101,11.45,WIN,SUB,2,1.64,1.64
+2024-06-08,UFC Fight Night: Cannonier vs. Imavov,b20640f9b2634de1,Rayanne dos Santos,FLIP,0,1,290.41,350.0,0,0.0,-0.0,144,,-351,35.67,LOSS,S-DEC,3,-1.0,-1.0
+2024-06-22,UFC Fight Night: Whittaker vs. Aliskerov,8bd5f20f49434c65,Muhammad Naimov,FLIP,0,1,211.34,350.0,0,0.0,-0.0,-107,,-135,6.08,LOSS,SUB,3,-1.0,-1.0
+2024-06-29,UFC 303: Pereira vs. Prochazka 2,fbf77262d8da342b,Ian Machado Garry,FLIP,0,1,142.35,290.06,1,0.91,0.8667,-105,,-198,14.24,WIN,U-DEC,3,0.9524,0.9524
+2024-07-20,UFC Fight Night: Lemos vs. Jandiroba,e655774643881e6c,Miranda Maverick,GAP,0,1,132.45,290.36,1,0.98,0.56,-175,,-250,8.92,WIN,U-DEC,3,0.5714,0.5714
+2024-07-27,UFC 304: Edwards vs. Muhammad 2,d6e240c47ba6034d,Muhammad Mokaev,FLIP,0,1,168.24,162.15,0,0.0,0.0,120,,-209,20.97,WIN,U-DEC,3,1.2,1.2
+2024-07-27,UFC 304: Edwards vs. Muhammad 2,3e2bde19e752f64b,Paddy Pimblett,FLIP,0,1,165.61,85.94,1,0.75,1.2,160,,-138,18.7,WIN,SUB,1,1.6,1.6
+2024-08-03,UFC Fight Night: Sandhagen vs. Nurmagomedov,d038ff5ac21094f3,Rolando Bedoya,FLIP,0,1,240.29,151.89,1,0.5,-0.5,120,,-102,4.63,LOSS,U-DEC,3,-1.0,-1.0
+2024-08-10,UFC Fight Night: Tybura vs. Spivac 2,7b4284bd3033a319,Danny Barlow,GAP,0,1,274.14,350.0,0,0.0,0.0,-285,,-428,6.38,WIN,S-DEC,3,0.3509,0.3509
+2024-09-07,UFC Fight Night: Burns vs. Brady,abfd5ac6cf186d8a,Isaac Dulgarian,GAP,0,1,230.32,263.01,0,0.0,0.0,-900,,-2695,6.18,WIN,SUB,2,0.1111,0.1111
+2024-09-28,UFC Fight Night: Moicano vs. Saint Denis,47d978a984a163aa,Victor Altamirano,FLIP,0,1,179.96,282.81,0,0.0,-0.0,105,,-124,7.22,LOSS,U-DEC,3,-1.0,-1.0
+2024-09-28,UFC Fight Night: Moicano vs. Saint Denis,89b772f864acb637,Ion Cutelaba,GAP,0,1,105.54,350.0,1,1.0,0.9091,-110,,-103,-1.52,WIN,S-DEC,3,0.9091,0.9091
+2024-10-05,UFC 307: Pereira vs. Rountree Jr.,eb73b63bbd7b88a7,Iasmin Lucindo,GAP,0,1,182.95,106.52,1,0.62,0.5167,-120,,-186,11.19,WIN,S-DEC,3,0.8333,0.8333
+2024-10-26,UFC 308: Topuria vs. Holloway,bde635a4f345bc3e,Ismail Naurdiev,FLIP,0,1,189.66,133.87,1,0.57,0.7068,124,,-170,17.48,WIN,U-DEC,3,1.24,1.24
+2024-10-26,UFC 308: Topuria vs. Holloway,919e3c5cc6999cb3,Myktybek Orolbai,GAP,0,1,233.25,184.6,0,0.0,-0.0,-120,,-287,18.76,LOSS,S-DEC,3,-1.0,-1.0
+2024-11-09,UFC Fight Night: Magny vs. Prates,154138c8fc89c315,Gerald Meerschaert,FLIP,0,1,94.44,350.0,1,1.0,-1.0,205,,254,-4.54,LOSS,SUB,3,-1.0,-1.0
+2024-11-16,UFC 309: Jones vs. Miocic,b35e47f2f58ef026,Jon Jones,GAP,0,1,95.55,98.59,1,1.0,0.3356,-298,,-568,9.61,WIN,KO/TKO,3,0.3356,0.3356
+2024-12-07,UFC 310: Pantoja vs. Asakura,0f16d83859d608c7,Chris Weidman,FLIP,0,1,99.1,107.26,1,1.0,-1.0,100,,-112,2.61,LOSS,KO/TKO,2,-1.0,-1.0
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,2bbfbb234c255249,Klaudia Sygula,GAP,1,1,239.66,118.33,1,0.5,0.1667,-300,,-184,-10.49,WIN,U-DEC,3,0.3333,0.3333
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,fb4b1754d510b0d0,Vinicius Oliveira,FLIP,1,1,176.71,119.84,1,0.67,-0.67,120,,114,0.83,LOSS,SUB,2,-1.0,-1.0
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,ac39c1f00ae31e58,Alden Coria,GAP,1,1,268.44,225.42,0,0.0,0.0,-210,,-413,11.49,WIN,U-DEC,3,0.4762,0.4762
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,dc6f6c8228390ebb,Melquizael Costa,GAP,1,1,132.48,94.78,1,0.98,0.784,-125,,-247,14.86,WIN,KO/TKO,1,0.8,0.8
+2026-03-14,UFC Fight Night: Emmett vs. Vallejos,f26c0bdf7689aea2,Myktybek Orolbai,GAP,1,1,172.55,126.41,1,0.7,0.28,-250,,-481,10.31,WIN,U-DEC,3,0.4,0.4
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,bfd17ed83ec5b598,Brando Pericic,FLIP,1,1,290.41,281.07,0,0.0,0.0,145,,-243,28.31,WIN,KO/TKO,1,1.45,1.45
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,3b9f50f07d9a1601,Nathaniel Wood,FLIP,1,1,115.13,350.0,1,1.0,1.3,130,,212,-11.46,WIN,S-DEC,3,1.3,1.3
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,1c50e43770ba84fc,Casey O'Neill,FLIP,1,1,149.34,179.19,1,0.86,0.946,110,,-125,7.15,WIN,KO/TKO,1,1.1,1.1
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,fa96d6252579b51e,Ignacio Bahamondes,GAP,1,1,130.86,294.18,1,0.99,-0.99,-200,,-330,8.5,LOSS,U-DEC,3,-1.0,-1.0
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,74bb036ef0493bf7,Alice Pereira,GAP,1,1,275.05,253.97,0,0.0,0.0,-110,,-146,6.85,WIN,KO/TKO,2,0.9091,0.9091
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,7924f10aac3543de,Robert Ruchala,FLIP,1,1,279.69,350.0,0,0.0,-0.0,250,,206,3.8,LOSS,U-DEC,3,-1.0,-1.0
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,610a640a0cd81ce5,Dom Mar Fan,FLIP,1,1,290.37,271.59,0,0.0,-0.0,175,,148,3.83,LOSS,SUB,1,-1.0,-1.0
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,00bde62cac38e5e9,Colby Thicknesse,GAP,1,1,247.89,127.69,1,0.5,0.4545,-110,,-129,3.83,WIN,U-DEC,3,0.9091,0.9091
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,a564219e7a964aa6,Brando Pericic,FLIP,1,1,255.61,165.02,0,0.0,0.0,135,,-120,11.49,WIN,KO/TKO,2,1.35,1.35
+2026-05-09,UFC 328: Chimaev vs. Strickland,ffcb47e17eebe6a6,Grant Dawson,GAP,1,1,112.01,146.63,1,1.0,0.9091,-110,,-136,5.57,WIN,SUB,3,0.9091,0.9091
+2026-05-30,UFC Fight Night: Song vs. Figueiredo,00959e29e4a10e26,Cameron Smotherman,FLIP,1,1,201.2,234.18,0,0.0,-0.0,285,,250,2.47,LOSS,KO/TKO,1,-1.0,-1.0
+2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,1,1,161.13,114.85,1,0.78,0.7091,-110,,-141,6.94,WIN,SUB,1,0.9091,0.9091
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,1,1,159.92,115.21,1,0.79,0.79,100,,-114,3.63,WIN,U-DEC,3,1.0,1.0
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,1,1,160.71,89.79,1,0.78,0.3467,-225,,-281,3.87,WIN,KO/TKO,2,0.4444,0.4444
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,1,1,287.05,275.64,0,0.0,0.0,125,,-224,26.05,WIN,KO/TKO,3,1.25,1.25
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,1,1,111.32,235.79,1,1.0,0.3922,-255,,-365,5.98,WIN,SUB,1,0.3922,0.3922
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,1,1,206.26,156.51,1,0.5,0.2907,-172,,-250,10.4,WIN,U-DEC,3,0.5814,0.5814
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,61280e5644189c61,Saygid Izagakhmaev,FLIP,1,1,276.64,350.0,0,0.0,-0.0,175,,242,-5.92,LOSS,U-DEC,3,-1.0,-1.0
+2026-08-01,UFC Fight Night: Medic vs. Rodriguez,4350abb4f1933f88,Mark Vologdin,FLIP,0,1,269.92,350.0,0,0.0,-0.0,130,,191,-8.91,LOSS,U-DEC,3,-1.0,-1.0
+2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,64829a32c78ab656,Louie Sutherland,FLIP,0,1,231.89,350.0,0,0.0,-0.0,-110,,-197,13.39,LOSS,SUB,1,-1.0,-1.0
+2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,a10deecfb8558335,Quillan Salkilld,FLIP,0,1,162.5,107.56,1,0.77,0.8547,111,,-141,10.41,WIN,SUB,1,1.11,1.11
+2026-08-15,UFC 330: Makhachev vs. Machado Garry,e79e4d13546d2360,Vicente Luque,FLIP,0,1,88.2,158.7,1,1.0,-1.0,-110,,110,-4.44,LOSS,U-DEC,3,-1.0,-1.0
+2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,6206c62fc8f0b71b,Julia Polastri,GAP,1,1,162.56,252.89,0,0.0,0.0,-146,,-202,7.16,WIN,KO/TKO,1,0.6849,0.6849
+2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,73cb6c4e060c4ee9,Denise Gomes,FLIP,1,1,137.85,109.08,1,0.94,1.034,110,,114,-0.21,WIN,KO/TKO,1,1.1,1.1
+2026-09-05,UFC Fight Night: Hooker vs. Parnasse,809ebb0cfdd01ce2,Klaudia Sygula,FLIP,1,1,202.43,158.3,1,0.5,-0.5,207,,101,17.72,LOSS,U-DEC,3,-1.0,-1.0
