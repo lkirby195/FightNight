@@ -32,6 +32,8 @@ from sklearn.preprocessing import StandardScaler
 import engine
 import features
 import stage2
+from betting_system import (FLIP_CONF, GAP_PTS, SKIP_LINE_MAX, am as am_dec,
+                            amp as amp_prob, stake_units)
 from scrape_bfo import fetch, ggd, series_summary
 
 PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
@@ -157,6 +159,19 @@ def record_placeable(slug, ev_date_s, bouts, path=PLACEABLE):
           f"{len(bouts) - len(new)} unchanged ({now})")
 
 
+def earliest_capture(path=PLACEABLE):
+    """mu -> (f1_line, f2_line) decimal of the earliest capture on file: the
+    price the ledger settles a live bet at (betting_system.placeable_prices)."""
+    out = {}
+    if not (os.path.exists(path) and os.path.getsize(path) > 0):
+        return out
+    with open(path, newline="") as fh:
+        rows = sorted(csv.DictReader(fh), key=lambda r: r["captured_at"])
+    for r in rows:
+        out.setdefault(int(r["mu"]), (float(r["f1_line"]), float(r["f2_line"])))
+    return out
+
+
 def fit_model():
     df0, X0, y0 = stage2.load()
     Xc = X0.drop(columns=PASSC)
@@ -198,7 +213,7 @@ def main(slug, ev_date_s):
 
     future = ev_date >= date.today()
     bouts = get_card(slug, fresh=future)        # live prices for a future card
-    rows, keep = [], []
+    rows, keep, rds = [], [], {}
     for b in bouts:
         i1, i2 = find(b["f1"]), find(b["f2"])
         if not (i1 and i2):
@@ -213,6 +228,7 @@ def main(slug, ev_date_s):
                          **{f"x_{k}": v for k, v in s1.items()},
                          **{f"y_{k}": v for k, v in s2.items()}))
         keep.append(b)
+        rds[b["mu"]] = (p1.phi * engine.SCALE, p2.phi * engine.SCALE)
     R = pd.DataFrame(rows)
     X = stage2.build_matrix(R).drop(columns=PASSC)
     R["p"] = fit_model().predict_proba(X.values)[:, 1]
@@ -259,8 +275,59 @@ def main(slug, ev_date_s):
     if clvs:
         print(f"\ncard CLV: {np.mean(clvs)*100:+.2f} pts over {len(clvs)} projected"
               + (f" | picks {w}-{n-w}" if n else ""))
+    print_signals(keep, preds, rds, future)
     if future:
         record_placeable(slug, ev_date_s, bouts)
+
+
+def print_signals(bouts, preds, rds, future):
+    """Rule-fired picks at the OPEN (betting_system rule) with the placement
+    policy v1 stake (stake_units) next to each. The stake's line is the price
+    the ledger will settle at: the earliest capture on file for the bout,
+    else the current line for a future card (this run's capture), else open."""
+    cap = earliest_capture()
+    sig, placed = [], 0
+    for b in bouts:
+        if b["mu"] not in preds:
+            continue
+        p, o1, o2 = preds[b["mu"]], b["f1_open"], b["f2_open"]
+        if not 1.0 <= 1 / o1 + 1 / o2 <= 1.12:
+            continue                            # odds-sanity pre-filter
+        mkt1, mod1 = (1 / o1) >= (1 / o2), p >= .5
+        conf = p if mod1 else 1 - p
+        gap = float(am_dec(o1 if mkt1 else o2)) - float(amp_prob(p if mkt1 else 1 - p))
+        if mkt1 != mod1 and conf >= FLIP_CONF:
+            rule = "FLIP"
+        elif mkt1 == mod1 and gap >= GAP_PTS:
+            rule = "GAP"
+        else:
+            continue
+        rd1, rd2 = rds[b["mu"]]
+        rd_self, rd_opp = (rd1, rd2) if mod1 else (rd2, rd1)
+        c = cap.get(b["mu"])
+        if c is not None:
+            dec = c[0] if mod1 else c[1]
+        elif future:
+            dec = b["f1_close"] if mod1 else b["f2_close"]
+        else:
+            dec = o1 if mod1 else o2
+        line = int(round(float(am_dec(dec))))
+        u = stake_units(rd_self, rd_opp, line)
+        if u > 0:
+            tag, placed = f"{u:.2f}u", placed + 1
+        elif line > SKIP_LINE_MAX:
+            tag = f"skip: {line:+d}"
+        else:
+            tag = "skip: both unknown"
+        who = b["f1"] if mod1 else b["f2"]
+        opn = int(round(float(am_dec(o1 if mod1 else o2))))
+        sig.append(f"  {rule:4s} {who:28s} {conf:.0%}  open {opn:+d}  line {line:+d}"
+                   f"  RD {rd_self:.0f}/{rd_opp:.0f}  {tag}")
+    print()
+    print(f"signals at open (FLIP >= {FLIP_CONF:.2f} / GAP >= {GAP_PTS} pts): {len(sig)}"
+          f"  placed (policy v1): {placed}")
+    for line in sig:
+        print(line)
 
 
 if __name__ == "__main__":

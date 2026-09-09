@@ -23,6 +23,12 @@ pnl_at_open keeps the open-line settlement for all rows; clv_pts is always
 open -> clean_close.
 Two summaries are printed: LIVE RECORD (live=1 only, P&L at placeable and at
 open) and FULL SIM (all bets, at open).
+Placement policy v1 (frozen 2026-09-09) is a layer on top of the signal rules:
+every signal is still logged at flat 1u (units, pnl, pnl_at_open); stake_units()
+decides from the pre-fight RDs (data/prefight_rd.csv, written by prefight_rd.py)
+and the bet side's price whether it is placed (placed, stake_u) and
+pnl_placed = stake_u * pnl per unit. A PLACED (policy v1) block follows each
+summary.
 """
 from __future__ import annotations
 
@@ -39,6 +45,27 @@ GAP_PTS = 100
 FLIP_UNITS = 1     # flat; set 2 for the higher-variance variant
 GAP_UNITS = 1
 
+# Placement policy v1 — frozen 2026-09-09
+# A layer on top of the signal rules above, which stay frozen: every signal is
+# still logged at flat 1u; the policy decides which are placed and at what
+# stake, from the pre-fight rating deviations (RD, data/prefight_rd.csv) of the
+# backed fighter and the opponent and from the backed side's American price
+# (placeable_line where captured, else open_line).
+SKIP_LINE_MAX = 250        # bet side +250 or longer -> not placed
+UNKNOWN_RD = 160           # both fighters RD > this -> not placed
+RAMP_LO, RAMP_HI = 130, 200
+
+
+def stake_units(rd_self, rd_opp, line):
+    """Stake in units for one signal (0.0 = not placed). Full 1u up to a
+    backed-side RD of RAMP_LO, falling linearly to 0.5u at RAMP_HI and floored
+    there."""
+    if line > SKIP_LINE_MAX:
+        return 0.0
+    if rd_self > UNKNOWN_RD and rd_opp > UNKNOWN_RD:
+        return 0.0
+    return float(np.clip(1 - (rd_self - RAMP_LO) / (RAMP_HI - RAMP_LO) * 0.5, 0.5, 1.0))
+
 # Live record: every card from LIVE_FROM through LIVE_THROUGH was reported
 # pre-event, plus the dates in LIVE_CARDS. ADD EACH NEW CARD'S DATE TO LIVE_CARDS
 # WHEN ITS REPORT IS RUN PRE-EVENT; anything else is backfilled (live=0).
@@ -50,9 +77,11 @@ LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
 
 LEDGER = "data/system_ledger.csv"
 PLACEABLE = "data/placeable_lines.csv"      # written by card_report.py
+PREFIGHT_RD = "data/prefight_rd.csv"        # written by prefight_rd.py
 LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "units",
+               "rd_self", "rd_opp", "placed", "stake_u", "pnl_placed",
                "open_line", "placeable_line", "clean_close", "clv_pts", "result",
-               "pnl", "pnl_at_open"]
+               "method", "round", "pnl", "pnl_at_open"]
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))
 amp = lambda q: np.where(q >= .5, -100 * q / (1 - q), 100 * (1 - q) / q)
@@ -62,8 +91,11 @@ def load():
     M = pd.read_csv("data/model_only_preds.csv")
     J = pd.read_csv("data/bfo_joined.csv")
     fv = pd.read_csv("data/fights_v2.csv")[["fight_id", "event_date", "event_name",
-                                            "bout_order", "fighter_a", "fighter_b"]]
-    D = M.merge(J, on="fight_id").merge(fv, on="fight_id")
+                                            "bout_order", "fighter_a", "fighter_b",
+                                            "method", "round"]].rename(columns={"round": "rnd"})
+    rd = pd.read_csv(PREFIGHT_RD)               # fight_id, rd_a, rd_b
+    D = (M.merge(J, on="fight_id").merge(fv, on="fight_id")
+          .merge(rd, on="fight_id", how="left"))
     D = D.dropna(subset=["y_a", "a_open", "b_open"])
     imp = 1 / D.a_open + 1 / D.b_open
     D = D[(imp >= 1.0) & (imp <= 1.12)].copy()      # odds sanity
@@ -100,6 +132,18 @@ def run(D):
     B.loc[has, "pnl"] = np.where(B.pnl_at_open[has] > 0,
                                  B.u[has] * (B.placeable[has] - 1),
                                  -B.u[has].astype(float))
+    # placement policy v1: a pure function of the columns above, every row
+    if B.rd_a.isna().any():
+        raise SystemExit(f"{PREFIGHT_RD} has no row for {int(B.rd_a.isna().sum())} "
+                         f"bets: run prefight_rd.py")
+    B["rd_self"] = np.where(B.mod1, B.rd_a, B.rd_b)
+    B["rd_opp"] = np.where(B.mod1, B.rd_b, B.rd_a)
+    bet_dec = np.where(has, B.placeable, np.where(B.mod1, B.a_open, B.b_open))
+    B["bet_line"] = np.rint(am(bet_dec)).astype(int)    # bet side, American
+    B["stake_u"] = [round(stake_units(a, b, c), 2)
+                    for a, b, c in zip(B.rd_self, B.rd_opp, B.bet_line)]
+    B["placed"] = (B.stake_u > 0).astype(int)
+    B["pnl_placed"] = B.stake_u * B.pnl / B.u
     return B
 
 
@@ -117,6 +161,7 @@ def report(B, label, placeable=False):
     print()
     if len(B) == 0:
         print(f"{label}: 0 bets")
+        _report_placed(B, "pnl")
         return
     col = "pnl" if placeable else "pnl_at_open"
     w, l = int((B[col] > 0).sum()), int((B[col] < 0).sum())
@@ -129,6 +174,28 @@ def report(B, label, placeable=False):
     for rl, g in B.groupby("rule"):
         print(f"    {rl}: {len(g)} bets  {int((g[col]>0).sum())}-{int((g[col]<0).sum())}  "
               f"ROI {g[col].sum()/g.u.sum():+.1%}")
+    _report_placed(B, col)
+
+
+def _report_placed(B, col):
+    """PLACED (policy v1) block under a summary: the signals in B the policy
+    places, at their policy stake, settled the same way as that summary
+    (col = pnl for LIVE RECORD, pnl_at_open for FULL SIM)."""
+    P = B[B.placed == 1] if len(B) else B
+    head = f"PLACED (policy v1): {len(P)} placed of {len(B)} signals"
+    if len(P) == 0:
+        print(head)
+        return
+    pp = P.stake_u * P[col] / P.u               # P&L at the policy stake
+    r = P[col] / P.u                            # per-bet return on stake
+    t = r.mean() / (r.std(ddof=1) / np.sqrt(len(r))) if len(r) > 1 else float("nan")
+    print(f"{head}  {int((pp > 0).sum())}-{int((pp < 0).sum())}  "
+          f"staked {P.stake_u.sum():.1f}u  P&L {pp.sum():+.1f}u (${pp.sum()*100:+,.0f})  "
+          f"ROI {pp.sum()/P.stake_u.sum():+.1%}  t={t:.2f}")
+    for rl, g in P.groupby("rule"):
+        gp = g.stake_u * g[col] / g.u
+        print(f"    {rl}: {len(g)} placed  {int((gp>0).sum())}-{int((gp<0).sum())}  "
+              f"ROI {gp.sum()/g.stake_u.sum():+.1%}")
 
 
 def _lastn(s):
@@ -199,7 +266,10 @@ def write_ledger(B, path=LEDGER):
     """Write every triggered bet in B to `path`, sorted by date then bout order.
     open_line / placeable_line / clean_close are American odds of the bet side;
     clv_pts is the bet side's vig-free close minus open, in prob points; pnl
-    (placeable where captured, else open) and pnl_at_open are in units."""
+    (placeable where captured, else open) and pnl_at_open are in units.
+    rd_self / rd_opp are the pre-fight RDs of the bet side and the opponent,
+    placed / stake_u the placement-policy decision and pnl_placed its P&L
+    (stake_u * pnl per unit); method / round come from fights_v2."""
     bl = pd.read_csv("data/bfo_lines.csv")
     bl["d"] = pd.to_datetime(bl.event_date)
     rows = []
@@ -213,20 +283,26 @@ def write_ledger(B, path=LEDGER):
                          fight_id=r.fight_id,
                          fighter=r.fighter_a if pick_a else r.fighter_b,
                          rule=r.rule, live=int(r.live), units=int(r.u),
+                         rd_self=round(float(r.rd_self), 2),
+                         rd_opp=round(float(r.rd_opp), 2),
+                         placed=int(r.placed), stake_u=round(float(r.stake_u), 2),
+                         pnl_placed=round(float(r.pnl_placed), 4),
                          open_line=int(round(float(am(o)))),
                          placeable_line=("" if pd.isna(r.placeable)
                                          else int(round(float(am(r.placeable))))),
                          clean_close=int(round(float(am(c)))),
                          clv_pts=round((qc - qo) * 100, 2),
                          result="WIN" if r.pnl > 0 else "LOSS",
-                         pnl=round(float(r.pnl), 4),
+                         method=r["method"], pnl=round(float(r.pnl), 4),
                          pnl_at_open=round(float(r.pnl_at_open), 4),
-                         _bo=r.bout_order))
+                         _bo=r.bout_order, **{"round": int(r["rnd"])}))
     L = (pd.DataFrame(rows, columns=LEDGER_COLS + ["_bo"])
          .sort_values(["event_date", "_bo"]).drop(columns="_bo"))
     L.to_csv(path, index=False)
     print(f"wrote {path}: {len(L)} rows  staked {L.units.sum()}u  "
-          f"P&L {L.pnl.sum():+.1f}u (at open {L.pnl_at_open.sum():+.1f}u)")
+          f"P&L {L.pnl.sum():+.1f}u (at open {L.pnl_at_open.sum():+.1f}u)  "
+          f"placed {int(L.placed.sum())} staked {L.stake_u.sum():.1f}u "
+          f"P&L {L.pnl_placed.sum():+.1f}u")
 
 
 if __name__ == "__main__":
