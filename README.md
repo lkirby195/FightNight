@@ -45,6 +45,10 @@ pipeline/card_report.py Per-event report: model %, fair line, open/close, CLV,
                         For an event dated today or later it also records the
                         current line of every bout in placeable_lines.csv.
                         Lists the rule-fired picks with their placement stake.
+                        Bouts BFO still lists that are off the live card
+                        (withdrawals) go in OFF_CARD, keyed by (event date,
+                        matchup id), and are dropped before the table, the
+                        signals and the placeable capture.
 pipeline/prefight_rd.py Pre-fight RD of both fighters per bout (time-inflated,
                         public scale) -> prefight_rd.csv; placement-policy input
 pipeline/betting_system.py  KISS betting rule (flip>=65% + gap>=100pts, flat 1u)

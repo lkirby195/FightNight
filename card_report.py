@@ -123,6 +123,18 @@ def get_card(slug, fresh=False):
     return bouts
 
 
+# Bouts BestFightOdds still lists that are not on the live card (withdrawals,
+# cancellations). Keyed by (event date, BFO matchup id), so an entry can only
+# ever affect the one card it was added for. Dropped before the report table,
+# the signals and the placeable capture alike: a cancelled bout must not reach
+# data/placeable_lines.csv, which is append-only.
+OFF_CARD = {
+    ("2026-09-19", 44891),   # UFC 331 Ortega / Moicano: Ortega withdrew days
+                             # out (suspected eye injury), Moicano moved to a
+                             # later Fight Night
+}
+
+
 PLACEABLE = "data/placeable_lines.csv"
 PLACEABLE_COLS = ["event_date", "bfo_slug", "mu", "fighter1", "fighter2",
                   "f1_line", "f2_line", "captured_at"]
@@ -213,6 +225,10 @@ def main(slug, ev_date_s):
 
     future = ev_date >= date.today()
     bouts = get_card(slug, fresh=future)        # live prices for a future card
+    off = [b for b in bouts if (ev_date_s, b["mu"]) in OFF_CARD]
+    for b in off:
+        print(f"off card: dropped {b['f1']} / {b['f2']} (mu {b['mu']})")
+    bouts = [b for b in bouts if (ev_date_s, b["mu"]) not in OFF_CARD]
     rows, keep, rds = [], [], {}
     for b in bouts:
         i1, i2 = find(b["f1"]), find(b["f2"])
