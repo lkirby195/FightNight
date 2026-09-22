@@ -6,6 +6,12 @@ of (timestamp_ms, decimal_odds) for the cross-book mean line.
 
 First tick = opening line, last tick = closing line.
 
+The event date is the schema.org SportsEvent "startDate" in the event page's
+JSON-LD, never the sitemap <lastmod>: BFO serves one event under several
+alias slugs whose lastmods differ (UFC 331 landed on three dates that way),
+and lastmod runs a day late on many cards. A page with no parseable date
+raises ValueError(slug) and the event is skipped, loudly.
+
 Polite: 0.45s spacing, disk cache (cache_bfo/), resumable. Incremental by
 matchup id: a bout already in data/bfo_lines.csv (or already written this run
 under another slug for the same event) is never written twice.
@@ -90,22 +96,28 @@ def ufc_event_slugs():
     return sorted({e for e in ent if UFC_SLUG.match(e[0])})
 
 
-DATE_RE = re.compile(r"(January|February|March|April|May|June|July|August|"
-                     r"September|October|November|December)\s+\d{1,2}\w*\s+\d{4}")
+# Event date: the schema.org SportsEvent JSON-LD carried by every event page,
+#     "startDate": "2026-09-19",
+# The meta description ("... on September 19, 2026") carries it too; the old
+# month-name regex missed that form because of the comma, so every date came
+# from the sitemap lastmod. Pinned by tests/test_scrape_bfo.py against a saved
+# copy of the UFC 331 page.
+DATE_RE = re.compile(r'"startDate":\s*"(\d{4}-\d{2}-\d{2})"')
 
 
 def parse_event(slug: str):
+    """-> (title, event_date ISO, bouts) from the BFO event page. Raises
+    ValueError(slug) when the page carries no parseable event date."""
     html = fetch(f"{BASE}/events/{slug}")
     soup = BeautifulSoup(html, "lxml")
     title = soup.title.get_text(strip=True) if soup.title else ""
     m = DATE_RE.search(html)
-    ev_date = None
-    if m:
-        txt = re.sub(r"(\d)(st|nd|rd|th)", r"\1", m.group(0))
-        try:
-            ev_date = datetime.strptime(txt, "%B %d %Y").date().isoformat()
-        except ValueError:
-            pass
+    if not m:
+        raise ValueError(slug)              # no date on the page: never guess
+    try:
+        ev_date = datetime.strptime(m.group(1), "%Y-%m-%d").date().isoformat()
+    except ValueError:
+        raise ValueError(slug) from None
     bouts = []
     for tr in soup.select("tr[id^=mu-]"):
         mid = tr["id"].split("-")[1]
@@ -161,9 +173,8 @@ def main(start_year=2022, end_year=2027):
             try:
                 title, ev_date, bouts = parse_event(slug)
             except Exception as e:  # noqa: BLE001
-                print(f"  EV ERR {slug}: {e}", flush=True)
+                print(f"  EV ERR {slug}: {e!r}", flush=True)
                 continue
-            ev_date = ev_date or lastmod[:10]
             for b in bouts:
                 if str(b["mu"]) in done:
                     continue
