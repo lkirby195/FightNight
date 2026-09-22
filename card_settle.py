@@ -15,10 +15,16 @@ while the other lags), so they are skipped and the last pre-fight book wins.
 Opening line is unchanged (first tick per side) so historical CLV records are
 untouched.
 
+Off-card bouts (card_report.OFF_CARD, keyed by event date and BFO matchup id)
+are left out before any line history is pulled, so a cancelled bout neither
+reaches the report nor counts in the in-play tick tally.
+
 Usage:  python card_settle.py <bfo-event-slug> <event-date YYYY-MM-DD>
         (same CLI as card_report.py; use this for any event < ~4 months old)
 """
+import functools
 import sys
+
 import card_report
 from scrape_bfo import fetch, ggd
 
@@ -67,7 +73,10 @@ def paired_summary(js1, js2):
     return p1[0][1], d1, p2[0][1], d2, len(pairs), t, skipped
 
 
-def get_card_clean(slug, fresh=False):
+def get_card_clean(slug, fresh=False, off=frozenset()):
+    """card_report.get_card with paired_summary closes. `off`: BFO matchup ids
+    to leave out before their series are pulled (main() derives it from
+    card_report.OFF_CARD for the event date)."""
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(fetch(f"https://www.bestfightodds.com/events/{slug}",
                                refresh=fresh), "lxml")
@@ -82,6 +91,10 @@ def get_card_clean(slug, fresh=False):
         if not (a1 and a2):
             continue
         mu = int(mid)
+        if mu in off:
+            print(f"off card: dropped {a1.get_text(strip=True)} / "
+                  f"{a2.get_text(strip=True)} (mu {mu})")
+            continue
         s = paired_summary(ggd(mu, 1, refresh=fresh), ggd(mu, 2, refresh=fresh))
         if s is None:
             continue
@@ -95,8 +108,16 @@ def get_card_clean(slug, fresh=False):
     return bouts
 
 
+def main(slug, ev_date_s):
+    """card_report.main with the in-play-safe fetcher, minus the bouts
+    card_report.OFF_CARD lists for this date (card_report.main drops them
+    again afterwards, as a backstop)."""
+    off = frozenset(mu for d, mu in card_report.OFF_CARD if d == ev_date_s)
+    card_report.get_card = functools.partial(get_card_clean, off=off)
+    card_report.main(slug, ev_date_s)
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         sys.exit(__doc__)
-    card_report.get_card = get_card_clean   # swap in the clean fetcher
-    card_report.main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2])
