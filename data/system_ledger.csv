@@ -446,6 +446,7 @@ event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,
 2023-01-21,UFC 283: Teixeira vs. Hill,fcf385ae75191b57,Josiane Nunes,GAP,0,1,253.87,244.36,0,0.0,0.0,-325,,-578,7.65,WIN,U-DEC,3,0.3077,0.3077
 2023-01-21,UFC 283: Teixeira vs. Hill,911b73db91738da6,Terrance McKinney,GAP,0,1,185.36,350.0,0,0.0,-0.0,-131,,-117,-3.07,LOSS,KO/TKO,2,-1.0,-1.0
 2023-01-21,UFC 283: Teixeira vs. Hill,dde7d29cc443e263,Jamahal Hill,GAP,0,1,149.46,92.46,1,0.86,0.5733,-150,,-140,-2.12,WIN,U-DEC,5,0.6667,0.6667
+2023-02-18,UFC Fight Night: Andrade vs. Blanchfield,3d46d635f9ae5e68,Ovince Saint Preux,FLIP,0,1,90.36,205.63,1,1.0,-1.0,110,,178,-11.31,LOSS,KO/TKO,1,-1.0,-1.0
 2023-02-18,UFC Fight Night: Andrade vs. Blanchfield,dcc3da324eb5f26c,Erin Blanchfield,FLIP,0,1,184.32,94.68,1,0.61,1.0065,165,,100,11.19,WIN,SUB,2,1.65,1.65
 2023-02-25,UFC Fight Night: Muniz vs. Allen,a7f66f13f953352f,Jordan Leavitt,GAP,0,1,177.49,350.0,0,0.0,0.0,-125,,-131,0.99,WIN,KO/TKO,1,0.8,0.8
 2023-03-04,UFC 285: Jones vs. Gane,c3b9b97467f828d1,Tabatha Ricci,GAP,0,1,213.71,160.59,0,0.0,0.0,-240,,-317,4.74,WIN,SUB,2,0.4167,0.4167
@@ -532,3 +533,5 @@ event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,
 2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,6206c62fc8f0b71b,Julia Polastri,GAP,1,1,162.56,252.89,0,0.0,0.0,-146,,-202,7.16,WIN,KO/TKO,1,0.6849,0.6849
 2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,73cb6c4e060c4ee9,Denise Gomes,FLIP,1,1,137.85,109.08,1,0.94,1.034,110,,114,-0.21,WIN,KO/TKO,1,1.1,1.1
 2026-09-05,UFC Fight Night: Hooker vs. Parnasse,809ebb0cfdd01ce2,Klaudia Sygula,FLIP,1,1,202.43,158.3,1,0.5,-0.5,207,,101,17.72,LOSS,U-DEC,3,-1.0,-1.0
+2026-09-19,UFC 331: Van vs. Pantoja 2,3f2d637ffb324a51,Tai Tuivasa,FLIP,1,1,102.84,209.54,0,0.0,-0.0,316,504,367,-2.49,LOSS,S-DEC,3,-1.0,-1.0
+2026-09-19,UFC 331: Van vs. Pantoja 2,568ec6af4008355a,Joshua Van,FLIP,1,1,120.55,100.05,1,1.0,0.7246,160,-138,-164,22.65,WIN,U-DEC,5,0.7246,1.6
