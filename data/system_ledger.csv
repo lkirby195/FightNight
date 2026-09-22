@@ -522,6 +522,7 @@ event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,
 2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,1,1,161.13,114.85,1,0.78,0.7091,-110,,-141,6.94,WIN,SUB,1,0.9091,0.9091
 2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,1,1,159.92,115.21,1,0.79,0.79,100,,-114,3.63,WIN,U-DEC,3,1.0,1.0
 2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,1,1,160.71,89.79,1,0.78,0.3467,-225,,-281,3.87,WIN,KO/TKO,2,0.4444,0.4444
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,46d800ce45fdd3e6,Felipe Franco,GAP,1,1,289.14,350.0,0,0.0,0.0,-110,,118,-4.95,WIN,KO/TKO,2,0.9091,0.9091
 2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,1,1,287.05,275.64,0,0.0,0.0,125,,-224,26.05,WIN,KO/TKO,3,1.25,1.25
 2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,1,1,111.32,235.79,1,1.0,0.3922,-255,,-365,5.98,WIN,SUB,1,0.3922,0.3922
 2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,1,1,206.26,156.51,1,0.5,0.2907,-172,,-250,10.4,WIN,U-DEC,3,0.5814,0.5814

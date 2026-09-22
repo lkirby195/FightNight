@@ -34,11 +34,11 @@ from __future__ import annotations
 
 import argparse
 import os
-import re
-import unicodedata
 
 import numpy as np
 import pandas as pd
+
+from names import bfo_lastn, lastn as _lastn
 
 FLIP_CONF = 0.65
 GAP_PTS = 100
@@ -199,28 +199,23 @@ def _report_placed(B, col):
               f"ROI {gp.sum()/g.stake_u.sum():+.1%}")
 
 
-def _lastn(s):
-    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    p = re.sub(r"[^a-z ]", "", s.lower().replace("-", " ")).split()
-    return p[-1] if p else ""
-
-
 def _bfo_mu(bl, r):
     """BFO matchup id for one bet: same date (+-3d), same opening prices, same
-    surnames. -> (mu, a_is_f1). Fails loudly rather than guess."""
+    surnames (names.py: BFO aliases applied, generational suffixes dropped).
+    -> (mu, a_is_f1). Fails loudly rather than guess."""
     c = bl[(bl.d - pd.Timestamp(r.event_date)).abs().dt.days <= 3]
     c = c[((c.f1_open == r.a_open) & (c.f2_open == r.b_open)) |
           ((c.f1_open == r.b_open) & (c.f2_open == r.a_open))]
-    names = {_lastn(r.fighter_a), _lastn(r.fighter_b)}
+    surnames = {_lastn(r.fighter_a), _lastn(r.fighter_b)}
     if len(c):
-        c = c[c.apply(lambda x: {_lastn(x.fighter1), _lastn(x.fighter2)} == names,
+        c = c[c.apply(lambda x: {bfo_lastn(x.fighter1), bfo_lastn(x.fighter2)} == surnames,
                       axis=1).astype(bool)]
     if len(c) != 1:
         raise SystemExit(f"--write-ledger: {len(c)} BFO matchups for {r.fight_id} "
                          f"{r.fighter_a} vs {r.fighter_b} {r.event_date}")
     x = c.iloc[0]
     if _lastn(r.fighter_a) != _lastn(r.fighter_b):
-        return int(x.mu), _lastn(x.fighter1) == _lastn(r.fighter_a)
+        return int(x.mu), bfo_lastn(x.fighter1) == _lastn(r.fighter_a)
     return int(x.mu), bool(x.f1_open == r.a_open)
 
 
