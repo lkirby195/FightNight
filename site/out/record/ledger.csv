@@ -52,6 +52,7 @@ event_date,event,fight_id,fighter,rule,rd_self,rd_opp,placed,stake_u,pnl_placed,
 2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,161.13,114.85,1,0.78,0.7091,-110,,-141,6.94,WIN,SUB,1,0.9091
 2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,159.92,115.21,1,0.79,0.79,100,,-114,3.63,WIN,U-DEC,3,1.0
 2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,160.71,89.79,1,0.78,0.3467,-225,,-281,3.87,WIN,KO/TKO,2,0.4444
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,46d800ce45fdd3e6,Felipe Franco,GAP,289.14,350.0,0,0.0,0.0,-110,,118,-4.95,WIN,KO/TKO,2,0.9091
 2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,287.05,275.64,0,0.0,0.0,125,,-224,26.05,WIN,KO/TKO,3,1.25
 2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,111.32,235.79,1,1.0,0.3922,-255,,-365,5.98,WIN,SUB,1,0.3922
 2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,206.26,156.51,1,0.5,0.2907,-172,,-250,10.4,WIN,U-DEC,3,0.5814
@@ -59,3 +60,5 @@ event_date,event,fight_id,fighter,rule,rd_self,rd_opp,placed,stake_u,pnl_placed,
 2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,6206c62fc8f0b71b,Julia Polastri,GAP,162.56,252.89,0,0.0,0.0,-146,,-202,7.16,WIN,KO/TKO,1,0.6849
 2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,73cb6c4e060c4ee9,Denise Gomes,FLIP,137.85,109.08,1,0.94,1.034,110,,114,-0.21,WIN,KO/TKO,1,1.1
 2026-09-05,UFC Fight Night: Hooker vs. Parnasse,809ebb0cfdd01ce2,Klaudia Sygula,FLIP,202.43,158.3,1,0.5,-0.5,207,,101,17.72,LOSS,U-DEC,3,-1.0
+2026-09-19,UFC 331: Van vs. Pantoja 2,3f2d637ffb324a51,Tai Tuivasa,FLIP,102.84,209.54,0,0.0,-0.0,316,504,367,-2.49,LOSS,S-DEC,3,-1.0
+2026-09-19,UFC 331: Van vs. Pantoja 2,568ec6af4008355a,Joshua Van,FLIP,120.55,100.05,1,1.0,0.7246,160,-138,-164,22.65,WIN,U-DEC,5,0.7246
