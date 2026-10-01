@@ -73,7 +73,8 @@ LIVE_FROM, LIVE_THROUGH = "2026-01-01", "2026-07-25"
 LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
               "2026-08-29",   # UFC Shanghai
               "2026-09-05",   # UFC Paris
-              "2026-09-12"}   # Noche UFC Glendale (no bets)
+              "2026-09-12",   # Noche UFC Glendale (no bets)
+              "2026-09-19"}   # UFC 331 (FLIP Joshua van, 1.00u)
 
 LEDGER = "data/system_ledger.csv"
 PLACEABLE = "data/placeable_lines.csv"      # written by card_report.py
