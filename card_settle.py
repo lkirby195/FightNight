@@ -12,8 +12,11 @@ tick whose two-sided overround  1/d1 + 1/d2  lies in [OR_LO, OR_HI]. In-play
 ticks blow the overround far outside that band (one side collapses to ~1.02
 while the other lags), so they are skipped and the last pre-fight book wins.
 
-Opening line is unchanged (first tick per side) so historical CLV records are
-untouched.
+Opening line is the validated open (scrape_bfo.validated_open: the first
+paired tick unless the next paired tick within an hour crosses even money or
+moves more than 40 implied-probability points on either side, in which case
+that corrected pair is the open and the bout is flagged open_suspect) -- the
+same open every other consumer of the series uses.
 
 Off-card bouts (card_report.OFF_CARD, keyed by event date and BFO matchup id)
 are left out before any line history is pulled, so a cancelled bout neither
@@ -26,51 +29,35 @@ import functools
 import sys
 
 import card_report
-from scrape_bfo import fetch, ggd
+from scrape_bfo import _pts, fetch, ggd, paired_ticks, validated_open
 
 OR_LO, OR_HI = 1.00, 1.15
 
 
-def _pts(js):
-    out = []
-    for srs in js if isinstance(js, list) else [js]:
-        for pt in srs.get("data", []):
-            t, v = (pt.get("x"), pt.get("y")) if isinstance(pt, dict) else (pt[0], pt[1])
-            if v is not None:
-                out.append((t, float(v)))
-    out.sort()
-    return out
-
-
 def paired_summary(js1, js2):
-    """-> (f1_open, f1_close, f2_open, f2_close, n_pairs, t_close, n_skipped)
-    or None if either side has no ticks."""
+    """-> (f1_open, f1_close, f2_open, f2_close, n_pairs, t_close, n_skipped,
+    open_suspect, f1_open_raw, f2_open_raw) or None if either side has no
+    ticks. Opens are the validated opens (scrape_bfo.validated_open); the raw
+    first ticks follow so a caller can tell what a suspect opener said."""
     p1, p2 = _pts(js1), _pts(js2)
     if not p1 or not p2:
         return None
-    ts = sorted({t for t, _ in p1} | {t for t, _ in p2})
-    # latest value of each side at or before t
-    pairs, i, j, v1, v2 = [], 0, 0, None, None
-    for t in ts:
-        while i < len(p1) and p1[i][0] <= t:
-            v1 = p1[i][1]; i += 1
-        while j < len(p2) and p2[j][0] <= t:
-            v2 = p2[j][1]; j += 1
-        if v1 is not None and v2 is not None:
-            pairs.append((t, v1, v2))
+    pairs = paired_ticks(p1, p2)          # latest value of each side at or before t
     if not pairs:
         return None
+    o1, o2, _, suspect, r1, r2 = validated_open(p1, p2)
+    opens = (o1, o2, int(suspect), r1, r2)
     skipped = 0
     for t, d1, d2 in reversed(pairs):
         orr = 1.0 / d1 + 1.0 / d2
         if OR_LO <= orr <= OR_HI:
-            return p1[0][1], d1, p2[0][1], d2, len(pairs), t, skipped
+            return (opens[0], d1, opens[1], d2, len(pairs), t, skipped) + opens[2:]
         skipped += 1
     # no clean pair at all: fall back to first pair, flag loudly
     t, d1, d2 = pairs[0]
     print(f"  ! no paired tick with overround in [{OR_LO},{OR_HI}]; "
           f"using first pair", file=sys.stderr)
-    return p1[0][1], d1, p2[0][1], d2, len(pairs), t, skipped
+    return (opens[0], d1, opens[1], d2, len(pairs), t, skipped) + opens[2:]
 
 
 def get_card_clean(slug, fresh=False, off=frozenset()):
@@ -98,10 +85,11 @@ def get_card_clean(slug, fresh=False, off=frozenset()):
         s = paired_summary(ggd(mu, 1, refresh=fresh), ggd(mu, 2, refresh=fresh))
         if s is None:
             continue
-        f1o, f1c, f2o, f2c, _, _, skipped = s
+        f1o, f1c, f2o, f2c, _, _, skipped, suspect, f1r, f2r = s
         total_skipped += skipped
         bouts.append(dict(mu=mu, f1=a1.get_text(strip=True), f2=a2.get_text(strip=True),
-                          f1_open=f1o, f1_close=f1c, f2_open=f2o, f2_close=f2c))
+                          f1_open=f1o, f1_close=f1c, f2_open=f2o, f2_close=f2c,
+                          open_suspect=suspect, f1_open_raw=f1r, f2_open_raw=f2r))
     if total_skipped:
         print(f"[card_settle] dropped {total_skipped} in-play ticks across "
               f"{len(bouts)} bouts", file=sys.stderr)

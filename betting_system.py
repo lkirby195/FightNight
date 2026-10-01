@@ -29,6 +29,22 @@ decides from the pre-fight RDs (data/prefight_rd.csv, written by prefight_rd.py)
 and the bet side's price whether it is placed (placed, stake_u) and
 pnl_placed = stake_u * pnl per unit. A PLACED (policy v1) block follows each
 summary.
+Opener validity (2026-09-30): signals evaluate at the VALIDATED open
+(scrape_bfo.validated_open; a_open / b_open in bfo_joined.csv), and so does
+the pre-filter. A bout whose opener was corrected within the hour carries
+open_suspect=1 with the raw first ticks in a_open_raw / b_open_raw; a signal
+that fires only against that raw tick is still logged, as a VOID row
+(units 0, placed 0, stake_u 0, reason "void: suspect opener") that no summary
+counts -- the same idea as card_report.OFF_CARD: visible, never settled.
+Live-flag debut rule (2026-09-30): live=1 also requires both fighters to have
+a UFC bout on file before the event (a debutant could not have been projected
+pre-event; card_report prints "debut-no proj"). Rows failing it are live=0.
+On-record rule (2026-09-30): cards reported before OPEN_RULE_FROM were
+evaluated pre-event at the raw first tick, so on those cards a live signal
+must also fire at the raw opener (same pick); a signal that exists only under
+the validated open there was never on record and is live=0 (backfilled).
+pm_p_at_capture: the Polymarket price of the backed side at the earliest
+placeable capture, for placed rows whose capture recorded one (polymarket.py).
 """
 from __future__ import annotations
 
@@ -70,6 +86,7 @@ def stake_units(rd_self, rd_opp, line):
 # pre-event, plus the dates in LIVE_CARDS. ADD EACH NEW CARD'S DATE TO LIVE_CARDS
 # WHEN ITS REPORT IS RUN PRE-EVENT; anything else is backfilled (live=0).
 LIVE_FROM, LIVE_THROUGH = "2026-01-01", "2026-07-25"
+OPEN_RULE_FROM = "2026-09-30"   # card reports evaluate the validated open from here
 LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
               "2026-08-29",   # UFC Shanghai
               "2026-09-05",   # UFC Paris
@@ -84,7 +101,8 @@ PREFIGHT_RD = "data/prefight_rd.csv"        # written by prefight_rd.py
 LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "units",
                "rd_self", "rd_opp", "placed", "stake_u", "pnl_placed",
                "open_line", "placeable_line", "clean_close", "clv_pts", "result",
-               "method", "round", "pnl", "pnl_at_open"]
+               "method", "round", "pnl", "pnl_at_open", "reason", "pm_p_at_capture"]
+VOID_SUSPECT = "void: suspect opener"
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))
 amp = lambda q: np.where(q >= .5, -100 * q / (1 - q), 100 * (1 - q) / q)
@@ -94,22 +112,57 @@ def load():
     M = pd.read_csv("data/model_only_preds.csv")
     J = pd.read_csv("data/bfo_joined.csv")
     fv = pd.read_csv("data/fights_v2.csv")[["fight_id", "event_date", "event_name",
-                                            "bout_order", "fighter_a", "fighter_b",
+                                            "bout_order", "fighter_a_id", "fighter_a",
+                                            "fighter_b_id", "fighter_b",
                                             "method", "round"]].rename(columns={"round": "rnd"})
     rd = pd.read_csv(PREFIGHT_RD)               # fight_id, rd_a, rd_b
     D = (M.merge(J, on="fight_id").merge(fv, on="fight_id")
           .merge(rd, on="fight_id", how="left"))
     D = D.dropna(subset=["y_a", "a_open", "b_open"])
-    imp = 1 / D.a_open + 1 / D.b_open
-    D = D[(imp >= 1.0) & (imp <= 1.12)].copy()      # odds sanity
-    o1, o2, p = D.a_open.values, D.b_open.values, D.p_model_a.values
+    for c, src in (("open_suspect", 0), ("a_open_raw", "a_open"), ("b_open_raw", "b_open")):
+        if c not in D:                          # bfo_joined.csv from before 2026-09-30
+            D[c] = src if isinstance(src, int) else D[src]
+    D["open_suspect"] = D.open_suspect.fillna(0).astype(int)
+    D["a_open_raw"] = D.a_open_raw.fillna(D.a_open)
+    D["b_open_raw"] = D.b_open_raw.fillna(D.b_open)
+    D["projectable"] = projectable(D)
+    # odds sanity [1.00, 1.12]: ok_val at the validated open gates every signal;
+    # ok_raw at the raw opener is what the old pipeline applied (VOID rows,
+    # on-record test). A bout failing both is out.
+    D["ok_val"] = (1 / D.a_open + 1 / D.b_open).between(1.0, 1.12)
+    D["ok_raw"] = (1 / D.a_open_raw + 1 / D.b_open_raw).between(1.0, 1.12)
+    D = D[D.ok_val | D.ok_raw].copy()
+    return signal_cols(D.sort_values("event_date"))
+
+
+def signal_cols(D, a_open="a_open", b_open="b_open"):
+    """mkt1 / mod1 / flip / conf / gap_pts for every row of D, evaluated at
+    the given open columns (the validated open by default)."""
+    o1, o2, p = D[a_open].values, D[b_open].values, D.p_model_a.values
     mkt1 = (1 / o1) >= (1 / o2)
     mod1 = p >= .5
     D["mkt1"], D["mod1"] = mkt1, mod1
     D["flip"] = mkt1 != mod1
     D["conf"] = np.where(mod1, p, 1 - p)
     D["gap_pts"] = np.where(mkt1, am(o1), am(o2)) - np.where(mkt1, amp(p), amp(1 - p))
-    return D.sort_values("event_date")
+    return D
+
+
+def projectable(D):
+    """True where both fighters are in data/fighters_v2.csv with a UFC bout
+    dated before the event: the pre-event card report could project the bout.
+    A debutant has no prior bout, so a bout with one could not have been on
+    record before the fight (card_report prints "debut-no proj")."""
+    fv = pd.read_csv("data/fights_v2.csv")[["event_date", "fighter_a_id", "fighter_b_id"]]
+    first = pd.concat([fv[["event_date", "fighter_a_id"]].rename(columns={"fighter_a_id": "fid"}),
+                       fv[["event_date", "fighter_b_id"]].rename(columns={"fighter_b_id": "fid"})]
+                      ).groupby("fid").event_date.min()
+    known = set(pd.read_csv("data/fighters_v2.csv").fighter_id)
+    ok = pd.Series(True, index=D.index)
+    for col in ("fighter_a_id", "fighter_b_id"):
+        f = D[col].map(first)
+        ok &= D[col].isin(known) & f.notna() & (f < D.event_date)
+    return ok
 
 
 def settle(units, sub):
@@ -122,16 +175,61 @@ def is_live(event_date: str) -> bool:
     return LIVE_FROM <= event_date <= LIVE_THROUGH or event_date in LIVE_CARDS
 
 
+def fired(D):
+    """The rule over D's signal columns -> (FLIP rows, GAP rows)."""
+    return (D[D.flip & (D.conf >= FLIP_CONF)].copy(),
+            D[(~D.flip) & (D.gap_pts >= GAP_PTS)].copy())
+
+
+def raw_fired(D):
+    """The rule as the old pipeline applied it, at the raw first tick with the
+    raw pre-filter -> frame of (fight_id, mod1, rule) that fired there."""
+    R = D[D.ok_raw].copy()
+    if len(R) == 0:
+        return R.assign(rule="")[["fight_id", "mod1", "rule"]]
+    R = signal_cols(R, "a_open_raw", "b_open_raw")
+    fl, gp = fired(R)
+    fl["rule"], gp["rule"] = "FLIP", "GAP"
+    return pd.concat([fl, gp])
+
+
+def void_rows(D):
+    """Signals that fire only against the RAW opener of an open_suspect bout
+    (the old pipeline would have logged them; the validated open does not fire
+    the same pick, or fails the sanity filter): logged for the record, never
+    counted."""
+    V = raw_fired(D[D.open_suspect == 1])
+    if len(V) == 0:
+        return V
+    valid = pd.concat(fired(D[(D.open_suspect == 1) & D.ok_val]))
+    live_keys = set(zip(valid.fight_id, valid.mod1))
+    V = V[[(f, m) not in live_keys for f, m in zip(V.fight_id, V.mod1)]].copy()
+    V["u"], V["pnl"], V["pnl_at_open"] = 0, 0.0, 0.0
+    V["a_open"], V["b_open"] = V.a_open_raw, V.b_open_raw   # the line it fired on
+    V["reason"] = VOID_SUSPECT
+    return V
+
+
 def run(D):
-    fl = D[D.flip & (D.conf >= FLIP_CONF)].copy()
-    gp = D[(~D.flip) & (D.gap_pts >= GAP_PTS)].copy()
+    fl, gp = fired(D[D.ok_val])
     fl["u"], fl["rule"], fl["pnl"] = FLIP_UNITS, "FLIP", settle(FLIP_UNITS, fl)
     gp["u"], gp["rule"], gp["pnl"] = GAP_UNITS, "GAP", settle(GAP_UNITS, gp)
     B = pd.concat([fl, gp]).sort_values("event_date")
-    B["live"] = B.event_date.map(is_live).astype(int)
+    B["reason"] = ""
     B["pnl_at_open"] = B.pnl
-    B["placeable"] = placeable_prices(B)        # decimal; NaN when none captured
-    has = B.placeable.notna()
+    V = void_rows(D)
+    if len(V):
+        B = pd.concat([B, V]).sort_values("event_date")
+    # live: card reported pre-event, both fighters projectable then (debut
+    # rule), and the pick on record: before OPEN_RULE_FROM the report saw the
+    # raw opener, so the same pick must fire there too
+    rk = raw_fired(D)
+    raw_keys = set(zip(rk.fight_id, rk.mod1))
+    B["on_record"] = [(d >= OPEN_RULE_FROM) or ((f, m) in raw_keys)
+                      for d, f, m in zip(B.event_date, B.fight_id, B.mod1)]
+    B["live"] = (B.event_date.map(is_live) & B.projectable & B.on_record).astype(int)
+    B["placeable"], B["pm_p"] = placeable_prices(B)   # decimal; NaN when none captured
+    has = B.placeable.notna() & (B.u > 0)
     B.loc[has, "pnl"] = np.where(B.pnl_at_open[has] > 0,
                                  B.u[has] * (B.placeable[has] - 1),
                                  -B.u[has].astype(float))
@@ -143,11 +241,16 @@ def run(D):
     B["rd_opp"] = np.where(B.mod1, B.rd_b, B.rd_a)
     bet_dec = np.where(has, B.placeable, np.where(B.mod1, B.a_open, B.b_open))
     B["bet_line"] = np.rint(am(bet_dec)).astype(int)    # bet side, American
-    B["stake_u"] = [round(stake_units(a, b, c), 2)
-                    for a, b, c in zip(B.rd_self, B.rd_opp, B.bet_line)]
+    B["stake_u"] = [round(stake_units(a, b, c), 2) if u > 0 else 0.0
+                    for a, b, c, u in zip(B.rd_self, B.rd_opp, B.bet_line, B.u)]
     B["placed"] = (B.stake_u > 0).astype(int)
-    B["pnl_placed"] = B.stake_u * B.pnl / B.u
+    B["pnl_placed"] = np.where(B.u > 0, B.stake_u * B.pnl / B.u.replace(0, 1), 0.0)
     return B
+
+
+def counted(B):
+    """The rows a summary counts: every signal that is not VOID."""
+    return B[B.u > 0]
 
 
 def _summ(B, col, tag=""):
@@ -162,6 +265,8 @@ def report(B, label, placeable=False):
     line where one was captured and also prints the open-line figure; otherwise
     every bet is settled at open (pure sim)."""
     print()
+    n_void = int((B.u == 0).sum()) if len(B) else 0
+    B = counted(B) if len(B) else B
     if len(B) == 0:
         print(f"{label}: 0 bets")
         _report_placed(B, "pnl")
@@ -177,6 +282,8 @@ def report(B, label, placeable=False):
     for rl, g in B.groupby("rule"):
         print(f"    {rl}: {len(g)} bets  {int((g[col]>0).sum())}-{int((g[col]<0).sum())}  "
               f"ROI {g[col].sum()/g.u.sum():+.1%}")
+    if n_void:
+        print(f"    VOID (not counted): {n_void} ({VOID_SUSPECT})")
     _report_placed(B, col)
 
 
@@ -206,8 +313,12 @@ def _bfo_mu(bl, r):
     surnames (names.py: BFO aliases applied, generational suffixes dropped).
     -> (mu, a_is_f1). Fails loudly rather than guess."""
     c = bl[(bl.d - pd.Timestamp(r.event_date)).abs().dt.days <= 3]
+    f1r = c.f1_open_raw if "f1_open_raw" in c else c.f1_open
+    f2r = c.f2_open_raw if "f2_open_raw" in c else c.f2_open
     c = c[((c.f1_open == r.a_open) & (c.f2_open == r.b_open)) |
-          ((c.f1_open == r.b_open) & (c.f2_open == r.a_open))]
+          ((c.f1_open == r.b_open) & (c.f2_open == r.a_open)) |
+          ((f1r == r.a_open) & (f2r == r.b_open)) |
+          ((f1r == r.b_open) & (f2r == r.a_open))]
     surnames = {_lastn(r.fighter_a), _lastn(r.fighter_b)}
     if len(c):
         c = c[c.apply(lambda x: {bfo_lastn(x.fighter1), bfo_lastn(x.fighter2)} == surnames,
@@ -218,7 +329,8 @@ def _bfo_mu(bl, r):
     x = c.iloc[0]
     if _lastn(r.fighter_a) != _lastn(r.fighter_b):
         return int(x.mu), bfo_lastn(x.fighter1) == _lastn(r.fighter_a)
-    return int(x.mu), bool(x.f1_open == r.a_open)
+    return int(x.mu), bool(x.f1_open == r.a_open or
+                           x.get("f1_open_raw", x.f1_open) == r.a_open)
 
 
 def _clean_close(bl, r):
@@ -236,16 +348,21 @@ def _clean_close(bl, r):
 
 
 def placeable_prices(B):
-    """Decimal price of the bet side at the EARLIEST placeable_lines.csv capture
-    for each live=1 bet (the price on the board when the pick went on record).
-    NaN for live=0 rows and for live rows with no capture (every row before
-    2026-09-08, when captures began)."""
+    """(decimal price, Polymarket price) of the bet side at the EARLIEST
+    placeable_lines.csv capture for each live=1 bet (the price on the board
+    when the pick went on record). NaN for live=0 rows and for live rows with
+    no capture (every row before 2026-09-08, when captures began); the
+    Polymarket price is NaN as well when that capture recorded none
+    (pm_p_self, fighter1's price, from 2026-09-30)."""
     out = pd.Series(np.nan, index=B.index)
+    pm = pd.Series(np.nan, index=B.index)
     if not os.path.exists(PLACEABLE):
-        return out
+        return out, pm
     pl = pd.read_csv(PLACEABLE)
     if len(pl) == 0:
-        return out
+        return out, pm
+    if "pm_p_self" not in pl:
+        pl["pm_p_self"] = np.nan
     pl["d"] = pd.to_datetime(pl.event_date)
     bl = pd.read_csv("data/bfo_lines.csv")
     bl["d"] = pd.to_datetime(bl.event_date)
@@ -256,8 +373,11 @@ def placeable_prices(B):
         c = pl[pl.mu == mu].sort_values("captured_at")
         if len(c):
             x = c.iloc[0]
-            out.loc[i] = float(x.f1_line) if bool(r.mod1) == a_is_f1 else float(x.f2_line)
-    return out
+            bet_is_f1 = bool(r.mod1) == a_is_f1
+            out.loc[i] = float(x.f1_line) if bet_is_f1 else float(x.f2_line)
+            if pd.notna(x.pm_p_self):
+                pm.loc[i] = float(x.pm_p_self) if bet_is_f1 else 1 - float(x.pm_p_self)
+    return out, pm
 
 
 def write_ledger(B, path=LEDGER):
@@ -267,7 +387,10 @@ def write_ledger(B, path=LEDGER):
     (placeable where captured, else open) and pnl_at_open are in units.
     rd_self / rd_opp are the pre-fight RDs of the bet side and the opponent,
     placed / stake_u the placement-policy decision and pnl_placed its P&L
-    (stake_u * pnl per unit); method / round come from fights_v2."""
+    (stake_u * pnl per unit); method / round come from fights_v2. VOID rows
+    (reason set, units 0) are logged at the raw opener they fired on, result
+    VOID, and settle nothing; pm_p_at_capture is the Polymarket price of the
+    backed side at the earliest capture, placed rows only."""
     bl = pd.read_csv("data/bfo_lines.csv")
     bl["d"] = pd.to_datetime(bl.event_date)
     rows = []
@@ -277,6 +400,8 @@ def write_ledger(B, path=LEDGER):
         o, c = (r.a_open, ac) if pick_a else (r.b_open, bc)
         qo = (1 / o) / (1 / r.a_open + 1 / r.b_open)
         qc = (1 / c) / (1 / ac + 1 / bc)
+        void = int(r.u) == 0
+        won = (r.y_a == 1) == pick_a
         rows.append(dict(event_date=r.event_date, event=r.event_name,
                          fight_id=r.fight_id,
                          fighter=r.fighter_a if pick_a else r.fighter_b,
@@ -290,9 +415,12 @@ def write_ledger(B, path=LEDGER):
                                          else int(round(float(am(r.placeable))))),
                          clean_close=int(round(float(am(c)))),
                          clv_pts=round((qc - qo) * 100, 2),
-                         result="WIN" if r.pnl > 0 else "LOSS",
+                         result="VOID" if void else ("WIN" if won else "LOSS"),
                          method=r["method"], pnl=round(float(r.pnl), 4),
                          pnl_at_open=round(float(r.pnl_at_open), 4),
+                         reason=r.reason,
+                         pm_p_at_capture=("" if (pd.isna(r.pm_p) or int(r.placed) != 1)
+                                          else round(float(r.pm_p), 4)),
                          _bo=r.bout_order, **{"round": int(r["rnd"])}))
     L = (pd.DataFrame(rows, columns=LEDGER_COLS + ["_bo"])
          .sort_values(["event_date", "_bo"]).drop(columns="_bo"))
@@ -300,7 +428,7 @@ def write_ledger(B, path=LEDGER):
     print(f"wrote {path}: {len(L)} rows  staked {L.units.sum()}u  "
           f"P&L {L.pnl.sum():+.1f}u (at open {L.pnl_at_open.sum():+.1f}u)  "
           f"placed {int(L.placed.sum())} staked {L.stake_u.sum():.1f}u "
-          f"P&L {L.pnl_placed.sum():+.1f}u")
+          f"P&L {L.pnl_placed.sum():+.1f}u  void {int((L.units == 0).sum())}")
 
 
 if __name__ == "__main__":

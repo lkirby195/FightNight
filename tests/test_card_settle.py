@@ -59,7 +59,8 @@ def test_main_takes_off_card_from_card_report_for_that_date_only(monkeypatch):
 def test_paired_summary_takes_the_last_clean_book_not_the_in_play_tick():
     s1 = [{"data": [[1, 2.60], [2, 2.44], [3, 5.30]]}]      # Pantoja: open +160, close +144, in-play +430
     s2 = [{"data": [[1, 1.54], [2, 1.61], [3, 1.556]]}]     # van: 1/5.3 + 1/1.556 = 0.83 -> in-play
-    f1o, f1c, f2o, f2c, n, t, skipped = card_settle.paired_summary(s1, s2)
+    f1o, f1c, f2o, f2c, n, t, skipped, suspect, f1r, f2r = card_settle.paired_summary(s1, s2)
     assert (f1o, f2o) == (2.60, 1.54)
     assert (f1c, f2c, t, skipped) == (2.44, 1.61, 2, 1)
     assert n == 3
+    assert (suspect, f1r, f2r) == (0, 2.60, 1.54)       # a clean opener: raw == validated

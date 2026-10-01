@@ -588,7 +588,9 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
                 mark, mark_kind = "No contest", "void"
             else:
                 mark, mark_kind = ("Coin flip" if coin else "—"), "void"
-            sig = by_fid.get(fid, [None])[0]
+            # the bout's signal row; a VOID row (reason set: suspect opener) is
+            # in the public ledger for the record but is not a signal here
+            sig = next((r for r in by_fid.get(fid, []) if not r.get("reason")), None)
             rd = data.rd.get(fid)
             fights.append(dict(
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
@@ -671,7 +673,8 @@ def build_record(data: Data, model: Model, out: Path):
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in sorted(live26 + bt25, key=lambda r: r["event_date"]):
-            w.writerow({k: ("" if r[k] is None else r[k]) for k in cols})
+            # the 2025 backtest ledger predates reason / pm_p_at_capture
+            w.writerow({k: ("" if r.get(k) is None else r[k]) for k in cols})
     return dict(tabs=tabs, cards={c["key"]: c for c in cards26 + cards25},
                 n_ledger=len(live26) + len(bt25))
 
