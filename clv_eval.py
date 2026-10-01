@@ -13,9 +13,6 @@ data/bfo_joined.csv, data/clv_eval_full.csv + console report.
 """
 from __future__ import annotations
 
-import re
-import unicodedata
-
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
@@ -23,6 +20,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import features
+import names
 import stage2
 
 PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
@@ -31,22 +29,14 @@ PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
 YEARS = list(range(2012, 2025)) + [2026]        # 2025 sealed
 
 
-def norm(s: str, hyphen: str = " ") -> str:
-    """ASCII-fold, lower-case, letters and spaces only. Hyphens become spaces
-    so BFO "Cortes-Acosta" meets UFC Stats "Cortes Acosta"; hyphen="" gives
-    the joined form ("Sangcha-An" == "Sangcha'an", "Al-Hassan" == "Alhassan")."""
-    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z ]", "", s.lower().replace("-", hyphen)).strip()
-
-
-def lastn(s: str, hyphen: str = " ") -> str:
-    p = norm(s, hyphen).split()
-    return p[-1] if p else ""
-
-
-# name keys tried in order: full name, surname, then both in the joined form
-KEYS = [("pair", norm, " "), ("lpair", lastn, " "),
-        ("jpair", norm, ""), ("jlpair", lastn, "")]
+# Name keys tried in order: full name, surname, then both in the joined form.
+# (key, fights_v2 fn, bfo_lines fn, hyphen): the BFO side goes through
+# data/name_aliases.csv first and both sides drop generational suffixes
+# (names.py, shared with card_report and betting_system).
+KEYS = [("pair", names.norm, names.bfo_norm, " "),
+        ("lpair", names.lastn, names.bfo_lastn, " "),
+        ("jpair", names.norm, names.bfo_norm, ""),
+        ("jlpair", names.lastn, names.bfo_lastn, "")]
 
 
 def gen_model_preds():
@@ -75,20 +65,21 @@ def join_bfo():
     b = pd.read_csv("data/bfo_lines.csv", parse_dates=["event_date"]).drop_duplicates("mu")
     f = pd.read_csv("data/fights_v2.csv", parse_dates=["event_date"])
     f = f[f.event_date >= "2010-01-01"].copy()
-    for frame, c1, c2 in ((b, "fighter1", "fighter2"), (f, "fighter_a", "fighter_b")):
-        for k, fn, h in KEYS:
-            frame[k] = frame.apply(lambda r: tuple(sorted([fn(r[c1], h), fn(r[c2], h)])),
-                                   axis=1)
+    for k, fn, bfn, h in KEYS:
+        b[k] = b.apply(lambda r: tuple(sorted([bfn(r.fighter1, h), bfn(r.fighter2, h)])),
+                       axis=1)
+        f[k] = f.apply(lambda r: tuple(sorted([fn(r.fighter_a, h), fn(r.fighter_b, h)])),
+                       axis=1)
     rows = []
     for _, r in b.iterrows():
         near = f[abs((f.event_date - r.event_date).dt.days) <= 3]
-        for k, _, _ in KEYS:
+        for k, _, _, _ in KEYS:
             c = near[near[k] == r[k]]
             if len(c):
                 break
         if len(c) == 1:
             c = c.iloc[0]
-            f1a = any(fn(r.fighter1, h) == fn(c.fighter_a, h) for _, fn, h in KEYS)
+            f1a = any(bfn(r.fighter1, h) == fn(c.fighter_a, h) for _, fn, bfn, h in KEYS)
             rows.append(dict(
                 fight_id=c.fight_id,
                 a_open=r.f1_open if f1a else r.f2_open,

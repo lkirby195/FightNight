@@ -45,6 +45,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import card_report as cr
+import names
 import engine
 import stage2
 from betting_system import (FLIP_CONF, GAP_PTS, RAMP_HI, RAMP_LO, SKIP_LINE_MAX,
@@ -228,25 +229,10 @@ class Model:
         return [(float(p[i]), float(R.rd_x[i]), float(R.rd_y[i])) for i in range(len(R))]
 
     def finder(self, ev: date):
-        """Name -> fighter id over the fighters with history before ev
-        (card_report.main's find)."""
+        """BFO name -> fighter id over the fighters with history before ev:
+        names.make_finder, the same resolution as card_report.main."""
         eng, _, _ = self.states(ev)
-        byname, byjoined = {}, {}
-        for fid, fo in eng.fighters.items():
-            byname.setdefault(cr.norm(fo.name), fid)
-            byjoined.setdefault(cr.norm(fo.name).replace(" ", ""), fid)
-
-        def find(name):
-            n = cr.norm(name)
-            if n in byname:
-                return byname[n]
-            if n.replace(" ", "") in byjoined:
-                return byjoined[n.replace(" ", "")]
-            t = n.split()
-            c = [fid for nm, fid in byname.items()
-                 if nm.endswith(" " + t[-1]) and nm.split()[0][:3] == t[0][:3]]
-            return c[0] if len(c) == 1 else None
-        return find
+        return names.make_finder((fid, fo.name) for fid, fo in eng.fighters.items())
 
 
 # ------------------------------------------------------------------ inputs --
@@ -302,20 +288,20 @@ class Data:
             if abs((date.fromisoformat(cd) - d).days) <= 1:
                 for mu in ev["mus"]:
                     r = self.captures[mu][0]
-                    n1, n2 = cr.norm(r["fighter1"]), cr.norm(r["fighter2"])
+                    n1, n2 = names.bfo_norm(r["fighter1"]), names.bfo_norm(r["fighter2"])
                     out[frozenset((n1, n2))] = mu
                     out.setdefault(frozenset((n1.split()[-1], n2.split()[-1])), mu)
         return out
 
     def capture_for(self, index: dict, a: str, b: str):
         """(mu, a_is_f1) for a fights_v2 bout, or None."""
-        na, nb = cr.norm(a), cr.norm(b)
+        na, nb = names.norm(a), names.norm(b)
         mu = index.get(frozenset((na, nb)))
         if mu is None:
             mu = index.get(frozenset((na.split()[-1], nb.split()[-1])))
         if mu is None:
             return None
-        f1 = cr.norm(self.captures[mu][0]["fighter1"])
+        f1 = names.bfo_norm(self.captures[mu][0]["fighter1"])
         a_is_f1 = f1 == na or f1.split()[-1] == na.split()[-1]
         return mu, a_is_f1
 

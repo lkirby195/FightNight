@@ -17,9 +17,7 @@ from __future__ import annotations
 import csv
 import json
 import os
-import re
 import sys
-import unicodedata
 from collections import defaultdict
 from datetime import date, datetime
 
@@ -34,16 +32,12 @@ import features
 import stage2
 from betting_system import (FLIP_CONF, GAP_PTS, SKIP_LINE_MAX, am as am_dec,
                             amp as amp_prob, stake_units)
+from names import bfo_norm, make_finder, norm
 from scrape_bfo import fetch, ggd, series_summary
 
 PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
          "d_pace15", "d_head_share", "d_leg_share", "d_ground_share",
          "d_ctrled15"]
-
-
-def norm(s):
-    s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z ]", "", s.lower().replace("-", " ")).strip()
 
 
 def build_states(cutoff: date):
@@ -198,21 +192,8 @@ def fit_model():
 def main(slug, ev_date_s):
     ev_date = date.fromisoformat(ev_date_s)
     eng, car, meta = build_states(ev_date)
-    byname, byjoined = {}, {}
-    for fid, fo in eng.fighters.items():
-        byname.setdefault(norm(fo.name), fid)
-        byjoined.setdefault(norm(fo.name).replace(" ", ""), fid)
-
-    def find(name):
-        n = norm(name)
-        if n in byname:
-            return byname[n]
-        if n.replace(" ", "") in byjoined:      # BFO "Sangcha-An" vs "Sangcha'an"
-            return byjoined[n.replace(" ", "")]
-        t = n.split()
-        c = [fid for nm, fid in byname.items()
-             if nm.endswith(" " + t[-1]) and nm.split()[0][:3] == t[0][:3]]
-        return c[0] if len(c) == 1 else None
+    # BFO name -> fighter id: aliases, suffix strip, exact / joined / fuzzy (names.py)
+    find = make_finder((fid, fo.name) for fid, fo in eng.fighters.items())
 
     def snap(fid):
         fo = eng.fighters[fid]
@@ -229,11 +210,12 @@ def main(slug, ev_date_s):
     for b in off:
         print(f"off card: dropped {b['f1']} / {b['f2']} (mu {b['mu']})")
     bouts = [b for b in bouts if (ev_date_s, b["mu"]) not in OFF_CARD]
-    rows, keep, rds = [], [], {}
+    rows, keep, rds, ids = [], [], {}, {}
     for b in bouts:
         i1, i2 = find(b["f1"]), find(b["f2"])
         if not (i1 and i2):
             continue
+        ids[b["mu"]] = (i1, i2)
         p1, s1 = snap(i1)
         p2, s2 = snap(i2)
         rows.append(dict(fight_id=b["mu"], date=ev_date_s, method="",
@@ -250,14 +232,17 @@ def main(slug, ev_date_s):
     R["p"] = fit_model().predict_proba(X.values)[:, 1]
     preds = dict(zip(R.fight_id.astype(int), R.p))
 
-    # results if the event is in our data
+    # results if the event is in our data: by fighter id where both sides were
+    # found (spelling-proof: "Dooho Choi" vs BFO "Doo Ho Choi"), else by name pair
     fv = pd.read_csv("data/fights_v2.csv")
     fv = fv[fv.event_date == ev_date_s]
-    win = {}
+    win, win_id = {}, {}
     for _, f in fv.iterrows():
         if f.outcome == "A_WIN":
             win[tuple(sorted([norm(f.fighter_a), norm(f.fighter_b)]))] = \
                 (norm(f.fighter_a), f.method)
+            win_id[frozenset((f.fighter_a_id, f.fighter_b_id))] = \
+                (f.fighter_a_id, norm(f.fighter_a), f.method)
 
     am = lambda d: f"+{round((d-1)*100)}" if d >= 2 else f"{round(-100/(d-1))}"
     amp = lambda p: f"-{round(100*p/(1-p))}" if p >= .5 else f"+{round(100*(1-p)/p)}"
@@ -266,8 +251,13 @@ def main(slug, ev_date_s):
           f"{'CLV':>8}  RESULT")
     clvs, w, n = [], 0, 0
     for b in bouts:
-        key = tuple(sorted([norm(b["f1"]), norm(b["f2"])]))
-        r = win.get(key)
+        i12 = ids.get(b["mu"])
+        r = win_id.get(frozenset(i12)) if i12 else None
+        if r:
+            won1, r = r[0] == i12[0], r[1:]
+        else:
+            r = win.get(tuple(sorted([bfo_norm(b["f1"]), bfo_norm(b["f2"])])))
+            won1 = bool(r) and r[0] == bfo_norm(b["f1"])
         rt = f"{r[0].split()[-1].title()} ({r[1]})" if r else "-"
         line = f"{am(b['f1_open'])}/{am(b['f2_open'])}"
         cl = f"{am(b['f1_close'])}/{am(b['f2_close'])}"
@@ -282,7 +272,7 @@ def main(slug, ev_date_s):
         ok = ""
         if r:
             n += 1
-            hit = (p > 0.5) == (r[0] == norm(b["f1"]))
+            hit = (p > 0.5) == won1
             w += hit
             ok = " W" if hit else " L"
         print(f"{b['f1']+' / '+b['f2']:40s}{f'{p:.0%}/{1-p:.0%}':>13}"
