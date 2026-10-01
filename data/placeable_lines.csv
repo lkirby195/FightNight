@@ -1,42 +1,74 @@
-event_date,bfo_slug,mu,fighter1,fighter2,f1_line,f2_line,captured_at
-2026-09-12,noche-ufc-4318,44696,Brandon Moreno,Joseph Morales,2.01,1.8,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44697,Alexa Grasso,Manon Fiorot,2.91,1.40984,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44698,Curtis Blaydes,Waldo Cortes-Acosta,2.77,1.45249,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44699,Dan Ige,David Martinez,3.73,1.27473,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44700,Marwan Rahiki,Tommy McMillen,2.45,1.55866,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.47847,2.68,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.36,1.1321,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44703,Drakkar Klose,Tommy Gantt,4.76,1.19157,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18692,4.91,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.57,1.52083,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44721,Jj Aldrich,Regina Tarin,3.3,1.33445,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.32,1.57803,2026-09-08T14:24:32-06:00
-2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.4717,2.7,2026-09-08T15:18:12-06:00
-2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18484,4.99,2026-09-08T15:18:12-06:00
-2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.36,1.12903,2026-09-08T15:18:12-06:00
-2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.57,1.51813,2026-09-08T15:18:12-06:00
-2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.37,1.58824,2026-09-08T15:18:12-06:00
-2026-09-12,noche-ufc-4318,44696,Brandon Moreno,Joseph Morales,2.02,1.79365,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44700,Marwan Rahiki,Tommy McMillen,2.43,1.56818,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44697,Alexa Grasso,Manon Fiorot,2.95,1.4065,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44698,Curtis Blaydes,Waldo Cortes-Acosta,2.74,1.46083,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44699,Dan Ige,David Martinez,3.88,1.26178,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.47393,2.7,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18282,4.99,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.39,1.12771,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44703,Drakkar Klose,Tommy Gantt,4.76,1.19342,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.55,1.52632,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.37,1.59524,2026-09-09T08:19:55-06:00
-2026-09-12,noche-ufc-4318,44721,Jj Aldrich,Regina Tarin,3.29,1.34014,2026-09-09T08:19:55-06:00
-2026-09-19,ufc-331-4302,41067,Alexandre Pantoja,Joshua van,2.13,1.72464,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44399,Arman Tsarukyan,Mauricio Ruffy,1.29851,3.58,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44890,Doo Ho Choi,Patricio Freire,1.35336,3.25,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44397,Gable Steveson,Sean Sharaf,1.04398,11.89,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44892,Alonzo Menifield,Iwo Baraniewski,2.95,1.40816,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44756,Charles Jourdain,Marlon Vera,1.44643,2.8,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44398,Robelis Despaigne,Tai Tuivasa,1.13812,6.04,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44893,Joo Sang Yoo,Michael Aswell,1.41322,2.95,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44894,Ozzy Diaz,Ryan Gandra,5.21,1.17212,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44758,Brunno Ferreira,Edmen Shahbazyan,2.45,1.56497,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44757,Casey O'Neill,Eduarda Moura,1.4386,2.85,2026-09-17T19:12:13-06:00
-2026-09-19,ufc-331-4302,44759,Giga Chikadze,Joanderson Brito,4.13,1.24038,2026-09-17T19:12:13-06:00
+event_date,bfo_slug,mu,fighter1,fighter2,f1_line,f2_line,captured_at,pm_p_self,pm_liquidity,pm_slug
+2026-09-12,noche-ufc-4318,44696,Brandon Moreno,Joseph Morales,2.01,1.8,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44697,Alexa Grasso,Manon Fiorot,2.91,1.40984,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44698,Curtis Blaydes,Waldo Cortes-Acosta,2.77,1.45249,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44699,Dan Ige,David Martinez,3.73,1.27473,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44700,Marwan Rahiki,Tommy McMillen,2.45,1.55866,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.47847,2.68,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.36,1.1321,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44703,Drakkar Klose,Tommy Gantt,4.76,1.19157,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18692,4.91,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.57,1.52083,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44721,Jj Aldrich,Regina Tarin,3.3,1.33445,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.32,1.57803,2026-09-08T14:24:32-06:00,,,
+2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.4717,2.7,2026-09-08T15:18:12-06:00,,,
+2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18484,4.99,2026-09-08T15:18:12-06:00,,,
+2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.36,1.12903,2026-09-08T15:18:12-06:00,,,
+2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.57,1.51813,2026-09-08T15:18:12-06:00,,,
+2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.37,1.58824,2026-09-08T15:18:12-06:00,,,
+2026-09-12,noche-ufc-4318,44696,Brandon Moreno,Joseph Morales,2.02,1.79365,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44700,Marwan Rahiki,Tommy McMillen,2.43,1.56818,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44697,Alexa Grasso,Manon Fiorot,2.95,1.4065,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44698,Curtis Blaydes,Waldo Cortes-Acosta,2.74,1.46083,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44699,Dan Ige,David Martinez,3.88,1.26178,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44701,Edgar Chairez,Tim Elliott,1.47393,2.7,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44718,Ignacio Bahamondes,Muslim Salikhov,1.18282,4.99,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44702,Djorden Santos,Yousri Belgaroui,6.39,1.12771,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44703,Drakkar Klose,Tommy Gantt,4.76,1.19342,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44720,Rafa Garcia,Rongzhu,2.55,1.52632,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44793,Jessie Rosas,Sean King,2.37,1.59524,2026-09-09T08:19:55-06:00,,,
+2026-09-12,noche-ufc-4318,44721,Jj Aldrich,Regina Tarin,3.29,1.34014,2026-09-09T08:19:55-06:00,,,
+2026-09-19,ufc-331-4302,41067,Alexandre Pantoja,Joshua van,2.13,1.72464,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44399,Arman Tsarukyan,Mauricio Ruffy,1.29851,3.58,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44890,Doo Ho Choi,Patricio Freire,1.35336,3.25,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44397,Gable Steveson,Sean Sharaf,1.04398,11.89,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44892,Alonzo Menifield,Iwo Baraniewski,2.95,1.40816,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44756,Charles Jourdain,Marlon Vera,1.44643,2.8,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44398,Robelis Despaigne,Tai Tuivasa,1.13812,6.04,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44893,Joo Sang Yoo,Michael Aswell,1.41322,2.95,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44894,Ozzy Diaz,Ryan Gandra,5.21,1.17212,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44758,Brunno Ferreira,Edmen Shahbazyan,2.45,1.56497,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44757,Casey O'Neill,Eduarda Moura,1.4386,2.85,2026-09-17T19:12:13-06:00,,,
+2026-09-19,ufc-331-4302,44759,Giga Chikadze,Joanderson Brito,4.13,1.24038,2026-09-17T19:12:13-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44968,Raoni Barcelos,Raul Rosas Jr,2.32,1.61728,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44975,Robert Bryczek,Rodolfo Vieira,2.31,1.61728,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44976,Ilimbek Akylbek Uulu,Mehemmedeli Osmanli,3.26,1.34722,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44977,Melissa Amaya,Valesca Machado,2.84,1.43478,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44973,Brady Hiestand,Rinya Nakamura,3.85,1.2681,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44979,Christian Edwards,Rodolfo Bellato,2.46,1.54945,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44978,Elves Brener,Josiah Harrell,2.08,1.76336,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44974,Montel Jackson,Ricky Simon,1.4717,2.7,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44969,Ailin Perez,Norma Dumont,1.68493,2.2,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44972,Alatengheili,John Castaneda,3.67,1.28986,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44970,Mickey Gall,Sedriques Dumas,1.71429,2.15,2026-09-24T13:27:11-06:00,,,
+2026-09-26,ufc-vegas-121-4368,44971,Vanessa Demopoulos,Yazmin Jauregui,7.01,1.10823,2026-09-24T13:27:11-06:00,,,
+2026-10-03,ufc-332-4330,44794,Natalia Silva,Wang Cong,1.4717,2.69,2026-09-28T20:33:50-06:00,,,
+2026-10-03,ufc-332-4330,44602,Deiveson Figueiredo,Payton Talbott,5.35,1.15649,2026-09-28T20:33:50-06:00,,,
+2026-10-03,ufc-332-4330,45051,Esteban Ribovics,King Green,1.40161,2.95,2026-09-28T20:33:50-06:00,,,
+2026-10-03,ufc-332-4330,45052,Khaos Williams,Roberto Soldic,3.43,1.31949,2026-09-28T20:33:50-06:00,,,
+2026-10-03,ufc-332-4330,45053,Ateba Gautier,Roman Kopylov,1.4717,2.7,2026-09-28T20:33:50-06:00,,,
+2026-10-03,ufc-332-4330,44794,Natalia Silva,Wang Cong,1.47847,2.69,2026-09-30T21:50:58-06:00,0.645,40902.4102,ufc-nat7-wan2-2026-10-03
+2026-10-03,ufc-332-4330,44602,Deiveson Figueiredo,Payton Talbott,5.82,1.14577,2026-09-30T21:50:58-06:00,0.165,29639.7806,ufc-dei-pay-2026-10-03
+2026-10-03,ufc-332-4330,45051,Esteban Ribovics,King Green,1.41841,2.9,2026-09-30T21:50:58-06:00,0.675,69690.7395,ufc-kin-est1-2026-10-03
+2026-10-03,ufc-332-4330,45052,Khaos Williams,Roberto Soldic,3.13,1.37037,2026-09-30T21:50:58-06:00,0.295,34578.8642,ufc-robsol-kha6-2026-10-03
+2026-10-03,ufc-332-4330,45053,Ateba Gautier,Roman Kopylov,1.45045,2.77,2026-09-30T21:50:58-06:00,0.675,40634.6557,ufc-rom-ate-2026-10-03
+2026-10-03,ufc-4380,45055,Alden Coria,Imanol Rodriguez,2.26,1.64935,2026-10-01T07:58:29-06:00,0.425,58431.2681,ufc-ald-ima1-2026-10-03
+2026-10-03,ufc-4380,45056,Andrey Pulyaev,Damian Pinas,5.28,1.17123,2026-10-01T07:58:29-06:00,0.185,24370.7679,ufc-and28-dam11-2026-10-03
+2026-10-03,ufc-4380,45074,Anthony Wint,Lucas Armand,1.1773,5.08,2026-10-01T07:58:29-06:00,0.805,37794.3329,ufc-awint-lucarm-2026-10-03
+2026-10-03,ufc-4380,45123,Anthony Romero,Marcus McGhee,4.63,1.20492,2026-10-01T07:58:29-06:00,,,
+2026-10-03,ufc-4380,45060,Johnny Walker,Mick Parkin,1.71942,2.14,2026-10-01T07:58:29-06:00,0.545,52221.3513,ufc-joh-mic18-2026-10-03
+2026-10-03,ufc-4380,45058,Alexander Hernandez,Rafael Dos Anjos,1.37313,3.11,2026-10-01T07:58:29-06:00,0.715,39414.8189,ufc-raf1-ale-2026-10-03
+2026-10-03,ufc-4380,45059,Ismail Naurdiev,Marvin Vettori,1.72993,2.13,2026-10-01T07:58:29-06:00,0.555,68654.757,ufc-mar15-ism-2026-10-03
+2026-10-03,ufc-4380,45073,Bruce Whitehead,Jacobe Smith,7.06,1.10661,2026-10-01T07:58:29-06:00,0.115,9753.8735,ufc-jac21-bruwhi-2026-10-03
+2026-10-03,ufc-4380,45057,Court McGee,Eric Nolan,2.92,1.42194,2026-10-01T07:58:29-06:00,0.325,44592.5131,ufc-cou-eri16-2026-10-03
+2026-10-03,ufc-4380,45054,Benardo Sopaj,Marcus McGhee,2.05,1.79365,2026-10-01T07:58:29-06:00,,,

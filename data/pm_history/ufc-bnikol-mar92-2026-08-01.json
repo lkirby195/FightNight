@@ -1,0 +1,19 @@
+{
+"slug": "ufc-bnikol-mar92-2026-08-01",
+"market_id": "3211554",
+"event_date": "2026-08-01",
+"fighter_a": "Borislav Nikolic",
+"fighter_b": "Mark Vologdin",
+"outcomes": [
+"Borislav Nikolic",
+"Mark Vologdin"
+],
+"clob_token_ids": [
+"109520948942197212072535771767089320596373732863847224620882098664279463822272",
+"109419372961986046638892540468516801901494046989196204548692838959066106956410"
+],
+"history": {
+"Borislav Nikolic": [],
+"Mark Vologdin": []
+}
+}

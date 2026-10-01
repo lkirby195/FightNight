@@ -1,0 +1,19 @@
+{
+"slug": "ufc-lou2-bra24-2026-03-21",
+"market_id": "1510805",
+"event_date": "2026-03-21",
+"fighter_a": "Brando Pericic",
+"fighter_b": "Louie Sutherland",
+"outcomes": [
+"Louie Sutherland",
+"Brando Pericic"
+],
+"clob_token_ids": [
+"38350317152182851974956188663275349301408474626637537062836811461946853209368",
+"47362322134308640551140548451428191298089421636996015730456436221894879173377"
+],
+"history": {
+"Louie Sutherland": [],
+"Brando Pericic": []
+}
+}

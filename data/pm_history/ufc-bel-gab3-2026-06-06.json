@@ -1,0 +1,19 @@
+{
+"slug": "ufc-bel-gab3-2026-06-06",
+"market_id": "2279885",
+"event_date": "2026-06-06",
+"fighter_a": "Gabriel Bonfim",
+"fighter_b": "Belal Muhammad",
+"outcomes": [
+"Belal Muhammad",
+"Gabriel Bonfim"
+],
+"clob_token_ids": [
+"51147853542134292443084552121099793165972592330180495808647637607324061088996",
+"103811879620616951113212756970004405614003938558213097169852272329427897789428"
+],
+"history": {
+"Belal Muhammad": [],
+"Gabriel Bonfim": []
+}
+}

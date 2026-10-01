@@ -1,0 +1,19 @@
+{
+"slug": "ufc-vin1-col12-2026-05-02",
+"market_id": "1950826",
+"event_date": "2026-05-02",
+"fighter_a": "Colby Thicknesse",
+"fighter_b": "Vince Morales",
+"outcomes": [
+"Vince Morales",
+"Colby Thicknesse"
+],
+"clob_token_ids": [
+"32319673048190793626486102563833698015445108222634771199396703511067625644361",
+"84905930736049961905447833285535238930431120444262583220257208491866569660090"
+],
+"history": {
+"Vince Morales": [],
+"Colby Thicknesse": []
+}
+}

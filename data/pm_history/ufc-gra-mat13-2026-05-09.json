@@ -1,0 +1,19 @@
+{
+"slug": "ufc-gra-mat13-2026-05-09",
+"market_id": "2017413",
+"event_date": "2026-05-09",
+"fighter_a": "Grant Dawson",
+"fighter_b": "Mateusz Rebecki",
+"outcomes": [
+"Grant Dawson",
+"Mateusz Rebecki"
+],
+"clob_token_ids": [
+"112205748806845878448479265096329775220942920855820195075973084023877006874928",
+"49820040339481449616630571669010175413013973337776881323188912592052840104274"
+],
+"history": {
+"Grant Dawson": [],
+"Mateusz Rebecki": []
+}
+}

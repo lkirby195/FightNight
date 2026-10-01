@@ -1,0 +1,19 @@
+{
+"slug": "ufc-vic-tre3-2026-08-15",
+"market_id": "3275827",
+"event_date": "2026-08-15",
+"fighter_a": "Tresean Gore",
+"fighter_b": "Vicente Luque",
+"outcomes": [
+"Vicente Luque",
+"Tresean Gore"
+],
+"clob_token_ids": [
+"50442324183199006668954273995082970547707942537187894952655893018247299768421",
+"4901980234851004574344786746234394504542643898611193676666866520335983820713"
+],
+"history": {
+"Vicente Luque": [],
+"Tresean Gore": []
+}
+}

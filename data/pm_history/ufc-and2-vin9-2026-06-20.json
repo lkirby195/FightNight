@@ -1,0 +1,19 @@
+{
+"slug": "ufc-and2-vin9-2026-06-20",
+"market_id": "2556936",
+"event_date": "2026-06-20",
+"fighter_a": "Vinicius Oliveira",
+"fighter_b": "Andre Fili",
+"outcomes": [
+"Andre Fili",
+"Vinicius Oliveira"
+],
+"clob_token_ids": [
+"3721100781515108929802121763008498927975980253917875392097761195242156392961",
+"11987851557732708251247736303952154121841311417665131324417726002769824506237"
+],
+"history": {
+"Andre Fili": [],
+"Vinicius Oliveira": []
+}
+}

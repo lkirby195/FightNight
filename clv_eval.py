@@ -10,6 +10,11 @@ incorporate the closing line and make any CLV measurement circular.
 
 Outputs: data/model_only_preds.csv (regenerated on EVERY run, never reused),
 data/bfo_joined.csv, data/clv_eval_full.csv + console report.
+
+bfo_joined.csv carries the validated opens (a_open / b_open, see
+scrape_bfo.validated_open) plus open_suspect and the raw first ticks
+(a_open_raw / b_open_raw) so betting_system can tell a signal that only the
+suspect opener would have fired.
 """
 from __future__ import annotations
 
@@ -85,7 +90,10 @@ def join_bfo():
                 a_open=r.f1_open if f1a else r.f2_open,
                 a_close=r.f1_close if f1a else r.f2_close,
                 b_open=r.f2_open if f1a else r.f1_open,
-                b_close=r.f2_close if f1a else r.f1_close))
+                b_close=r.f2_close if f1a else r.f1_close,
+                open_suspect=int(r.open_suspect),
+                a_open_raw=r.f1_open_raw if f1a else r.f2_open_raw,
+                b_open_raw=r.f2_open_raw if f1a else r.f1_open_raw))
     J = pd.DataFrame(rows).drop_duplicates("fight_id")
     J.to_csv("data/bfo_joined.csv", index=False)
     return J

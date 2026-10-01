@@ -1,0 +1,19 @@
+{
+"slug": "ufc-hai-ali9-2026-04-04",
+"market_id": "1721268",
+"event_date": "2026-04-04",
+"fighter_a": "Alice Pereira",
+"fighter_b": "Hailey Cowan",
+"outcomes": [
+"Hailey Cowan",
+"Alice Pereira"
+],
+"clob_token_ids": [
+"37289509327747971511498247413933407548947285922506870105598038537432727947657",
+"65715661947874820667647090999436226447728764998780005750392211650062753430733"
+],
+"history": {
+"Hailey Cowan": [],
+"Alice Pereira": []
+}
+}

@@ -1,0 +1,19 @@
+{
+"slug": "ufc-ign-tof-2026-03-28",
+"market_id": "1697629",
+"event_date": "2026-03-28",
+"fighter_a": "Tofiq Musayev",
+"fighter_b": "Ignacio Bahamondes",
+"outcomes": [
+"Ignacio Bahamondes",
+"Tofiq Musayev"
+],
+"clob_token_ids": [
+"101956596833689225647942371410391467452405604261147678306279562902544987773581",
+"62992225907847468628957025966547168092636882857895669243930989887691305023068"
+],
+"history": {
+"Ignacio Bahamondes": [],
+"Tofiq Musayev": []
+}
+}
