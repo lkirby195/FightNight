@@ -229,7 +229,7 @@ the record; not the system described here.
 The rule constants are untouched (`FLIP_CONF`, `FLIP_UNITS`, `GAP_PTS`,
 `GAP_UNITS`).
 
-## Opener validity (2026-09-30)
+## Opener validity (2026-09-30, final 2026-10-01)
 
 "The opening line" is BestFightOdds' first tick of the cross-book mean line.
 Occasionally that first tick is a data-entry slip the book corrects within
@@ -243,16 +243,23 @@ of the series (`scrape_bfo.py`, `card_report.py`, `card_settle.py`,
 ```
 open = the bout's first paired tick (both sides' price at the first instant
        both have one),
-UNLESS the next paired tick lands within 60 minutes of it and, on either
-       side, crosses even money or moves more than 40 implied-probability
-       points: then THAT pair is the open and the bout is open_suspect = 1.
+UNLESS the next paired tick lands within 60 minutes of it and moves either
+       side by more than 40 implied-probability points: then THAT pair is
+       the open and the bout is open_suspect = 1.
 ```
 
 The check is paired, not per side, because BFO moves both sides at the same
-instants and a bettor sees a book, not a side: Perez / Dumont (same card)
-opened -200 / +169 and was -106 / -110 two minutes later, which only the
-Dumont side "crosses"; the validated open is the whole corrected pair, never
-the Perez first tick next to the Dumont second tick.
+instants and a bettor sees a book, not a side; the open is always a pair
+that was on the board together. An even-money-crossing test ("the next tick
+crosses even money, or moves more than 40 points") was tried first and
+rejected on 2026-10-01: it flagged 687 of 7,974 bouts (8.6%, 60 in 2026),
+almost all of them BFO placeholder openers (-110 / -110, -526 / -526)
+replaced by the real line minutes later and small moves that happen to
+cross pick'em (Perez / Dumont -200 / +169 to -106 / -110, 15 points a
+side); applied historically it had voided three placed live wins and added
+two live signals that were never on record. The 40-point test keeps the
+data-entry slips (side swaps such as Jauregui's 75-point move, -526 / -526
+placeholders) and nothing else.
 
 `data/bfo_lines.csv` carries `open_suspect` and the raw first ticks
 (`f1_open_raw`, `f2_open_raw`) next to the validated opens; `bfo_joined.csv`
@@ -262,20 +269,16 @@ rules evaluate at the validated open. `python scrape_bfo.py 2010 2027
 flagged bout. Closing lines, CLV and the frozen rule constants are untouched;
 the rule did not change, the price it is measured against did.
 
-At the switch (2026-09-30, 7,974 bouts 2010-2026): 687 bouts flagged (8.6%;
-between 11 and 65 a year, 60 in 2026), the bulk of them BFO placeholder
-openers (-110/-110, -526/-526) or side swaps replaced within two minutes.
-Three bouts changed pre-filter status, all raw-pass to validated-fail, because
-the corrected pair itself was a transient half-updated book (McMillen /
-Montes, Harris / Hines, Rodriguez / Amil); their raw-opener signals are VOID
-rows. 25 ledger rows became VOID, 6 of them on live cards (Thicknesse
-2026-05-02, Pericic 2026-05-02, Chandler 2026-06-06, Santos 2026-06-20,
-McMillen 2026-07-18, Jauregui 2026-09-26); 21 signals appeared at the
-validated open, 2 of them on live cards and therefore `live = 0` under the
-on-record rule below (Tuivasa 2026-05-02, Bonfim 2026-06-06). Tighter
-variants were measured for reference: a side-swap-only test (both sides
-cross) flags 103 bouts, crossing with a 10-point minimum move 157, the
-40-point jump alone 12.
+At the switch (7,974 bouts 2010-2026): 13 bouts flagged -- seven side
+swaps corrected within minutes (Tuchscherer / Hunt 2011, Belcher /
+Macdonald 2011, Cope / Brown 2012, Boetsch / Okami 2012, Oliveira / Swanson
+2012, Madge / Edwards 2018, Almeida / Abdurakhimov 2022), five 2026
+placeholder openers (-526 / -526 or -500 / +375 replaced by the real line:
+Nascimento / Raposo, Filho / Rocha, Gantt / Ogden, Janicic / Gugnon,
+Johnson / Ochoa) and Demopoulos / Jauregui 2026-09-26. No bout changed
+pre-filter status. Three ledger rows became VOID: Okami 2012-02-25 and
+Oliveira 2012-09-22 (backfilled) and Jauregui 2026-09-26 (live). No signal
+was added or changed otherwise.
 
 ## VOID rows
 
@@ -321,22 +324,27 @@ the same pick (`betting_system.raw_fired`); a signal that exists only under
 the validated open there was never on record and is `live = 0`. From
 2026-09-30 `card_report.py` itself evaluates the validated open, so the test
 is moot. VOID rows keep their date-based flag (they were on record; they are
-just not counted).
+just not counted). Under the 40-point rule no row is affected by this test
+(the rejected crossing test would have added two); it stays as the guard.
 
 Live record after the three 2026-09-30 rules, `python betting_system.py
 2026` (data through 2026-09-26):
 
 ```
-LIVE RECORD (2026): 22 bets  16-6  staked 22u  P&L (placeable) +5.2u ($+520)  ROI +23.6%  t=1.38
-    P&L (open) +5.8u ($+577)  ROI +26.2%  t=1.46
-    VOID (not counted): 6 (void: suspect opener)
-PLACED (policy v1): 14 placed of 22 signals  11-3  staked 11.2u  P&L +4.2u ($+423)  ROI +37.6%  t=1.56
+LIVE RECORD (2026): 27 bets  21-6  staked 27u  P&L (placeable) +11.4u ($+1,142)  ROI +42.3%  t=2.66
+    P&L (open) +12.0u ($+1,200)  ROI +44.4%  t=2.71
+    FLIP: 12 bets  7-5  ROI +24.8%
+    GAP: 15 bets  14-1  ROI +56.3%
+    VOID (not counted): 1 (void: suspect opener)
+PLACED (policy v1): 17 placed of 27 signals  14-3  staked 13.3u  P&L +6.2u ($+618)  ROI +46.4%  t=2.43
+    FLIP: 6 placed  4-2  ROI +48.8%
+    GAP: 11 placed  10-1  ROI +45.0%
 ```
 
-Before them (same data, UFC Vegas 121 included) it read 30 signals 22-8,
-placed 18 of 30, 15-3, +7.5u: the debut rule removes Wood's placed win and
-three unplaced rows, the opener rule voids three placed wins (Thicknesse,
-Chandler, Santos) and three unplaced signals.
+Before them (same data) it read 31 signals 23-8, placed 18 of 31, 15-3,
++7.5u: the debut rule removes Wood's placed win (+1.30u) and three unplaced
+rows, the opener rule voids Jauregui (never counted). Rosas (placed, +0.51u)
+and Brener (skipped) are the UFC Vegas 121 additions.
 
 ## Polymarket: a second price source, not a signal source
 
