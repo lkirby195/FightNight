@@ -1,0 +1,19 @@
+{
+"slug": "ufc-mik1-nur-2026-07-25",
+"market_id": "2885100",
+"event_date": "2026-07-25",
+"fighter_a": "Nurullo Aliev",
+"fighter_b": "Mike Davis",
+"outcomes": [
+"Mike Davis",
+"Nurullo Aliev"
+],
+"clob_token_ids": [
+"95216585232134613965434593956333560856376212487577598784319385492344735754920",
+"94090714722235502879138436680683779224237093409687292459391540707879083762290"
+],
+"history": {
+"Mike Davis": [],
+"Nurullo Aliev": []
+}
+}

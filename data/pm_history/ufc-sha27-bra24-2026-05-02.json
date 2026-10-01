@@ -1,0 +1,19 @@
+{
+"slug": "ufc-sha27-bra24-2026-05-02",
+"market_id": "1950801",
+"event_date": "2026-05-02",
+"fighter_a": "Brando Pericic",
+"fighter_b": "Shamil Gaziev",
+"outcomes": [
+"Shamil Gaziev",
+"Brando Pericic"
+],
+"clob_token_ids": [
+"35155068857072948875677576687016617060738991191273591116870151900776175585858",
+"47538059191226875191406732294742908543311284698676686201092875389354101317218"
+],
+"history": {
+"Shamil Gaziev": [],
+"Brando Pericic": []
+}
+}

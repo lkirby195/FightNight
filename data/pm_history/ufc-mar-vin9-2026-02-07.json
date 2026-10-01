@@ -1,0 +1,19 @@
+{
+"slug": "ufc-mar-vin9-2026-02-07",
+"market_id": "1279648",
+"event_date": "2026-02-07",
+"fighter_a": "Mario Bautista",
+"fighter_b": "Vinicius Oliveira",
+"outcomes": [
+"Bautista",
+"Oliveira"
+],
+"clob_token_ids": [
+"55951532037300058584766998097137908417811555318450732844338681279431058795653",
+"58663655223520964632446040060948439927624216198635227592395429940435091043786"
+],
+"history": {
+"Bautista": [],
+"Oliveira": []
+}
+}

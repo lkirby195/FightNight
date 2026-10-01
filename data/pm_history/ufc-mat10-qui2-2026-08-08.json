@@ -1,0 +1,19 @@
+{
+"slug": "ufc-mat10-qui2-2026-08-08",
+"market_id": "3120799",
+"event_date": "2026-08-08",
+"fighter_a": "Quillan Salkilld",
+"fighter_b": "Mateusz Gamrot",
+"outcomes": [
+"Mateusz Gamrot",
+"Quillan Salkilld"
+],
+"clob_token_ids": [
+"87299937886809891269861244290499045496529681801913723274748536842611159283282",
+"40008479241203528152283809937056806305324270681503050744093448437139732226438"
+],
+"history": {
+"Mateusz Gamrot": [],
+"Quillan Salkilld": []
+}
+}

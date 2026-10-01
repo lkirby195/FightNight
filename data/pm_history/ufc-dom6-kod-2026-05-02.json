@@ -1,0 +1,19 @@
+{
+"slug": "ufc-dom6-kod-2026-05-02",
+"market_id": "1950790",
+"event_date": "2026-05-02",
+"fighter_a": "Kody Steele",
+"fighter_b": "Dom Mar Fan",
+"outcomes": [
+"Dom Mar Fan",
+"Kody Steele"
+],
+"clob_token_ids": [
+"102554284639813894891727288697050645870831857768029596491880110824006757453471",
+"43906253733166159911750962266594328115496860343061146554291679963743290137864"
+],
+"history": {
+"Dom Mar Fan": [],
+"Kody Steele": []
+}
+}
