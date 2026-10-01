@@ -13,10 +13,10 @@ ticks blow the overround far outside that band (one side collapses to ~1.02
 while the other lags), so they are skipped and the last pre-fight book wins.
 
 Opening line is the validated open (scrape_bfo.validated_open: the first
-paired tick unless the next paired tick within an hour crosses even money or
-moves more than 40 implied-probability points on either side, in which case
-that corrected pair is the open and the bout is flagged open_suspect) -- the
-same open every other consumer of the series uses.
+paired tick unless the next paired tick within an hour moves either side by
+more than 40 implied-probability points, in which case that corrected pair
+is the open and the bout is flagged open_suspect) -- the same open every
+other consumer of the series uses.
 
 Off-card bouts (card_report.OFF_CARD, keyed by event date and BFO matchup id)
 are left out before any line history is pulled, so a cancelled bout neither

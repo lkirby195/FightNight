@@ -25,16 +25,27 @@ def test_demopoulos_jauregui_opener_is_the_corrected_pair():
     assert scrape_bfo.validated_open(dem, jau) == (6.96, 1.1176, M8, True, 1.1176, 6.96)
 
 
-def test_perez_dumont_validates_as_a_pair_not_side_by_side():
-    # mu 44969: -200 / +169 at 22:28, -106 / -110 at 22:30. Only the Dumont
-    # side crosses even money; the open is the whole corrected pair, never
-    # the Perez first tick next to the Dumont second tick (-200 / -110).
+def test_a_pair_is_corrected_as_a_whole_when_one_side_jumps():
+    # a 50-point move on side 1 only: the open is the whole second pair, never
+    # side 1's second tick next to side 2's first
+    p1 = [(0, 1.5), (M2, 6.0), (4 * 60 * 1000, 5.5)]           # -200 -> +500
+    p2 = [(0, 2.69), (M2, 1.125), (4 * 60 * 1000, 1.14)]       # +169 -> -800
+    assert scrape_bfo.validated_open(p1, p2) == (6.0, 1.125, M2, True, 1.5, 2.69)
+
+
+def test_crossing_even_money_alone_is_not_a_correction():
+    # Perez / Dumont mu 44969: -200 / +169 at 22:28, -106 / -110 at 22:30:
+    # 15-point moves that happen to cross even money on the Dumont side. A
+    # line move, not a data-entry slip: the first pair stands, no flag.
     per = [(0, 1.5), (M2, 1.943), (4 * 60 * 1000, 1.862)]
     dum = [(0, 2.69), (M2, 1.909), (4 * 60 * 1000, 2.0)]
-    assert scrape_bfo.validated_open(per, dum) == (1.943, 1.909, M2, True, 1.5, 2.69)
+    assert scrape_bfo.validated_open(per, dum) == (1.5, 2.69, 0, False, 1.5, 2.69)
+    # a -110/-110 placeholder replaced by -175/+150 moves 11 and 12 points: no flag
+    assert scrape_bfo.validated_open([(0, 1.909), (M2, 1.571)],
+                                     [(0, 1.909), (M2, 2.5)])[3] is False
 
 
-def test_a_jump_over_forty_points_is_suspect_even_without_crossing_even_money():
+def test_a_jump_over_forty_points_is_suspect():
     s = lambda v: scrape_bfo.validated_open([(0, 2.0), (H, v)], [(0, 2.0), (H, 2.0)])[3]
     assert s(1 / 0.09) is True      # 50 -> 9 pts: 41
     assert s(1 / 0.11) is False     # 50 -> 11 pts: 39

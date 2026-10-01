@@ -6,16 +6,16 @@ of (timestamp_ms, decimal_odds) for the cross-book mean line.
 
 Open = the validated open (validated_open): the bout's first paired tick
 (both sides' price at the first instant both have one), UNLESS the next
-paired tick lands within OPEN_WINDOW_MS of it and, on either side, crosses
-even money or moves more than OPEN_JUMP implied-probability points -- a
-data-entry opener (sides swapped, wrong price) corrected within the hour.
-Then that corrected pair is the open and the bout carries open_suspect=1;
-the raw first ticks are kept (f1_open_raw, f2_open_raw). The check is paired
-because BFO moves both sides at the same instants and a bettor sees a book,
-not a side: Perez / Dumont 2026-09-26 opened -200/+169 and was -106/-110 two
-minutes later, which only the Dumont side "crosses". Close = last tick. One
-function (bout_summary) serves scrape, card_report and card_settle, so every
-consumer sees one open.
+paired tick lands within OPEN_WINDOW_MS of it and moves either side by more
+than OPEN_JUMP implied-probability points -- a data-entry opener (sides
+swapped, wrong price) corrected within the hour. Then that corrected pair is
+the open and the bout carries open_suspect=1; the raw first ticks are kept
+(f1_open_raw, f2_open_raw). The check is paired because BFO moves both sides
+at the same instants and a bettor sees a book, not a side. An even-money-
+crossing test was tried and rejected (2026-10-01): it flagged 8.6% of bouts,
+mostly BFO placeholder openers (-110/-110) replaced minutes later and tiny
+moves across pick'em. Close = last tick. One function (bout_summary) serves
+scrape, card_report and card_settle, so every consumer sees one open.
 
 The event date is the schema.org SportsEvent "startDate" in the event page's
 JSON-LD, never the sitemap <lastmod>: BFO serves one event under several
@@ -151,13 +151,14 @@ def parse_event(slug: str):
     return title, ev_date, bouts
 
 
-# Opener validity (2026-09-30). BFO's first tick is occasionally a data-entry
-# slip that the book corrects minutes later: Demopoulos / Jauregui 2026-09-26
-# opened -850 / +596 and flipped to +596 / -850 eight minutes on. A signal
+# Opener validity (2026-09-30, final 2026-10-01). BFO's first tick is
+# occasionally a data-entry slip that the book corrects minutes later:
+# Demopoulos / Jauregui 2026-09-26 opened -850 / +596 and flipped to
+# +596 / -850 eight minutes on (a 75-point move on each side). A signal
 # evaluated against that first tick is a signal against a price nobody could
-# bet, so the open is the corrected tick when the correction is immediate.
-OPEN_WINDOW_MS = 60 * 60 * 1000     # the next tick must land within an hour
-OPEN_JUMP = 0.40                    # ... crossing even money, or moving > 40 pts
+# bet, so the open is the corrected pair when the correction is immediate.
+OPEN_WINDOW_MS = 60 * 60 * 1000     # the next paired tick must land within an hour
+OPEN_JUMP = 0.40                    # ... and move a side by more than 40 pts
 
 
 def _pts(js):
@@ -190,8 +191,9 @@ def paired_ticks(p1, p2):
 
 
 def _corrected(v0, v1):
-    """The move v0 -> v1 on one side crosses even money or exceeds OPEN_JUMP."""
-    return (v0 >= 2.0) != (v1 >= 2.0) or abs(1.0 / v0 - 1.0 / v1) > OPEN_JUMP
+    """The move v0 -> v1 on one side exceeds OPEN_JUMP implied-probability
+    points (the even-money-crossing test was rejected, see the header)."""
+    return abs(1.0 / v0 - 1.0 / v1) > OPEN_JUMP
 
 
 def validated_open(p1, p2):
