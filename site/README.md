@@ -59,13 +59,14 @@ and are not counted; draws and no contests are shown, not counted, and void
 any bet. No jargon on the default view; the "Show the numbers" toggle adds
 model line, open, placeable, close, CLV, rule, stake and RD columns.
 
-## Anonymity lint
+## Name lint (to be removed)
 
-The build fails if any output file contains `lkirby`, `Logan`, or a
-`github.com/lkirby195` URL.
+The build currently fails if any output file contains `lkirby`, `Logan`, or a
+`github.com/lkirby195` URL (`LINT` in `build.py`). Logan is not anonymous;
+removing the check is launch work item 1 in `CLAUDE.md` §7 (a separate PR).
 
 ## Deploy
 
 `site/out/` deploys to Vercel as a static project (root directory `site/out`,
-no build step). Not deployed yet: deployment is gated on the anonymity
-checklist (brand GitHub org, WHOIS privacy, brand email).
+no build step). Not deployed yet: deployment is gated only on the launch work
+listed in `CLAUDE.md` §7.
