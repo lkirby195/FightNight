@@ -1,0 +1,40 @@
+event_date,event,fight_id,fighter,rule,live,placed,pm_slug,pm_market_id,pm_history_points,t_capture,capture_source,pm_p_at_capture,t_prefight,pm_p_prefight,pm_clv_pts,bfo_clv_pts,result
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,2bbfbb234c255249,Klaudia Sygula,GAP,1,1,ufc-pri-kla-2026-02-07,1279726,0,2026-02-05T00:00:00+00:00,event-48h,,2026-02-07T22:10:05+00:00,,,-10.49,WIN
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,fb4b1754d510b0d0,Vinicius Oliveira,FLIP,1,1,ufc-mar-vin9-2026-02-07,1279648,0,2026-02-05T00:00:00+00:00,event-48h,,2026-02-08T03:44:02+00:00,,,0.83,LOSS
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,ac39c1f00ae31e58,Alden Coria,GAP,1,0,ufc-ald-lui12-2026-02-21,1310571,0,2026-02-19T00:00:00+00:00,event-48h,,2026-02-22T00:08:27+00:00,,,11.49,WIN
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,dc6f6c8228390ebb,Melquizael Costa,GAP,1,1,ufc-dan2-mel4-2026-02-21,1310517,0,2026-02-19T00:00:00+00:00,event-48h,,2026-02-22T03:00:25+00:00,,,14.86,WIN
+2026-03-14,UFC Fight Night: Emmett vs. Vallejos,f26c0bdf7689aea2,Myktybek Orolbai,GAP,1,1,ufc-chr8-myk-2026-03-14,1543429,0,2026-03-12T00:00:00+00:00,event-48h,,2026-03-14T23:32:27+00:00,,,10.31,WIN
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,bfd17ed83ec5b598,Brando Pericic,GAP,1,0,ufc-lou2-bra24-2026-03-21,1510805,0,2026-03-19T00:00:00+00:00,event-48h,,2026-03-21T17:54:05+00:00,,,8.82,WIN
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,3b9f50f07d9a1601,Nathaniel Wood,FLIP,0,1,ufc-nat-los-2026-03-21,1510796,0,2026-03-19T00:00:00+00:00,event-48h,,2026-03-21T19:12:27+00:00,,,-11.46,WIN
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,1c50e43770ba84fc,Casey O'Neill,FLIP,1,1,ufc-cas1-gab5-2026-03-28,1527912,0,2026-03-26T00:00:00+00:00,event-48h,,2026-03-28T22:22:29+00:00,,,7.15,WIN
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,08d4e3864c44f8a5,Marcin Tybura,FLIP,0,1,ufc-mar12-tfortu-2026-03-28,1697638,0,2026-03-26T00:00:00+00:00,event-48h,,2026-03-28T22:44:30+00:00,,,-3.71,LOSS
+2026-03-28,UFC Fight Night: Adesanya vs. Pyfer,fa96d6252579b51e,Ignacio Bahamondes,GAP,1,1,ufc-ign-tof-2026-03-28,1697629,0,2026-03-26T00:00:00+00:00,event-48h,,2026-03-28T23:32:28+00:00,,,8.5,LOSS
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,74bb036ef0493bf7,Alice Pereira,GAP,1,0,ufc-hai-ali9-2026-04-04,1721268,0,2026-04-02T00:00:00+00:00,event-48h,,2026-04-04T22:50:32+00:00,,,6.85,WIN
+2026-04-04,UFC Fight Night: Moicano vs. Duncan,7924f10aac3543de,Robert Ruchala,FLIP,0,0,ufc-jos60-rob21-2026-04-04,1721238,0,2026-04-02T00:00:00+00:00,event-48h,,2026-04-05T00:26:31+00:00,,,3.8,LOSS
+2026-04-18,UFC Fight Night: Burns vs. Malott,85c7a0f44aa3e10a,Tanner Boser,FLIP,0,1,ufc-tan-goksar-2026-04-18,1766566,0,2026-04-16T00:00:00+00:00,event-48h,,2026-04-18T23:02:31+00:00,,,-4.05,LOSS
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,610a640a0cd81ce5,Dom Mar Fan,FLIP,1,0,ufc-dom6-kod-2026-05-02,1950790,0,2026-04-30T00:00:00+00:00,event-48h,,2026-05-02T08:16:32+00:00,,,3.83,LOSS
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,00bde62cac38e5e9,Colby Thicknesse,GAP,1,0,ufc-vin1-col12-2026-05-02,1950826,0,2026-04-30T00:00:00+00:00,event-48h,,2026-05-02T09:50:31+00:00,,,3.83,VOID
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,2afaa97901d5587c,Tai Tuivasa,GAP,0,1,ufc-tai1-lou2-2026-05-02,2080196,0,2026-04-30T00:00:00+00:00,event-48h,,2026-05-02T11:26:31+00:00,,,13.46,LOSS
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,a564219e7a964aa6,Brando Pericic,FLIP,1,0,ufc-sha27-bra24-2026-05-02,1950801,0,2026-04-30T00:00:00+00:00,event-48h,,2026-05-02T12:00:32+00:00,,,11.49,VOID
+2026-05-09,UFC 328: Chimaev vs. Strickland,ffcb47e17eebe6a6,Grant Dawson,GAP,1,1,ufc-gra-mat13-2026-05-09,2017413,0,2026-05-07T00:00:00+00:00,event-48h,,2026-05-09T23:54:31+00:00,,,5.57,WIN
+2026-05-30,UFC Fight Night: Song vs. Figueiredo,00959e29e4a10e26,Cameron Smotherman,FLIP,1,0,ufc-kai6-cam6-2026-05-30,2217745,0,2026-05-28T00:00:00+00:00,event-48h,,2026-05-30T12:16:32+00:00,,,2.47,LOSS
+2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,98e77712f99956ff,Chelsea Chandler,GAP,1,0,ufc-pri-che3-2026-06-06,2280111,0,2026-06-04T00:00:00+00:00,event-48h,,2026-06-06T22:18:32+00:00,,,6.94,VOID
+2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,5c69b019e6deee41,Gabriel Bonfim,FLIP,0,1,ufc-bel-gab3-2026-06-06,2279885,0,2026-06-04T00:00:00+00:00,event-48h,,2026-06-07T02:36:32+00:00,,,2.83,WIN
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,b23a1a5d35eb438a,Luana Santos,FLIP,1,0,ufc-kar3-lua4-2026-06-20,2397774,0,2026-06-18T00:00:00+00:00,event-48h,,2026-06-20T21:46:31+00:00,,,3.63,VOID
+2026-06-20,UFC Fight Night: Kape vs. Horiguchi,571a3eabff5c7ba7,Vinicius Oliveira,GAP,1,1,ufc-and2-vin9-2026-06-20,2556936,0,2026-06-18T00:00:00+00:00,event-48h,,2026-06-21T00:30:32+00:00,,,3.87,WIN
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,46d800ce45fdd3e6,Felipe Franco,FLIP,0,0,ufc-fel11-lev1-2026-07-18,2799952,0,2026-07-16T00:00:00+00:00,event-48h,,2026-07-18T22:58:32+00:00,,,2.47,WIN
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,c64c6ba6eb1e1d06,Tommy McMillen,FLIP,1,0,ufc-alb10-tom15-2026-07-18,2799916,0,2026-07-16T00:00:00+00:00,event-48h,,2026-07-19T00:30:31+00:00,,,26.05,VOID
+2026-07-18,UFC Fight Night: Du Plessis vs. Usman,f2abca7379982d4f,Chase Hooper,GAP,1,1,ufc-cha9-mit4-2026-07-18,2799898,0,2026-07-16T00:00:00+00:00,event-48h,,2026-07-19T01:34:32+00:00,,,5.98,WIN
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,3859314324918eeb,Nurullo Aliev,GAP,1,1,ufc-mik1-nur-2026-07-25,2885100,0,2026-07-23T00:00:00+00:00,event-48h,,2026-07-25T13:54:32+00:00,,,10.4,WIN
+2026-07-25,UFC Fight Night: Ankalaev vs. Guskov,61280e5644189c61,Saygid Izagakhmaev,FLIP,0,0,ufc-avagae-say1-2026-07-25,2898884,0,2026-07-23T00:00:00+00:00,event-48h,,2026-07-25T16:26:31+00:00,,,-5.92,LOSS
+2026-08-01,UFC Fight Night: Medic vs. Rodriguez,4350abb4f1933f88,Mark Vologdin,FLIP,0,0,ufc-bnikol-mar92-2026-08-01,3211554,0,2026-07-30T00:00:00+00:00,event-48h,,2026-08-01T16:06:31+00:00,,,-8.91,LOSS
+2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,64829a32c78ab656,Louie Sutherland,FLIP,0,0,ufc-lou2-jluiz-2026-08-08,3320401,0,2026-08-06T00:00:00+00:00,event-48h,,2026-08-08T22:50:31+00:00,,,12.86,VOID
+2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,a10deecfb8558335,Quillan Salkilld,GAP,0,1,ufc-mat10-qui2-2026-08-08,3120799,0,2026-08-06T00:00:00+00:00,event-48h,,2026-08-09T02:32:32+00:00,,,11.12,WIN
+2026-08-15,UFC 330: Makhachev vs. Machado Garry,e79e4d13546d2360,Vicente Luque,FLIP,0,1,ufc-vic-tre3-2026-08-15,3275827,0,2026-08-13T00:00:00+00:00,event-48h,,2026-08-15T23:22:32+00:00,,,-4.11,LOSS
+2026-08-29,UFC Fight Night: Nurmagomedov vs. Song,73cb6c4e060c4ee9,Denise Gomes,FLIP,1,1,ufc-yan2-den5-2026-08-29,3617695,0,2026-08-27T00:00:00+00:00,event-48h,,2026-08-29T12:12:32+00:00,,,-0.21,WIN
+2026-09-05,UFC Fight Night: Hooker vs. Parnasse,809ebb0cfdd01ce2,Klaudia Sygula,FLIP,1,1,ufc-nor4-kla-2026-09-05,3789123,100,2026-09-03T00:00:00+00:00,event-48h,0.485,2026-09-05T16:56:31+00:00,0.545,6.0,17.72,LOSS
+2026-09-19,UFC 331: Van vs. Pantoja 2,3f2d637ffb324a51,Tai Tuivasa,FLIP,1,0,ufc-tai1-rob18-2026-09-19,4266915,339,2026-09-18T01:12:13+00:00,capture,0.175,2026-09-20T00:34:32+00:00,0.215,4.0,-2.49,LOSS
+2026-09-19,UFC 331: Van vs. Pantoja 2,568ec6af4008355a,Joshua Van,FLIP,1,1,ufc-ale8-jos49-2026-09-19,4266712,342,2026-09-18T01:12:13+00:00,capture,0.565,2026-09-20T03:54:31+00:00,0.585,2.0,22.65,WIN
+2026-09-26,UFC Fight Night: Rosas Jr. vs. Barcelos,f34e58d365bb37b1,Yazmin Jauregui,FLIP,1,0,ufc-van1-yaz1-2026-09-26,4510413,334,2026-09-24T19:27:11+00:00,capture,0.87,2026-09-26T21:12:17+00:00,0.875,0.5,72.91,VOID
+2026-09-26,UFC Fight Night: Rosas Jr. vs. Barcelos,15d95453729f4c2c,Elves Brener,GAP,1,0,ufc-elv-jos50-2026-09-26,4510318,336,2026-09-24T19:27:11+00:00,capture,0.465,2026-09-26T22:26:32+00:00,0.435,-3.0,-1.69,WIN
+2026-09-26,UFC Fight Night: Rosas Jr. vs. Barcelos,0e55d8a3d7a73912,Raul Rosas Jr.,GAP,1,1,ufc-rao-rau2-2026-09-26,4510169,341,2026-09-24T19:27:11+00:00,capture,0.575,2026-09-27T02:28:32+00:00,0.585,1.0,-9.92,WIN

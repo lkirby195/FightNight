@@ -1,0 +1,19 @@
+{
+"slug": "ufc-fel11-lev1-2026-07-18",
+"market_id": "2799952",
+"event_date": "2026-07-18",
+"fighter_a": "Felipe Franco",
+"fighter_b": "Levi Rodrigues Jr.",
+"outcomes": [
+"Felipe Franco",
+"Levi Rodrigues Jr."
+],
+"clob_token_ids": [
+"52619443192960398270490433531049045755209492199738547535187828295180819518782",
+"31648098486123516650026384788542916482682497361628497085034121519235823855250"
+],
+"history": {
+"Felipe Franco": [],
+"Levi Rodrigues Jr.": []
+}
+}

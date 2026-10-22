@@ -1,0 +1,19 @@
+{
+"slug": "ufc-pri-kla-2026-02-07",
+"market_id": "1279726",
+"event_date": "2026-02-07",
+"fighter_a": "Klaudia Sygula",
+"fighter_b": "Priscila Cachoeira",
+"outcomes": [
+"Cachoeira",
+"Sygula"
+],
+"clob_token_ids": [
+"3665849155204845478259038723746738595685855903057818094362228328472892244546",
+"52105071384386993404136191974944527345123832860922944033962543615924535805377"
+],
+"history": {
+"Cachoeira": [],
+"Sygula": []
+}
+}

@@ -1,0 +1,19 @@
+{
+"slug": "ufc-nat-los-2026-03-21",
+"market_id": "1510796",
+"event_date": "2026-03-21",
+"fighter_a": "Nathaniel Wood",
+"fighter_b": "Losene Keita",
+"outcomes": [
+"Nathaniel Wood",
+"Losene Keita"
+],
+"clob_token_ids": [
+"114529816405416520724726275806498200741910819382287213274144362372630092797444",
+"60639412900973648266804649147246921629352754735154909381082108847598239005962"
+],
+"history": {
+"Nathaniel Wood": [],
+"Losene Keita": []
+}
+}

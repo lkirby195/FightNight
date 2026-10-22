@@ -1,0 +1,19 @@
+{
+"slug": "ufc-yan2-den5-2026-08-29",
+"market_id": "3617695",
+"event_date": "2026-08-29",
+"fighter_a": "Denise Gomes",
+"fighter_b": "Yan Xiaonan",
+"outcomes": [
+"Yan Xiaonan",
+"Denise Gomes"
+],
+"clob_token_ids": [
+"511565373076175738170324697994815511774360359564192049154883317761712553762",
+"21738821742434061251389455983143442923526360533357056718744753301781842781677"
+],
+"history": {
+"Yan Xiaonan": [],
+"Denise Gomes": []
+}
+}

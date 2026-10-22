@@ -1,0 +1,19 @@
+{
+"slug": "ufc-kar3-lua4-2026-06-20",
+"market_id": "2397774",
+"event_date": "2026-06-20",
+"fighter_a": "Luana Santos",
+"fighter_b": "Karol Rosa",
+"outcomes": [
+"Karol Rosa",
+"Luana Santos"
+],
+"clob_token_ids": [
+"108194959189023642378775177312917233237246503213980943551336367420372892119991",
+"69222643587520523304441093924661352630292245536664111235762703027131990305038"
+],
+"history": {
+"Karol Rosa": [],
+"Luana Santos": []
+}
+}

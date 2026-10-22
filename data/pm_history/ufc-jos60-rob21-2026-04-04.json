@@ -1,0 +1,19 @@
+{
+"slug": "ufc-jos60-rob21-2026-04-04",
+"market_id": "1721238",
+"event_date": "2026-04-04",
+"fighter_a": "Jose Delano",
+"fighter_b": "Robert Ruchala",
+"outcomes": [
+"Jose Delano",
+"Robert Ruchala"
+],
+"clob_token_ids": [
+"18855714537737243388560019704472232258383271513145553175763526422878092435441",
+"31531965131625462816283777895813651190661481291073586382470829112848731437403"
+],
+"history": {
+"Jose Delano": [],
+"Robert Ruchala": []
+}
+}

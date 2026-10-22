@@ -1,0 +1,140 @@
+{
+ "events": [
+  {
+   "slug": "ufc-dei-pay-2026-10-03",
+   "title": "UFC 332: Deiveson Figueiredo vs. Payton Talbott (Bantamweight, Main Card)",
+   "startDate": "2026-09-19T22:00:40Z",
+   "endDate": "2026-10-04T03:59:59.999Z",
+   "closed": false,
+   "liquidity": 78378.7365,
+   "volume": 10959.522046999999,
+   "markets": [
+    {
+     "id": "4740048",
+     "question": "UFC 332: Deiveson Figueiredo vs. Payton Talbott (Bantamweight, Main Card)",
+     "outcomes": "[\"Deiveson Figueiredo\", \"Payton Talbott\"]",
+     "outcomePrices": "[\"0.165\", \"0.835\"]",
+     "clobTokenIds": "[\"39810809615765317648371085070952736459235221159236906734569120831243219141767\", \"101525569385012988033313985202256939156379177906019124288782599855856191712357\"]",
+     "liquidity": "28973.7774",
+     "volume": "10272.118199999999",
+     "closed": false,
+     "endDate": "2026-10-04T03:59:59.999Z"
+    },
+    {
+     "id": "4740054",
+     "question": "O/U 0.5 Rounds",
+     "outcomes": "[\"Over\", \"Under\"]",
+     "outcomePrices": "[\"0.715\", \"0.285\"]",
+     "clobTokenIds": "[\"1543125270277076869650901299693137085122007350206480782419676978101071704105\", \"107325144789088431314225860131447798069432754603565784358207904954611978574791\"]",
+     "liquidity": "1524.7953",
+     "volume": null,
+     "closed": false,
+     "endDate": "2026-10-04T03:59:59.999Z"
+    },
+    {
+     "id": "4740055",
+     "question": "O/U 1.5 Rounds",
+     "outcomes": "[\"Over\", \"Under\"]",
+     "outcomePrices": "[\"0.625\", \"0.375\"]",
+     "clobTokenIds": "[\"37517599097876043406289888174871608155971817512738556243786609244851337734084\", \"12623896199467574030233825744951764621939844665706481245493931765043380653145\"]",
+     "liquidity": "2092.4776",
+     "volume": null,
+     "closed": false,
+     "endDate": "2026-10-04T03:59:59.999Z"
+    }
+   ]
+  },
+  {
+   "slug": "ufc-hen-pay-2025-12-06",
+   "title": "UFC 323: Cejudo vs. Talbott (Bantamweight, Main Card)",
+   "startDate": "2025-11-28T23:31:49.747265Z",
+   "endDate": "2025-12-07T04:59:59.999Z",
+   "closed": true,
+   "liquidity": null,
+   "volume": 414011.811341,
+   "markets": [
+    {
+     "id": "740862",
+     "question": "UFC 323: Cejudo vs. Talbott (Bantamweight, Main Card)",
+     "outcomes": "[\"Cejudo\", \"Talbott\"]",
+     "outcomePrices": "[\"0\", \"1\"]",
+     "clobTokenIds": "[\"27652062373996790829327459814667599938330933871035122194963536748915240203110\", \"46708711779195451521372778867912130902047763807187624368355124122207595352808\"]",
+     "liquidity": null,
+     "volume": "388284.490352",
+     "closed": true,
+     "endDate": "2025-12-07T04:59:59.999Z"
+    },
+    {
+     "id": "740876",
+     "question": "O/U 0.5 Rounds",
+     "outcomes": "[\"Over\", \"Under\"]",
+     "outcomePrices": "[\"1\", \"0\"]",
+     "clobTokenIds": "[\"40513214043065350336878265959448114147260596380416108939338070524351759415020\", \"108584828281190453875060234676871356954623548933790730205450159987542670446484\"]",
+     "liquidity": "0",
+     "volume": "2604.94652",
+     "closed": true,
+     "endDate": "2025-12-07T04:59:59.999Z"
+    },
+    {
+     "id": "740879",
+     "question": "O/U 1.5 Rounds",
+     "outcomes": "[\"Over\", \"Under\"]",
+     "outcomePrices": "[\"1\", \"0\"]",
+     "clobTokenIds": "[\"65834890731289583003268167668441811480322350444874731761097819293086777458397\", \"64137182281829572403352527887974584763462448768231259538702220921007207664821\"]",
+     "liquidity": "0",
+     "volume": "2427.107776",
+     "closed": true,
+     "endDate": "2025-12-07T04:59:59.999Z"
+    }
+   ]
+  },
+  {
+   "slug": "who-will-merab-dvalishivili-fight-next",
+   "title": "Who will Merab Dvalishivili fight next?",
+   "startDate": "2025-12-08T23:03:57.74223Z",
+   "endDate": "2026-12-31T00:00:00Z",
+   "closed": true,
+   "liquidity": 0,
+   "volume": 1204750.232123,
+   "markets": [
+    {
+     "id": "897188",
+     "question": "Will Merab Dvalishvili fight Petr Yan next?",
+     "outcomes": "[\"Yes\", \"No\"]",
+     "outcomePrices": "[\"1\", \"0\"]",
+     "clobTokenIds": "[\"12017940167812977483300632690810446226616905353525829401845885684334826772041\", \"114132132089526242316463512094335843720494345107185010675897627157999428643369\"]",
+     "liquidity": null,
+     "volume": "12345.293801000002",
+     "closed": true,
+     "endDate": "2026-12-31T00:00:00Z"
+    },
+    {
+     "id": "897189",
+     "question": "Will Merab Dvalishvili fight Cory Sandhagen next?",
+     "outcomes": "[\"Yes\", \"No\"]",
+     "outcomePrices": "[\"0\", \"1\"]",
+     "clobTokenIds": "[\"80757689953991423377475014875062402583783985486334803920572942749695256893342\", \"57633371867018312174734673837890884969554949496532236240060321811267899615671\"]",
+     "liquidity": "0",
+     "volume": "2471.734399",
+     "closed": true,
+     "endDate": "2026-12-31T00:00:00Z"
+    },
+    {
+     "id": "897190",
+     "question": "Will Merab Dvalishvili fight Umar Nurmagomedov next?",
+     "outcomes": "[\"Yes\", \"No\"]",
+     "outcomePrices": "[\"0\", \"1\"]",
+     "clobTokenIds": "[\"17959000899640626011040672387324587275485475350236808280316235961737226934659\", \"106727048318666503319362732673459322346477511556722191884570640839983177002098\"]",
+     "liquidity": "0",
+     "volume": "14250.183034999996",
+     "closed": true,
+     "endDate": "2026-12-31T00:00:00Z"
+    }
+   ]
+  }
+ ],
+ "pagination": {
+  "hasMore": false,
+  "totalResults": 3
+ }
+}

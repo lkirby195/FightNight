@@ -1,0 +1,19 @@
+{
+"slug": "ufc-chr8-myk-2026-03-14",
+"market_id": "1543429",
+"event_date": "2026-03-14",
+"fighter_a": "Myktybek Orolbai",
+"fighter_b": "Chris Curtis",
+"outcomes": [
+"Chris Curtis",
+"Myktybek Orolbai"
+],
+"clob_token_ids": [
+"114767573178868857119061599194380091252138570036805841123398190516476925491138",
+"49633871346102573301469548714027969009043374275792117448193704981300585292356"
+],
+"history": {
+"Chris Curtis": [],
+"Myktybek Orolbai": []
+}
+}

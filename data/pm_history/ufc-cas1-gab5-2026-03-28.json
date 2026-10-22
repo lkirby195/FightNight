@@ -1,0 +1,19 @@
+{
+"slug": "ufc-cas1-gab5-2026-03-28",
+"market_id": "1527912",
+"event_date": "2026-03-28",
+"fighter_a": "Casey O'Neill",
+"fighter_b": "Gabriella Fernandes",
+"outcomes": [
+"Casey O'Neill",
+"Gabriella Fernandes"
+],
+"clob_token_ids": [
+"87899207830079540174133216136041402852426610768861323247745065947249935485131",
+"47146116579820905203231980783491668957966005499585634170450977815810514482341"
+],
+"history": {
+"Casey O'Neill": [],
+"Gabriella Fernandes": []
+}
+}
