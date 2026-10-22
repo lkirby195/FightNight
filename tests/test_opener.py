@@ -89,23 +89,23 @@ def test_paired_summary_opens_are_validated_and_the_raw_ticks_follow():
 
 # --------------------------------------------------- betting_system on it --
 def frame(**over):
-    """One bfo_joined-style row as betting_system.load() leaves it: Demopoulos
-    (a) vs Jauregui (b) with the corrected opener, the model on Jauregui."""
+    """One bout as betting_system.load() leaves it: Demopoulos (a) vs Jauregui
+    (b) with the corrected opener, the model on Jauregui, both on record."""
     base = dict(fight_id="f1", event_date="2026-09-26", event_name="E", bout_order=1,
                 fighter_a_id="A", fighter_a="Vanessa Demopoulos",
                 fighter_b_id="B", fighter_b="Yazmin Jauregui", method="U-DEC", rnd=3,
                 year=2026, p_model_a=0.20, y_a=0,
                 a_open=6.96, b_open=1.1176, a_open_raw=1.1176, b_open_raw=6.96,
-                open_suspect=1, ok_raw=True, ok_val=True, rd_a=120.0, rd_b=110.0,
-                projectable=True)
+                open_suspect=1, rd_a=120.0, rd_b=110.0,
+                known_a=True, known_b=True, projectable=True)
     base.update(over)
-    return bs.signal_cols(pd.DataFrame([base]))
+    return pd.DataFrame([base])
 
 
 @pytest.fixture
 def no_captures(monkeypatch):
-    nan = lambda B: pd.Series(float("nan"), index=B.index)
-    monkeypatch.setattr(bs, "placeable_prices", lambda B: (nan(B), nan(B)))
+    nan = lambda D: pd.Series(float("nan"), index=D.index, dtype=float)
+    monkeypatch.setattr(bs, "capture_prices", lambda D: (nan(D), nan(D), nan(D)))
 
 
 def test_a_signal_only_the_raw_opener_fires_is_logged_void(no_captures):
@@ -153,22 +153,24 @@ def test_a_pick_that_exists_only_under_the_validated_open_is_not_on_record(no_ca
 def test_a_raw_signal_whose_validated_pair_fails_the_sanity_filter_is_void(no_captures):
     # McMillen / Montes 2026-07-18: raw +125/-145 fired FLIP; the "corrected"
     # pair -116/+141 sums to 0.95 and fails [1.00, 1.12]. Logged VOID, not lost.
-    D = frame(event_date="2026-07-18", p_model_a=0.70, a_open=1.86, b_open=2.41,
-              a_open_raw=2.25, b_open_raw=1.69)
-    D["ok_val"] = (1 / D.a_open + 1 / D.b_open).between(1.0, 1.12)
-    D["ok_raw"] = (1 / D.a_open_raw + 1 / D.b_open_raw).between(1.0, 1.12)
-    assert not bool(D.ok_val.iloc[0]) and bool(D.ok_raw.iloc[0])
-    B = bs.run(D)
+    B = bs.run(frame(event_date="2026-07-18", p_model_a=0.70, a_open=1.86, b_open=2.41,
+                     a_open_raw=2.25, b_open_raw=1.69))
     assert len(B) == 1 and B.iloc[0].reason == bs.VOID_SUSPECT and B.iloc[0].rule == "FLIP"
     assert int(B.iloc[0].live) == 1 and len(bs.counted(B)) == 0
 
 
-def test_debut_rule_makes_an_unprojectable_bout_live_zero(no_captures):
+def test_debut_rule_leaves_no_row_for_a_bout_with_a_debutant(no_captures):
+    """Ruled 2026-10-22: a bout one of whose fighters has no UFC bout before
+    the event is not projectable; it gets no ledger row at all (until then
+    such rows were kept as live=0)."""
     live = bs.run(frame(event_date="2026-10-24", open_suspect=0, a_open_raw=6.96,
                         b_open_raw=1.1176, p_model_a=0.05))
     debut = bs.run(frame(event_date="2026-10-24", open_suspect=0, a_open_raw=6.96,
-                         b_open_raw=1.1176, p_model_a=0.05, projectable=False))
+                         b_open_raw=1.1176, p_model_a=0.05, known_b=False, projectable=False))
     assert bs.is_live("2026-10-24")                     # the card itself is live
-    assert int(live.iloc[0].live) == 1 and int(debut.iloc[0].live) == 0
-    # placement is untouched by the flag
-    assert (live.iloc[0].placed, live.iloc[0].stake_u) == (debut.iloc[0].placed, debut.iloc[0].stake_u)
+    assert len(live) == 1 and int(live.iloc[0].live) == 1
+    assert len(debut) == 0
+    # the known flags decide, not the projectable column
+    debut2 = bs.run(frame(event_date="2026-10-24", open_suspect=0, a_open_raw=6.96,
+                          b_open_raw=1.1176, p_model_a=0.05, known_a=False))
+    assert len(debut2) == 0

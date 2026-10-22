@@ -15,6 +15,11 @@ bfo_joined.csv carries the validated opens (a_open / b_open, see
 scrape_bfo.validated_open) plus open_suspect and the raw first ticks
 (a_open_raw / b_open_raw) so betting_system can tell a signal that only the
 suspect opener would have fired.
+
+Name joins fail loud from names.NAME_JOIN_STRICT_FROM (2026-10-22) on: a BFO
+bout that matches no fights_v2 bout although one of its names is a fighter
+of a bout that day and the other is a near-miss of the opponent raises
+names.NameJoinError. Earlier rows keep the old silent behaviour (see names.py).
 """
 from __future__ import annotations
 
@@ -82,6 +87,20 @@ def join_bfo():
             c = near[near[k] == r[k]]
             if len(c):
                 break
+        if len(c) == 0 and r.event_date >= pd.Timestamp(names.NAME_JOIN_STRICT_FROM):
+            # fail-loud name join (ruled 2026-10-22): a BFO bout that matched
+            # nothing although one name is a fighter of a bout that day and
+            # the other is a spelling near-miss of the opponent is an error,
+            # never a silent gap; aliases are added by hand (names.py)
+            for _, x in near.iterrows():
+                hit = names.near_miss_pair(r.fighter1, r.fighter2, x.fighter_a, x.fighter_b)
+                if hit:
+                    miss, cand, ratio = hit
+                    raise names.NameJoinError(
+                        f"clv_eval: BFO '{miss}' ({r.fighter1} / {r.fighter2}, "
+                        f"{r.event_date.date()}) matched nothing but is {ratio:.2f} to "
+                        f"'{cand}' in fights_v2. Add the row '{miss},{cand}' to "
+                        f"data/name_aliases.csv if it is the same person, '{miss},' if not.")
         if len(c) == 1:
             c = c.iloc[0]
             f1a = any(bfn(r.fighter1, h) == fn(c.fighter_a, h) for _, fn, bfn, h in KEYS)

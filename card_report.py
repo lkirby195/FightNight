@@ -25,6 +25,13 @@ not yet have are projected too -- in their own Stage 2 frame, so the BFO
 bouts' projections are what they would be without them -- with the BFO
 columns blank and "no BFO line" in the signal column: no signal can fire
 without a BFO open.
+
+Signals are decided by signals.classify, the one signal path this report
+shares with the ledger (betting_system.py) and the site (site/build.py): the
+frozen rule, the pre-filter, the pick'em tie-break, the debut rule and the
+placement stake live there, not here. Names resolve through
+names.make_resolver: a spelling near-miss raises NameJoinError (never
+guessed), a fighter not on file is a debut (no projection, no signal).
 """
 from __future__ import annotations
 
@@ -45,9 +52,8 @@ import engine
 import features
 import polymarket
 import stage2
-from betting_system import (FLIP_CONF, GAP_PTS, SKIP_LINE_MAX, VOID_SUSPECT, am as am_dec,
-                            amp as amp_prob, stake_units)
-from names import bfo_norm, make_finder, norm
+import signals as sg
+from names import bfo_norm, make_resolver, norm
 from scrape_bfo import bout_summary, fetch, ggd
 
 PASSC = ["d_ss_acc", "d_ss_def", "d_td_acc", "d_td_def", "d_ctrl15",
@@ -250,13 +256,16 @@ def pm_lookup(bouts, ev_date_s, future):
     return by_mu, extra
 
 
-def project(items, find, snap, model, ev_date_s):
+def project(items, resolve, snap, model, ev_date_s):
     """items: (key, name1, name2) -> (preds {key: P(name1)}, rds {key: (rd1, rd2)},
     ids {key: (id1, id2)}) for the items whose fighters both resolve. One
-    Stage 2 frame per call (build_matrix centres two terms per frame)."""
+    Stage 2 frame per call (build_matrix centres two terms per frame).
+    resolve (names.make_resolver) raises NameJoinError on a spelling
+    near-miss; a bout with a fighter not on file is a debut and is skipped
+    (signals.classify: projectable=False, reason "debut")."""
     rows, keys, rds, ids = [], [], {}, {}
     for key, n1, n2 in items:
-        i1, i2 = find(n1), find(n2)
+        i1, i2 = resolve(n1, n2)
         if not (i1 and i2):
             continue
         ids[key] = (i1, i2)
@@ -279,76 +288,47 @@ def project(items, find, snap, model, ev_date_s):
     return dict(zip(keys, (float(x) for x in p))), rds, ids
 
 
-def eval_rule(p, o1, o2):
-    """The betting_system rule at one opening pair -> (rule, picked_is_f1,
-    conf) or None (pre-filter, FLIP, GAP; the frozen constants)."""
-    if not 1.0 <= 1 / o1 + 1 / o2 <= 1.12:
-        return None                             # odds-sanity pre-filter
-    mkt1, mod1 = (1 / o1) >= (1 / o2), p >= .5
-    conf = p if mod1 else 1 - p
-    gap = float(am_dec(o1 if mkt1 else o2)) - float(amp_prob(p if mkt1 else 1 - p))
-    if mkt1 != mod1 and conf >= FLIP_CONF:
-        return "FLIP", mod1, conf
-    if mkt1 == mod1 and gap >= GAP_PTS:
-        return "GAP", mod1, conf
-    return None
-
-
 def signals(bouts, preds, rds, future):
-    """mu -> signal for every projected bout the rule fires on at the
-    validated open, with the placement policy v1 stake (stake_units) next to
-    it. The stake's line is the price the ledger will settle at: the earliest
-    capture on file for the bout, else the current line for a future card
-    (this run's capture), else open. A suspect-opener bout where only the
-    raw first tick fires gets a VOID entry (tag "void: suspect opener",
-    stake 0): logged, never bet."""
+    """mu -> signal entry for every projected bout signals.classify fires on,
+    with the placement policy v1 stake next to it. The price of record the
+    stake is sized at: the earliest capture on file for the bout, else the
+    current line for a future card (this run's capture), else the open. A
+    suspect-opener bout where only the raw first tick fires gets a VOID entry
+    (tag "void: suspect opener", stake 0): logged, never bet. Every field
+    comes from the Decision; nothing is decided here."""
     cap = earliest_capture()
     out = {}
     for b in bouts:
         if b["mu"] not in preds:
             continue
-        p = preds[b["mu"]]
         rd1, rd2 = rds[b["mu"]]
-        hit = eval_rule(p, b["f1_open"], b["f2_open"])
-        if hit:
-            rule, mod1, conf = hit
-            rd_self, rd_opp = (rd1, rd2) if mod1 else (rd2, rd1)
-            c = cap.get(b["mu"])
-            if c is not None:
-                dec = c[0] if mod1 else c[1]
-            elif future:
-                dec = b["f1_close"] if mod1 else b["f2_close"]
-            else:
-                dec = b["f1_open"] if mod1 else b["f2_open"]
-            line = int(round(float(am_dec(dec))))
-            u = stake_units(rd_self, rd_opp, line)
-            if u > 0:
-                tag = f"{u:.2f}u"
-            elif line > SKIP_LINE_MAX:
-                tag = f"skip: {line:+d}"
-            else:
-                tag = "skip: both unknown"
-            opn = int(round(float(am_dec(b["f1_open"] if mod1 else b["f2_open"]))))
-            out[b["mu"]] = dict(rule=rule, who=b["f1"] if mod1 else b["f2"], conf=conf,
-                                opn=opn, line=line, rd_self=rd_self, rd_opp=rd_opp,
-                                tag=tag, stake=u, void=False)
-        elif b.get("open_suspect"):
-            raw = eval_rule(p, b["f1_open_raw"], b["f2_open_raw"])
-            if raw:
-                rule, mod1, conf = raw
-                rd_self, rd_opp = (rd1, rd2) if mod1 else (rd2, rd1)
-                opn = int(round(float(am_dec(b["f1_open_raw"] if mod1 else b["f2_open_raw"]))))
-                out[b["mu"]] = dict(rule=rule, who=b["f1"] if mod1 else b["f2"], conf=conf,
-                                    opn=opn, line=opn, rd_self=rd_self, rd_opp=rd_opp,
-                                    tag=VOID_SUSPECT, stake=0.0, void=True)
+        c = cap.get(b["mu"])
+        if c is not None:
+            dec1, dec2 = c
+        elif future:
+            dec1, dec2 = b["f1_close"], b["f2_close"]
+        else:
+            dec1 = dec2 = None
+        d = sg.classify(preds[b["mu"]], b["f1_open"], b["f2_open"], rd1, rd2,
+                        o1_raw=b.get("f1_open_raw"), o2_raw=b.get("f2_open_raw"),
+                        open_suspect=bool(b.get("open_suspect")), dec1=dec1, dec2=dec2)
+        if d.rule is None:
+            continue
+        mod1 = d.side == 1
+        tag = sg.VOID_SUSPECT if d.void else (f"{d.stake:.2f}u" if d.placed else d.skip)
+        out[b["mu"]] = dict(rule=d.rule, who=b["f1"] if mod1 else b["f2"], conf=d.conf,
+                            opn=d.open_line, line=d.line,
+                            rd_self=rd1 if mod1 else rd2, rd_opp=rd2 if mod1 else rd1,
+                            tag=tag, stake=d.stake, void=d.void, decision=d)
     return out
 
 
 def main(slug, ev_date_s):
     ev_date = date.fromisoformat(ev_date_s)
     eng, car, meta = build_states(ev_date)
-    # BFO name -> fighter id: aliases, suffix strip, exact / joined / fuzzy (names.py)
-    find = make_finder((fid, fo.name) for fid, fo in eng.fighters.items())
+    # BFO name -> fighter id: aliases, suffix strip, exact / joined (names.py);
+    # a near-miss raises NameJoinError, a fighter not on file is a debut
+    resolve = make_resolver((fid, fo.name) for fid, fo in eng.fighters.items())
 
     def snap(fid):
         fo = eng.fighters[fid]
@@ -368,10 +348,10 @@ def main(slug, ev_date_s):
     pm_by_mu, pm_extra = pm_lookup(bouts, ev_date_s, future)
     model = fit_model()
     preds, rds, ids = project([(b["mu"], b["f1"], b["f2"]) for b in bouts],
-                              find, snap, model, ev_date_s)
+                              resolve, snap, model, ev_date_s)
     keep = [b for b in bouts if b["mu"] in preds]
     xpreds, _, xids = project([(r["slug"], r["outcomes"][0], r["outcomes"][1])
-                               for r in pm_extra], find, snap, model, ev_date_s)
+                               for r in pm_extra], resolve, snap, model, ev_date_s)
 
     # results if the event is in our data: by fighter id where both sides were
     # found (spelling-proof: "Dooho Choi" vs BFO "Doo Ho Choi"), else by name pair
@@ -461,7 +441,7 @@ def print_signals(sig):
     void = [s for s in sig.values() if s["void"]]
     placed = sum(1 for s in live if s["stake"] > 0)
     print()
-    print(f"signals at open (FLIP >= {FLIP_CONF:.2f} / GAP >= {GAP_PTS} pts): {len(live)}"
+    print(f"signals at open (FLIP >= {sg.FLIP_CONF:.2f} / GAP >= {sg.GAP_PTS} pts): {len(live)}"
           f"  placed (policy v1): {placed}" + (f"  void: {len(void)}" if void else ""))
     for s in live + void:
         print(f"  {s['rule']:4s} {s['who']:28s} {s['conf']:.0%}  open {s['opn']:+d}  "

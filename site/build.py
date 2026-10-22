@@ -47,9 +47,10 @@ from sklearn.preprocessing import StandardScaler
 import card_report as cr
 import names
 import engine
+import signals as sg
 import stage2
-from betting_system import (FLIP_CONF, GAP_PTS, RAMP_HI, RAMP_LO, SKIP_LINE_MAX,
-                            UNKNOWN_RD, is_live, stake_units)
+from betting_system import is_live
+from signals import FLIP_CONF, GAP_PTS, RAMP_HI, RAMP_LO, SKIP_LINE_MAX, UNKNOWN_RD
 from replay_check import apply_params
 
 BRAND = "SPLIT DECISION"
@@ -233,6 +234,14 @@ class Model:
         names.make_finder, the same resolution as card_report.main."""
         eng, _, _ = self.states(ev)
         return names.make_finder((fid, fo.name) for fid, fo in eng.fighters.items())
+
+    def resolver(self, ev: date):
+        """resolve(bfo_name1, bfo_name2) -> (fighter_id, fighter_id) over the
+        fighters with a bout before `ev`: names.make_resolver, the same
+        resolution as card_report.main (a near-miss raises NameJoinError, a
+        fighter not on file is a debut)."""
+        eng = self.states(ev)[0]
+        return names.make_resolver((fid, fo.name) for fid, fo in eng.fighters.items())
 
 
 # ------------------------------------------------------------------ inputs --
@@ -419,20 +428,16 @@ def pick_of(p1: float, n1: str, n2: str):
     return f"{surname(n2)} {pct(1 - p1)}%", n2, False
 
 
-def signal_at_open(p1: float, o1: float, o2: float):
-    """betting_system rule at the opening line -> (rule, picked_is_f1) or None."""
-    if not 1.0 <= 1 / o1 + 1 / o2 <= 1.12:
-        return None
-    mkt1, mod1 = (1 / o1) >= (1 / o2), p1 >= .5
-    conf = p1 if mod1 else 1 - p1
-    am = lambda d: (d - 1) * 100 if d >= 2 else -100 / (d - 1)
-    amp = lambda q: -100 * q / (1 - q) if q >= .5 else 100 * (1 - q) / q
-    gap = am(o1 if mkt1 else o2) - amp(p1 if mkt1 else 1 - p1)
-    if mkt1 != mod1 and conf >= FLIP_CONF:
-        return "FLIP", mod1
-    if mkt1 == mod1 and gap >= GAP_PTS:
-        return "GAP", mod1
-    return None
+def decide(p1: float, o1: float, o2: float, rd1: float, rd2: float, dec1: float,
+           dec2: float, raw=None):
+    """signals.classify for one this-week bout (the one signal path): P(f1),
+    validated opens, pre-fight RDs, the first capture's prices as the price of
+    record and, when bfo_lines has the row, its raw opener and open_suspect.
+    A VOID entry (fires only against a suspect raw tick) is no bet here."""
+    o1_raw, o2_raw, suspect = raw or (None, None, False)
+    d = sg.classify(p1, o1, o2, rd1, rd2, o1_raw=o1_raw, o2_raw=o2_raw,
+                    open_suspect=suspect, dec1=dec1, dec2=dec2)
+    return None if (d.rule is None or d.void) else d
 
 
 def build_this_week(data: Data, model: Model):
@@ -445,13 +450,13 @@ def build_this_week(data: Data, model: Model):
     ev_date = future[0]
     ev = data.capture_events[ev_date]
     d = date.fromisoformat(ev_date)
-    find = model.finder(d)
+    resolve = model.resolver(d)
     eng = model.states(d)[0]
     disp = lambda fid, bfo_name: eng.fighters[fid].name if fid else bfo_name
     bouts, proj_in = [], []
     for mu in ev["mus"]:
         first, last = data.captures[mu][0], data.captures[mu][-1]
-        i1, i2 = find(first["fighter1"]), find(first["fighter2"])
+        i1, i2 = resolve(first["fighter1"], first["fighter2"])
         b = dict(mu=mu, f1=disp(i1, first["fighter1"]), f2=disp(i2, first["fighter2"]),
                  i1=i1, i2=i2, first=first, last=last, main=not bouts)
         if i1 and i2:
@@ -484,14 +489,16 @@ def build_this_week(data: Data, model: Model):
             print(f"  ! no opening line in bfo_lines.csv for mu {b['mu']} "
                   f"{f1} vs {f2}: using the earliest capture as open")
             o1, o2 = float(b["first"]["f1_line"]), float(b["first"]["f2_line"])
-        sig = signal_at_open(p1, o1, o2)
+        raw = None
+        if bf and bf.get("f1_open_raw") not in (None, ""):
+            raw = (float(bf["f1_open_raw"]), float(bf["f2_open_raw"]),
+                   str(bf.get("open_suspect", "0")) == "1")
+        dec = decide(p1, o1, o2, rd1, rd2, float(b["first"]["f1_line"]),
+                     float(b["first"]["f2_line"]), raw)
         rule, stake, line, rd_self, rd_opp = None, 0.0, None, None, None
-        if sig:
-            rule, mod1 = sig
-            line_dec = float(b["first"]["f1_line"] if mod1 else b["first"]["f2_line"])
-            line = american(line_dec)
+        if dec:
+            rule, mod1, line, stake = dec.rule, dec.side == 1, dec.line, dec.stake
             rd_self, rd_opp = (rd1, rd2) if mod1 else (rd2, rd1)
-            stake = round(stake_units(rd_self, rd_opp, line), 2)
         if stake > 0:
             n_bets += 1
             stakes.append(stake)
