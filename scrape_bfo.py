@@ -6,10 +6,12 @@ of (timestamp_ms, decimal_odds) for the cross-book mean line.
 
 First tick = opening line, last tick = closing line.
 
-The event date is the schema.org SportsEvent "startDate" in the event page's
-JSON-LD, never the sitemap <lastmod>: BFO serves one event under several
-alias slugs whose lastmods differ (UFC 331 landed on three dates that way),
-and lastmod runs a day late on many cards. A page with no parseable date
+The event date comes from the event page, never the sitemap <lastmod>: BFO
+serves one event under several alias slugs whose lastmods differ (UFC 331
+landed on three dates that way), and lastmod runs a day late on many cards.
+It is the schema.org SportsEvent "startDate" in the page's JSON-LD when the
+page carries one, else the "on <Month D, YYYY>" of the meta description
+(pages served since October 2026 have no JSON-LD). A page with neither
 raises ValueError(slug) and the event is skipped, loudly.
 
 Polite: 0.45s spacing, disk cache (cache_bfo/), resumable. Incremental by
@@ -103,21 +105,49 @@ def ufc_event_slugs():
 # from the sitemap lastmod. Pinned by tests/test_scrape_bfo.py against a saved
 # copy of the UFC 331 page.
 DATE_RE = re.compile(r'"startDate":\s*"(\d{4}-\d{2}-\d{2})"')
+# Fallback, pages served since 2026-10 (no JSON-LD anywhere on the page):
+#     <meta name="description" content="Compare betting odds for UFC 333 on
+#     October 24, 2026. ...">
+# On every cached page that carries both, the two dates agree. A page whose
+# JSON-LD startDate is present but unparseable is still an error, not a
+# fallback: the field decides whenever it is there.
+MONTHS = ("January|February|March|April|May|June|July|August|September|"
+          "October|November|December")
+META_DATE_RE = re.compile(r'<meta name="description" content="[^"]*?\bon '
+                          r'((?:' + MONTHS + r') \d{1,2}, \d{4})')
+
+
+def page_date(html: str):
+    """-> ISO event date read from an event page, or None. JSON-LD startDate
+    when the page has the field (and None if it does not parse), else the
+    meta description's "on <Month D, YYYY>"."""
+    if '"startDate"' in html:
+        m = DATE_RE.search(html)
+        if not m:
+            return None
+        try:
+            return datetime.strptime(m.group(1), "%Y-%m-%d").date().isoformat()
+        except ValueError:
+            return None
+    m = META_DATE_RE.search(html)
+    if not m:
+        return None
+    try:
+        return datetime.strptime(m.group(1), "%B %d, %Y").date().isoformat()
+    except ValueError:
+        return None
 
 
 def parse_event(slug: str):
     """-> (title, event_date ISO, bouts) from the BFO event page. Raises
-    ValueError(slug) when the page carries no parseable event date."""
+    ValueError(slug) when the page carries no parseable event date
+    (page_date: JSON-LD startDate, else the meta description)."""
     html = fetch(f"{BASE}/events/{slug}")
     soup = BeautifulSoup(html, "lxml")
     title = soup.title.get_text(strip=True) if soup.title else ""
-    m = DATE_RE.search(html)
-    if not m:
+    ev_date = page_date(html)
+    if ev_date is None:
         raise ValueError(slug)              # no date on the page: never guess
-    try:
-        ev_date = datetime.strptime(m.group(1), "%Y-%m-%d").date().isoformat()
-    except ValueError:
-        raise ValueError(slug) from None
     bouts = []
     for tr in soup.select("tr[id^=mu-]"):
         mid = tr["id"].split("-")[1]
@@ -157,13 +187,16 @@ def main(start_year=2022, end_year=2027):
     out_path = "data/bfo_lines.csv"
     done = set()
     if os.path.exists(out_path):
-        with open(out_path) as fh:
+        with open(out_path, encoding="utf-8") as fh:
             done = {r["mu"] for r in csv.DictReader(fh)}
     slugs = ufc_event_slugs()
     print(f"UFC events in sitemap: {len(slugs)}", flush=True)
     mode = "a" if done else "w"
     n_done = 0
-    with open(out_path, mode, newline="") as fh:
+    # UTF-8 explicitly: event titles carry an en dash since 2026-10 ("UFC
+    # Vegas 121 Odds - Sep 26, 2026"), which the Windows default code page
+    # would write as a byte pandas cannot decode.
+    with open(out_path, mode, newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLS, extrasaction="ignore")
         if not done:
             w.writeheader()
