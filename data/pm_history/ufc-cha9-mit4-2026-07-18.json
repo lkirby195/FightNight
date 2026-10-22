@@ -1,0 +1,19 @@
+{
+"slug": "ufc-cha9-mit4-2026-07-18",
+"market_id": "2799898",
+"event_date": "2026-07-18",
+"fighter_a": "Chase Hooper",
+"fighter_b": "Mitch Ramirez",
+"outcomes": [
+"Chase Hooper",
+"Mitch Ramirez"
+],
+"clob_token_ids": [
+"97640694956043406387128742722976733729538191401538480420996996978587459979341",
+"27716321085065658570279379128617264218785822882513583228656183066806490731388"
+],
+"history": {
+"Chase Hooper": [],
+"Mitch Ramirez": []
+}
+}

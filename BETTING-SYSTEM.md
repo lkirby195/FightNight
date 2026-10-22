@@ -81,7 +81,8 @@ Of the 30 signals of 2026, 18 are placed: 14-4, staked 14.3u, +6.1u. Skips:
 - Inputs: `data/model_only_preds.csv` (walk-forward model, trained strictly on
   prior years), `data/bfo_joined.csv` (BFO open/close per fight), `data/fights_v2.csv`.
 - Pre-filter: skip bouts whose opening implied-probability sum is outside
-  [1.00, 1.12] (odds sanity).
+  [1.00, 1.12] (odds sanity). The opening pair is the validated open (see
+  "Opener validity").
 - One bet per qualifying bout, on the model's pick. The sim settles at that
   side's opening decimal price; live bets with a captured placeable line settle
   there instead (see "Placeable vs open"). P&L is in units; 1u = $100 in the
@@ -170,7 +171,7 @@ code and regenerate. Columns:
 ```
 event_date, event, fight_id, fighter, rule, live, units, rd_self, rd_opp,
 placed, stake_u, pnl_placed, open_line, placeable_line, clean_close, clv_pts,
-result, method, round, pnl, pnl_at_open
+result, method, round, pnl, pnl_at_open, reason, pm_p_at_capture
 ```
 
 `open_line` / `placeable_line` / `clean_close` are American odds for the side
@@ -184,7 +185,10 @@ present and at `open_line` otherwise; `pnl_at_open` is the open-line
 settlement for every row. `rd_self` / `rd_opp` are the pre-fight RDs of the
 backed fighter and the opponent, and `placed` / `stake_u` / `pnl_placed` the
 placement-policy decision and its P&L (see "Placement policy v1"); `method` /
-`round` are the bout's finish from `fights_v2.csv`.
+`round` are the bout's finish from `fights_v2.csv`. `reason` is empty on
+every settled row and names the void reason on a VOID row (see "VOID rows");
+`pm_p_at_capture` is the Polymarket price of the backed side at the earliest
+capture, on placed rows whose capture recorded one (see "Polymarket").
 
 The ledger only covers bouts present in `data/model_only_preds.csv` and
 `data/bfo_joined.csv`; cards scraped after the last `clv_eval.py` run are not in
@@ -225,6 +229,211 @@ the record; not the system described here.
 The rule constants are untouched (`FLIP_CONF`, `FLIP_UNITS`, `GAP_PTS`,
 `GAP_UNITS`).
 
+## One signal path (2026-10-22)
+
+Every decision a signal needs is made in `signals.py`, by one function:
+
+```
+signals.classify(p1, o1, o2, rd1, rd2, known1=, known2=,
+                 o1_raw=, o2_raw=, open_suspect=, dec1=, dec2=)
+    -> Decision(projectable, reason, rule, side, conf, gap_pts,
+                open_line, line, stake, skip, void)
+```
+
+`card_report.py` (and `card_settle.py` through it), `betting_system.py
+--write-ledger` and `site/build.py` all call it; none of them carries a
+threshold, a tie-break, a debut test or a stake rule of its own, and the
+constants (`FLIP_CONF`, `GAP_PTS`, the units, the pre-filter band, the
+policy-v1 skips and ramp, `VOID_SUSPECT`) are defined once there with their
+freeze dates. `tests/test_signal_path.py` runs the report path and the
+ledger path over one card, in both fighter orientations, and asserts the
+same signal, label and stake on every bout; it is the permanent guard.
+Before this the report and the ledger each had their own copy of the rule
+and disagreed on one real bout (see "Pick'em tie-break").
+
+## Opener validity (2026-09-30, final 2026-10-01)
+
+"The opening line" is BestFightOdds' first tick of the cross-book mean line.
+Occasionally that first tick is a data-entry slip the book corrects within
+minutes: Demopoulos / Jauregui (UFC Vegas 121, 2026-09-26) opened -850 / +596
+at 22:28 UTC and was +596 / -850 eight minutes later, sides swapped. A signal
+measured against a price nobody could bet is not a signal, so every consumer
+of the series (`scrape_bfo.py`, `card_report.py`, `card_settle.py`,
+`clv_eval.py`, `betting_system.py`) reads one validated open from
+`scrape_bfo.validated_open`:
+
+```
+open = the bout's first paired tick (both sides' price at the first instant
+       both have one),
+UNLESS the next paired tick lands within 60 minutes of it and moves either
+       side by more than 40 implied-probability points: then THAT pair is
+       the open and the bout is open_suspect = 1.
+```
+
+The check is paired, not per side, because BFO moves both sides at the same
+instants and a bettor sees a book, not a side; the open is always a pair
+that was on the board together. An even-money-crossing test ("the next tick
+crosses even money, or moves more than 40 points") was tried first and
+rejected on 2026-10-01: it flagged 687 of 7,974 bouts (8.6%, 60 in 2026),
+almost all of them BFO placeholder openers (-110 / -110, -526 / -526)
+replaced by the real line minutes later and small moves that happen to
+cross pick'em (Perez / Dumont -200 / +169 to -106 / -110, 15 points a
+side); applied historically it had voided three placed live wins and added
+two live signals that were never on record. The 40-point test keeps the
+data-entry slips (side swaps such as Jauregui's 75-point move, -526 / -526
+placeholders) and nothing else.
+
+`data/bfo_lines.csv` carries `open_suspect` and the raw first ticks
+(`f1_open_raw`, `f2_open_raw`) next to the validated opens; `bfo_joined.csv`
+carries `open_suspect`, `a_open_raw`, `b_open_raw`. The pre-filter and both
+rules evaluate at the validated open. `python scrape_bfo.py 2010 2027
+--rebuild` rewrites every row from the cached tick series and lists every
+flagged bout. Closing lines, CLV and the frozen rule constants are untouched;
+the rule did not change, the price it is measured against did.
+
+At the switch (7,974 bouts 2010-2026): 13 bouts flagged -- seven side
+swaps corrected within minutes (Tuchscherer / Hunt 2011, Belcher /
+Macdonald 2011, Cope / Brown 2012, Boetsch / Okami 2012, Oliveira / Swanson
+2012, Madge / Edwards 2018, Almeida / Abdurakhimov 2022), five 2026
+placeholder openers (-526 / -526 or -500 / +375 replaced by the real line:
+Nascimento / Raposo, Filho / Rocha, Gantt / Ogden, Janicic / Gugnon,
+Johnson / Ochoa) and Demopoulos / Jauregui 2026-09-26. No bout changed
+pre-filter status. Three ledger rows became VOID: Okami 2012-02-25 and
+Oliveira 2012-09-22 (backfilled) and Jauregui 2026-09-26 (live). No signal
+was added or changed otherwise.
+
+## VOID rows
+
+A ledger row with `reason` set is VOID: it is logged so the record shows what
+the rule would have fired on, and it is never settled, placed or counted.
+`units`, `pnl`, `pnl_at_open`, `placed`, `stake_u` and `pnl_placed` are 0 and
+`result` is `VOID`; no summary block counts it (each prints a `VOID (not
+counted)` line instead). Reasons:
+
+- `void: suspect opener` -- a signal that fires only against the raw first
+  tick of an `open_suspect` bout and not at the validated open. `open_line`
+  is the raw price it fired on. First instance: FLIP Yazmin Jauregui at the
+  raw +596 (UFC Vegas 121); at the validated -850 nothing fires. She won;
+  the void stands, because the +596 was never on the board.
+
+Off-card bouts (withdrawals BFO keeps listed; `card_report.OFF_CARD`) are the
+other kind of exclusion: dropped before the table, the signals and the
+capture, so they never reach the ledger at all.
+
+## Debut rule (ruled 2026-10-22)
+
+A bout is projectable only if BOTH fighters are in `data/fighters_v2.csv`
+with at least one UFC bout dated before the event. Otherwise
+`signals.classify` returns `projectable = False, reason = "debut"`: no
+projection, no signal, no ledger row, no pick -- on the card report, in the
+ledger and on the site alike. The test is decided from the data
+(`signals.first_bout_dates` over `fights_v2.csv`; `card_report` resolves
+names only against fighters with a bout before the card), never from a
+per-bout list. A debutant has no pre-event state: the model's number for
+such a bout is a guess, and no pick on it could have been on record.
+
+It supersedes the 2026-09-30 live-flag debut rule, which kept such rows as
+`live = 0`. Applied retroactively (2026-10-22) it removed 139 rows from the
+ledger (2012-2026; 31 of them placed, +2.8u placed, -14.2u at flat 1u), the
+four 2026 live rows among them: Nathaniel Wood (vs Keita, 2026-03-21, placed
+1.00u, WIN +1.30u), Robert Ruchala (2026-04-04, LOSS), Felipe Franco (vs
+Rodrigues Jr., 2026-07-18, WIN, unplaced) and Saygid Izagakhmaev (2026-07-25,
+LOSS), and Khaos Williams (vs Soldic, UFC 332, placed 1.00u, LOSS,
+backfilled). FULL SIM went from 539 to 396 counted bets.
+
+## Pick'em tie-break (ruled 2026-10-22)
+
+At equal opening prices the market has no favourite, so the pick cannot
+"flip" it: the GAP test applies to the pick's side (`signals.rule_at`). Until
+then the label at a tie depended on which fighter was listed first (BFO's
+order on the report, UFC Stats' winner-first order in the ledger): Price /
+Shahbazyan 2026-10-10, -110 / -110, model 81% on Price, was FLIP on the
+report and GAP in the ledger. Both paths now say GAP. Retroactively: 4
+backfilled rows left the set (pick'em FLIPs at 65-68% that do not clear 100
+points: Sanchez 2016-07-09, Sterling 2017-01-28, Bravo 2019-09-21, Day
+2020-07-11, all losses) and 3 were relabelled FLIP -> GAP (Vick 2018-08-25,
+De La Rosa 2020-09-05, Luque 2026-08-15, all losses, all backfilled). No
+live row changed.
+
+## Name joins fail loud (ruled 2026-10-22)
+
+`names.make_resolver` resolves a BFO bout's two names together. Exact
+normalised match and the joined form only; the fuzzy auto-accept (same
+surname, same first three letters) is gone. When one name resolves and the
+other does not, and the other is within `names.NEAR_MISS` (difflib 0.85) of
+a fighter on file, `NameJoinError` stops the run and prints the candidate:
+a spelling miss is never guessed and never silently printed as a debut
+(UFC 333: BFO "Lasmin Lucindo" vs "Nicolle Caliari" printed `debut-no proj`
+with both on file). When neither name resolves, the bout is a likely debut
+and the debut rule applies without error. Aliases are added by hand in
+`data/name_aliases.csv`; a row with an empty `ufcstats_name` marks a BFO
+name as a different person from any near-miss (a debutant sharing a
+surname). `clv_eval.join_bfo` applies the same test to BFO bouts dated on or
+after `names.NAME_JOIN_STRICT_FROM` (2026-10-22); 60 earlier BFO rows that
+never joined are spelling misses by this test (Cattar / Kattar, Curelaba /
+Cutelaba, Oliynyk / Oleinik, Waterson / Waterson Gomez, ...) and keep
+failing silently, because adding their aliases would change the backfilled
+record -- a separate decision.
+
+## Live-flag on-record rule (2026-09-30)
+
+A live row must have been on record before the fight. Cards reported before
+`OPEN_RULE_FROM` (2026-09-30) were evaluated pre-event at the raw first tick,
+so on those cards a `live = 1` signal must also fire at the raw opener for
+the same pick (`betting_system.raw_fired`); a signal that exists only under
+the validated open there was never on record and is `live = 0`. From
+2026-09-30 `card_report.py` itself evaluates the validated open, so the test
+is moot. VOID rows keep their date-based flag (they were on record; they are
+just not counted). Under the 40-point rule no row is affected by this test
+(the rejected crossing test would have added two); it stays as the guard.
+
+Live record after the 2026-10-22 rulings (one signal path, debut rule,
+pick'em tie-break), `python betting_system.py all` (data through 2026-10-17):
+
+```
+LIVE RECORD (all): 25 bets  19-6  staked 25u  P&L (placeable) +9.7u ($+972)  ROI +38.9%  t=2.29
+    P&L (open) +10.6u ($+1,060)  ROI +42.4%  t=2.41
+    FLIP: 12 bets  7-5  ROI +24.8%
+    GAP: 13 bets  12-1  ROI +51.9%
+PLACED (policy v1): 16 placed of 25 signals  13-3  staked 12.5u  P&L +5.7u ($+567)  ROI +45.4%  t=2.22
+    FLIP: 6 placed  4-2  ROI +48.8%
+    GAP: 10 placed  9-1  ROI +43.2%
+```
+
+Against the record on main before them (29 bets 21-8 +9.9u, placed 17 of 29
+14-3 +7.0u) the only change is the four debut-bout rows the debut rule
+removed; every other live row is identical in every column. The one
+quotable full-sim figure: 396 bets 252-144, +81.2u at open, ROI +20.5%,
+t=4.12 (2012-2026, 3 VOID rows not counted).
+
+## Polymarket: a second price source, not a signal source
+
+`polymarket.py` reads the Polymarket moneyline for a bout (public Gamma and
+CLOB APIs, disk-cached in `cache_pm/`, 0.45 s spacing). Nothing in the
+signal rules, the placement policy or the pre-filter reads it; BestFightOdds
+remains the only price a signal is measured against.
+
+- `card_report.py` / `card_settle.py` print a `PM` column after `CLOSE`
+  (fighter1's Polymarket price as a percentage; a resolved market shows
+  0% / 100%) and the capture records `pm_p_self` (fighter1's price;
+  fighter2's is 1 minus it), `pm_liquidity` and `pm_slug` in
+  `data/placeable_lines.csv`, empty when there is no market. The ledger's
+  `pm_p_at_capture` is the backed side's price at the earliest capture, on
+  placed rows whose capture has one. Captures before 2026-09-30 carry no
+  Polymarket columns.
+- Full-card projection: for a future card, bouts Polymarket lists that BFO
+  does not yet have are projected too (their own Stage 2 frame, so the BFO
+  bouts' projections are unchanged) and printed with the BFO columns blank
+  and `no BFO line` in the signal column. No signal can fire without a BFO
+  open.
+- `python polymarket.py backfill 2026`: for every 2026 ledger bout with a
+  resolved market, both outcomes' hourly price histories go to
+  `data/pm_history/<slug>.json` and `data/pm_clv_2026.csv` records the pick's
+  price at our capture time (the earliest capture; event date 00:00 UTC
+  minus 48 h when there is none) and its last pre-fight price (the last
+  hourly point before the resolution tail), with the Polymarket CLV next to
+  the BFO CLV. Read-only on everything else.
+
 ## Live vs backfilled
 
 The `live` column separates two kinds of ledger rows.
@@ -233,7 +442,11 @@ The `live` column separates two kinds of ledger rows.
   opening price were on record before the fight. That is every card from
   2026-01 through 2026-07-25 plus the dates listed in `LIVE_CARDS` in
   `betting_system.py`. Add each new card's date there when its report is run
-  pre-event.
+  pre-event. A bout with a debutant has no row at all (the debut rule above).
+  UFC Vegas 121 (2026-09-26), UFC 332 (2026-10-03), Allen / Duncan
+  (2026-10-10) and Edmonton (2026-10-17) are backfilled: no pre-event capture
+  of theirs reached main (the Vegas 121 rows PR #6 had recovered were
+  committed after the event and were dropped as inadmissible).
 - **live = 0**: backfilled after the fact from scraped lines; the opening price
   was not obtainable at the time.
 

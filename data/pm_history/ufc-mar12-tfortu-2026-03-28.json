@@ -1,0 +1,19 @@
+{
+"slug": "ufc-mar12-tfortu-2026-03-28",
+"market_id": "1697638",
+"event_date": "2026-03-28",
+"fighter_a": "Tyrell Fortune",
+"fighter_b": "Marcin Tybura",
+"outcomes": [
+"Marcin Tybura",
+"Tyrell Fortune"
+],
+"clob_token_ids": [
+"16534753855926916877508515882365603463597058465036023095232008350612137632787",
+"697032478586589776082725989426309176406592496068113349597201576053360072017"
+],
+"history": {
+"Marcin Tybura": [],
+"Tyrell Fortune": []
+}
+}

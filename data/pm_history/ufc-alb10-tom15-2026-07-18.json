@@ -1,0 +1,19 @@
+{
+"slug": "ufc-alb10-tom15-2026-07-18",
+"market_id": "2799916",
+"event_date": "2026-07-18",
+"fighter_a": "Tommy McMillen",
+"fighter_b": "Alberto Montes",
+"outcomes": [
+"Alberto Montes",
+"Tommy McMillen"
+],
+"clob_token_ids": [
+"27949926282633415436721370817406694097187402878814686277769437448623931051328",
+"52140870206027738526890435640124932604054953841384729897731682291860773871957"
+],
+"history": {
+"Alberto Montes": [],
+"Tommy McMillen": []
+}
+}

@@ -1,8 +1,9 @@
 """Placement policy v1 stake: ramp endpoints and both skip conditions.
-The constants are frozen (2026-09-09); these tests pin their effect."""
+The constants are frozen (2026-09-09) and live in signals.py; betting_system
+re-exports them. These tests pin their effect."""
 import pytest
 
-from betting_system import RAMP_HI, RAMP_LO, SKIP_LINE_MAX, UNKNOWN_RD, stake_units
+from signals import RAMP_HI, RAMP_LO, SKIP_LINE_MAX, UNKNOWN_RD, stake_units  # one place
 
 
 def test_ramp_endpoints():
