@@ -126,6 +126,14 @@ OFF_CARD = {
     ("2026-09-19", 44891),   # UFC 331 Ortega / Moicano: Ortega withdrew days
                              # out (suspected eye injury), Moicano moved to a
                              # later Fight Night
+    ("2026-09-26", 44970),   # UFC Vegas 121 Gall / Dumas: Gall out; Luis
+                             # Hernandez took the bout under his own matchup
+                             # id (45050), which BFO listed alongside this one
+    ("2026-09-26", 44977),   # UFC Vegas 121 Amaya / Machado: Tina Black
+                             # replaced Machado; BFO never listed the new bout
+    ("2026-10-03", 45054),   # UFC 332 Sopaj / McGhee: McGhee's original
+                             # opponent; he fought Anthony Romero (45123) and
+                             # the page kept both matchups
 }
 
 
