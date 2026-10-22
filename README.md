@@ -53,12 +53,23 @@ pipeline/card_report.py Per-event report: model %, fair line, open/close, CLV,
                         signals and the placeable capture.
 pipeline/prefight_rd.py Pre-fight RD of both fighters per bout (time-inflated,
                         public scale) -> prefight_rd.csv; placement-policy input
-pipeline/betting_system.py  KISS betting rule (flip>=65% + gap>=100pts, flat 1u)
-                        + placement policy v1 (RD ramp, both-unknown and
-                        +250 skips). Usage: betting_system.py [year|all] [--write-ledger]
-                        Signals at the validated open; VOID rows for signals
-                        only a suspect opener fires; live=1 needs both
-                        fighters on file before the event (debut rule).
+pipeline/signals.py     THE signal path: classify(bout state + line) ->
+                        Decision(projectable, reason, signal, stake). The frozen
+                        rule constants, pre-filter, pick'em tie-break, debut
+                        rule, opener validity and placement policy v1, in one
+                        place with their freeze dates. card_report, card_settle,
+                        betting_system and site/build.py all call it;
+                        tests/test_signal_path.py guards that they agree.
+pipeline/names.py       BFO -> UFC Stats name resolution: aliases
+                        (data/name_aliases.csv), suffix and hyphen rules, exact
+                        or joined match only; make_resolver fails loud on a
+                        spelling near-miss (NameJoinError), a fighter not on
+                        file is a debut
+pipeline/betting_system.py  Joins the data, runs signals.classify over every
+                        bout and settles (flip>=65% + gap>=100pts, flat 1u;
+                        placement policy v1). Usage: betting_system.py [year|all]
+                        [--write-ledger]. VOID rows for signals only a suspect
+                        opener fires; a bout with a debutant has no row.
 pipeline/polymarket.py  Polymarket moneyline per bout (second price source,
                         never a signal source): PM column + capture columns
                         in card_report; `polymarket.py backfill 2026` writes
@@ -76,17 +87,19 @@ not remove.
 ## Data
 
 ```
-data/fights_v2.csv          8,794 bouts 1994-2026, chronological bout order,
+data/fights_v2.csv          8,948 bouts 1994-2026 (through 2026-10-17), chronological bout order,
                             missed-weight flags (206 incidents)
-data/fighters_v2.csv        2,722 fighters
-data/fight_details_v2.csv   8,773 bouts: attempts, control time, strike splits
+data/fighters_v2.csv        2,773 fighters
+data/fight_details_v2.csv   8,927 bouts: attempts, control time, strike splits
 data/features_v2.csv        model-ready pre-fight features (leakage-safe)
 data/market.csv             vig-free closing probs (public odds dataset join)
-data/bfo_lines.csv          7,974 bouts: opening + closing mean lines 2010-2026;
+data/bfo_lines.csv          7,997 bouts: opening + closing mean lines 2010-2026;
                             the open is the validated open, with open_suspect
                             and the raw first ticks (f1_open_raw, f2_open_raw)
 data/bfo_joined.csv         bfo_lines joined to fights_v2 by fight_id (a/b
                             orientation), with open_suspect and a/b_open_raw
+data/name_aliases.csv       bfo_name -> ufcstats_name, hand-maintained (names.py);
+                            an empty ufcstats_name marks a distinct person
 data/model_only_preds.csv   walk-forward model-only probs (no market input)
 data/clv_eval_full.csv      per-fight CLV records
 data/walkforward.csv        per-fight loss diffs vs recalibrated close

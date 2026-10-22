@@ -229,6 +229,28 @@ the record; not the system described here.
 The rule constants are untouched (`FLIP_CONF`, `FLIP_UNITS`, `GAP_PTS`,
 `GAP_UNITS`).
 
+## One signal path (2026-10-22)
+
+Every decision a signal needs is made in `signals.py`, by one function:
+
+```
+signals.classify(p1, o1, o2, rd1, rd2, known1=, known2=,
+                 o1_raw=, o2_raw=, open_suspect=, dec1=, dec2=)
+    -> Decision(projectable, reason, rule, side, conf, gap_pts,
+                open_line, line, stake, skip, void)
+```
+
+`card_report.py` (and `card_settle.py` through it), `betting_system.py
+--write-ledger` and `site/build.py` all call it; none of them carries a
+threshold, a tie-break, a debut test or a stake rule of its own, and the
+constants (`FLIP_CONF`, `GAP_PTS`, the units, the pre-filter band, the
+policy-v1 skips and ramp, `VOID_SUSPECT`) are defined once there with their
+freeze dates. `tests/test_signal_path.py` runs the report path and the
+ledger path over one card, in both fighter orientations, and asserts the
+same signal, label and stake on every bout; it is the permanent guard.
+Before this the report and the ledger each had their own copy of the rule
+and disagreed on one real bout (see "Pick'em tie-break").
+
 ## Opener validity (2026-09-30, final 2026-10-01)
 
 "The opening line" is BestFightOdds' first tick of the cross-book mean line.
@@ -298,22 +320,60 @@ Off-card bouts (withdrawals BFO keeps listed; `card_report.OFF_CARD`) are the
 other kind of exclusion: dropped before the table, the signals and the
 capture, so they never reach the ledger at all.
 
-## Live-flag debut rule (2026-09-30)
+## Debut rule (ruled 2026-10-22)
 
-`live = 1` requires, in addition to the card date (below), that both
-fighters were in `data/fighters_v2.csv` with at least one UFC bout dated
-before the event. A debutant has no pre-event state, so `card_report.py`
-prints `debut-no proj` for the bout and no pick could have been on record
-before the fight; a ledger row on such a bout only exists because the
-backfill projects it after the fact. Rows failing the test are `live = 0`
-(`betting_system.projectable`). Nothing else about the row changes: the
-placement policy is a pure function of the other columns, so `placed`,
-`stake_u` and `pnl_placed` are as before, and the row still counts in `FULL
-SIM`. Four 2026 rows flipped when the rule went in: Nathaniel Wood (vs
-Keita, 2026-03-21, placed 1.00u, WIN +1.30u), Robert Ruchala (2026-04-04),
-Felipe Franco (vs Rodrigues Jr., 2026-07-18) and Saygid Izagakhmaev
-(2026-07-25); only Wood had been placed, so the live placed record loses
-that one win.
+A bout is projectable only if BOTH fighters are in `data/fighters_v2.csv`
+with at least one UFC bout dated before the event. Otherwise
+`signals.classify` returns `projectable = False, reason = "debut"`: no
+projection, no signal, no ledger row, no pick -- on the card report, in the
+ledger and on the site alike. The test is decided from the data
+(`signals.first_bout_dates` over `fights_v2.csv`; `card_report` resolves
+names only against fighters with a bout before the card), never from a
+per-bout list. A debutant has no pre-event state: the model's number for
+such a bout is a guess, and no pick on it could have been on record.
+
+It supersedes the 2026-09-30 live-flag debut rule, which kept such rows as
+`live = 0`. Applied retroactively (2026-10-22) it removed 139 rows from the
+ledger (2012-2026; 31 of them placed, +2.8u placed, -14.2u at flat 1u), the
+four 2026 live rows among them: Nathaniel Wood (vs Keita, 2026-03-21, placed
+1.00u, WIN +1.30u), Robert Ruchala (2026-04-04, LOSS), Felipe Franco (vs
+Rodrigues Jr., 2026-07-18, WIN, unplaced) and Saygid Izagakhmaev (2026-07-25,
+LOSS), and Khaos Williams (vs Soldic, UFC 332, placed 1.00u, LOSS,
+backfilled). FULL SIM went from 539 to 396 counted bets.
+
+## Pick'em tie-break (ruled 2026-10-22)
+
+At equal opening prices the market has no favourite, so the pick cannot
+"flip" it: the GAP test applies to the pick's side (`signals.rule_at`). Until
+then the label at a tie depended on which fighter was listed first (BFO's
+order on the report, UFC Stats' winner-first order in the ledger): Price /
+Shahbazyan 2026-10-10, -110 / -110, model 81% on Price, was FLIP on the
+report and GAP in the ledger. Both paths now say GAP. Retroactively: 4
+backfilled rows left the set (pick'em FLIPs at 65-68% that do not clear 100
+points: Sanchez 2016-07-09, Sterling 2017-01-28, Bravo 2019-09-21, Day
+2020-07-11, all losses) and 3 were relabelled FLIP -> GAP (Vick 2018-08-25,
+De La Rosa 2020-09-05, Luque 2026-08-15, all losses, all backfilled). No
+live row changed.
+
+## Name joins fail loud (ruled 2026-10-22)
+
+`names.make_resolver` resolves a BFO bout's two names together. Exact
+normalised match and the joined form only; the fuzzy auto-accept (same
+surname, same first three letters) is gone. When one name resolves and the
+other does not, and the other is within `names.NEAR_MISS` (difflib 0.85) of
+a fighter on file, `NameJoinError` stops the run and prints the candidate:
+a spelling miss is never guessed and never silently printed as a debut
+(UFC 333: BFO "Lasmin Lucindo" vs "Nicolle Caliari" printed `debut-no proj`
+with both on file). When neither name resolves, the bout is a likely debut
+and the debut rule applies without error. Aliases are added by hand in
+`data/name_aliases.csv`; a row with an empty `ufcstats_name` marks a BFO
+name as a different person from any near-miss (a debutant sharing a
+surname). `clv_eval.join_bfo` applies the same test to BFO bouts dated on or
+after `names.NAME_JOIN_STRICT_FROM` (2026-10-22); 60 earlier BFO rows that
+never joined are spelling misses by this test (Cattar / Kattar, Curelaba /
+Cutelaba, Oliynyk / Oleinik, Waterson / Waterson Gomez, ...) and keep
+failing silently, because adding their aliases would change the backfilled
+record -- a separate decision.
 
 ## Live-flag on-record rule (2026-09-30)
 
@@ -327,24 +387,24 @@ is moot. VOID rows keep their date-based flag (they were on record; they are
 just not counted). Under the 40-point rule no row is affected by this test
 (the rejected crossing test would have added two); it stays as the guard.
 
-Live record after the three 2026-09-30 rules, `python betting_system.py
-2026` (data through 2026-09-26):
+Live record after the 2026-10-22 rulings (one signal path, debut rule,
+pick'em tie-break), `python betting_system.py all` (data through 2026-10-17):
 
 ```
-LIVE RECORD (2026): 27 bets  21-6  staked 27u  P&L (placeable) +11.4u ($+1,142)  ROI +42.3%  t=2.66
-    P&L (open) +12.0u ($+1,200)  ROI +44.4%  t=2.71
+LIVE RECORD (all): 25 bets  19-6  staked 25u  P&L (placeable) +9.7u ($+972)  ROI +38.9%  t=2.29
+    P&L (open) +10.6u ($+1,060)  ROI +42.4%  t=2.41
     FLIP: 12 bets  7-5  ROI +24.8%
-    GAP: 15 bets  14-1  ROI +56.3%
-    VOID (not counted): 1 (void: suspect opener)
-PLACED (policy v1): 17 placed of 27 signals  14-3  staked 13.3u  P&L +6.2u ($+618)  ROI +46.4%  t=2.43
+    GAP: 13 bets  12-1  ROI +51.9%
+PLACED (policy v1): 16 placed of 25 signals  13-3  staked 12.5u  P&L +5.7u ($+567)  ROI +45.4%  t=2.22
     FLIP: 6 placed  4-2  ROI +48.8%
-    GAP: 11 placed  10-1  ROI +45.0%
+    GAP: 10 placed  9-1  ROI +43.2%
 ```
 
-Before them (same data) it read 31 signals 23-8, placed 18 of 31, 15-3,
-+7.5u: the debut rule removes Wood's placed win (+1.30u) and three unplaced
-rows, the opener rule voids Jauregui (never counted). Rosas (placed, +0.51u)
-and Brener (skipped) are the UFC Vegas 121 additions.
+Against the record on main before them (29 bets 21-8 +9.9u, placed 17 of 29
+14-3 +7.0u) the only change is the four debut-bout rows the debut rule
+removed; every other live row is identical in every column. The one
+quotable full-sim figure: 396 bets 252-144, +81.2u at open, ROI +20.5%,
+t=4.12 (2012-2026, 3 VOID rows not counted).
 
 ## Polymarket: a second price source, not a signal source
 
@@ -381,9 +441,12 @@ The `live` column separates two kinds of ledger rows.
 - **live = 1**: the card report was run before the event, so the pick and the
   opening price were on record before the fight. That is every card from
   2026-01 through 2026-07-25 plus the dates listed in `LIVE_CARDS` in
-  `betting_system.py`, and both fighters had a UFC bout on file before the
-  event (the debut rule above). Add each new card's date there when its
-  report is run pre-event.
+  `betting_system.py`. Add each new card's date there when its report is run
+  pre-event. A bout with a debutant has no row at all (the debut rule above).
+  UFC Vegas 121 (2026-09-26), UFC 332 (2026-10-03), Allen / Duncan
+  (2026-10-10) and Edmonton (2026-10-17) are backfilled: no pre-event capture
+  of theirs reached main (the Vegas 121 rows PR #6 had recovered were
+  committed after the event and were dropped as inadmissible).
 - **live = 0**: backfilled after the fact from scraped lines; the opening price
   was not obtainable at the time.
 
