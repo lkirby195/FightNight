@@ -74,7 +74,11 @@ LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
               "2026-08-29",   # UFC Shanghai
               "2026-09-05",   # UFC Paris
               "2026-09-12",   # Noche UFC Glendale (no bets)
-              "2026-09-19"}   # UFC 331 (FLIP Joshua van, 1.00u)
+              "2026-09-19",   # UFC 331 (FLIP Joshua van, 1.00u)
+              "2026-10-24"}   # UFC 333 (FLIP Jacob Malkoun, 0.92u)
+# Not live, settled as backfill (no pre-event capture reached main):
+# 2026-09-26 Vegas 121, 2026-10-03 UFC 332, 2026-10-10 Allen/Duncan,
+# 2026-10-17 Edmonton.
 
 LEDGER = "data/system_ledger.csv"
 PLACEABLE = "data/placeable_lines.csv"      # written by card_report.py
