@@ -193,6 +193,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 12ebd7d157e91701,Bruno Silva,23-13-0,72,74,Orthodox,1989-07-13
 12f1b140e248bdb9,Jerrod Sanders,16-3-0 (1 NC),68,72,Orthodox,1979-10-01
 12f91bfa8f1f723b,Joanne Wood,17-8-0,66,65,Orthodox,1985-12-23
+130b65b53f30f33c,Ilimbek Akylbek,12-3-0,,,Orthodox,2003-09-01
 132505067f08c54d,Bubba Bush,8-3-0 (1 NC),72,,Orthodox,1985-07-24
 132deb59abae64b1,Valentina Shevchenko,26-4-1,65,66,Southpaw,1988-03-07
 132f860d02953f4c,Goran Reljic,15-8-0,75,81,Southpaw,1984-03-20
@@ -342,6 +343,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 20bccc9bb4ceb23e,Melquizael Costa,26-8-0,70,71,Southpaw,1996-09-14
 20bd6c3e03c46ee6,Townsend Saunders,0-2-0,65,,Orthodox,
 20d37922ba85e6fc,Artur Minev,7-1-0,69,69,Orthodox,2003-09-27
+20e04625a5395a06,Lucas Armand,6-1-0,74,78,Orthodox,1995-10-26
 20ec0061400178ca,Roberto Traven,6-4-1,75,,Orthodox,1968-09-16
 210935fd21670f6d,Rich Attonito,10-5-0,70,72,Orthodox,1977-06-16
 21321cdfba797c52,Derrick Noble,27-15-1,69,,Southpaw,1978-08-14
@@ -462,6 +464,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 2b6d855c6e280fb1,Alex Nicholson,7-4-0,76,77,Orthodox,1990-05-02
 2b6fc1c02736833d,Umar Nurmagomedov,20-2-0,68,69,Orthodox,1996-01-03
 2b93ebd9f5417ad2,Michael Bisping,30-9-0,73,75,Orthodox,1979-02-28
+2bbdbc925f4323ac,Mahammadali Osmanli,13-2-0,,,Southpaw,2004-08-05
 2bd98ab77a8daa75,Stewart Nicoll,8-4-0,65,65,Orthodox,1994-11-04
 2be6596a9db33bf5,Jason MacDonald,25-16-0,75,80,Orthodox,1975-06-03
 2c010b26a3306969,Orion Cosce,8-2-0,71,71,Switch,1994-07-15
@@ -659,6 +662,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 3c0437fbeda06962,George Roop,15-13-1,73,72,Orthodox,1981-11-10
 3c241737a6069b9f,Denis Kang,35-16-2 (2 NC),71,77,Orthodox,1977-09-17
 3c26c420584d912d,Hailey Cowan,7-6-0,68,67,Southpaw,1992-02-12
+3c4320a1b6106611,Cody Chovancek,9-1-0,68,67,Switch,1998-07-24
 3c48019bc387b80c,Billy Miles,2-2-0,70,,Orthodox,1978-04-28
 3c5005b66696d790,Anthony Ivy,8-4-0,74,74,Orthodox,1990-01-23
 3c660c90d48fc80d,Tim Kennedy,18-6-0,71,74,Orthodox,1979-09-01
@@ -735,6 +739,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 43a59ce3bb40449e,Mizuki,16-6-0,63,65,Orthodox,1994-08-19
 440c9dbab63528fb,Paul Herrera,1-1-0,70,,Orthodox,1964-02-21
 4417980b3e798abf,Reuben Duran,11-7-1,67,71,Orthodox,1983-07-02
+4419acb81e6f0ea4,Anthony Romero,7-3-0 (1 NC),65,66,Southpaw,
 441eacbe20e0e80b,Augusto Sakai,16-5-1,75,77,Orthodox,1991-05-09
 44260175069b6276,Jens Pulver,27-19-1,67,70,Southpaw,1974-12-06
 442c9011034ae1fd,Ian Machado Garry,17-2-0,75,74,Orthodox,1997-11-17
@@ -921,6 +926,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 54f64b5e283b0ce7,Ilia Topuria,17-1-0,67,69,Orthodox,1997-01-21
 5537efc6e496dd84,Aaron Pico,14-5-0,68,70,Orthodox,1996-09-23
 5580771f383e141f,Jesse Ronson,21-12-0 (1 NC),70,70,Southpaw,1985-12-24
+55896e25df067f9d,Mackenzie Stiller,6-2-0,62,62,Orthodox,1999-07-15
 55a7b2d4e54ffac9,Ryo Chonan,22-13-0,69,70,Orthodox,1976-10-08
 55ed59d541f8b90c,Rolando Dy,9-7-1 (1 NC),68,69,Orthodox,1990-08-11
 55ee431411ccf07a,Olivier Aubin-Mercier,11-5-0,69,70,Southpaw,1989-02-23
@@ -972,6 +978,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 59a27d2e6d0802ac,Max Rohskopf,5-1-0,73,71,Orthodox,1994-09-27
 59aaf2730b84698a,Jesse Sanders,23-7-0,72,,Orthodox,
 59c438c81fbf3ece,Tereza Bleda,7-2-0,69,71,Orthodox,2001-11-30
+5a229cbd9cdd28ca,Roberto Soldic,22-4-0 (1 NC),70,73,Southpaw,1995-01-25
 5a558ba1ff5e9121,Darrill Schoonover,14-8-0,74,,Orthodox,1985-07-18
 5a6e4d2f0c76a242,Manuel Rodriguez,11-5-0,69,,Orthodox,1985-04-25
 5abf827d62f98fee,Clifford Starks,13-3-0,72,78,Orthodox,1981-04-25
@@ -1006,6 +1013,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 5d7c18191b8aa432,Zach Light,9-11-0,68,,Orthodox,1974-02-06
 5d8006587d6a6711,Isaac Thomson,9-3-0,70,69,,2002-05-03
 5da33b8fbfa5ee95,William Knight,11-5-0,70,73,Orthodox,1988-04-03
+5dad1e8a516e6477,Luis Hernandez,9-0-0,69,73,Southpaw,1996-08-22
 5dd180c8b3196786,Gloria de Paula,6-5-0,65,67,Orthodox,1995-06-10
 5df17b3620145578,Cole Escovedo,17-9-0,67,72,Orthodox,1981-08-30
 5dfe71ade71f3a4b,Rosi Sexton,13-5-0,63,,Orthodox,1977-07-16
@@ -1044,6 +1052,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 60ba33c3f555a7a3,Josh Grispi,14-5-0,71,74,Orthodox,1988-10-14
 60c72f7459827881,Julio Paulino,23-5-0,72,,Orthodox,1975-12-04
 6142edbd477d20c9,Dakota Hope,11-2-0,66,68,,1997-01-29
+6188ad39d85a8bf8,Joel Faglier,7-0-0,74,73,Orthodox,2001-01-18
 61fb8098ccf81c7f,Antonio Arroyo,9-5-0,75,73,Orthodox,1989-07-01
 621a6c59f88a44fe,Matt Hughes,45-9-0,69,73,Switch,1973-10-13
 6224e8d0a34264eb,Edward Faaloloto,2-5-0,,70,Orthodox,1984-07-15
@@ -1156,6 +1165,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 6bf5a7d3e081ade2,Anthony Njokuani,16-12-0 (1 NC),73,75,Orthodox,1980-03-01
 6c011be66326ad97,Bruno Korea,7-3-0,66,65,,1991-06-28
 6c2030e0a143a94b,Chris Camozzi,24-13-0,74,75,Orthodox,1986-11-20
+6c39d016053601ee,Bruce Whitehead,8-3-0,70,73,Switch,1996-12-14
 6c3b2525436cf5d4,Tom Nolan,11-1-0,75,73,Southpaw,2000-03-08
 6c7020b859c7a3ce,Edimilson Souza,15-5-0,72,74,Orthodox,1984-10-17
 6c7e25571490aa3b,George Sullivan,17-7-0 (1 NC),72,73,Orthodox,1981-03-13
@@ -1221,6 +1231,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 7138a15258dabf20,Bruna Brasil,11-7-1,66,65,Orthodox,1993-09-07
 714e1e0681ddb703,Derrick Krantz,22-12-0,70,72,Orthodox,1988-01-13
 71505842fb6455c3,Dustin Stoltzfus,17-8-0,72,75,Orthodox,1991-11-15
+71758ab9f337716c,Melissa Amaya,9-1-0,,,Orthodox,1994-11-27
 7195e2a932686f82,Nick Roehrick,7-1-0,74,,Orthodox,1987-07-06
 71df36d6d8cf0d74,Kiichi Kunimoto,18-7-2 (1 NC),70,71,Orthodox,1981-05-01
 71f048adbfed5b49,Sabah Homasi,11-8-0,72,72,Orthodox,1988-10-19
@@ -1481,6 +1492,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 893d51aaf024eddd,Jimy Hettes,11-3-0,69,71,Southpaw,1987-06-09
 896c322f56b8be5a,George Sotiropoulos,14-7-0,70,71,Orthodox,1977-07-09
 89839250eb25c9c1,Caio Machado,8-4-1,76,78,Southpaw,1994-07-20
+8988705468d04ef7,Nick Galanti,9-1-0,73,75,Southpaw,1998-06-18
 899923ff6ab13917,Bevon Lewis,7-3-0,75,79,Orthodox,1991-05-05
 89a407032911e27e,Brendan Schaub,10-5-0,76,78,Orthodox,1983-03-18
 89b8d1bf1ff09d1d,Tim Credeur,12-4-0,75,75,Orthodox,1977-07-09
@@ -1580,6 +1592,7 @@ fighter_id,name,record,height_in,reach_in,stance,dob
 918db42c3637916f,Leigh Remedios,18-10-2,67,,Orthodox,1976-01-13
 9199e0735b83dd32,Andy Anderson,0-1-0,66,,,1974-07-16
 91acd6910b802a9e,Chris Lytle,31-18-5,71,68,Orthodox,1974-08-18
+91cd52cb92dfdd52,Louis Jourdain,9-4-0,69,69,Orthodox,1997-03-13
 91d73ee59347ac16,Brodie Farber,16-7-0,73,,Orthodox,1980-07-05
 91dac5e69e28d5b5,Pannie Kianzad,17-9-0,67,66,Orthodox,1991-12-08
 91ea901c458e95dd,Jared Rosholt,14-4-0,74,75,Orthodox,1986-08-04
@@ -1740,6 +1753,7 @@ a13d755965a4ec9f,Rongzhu,28-6-0,69,70,Orthodox,2000-03-07
 a149d6bc670cdb60,Dustin Hazelett,12-7-0,73,76,Orthodox,1986-04-29
 a17322f99ddfd8e9,Bristol Marunde,16-10-0,73,75,Orthodox,1982-04-20
 a17ad5a5048e8c3f,Darren Stewart,12-8-0 (2 NC),72,74,Orthodox,1990-12-30
+a1a91dbf41a029c4,Tina Black,17-4-0 (1 NC),64,63,Orthodox,1996-05-06
 a1ad35b98a9136e5,Lawrence Lui,8-2-0,67,72,Orthodox,1996-08-04
 a1b0715c4fd2dbd3,Azamat Gashimov,8-3-0,66,,Orthodox,1990-04-07
 a1f6999fe57236e0,Wanderlei Silva,35-13-1 (1 NC),71,74,Orthodox,1976-07-03
@@ -2349,6 +2363,7 @@ d8022d5526b1d937,Chad Reiner,33-18-0,71,,Orthodox,1981-06-29
 d80ee110748171ac,Mike Breeden,11-6-0,70,70,Orthodox,1989-04-21
 d814f5192e58fb2f,Drew Fickett,42-21-0,70,70,Orthodox,1979-12-14
 d81ac739417d7f53,Jake Ellenberger,31-15-0,69,71,Orthodox,1985-03-28
+d84033157714ee94,Cristian Perez,16-2-0,69,72,Orthodox,1999-08-17
 d897897060f10a3a,Rich Franklin,29-7-0 (1 NC),73,76,Southpaw,1974-10-05
 d8c7c61b176e3994,Cody Garbrandt,15-8-0,68,65,Orthodox,1991-07-07
 d8c811df0386d5e8,Rinya Nakamura,10-1-0,67,68,Southpaw,1995-03-23
@@ -2530,6 +2545,7 @@ e9ac7bfb65c25497,John Phillips,22-11-0 (1 NC),71,75,Southpaw,1985-06-09
 e9bc5748e6a76bb6,Ashkan Mokhtarian,13-3-0,66,67,Southpaw,1985-09-15
 e9e1acc96536bb4f,Ricardo Funch,9-6-0,70,74,Southpaw,1980-08-14
 e9e7e1c8ff289e1b,Humberto Brown Morrison,4-6-0,70,,,1984-11-03
+e9f9add1481fc11c,Javad Mahjoub,5-1-0,73,76,Orthodox,1991-05-26
 ea0ad155451ed1f5,Ray Wizard,0-1-0,,,,
 ea398c802d9998ee,Thomas Ramirez,0-1-0,73,,Sideways,
 ea3dcc417c322064,Martin Day,8-6-0,70,73,Orthodox,1988-11-10
