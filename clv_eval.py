@@ -16,10 +16,10 @@ scrape_bfo.validated_open) plus open_suspect and the raw first ticks
 (a_open_raw / b_open_raw) so betting_system can tell a signal that only the
 suspect opener would have fired.
 
-Name joins fail loud from names.NAME_JOIN_STRICT_FROM (2026-10-22) on: a BFO
-bout that matches no fights_v2 bout although one of its names is a fighter
-of a bout that day and the other is a near-miss of the opponent raises
-names.NameJoinError. Earlier rows keep the old silent behaviour (see names.py).
+Name joins fail loud over the full history (ruled 2026-10-22, gate lifted
+2026-10-26): a BFO bout that matches no fights_v2 bout although one of its
+names is a fighter of a bout that day and the other is a near-miss of the
+opponent raises names.NameJoinError (see names.py).
 """
 from __future__ import annotations
 
@@ -87,11 +87,12 @@ def join_bfo():
             c = near[near[k] == r[k]]
             if len(c):
                 break
-        if len(c) == 0 and r.event_date >= pd.Timestamp(names.NAME_JOIN_STRICT_FROM):
-            # fail-loud name join (ruled 2026-10-22): a BFO bout that matched
-            # nothing although one name is a fighter of a bout that day and
-            # the other is a spelling near-miss of the opponent is an error,
-            # never a silent gap; aliases are added by hand (names.py)
+        if len(c) == 0:
+            # fail-loud name join (ruled 2026-10-22, over the full history
+            # since 2026-10-26): a BFO bout that matched nothing although one
+            # name is a fighter of a bout that day and the other is a spelling
+            # near-miss of the opponent is an error, never a silent gap;
+            # aliases are added by hand (data/name_aliases.csv, names.py)
             for _, x in near.iterrows():
                 hit = names.near_miss_pair(r.fighter1, r.fighter2, x.fighter_a, x.fighter_b)
                 if hit:
