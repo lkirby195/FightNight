@@ -87,13 +87,13 @@ not remove.
 ## Data
 
 ```
-data/fights_v2.csv          8,948 bouts 1994-2026 (through 2026-10-17), chronological bout order,
+data/fights_v2.csv          8,962 bouts 1994-2026 (through 2026-10-24), chronological bout order,
                             missed-weight flags (206 incidents)
-data/fighters_v2.csv        2,773 fighters
-data/fight_details_v2.csv   8,927 bouts: attempts, control time, strike splits
+data/fighters_v2.csv        2,774 fighters
+data/fight_details_v2.csv   8,941 bouts: attempts, control time, strike splits
 data/features_v2.csv        model-ready pre-fight features (leakage-safe)
 data/market.csv             vig-free closing probs (public odds dataset join)
-data/bfo_lines.csv          7,997 bouts: opening + closing mean lines 2010-2026;
+data/bfo_lines.csv          8,010 bouts: opening + closing mean lines 2010-2026;
                             the open is the validated open, with open_suspect
                             and the raw first ticks (f1_open_raw, f2_open_raw)
 data/bfo_joined.csv         bfo_lines joined to fights_v2 by fight_id (a/b
