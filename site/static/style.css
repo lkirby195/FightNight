@@ -104,6 +104,7 @@ table.rank .div{display:block;font-family:var(--mono);font-size:11px;color:var(-
 .tile small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
 .tile b{display:block;font-family:var(--disp);font-size:30px;line-height:1.1;margin:2px 0}
 .tile .dim{font-family:var(--mono);font-size:11px}
+.tiernote{font-size:13.5px;margin:-6px 0 14px;max-width:760px}
 .cardpick{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .cardpick select{font-family:var(--body);font-size:14px;padding:6px 8px;border:2px solid var(--ink);background:var(--soft);max-width:100%}
 .finished{margin-top:10px}

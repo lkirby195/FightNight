@@ -68,7 +68,8 @@ NON_DIV = {"Catch Weight", "Open Weight", "Super Heavyweight"}
 METHOD = {"KO/TKO": "KO/TKO", "SUB": "Submission", "U-DEC": "Unanimous decision",
           "S-DEC": "Split decision", "M-DEC": "Majority decision", "DQ": "DQ",
           "Overturned": "Overturned", "CNC": "No contest", "Other": "Other"}
-LEDGER_PUBLIC_DROP = {"live", "units", "pnl_at_open"}
+LEDGER_PUBLIC_DROP = {"units", "pnl_at_open"}      # live stays: it marks the tier
+LIVE_RECORD_FROM = "2026-09-08"   # rules frozen, timestamped captures began
 
 DATA = ROOT / "data"
 OUT_DEFAULT = SITE / "out"
@@ -541,8 +542,10 @@ def stake_note() -> str:
 
 # ------------------------------------------------------------------ record --
 def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
-                live_only: bool):
-    """Finished-card blocks for one year, newest first."""
+                live_only: bool, before: str | None = None):
+    """Finished-card blocks for one year, newest first. live_only keeps the
+    cards with a pre-event capture (the live record); before=<date> keeps the
+    cards dated before it (the 2026 backtest tier)."""
     by_fid = defaultdict(list)
     for r in ledger:
         by_fid[r["fight_id"]].append(r)
@@ -551,6 +554,8 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
         if f["event_date"][:4] != year:
             continue
         if live_only and f["event_date"] not in data.live_dates:
+            continue
+        if before and f["event_date"] >= before:
             continue
         events.setdefault((f["event_date"], f["event_name"]), []).append(f)
     cards = []
@@ -680,27 +685,43 @@ def tiles(rows: list[dict]) -> dict:
 
 
 def build_record(data: Data, model: Model, out: Path):
+    # three tiers (2026-10-26): the live record = capture-proven rows (live=1,
+    # every one dated from LIVE_RECORD_FROM); "2026 before we published" = the
+    # 2026 rows dated before LIVE_RECORD_FROM (no timestamp existed, never
+    # counted); 2025 = the sealed backtest
     live26 = [r for r in data.ledger if r["live"] == 1 and r["event_date"] >= "2026"]
+    pre26 = [r for r in data.ledger if r["live"] == 0 and r["result"] != "VOID"
+             and "2026" <= r["event_date"] < LIVE_RECORD_FROM]
     bt25 = [r for r in data.ledger_bt if r["event_date"][:4] == "2025"]
-    cards26 = build_cards(data, model, "2026", data.preds, live26, live_only=True)
+    cards_live = build_cards(data, model, "2026", data.preds, live26, live_only=True)
+    cards_pre = build_cards(data, model, "2026", data.preds, pre26, live_only=False,
+                            before=LIVE_RECORD_FROM)
     cards25 = build_cards(data, model, "2025", data.preds_bt, bt25, live_only=False)
-    tabs = [dict(key="2026", label="2026", badge="LIVE", tip="Picks on record before each event; money down",
-                 tiles=tiles(live26), cards=cards26),
+    tabs = [dict(key="live", label="Live since Sep 8, 2026", badge="LIVE",
+                 tip="Picks committed with a timestamp before each event; money down",
+                 note="Every pick here was committed with a timestamp before the event, "
+                      "with the price on the board at the time.",
+                 tiles=tiles(live26), cards=cards_live),
+            dict(key="pre", label="2026 before we published", badge="BACKTEST",
+                 tip="Settled at opening odds; not counted",
+                 note="Picks our current rules would have made. We hadn't started "
+                      "committing timestamps yet, so we don't count them.",
+                 tiles=tiles(pre26), cards=cards_pre),
             dict(key="2025", label="2025", badge="BACKTEST",
-                 tip="Settled at opening odds, no money down", tiles=tiles(bt25), cards=cards25),
-            dict(key="all", label="All", badge=None, tip=None, tiles=tiles(live26 + bt25),
-                 cards=cards26 + cards25)]
+                 tip="Settled at opening odds, no money down",
+                 note="A backtest of the same rules, settled at opening odds with no money down.",
+                 tiles=tiles(bt25), cards=cards25)]
     # public ledger copy
     cols = [c for c in (data.ledger or data.ledger_bt)[0].keys() if c not in LEDGER_PUBLIC_DROP]
     (out / "record").mkdir(parents=True, exist_ok=True)
     with open(out / "record" / "ledger.csv", "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
-        for r in sorted(live26 + bt25, key=lambda r: r["event_date"]):
+        for r in sorted(live26 + pre26 + bt25, key=lambda r: r["event_date"]):
             # the 2025 backtest ledger predates reason / pm_p_at_capture
             w.writerow({k: ("" if r.get(k) is None else r[k]) for k in cols})
-    return dict(tabs=tabs, cards={c["key"]: c for c in cards26 + cards25},
-                n_ledger=len(live26) + len(bt25))
+    return dict(tabs=tabs, cards={c["key"]: c for c in cards_live + cards_pre + cards25},
+                n_ledger=len(live26) + len(pre26) + len(bt25))
 
 
 # ------------------------------------------------------------ how it works --

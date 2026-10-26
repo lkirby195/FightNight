@@ -394,26 +394,29 @@ had to fire at the raw opener too) is retired by this one: every capture on
 file postdates the validated-open report. The site's 2026 tab lists the cards
 with a pre-event capture, the same proof.
 
-Live record after the 2026-10-22 rulings (one signal path, debut rule,
-pick'em tie-break) and the UFC 333 settle, `python betting_system.py all`
-(data through 2026-10-24):
+Live record under the capture-proof rule (2026-10-26), `python betting_system.py
+all` (data through 2026-10-24). Three rows carry a pre-event capture:
 
 ```
-LIVE RECORD (all): 26 bets  19-7  staked 26u  P&L (placeable) +8.7u ($+872)  ROI +33.6%  t=1.96
-    P&L (open) +9.6u ($+960)  ROI +36.9%  t=2.08
-    FLIP: 13 bets  7-6  ROI +15.2%
-    GAP: 13 bets  12-1  ROI +51.9%
-PLACED (policy v1): 17 placed of 26 signals  13-4  staked 13.4u  P&L +4.7u ($+475)  ROI +35.4%  t=1.70
-    FLIP: 7 placed  4-3  ROI +24.7%
-    GAP: 10 placed  9-1  ROI +43.2%
+LIVE RECORD (all): 3 bets  1-2  staked 3u  P&L (placeable) -1.3u ($-128)  ROI -42.5%  t=-0.74
+    P&L (open) -0.4u ($-40)  ROI -13.3%  t=-0.15
+    FLIP: 3 bets  1-2  ROI -42.5%
+PLACED (policy v1): 2 placed of 3 signals  1-1  staked 1.9u  P&L -0.2u ($-20)  ROI -10.2%  t=-0.16
+    FLIP: 2 placed  1-1  ROI -10.2%
 ```
 
-Against the record before the rulings (29 bets 21-8 +9.9u, placed 17 of 29
-14-3 +7.0u) the changes are the four debut-bout rows the debut rule removed
-and the UFC 333 FLIP (Malkoun, placed 0.92u, LOSS); every other live row is
-identical in every column. The one quotable full-sim figure: 401 bets
-255-146, +81.5u at open, ROI +20.3%, t=4.12 (2012-2026, 3 VOID rows not
-counted).
+- 2026-09-19 UFC 331, FLIP Tai Tuivasa at +504 (skipped by policy v1: longer than
+  +250), LOSS, captured 2026-09-17.
+- 2026-09-19 UFC 331, FLIP Joshua Van at -138 placeable (open -138), 1.00u, WIN
+  +0.72u, captured 2026-09-17.
+- 2026-10-24 UFC 333, FLIP Jacob Malkoun at +128 placeable (open +132), 0.92u,
+  LOSS -0.92u, captured 2026-10-22.
+
+The 25 other 2026 rows dated before 2026-09-08 (23 of them live under the old
+date-and-LIVE_CARDS rule, plus two from the backfilled 2026-08-08 and 08-15 cards)
+are the "2026 before we published" backtest tier on the site: 17 placed, 13-4,
++4.8u, shown and never counted. The one quotable full-sim figure: 401 bets
+255-146, +81.5u at open, ROI +20.3%, t=4.12 (2012-2026, 3 VOID rows not counted).
 
 ## Polymarket: a second price source, not a signal source
 

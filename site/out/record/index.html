@@ -27,28 +27,40 @@
 <header class="hero">
   <p class="kicker">Our record</p>
   <h1>Every pick, every bet, on the record</h1>
-  <p class="lede">Bets are $100 a unit. 2026 is live money: picks posted before each event.
-  2025 is a backtest of the same rules, settled at opening odds with no money down.
+  <p class="lede">The live record starts Sep 8, 2026: that is when the betting rules froze
+  and we began committing timestamped picks before each event. Everything earlier, the
+  2012–2025 backtest and the 2026 picks before that date, is the evidence for the system;
+  the live record is the test of it. Bets are $100 a unit.
   <a href="/record/ledger.csv">Download the ledger</a>.</p>
 </header>
 
 <div class="tabs" role="tablist">
-  <button type="button" data-tab="2026" data-group="year" class="tab on">
-    2026 <span class="badge live" title="Picks on record before each event; money down">LIVE</span>  </button>
+  <button type="button" data-tab="live" data-group="year" class="tab on">
+    Live since Sep 8, 2026 <span class="badge live" title="Picks committed with a timestamp before each event; money down">LIVE</span>  </button>
+  <button type="button" data-tab="pre" data-group="year" class="tab">
+    2026 before we published <span class="badge backtest" title="Settled at opening odds; not counted">BACKTEST</span>  </button>
   <button type="button" data-tab="2025" data-group="year" class="tab">
     2025 <span class="badge backtest" title="Settled at opening odds, no money down">BACKTEST</span>  </button>
-  <button type="button" data-tab="all" data-group="year" class="tab">
-    All  </button>
 </div>
 
-<section data-panel="2026" data-group="year" >
+<section data-panel="live" data-group="year" >
+  <div class="tiles">
+    <div class="tile"><small>Bets</small><b>1–1</b><span class="dim">2 placed</span></div>
+    <div class="tile"><small>Net</small><b class="neg">−$20</b><span class="dim">at $100 a unit</span></div>
+  </div>
+<p class="dim tiernote">Every pick here was committed with a timestamp before the event, with the price on the board at the time.</p>  <label class="cardpick">Card
+    <select data-cards data-for="live">
+<option value="2026-2026-10-24">UFC 333: Volkanovski vs. Evloev · Sat Oct 24, 2026</option><option value="2026-2026-10-03">UFC 332: Silva vs. Wang · Sat Oct 3, 2026</option><option value="2026-2026-09-19">UFC 331: Van vs. Pantoja 2 · Sat Sep 19, 2026</option><option value="2026-2026-09-12">Noche UFC: Silva vs. Delgado · Sat Sep 12, 2026</option>    </select>
+  </label>
+</section>
+<section data-panel="pre" data-group="year" hidden>
   <div class="tiles">
     <div class="tile"><small>Bets</small><b>13–4</b><span class="dim">17 placed</span></div>
-    <div class="tile"><small>Net</small><b class="pos">+$475</b><span class="dim">at $100 a unit</span></div>
+    <div class="tile"><small>Net</small><b class="pos">+$480</b><span class="dim">at $100 a unit</span></div>
   </div>
-  <label class="cardpick">Card
-    <select data-cards data-for="2026">
-<option value="2026-2026-10-24">UFC 333: Volkanovski vs. Evloev · Sat Oct 24, 2026</option><option value="2026-2026-09-19">UFC 331: Van vs. Pantoja 2 · Sat Sep 19, 2026</option><option value="2026-2026-09-12">Noche UFC: Silva vs. Delgado · Sat Sep 12, 2026</option><option value="2026-2026-09-05">UFC Fight Night: Hooker vs. Parnasse · Sat Sep 5, 2026</option><option value="2026-2026-08-29">UFC Fight Night: Nurmagomedov vs. Song · Sat Aug 29, 2026</option><option value="2026-2026-08-22">UFC Fight Night: Hernandez vs. Rodrigues · Sat Aug 22, 2026</option><option value="2026-2026-07-25">UFC Fight Night: Ankalaev vs. Guskov · Sat Jul 25, 2026</option><option value="2026-2026-07-18">UFC Fight Night: Du Plessis vs. Usman · Sat Jul 18, 2026</option><option value="2026-2026-07-11">UFC 329: McGregor vs. Holloway 2 · Sat Jul 11, 2026</option><option value="2026-2026-06-27">UFC Fight Night: Fiziev vs. Torres · Sat Jun 27, 2026</option><option value="2026-2026-06-20">UFC Fight Night: Kape vs. Horiguchi · Sat Jun 20, 2026</option><option value="2026-2026-06-14">UFC Freedom 250 · Sun Jun 14, 2026</option><option value="2026-2026-06-06">UFC Fight Night: Muhammad vs. Bonfim · Sat Jun 6, 2026</option><option value="2026-2026-05-30">UFC Fight Night: Song vs. Figueiredo · Sat May 30, 2026</option><option value="2026-2026-05-16">UFC Fight Night: Allen vs. Costa · Sat May 16, 2026</option><option value="2026-2026-05-09">UFC 328: Chimaev vs. Strickland · Sat May 9, 2026</option><option value="2026-2026-05-02">UFC Fight Night: Della Maddalena vs. Prates · Sat May 2, 2026</option><option value="2026-2026-04-25">UFC Fight Night: Sterling vs. Zalal · Sat Apr 25, 2026</option><option value="2026-2026-04-18">UFC Fight Night: Burns vs. Malott · Sat Apr 18, 2026</option><option value="2026-2026-04-11">UFC 327: Prochazka vs. Ulberg · Sat Apr 11, 2026</option><option value="2026-2026-04-04">UFC Fight Night: Moicano vs. Duncan · Sat Apr 4, 2026</option><option value="2026-2026-03-28">UFC Fight Night: Adesanya vs. Pyfer · Sat Mar 28, 2026</option><option value="2026-2026-03-21">UFC Fight Night: Evloev vs. Murphy · Sat Mar 21, 2026</option><option value="2026-2026-03-14">UFC Fight Night: Emmett vs. Vallejos · Sat Mar 14, 2026</option><option value="2026-2026-03-07">UFC 326: Holloway vs. Oliveira 2 · Sat Mar 7, 2026</option><option value="2026-2026-02-28">UFC Fight Night: Moreno vs. Kavanagh · Sat Feb 28, 2026</option><option value="2026-2026-02-21">UFC Fight Night: Strickland vs. Hernandez · Sat Feb 21, 2026</option><option value="2026-2026-02-07">UFC Fight Night: Bautista vs. Oliveira · Sat Feb 7, 2026</option><option value="2026-2026-01-31">UFC 325: Volkanovski vs. Lopes 2 · Sat Jan 31, 2026</option><option value="2026-2026-01-24">UFC 324: Gaethje vs. Pimblett · Sat Jan 24, 2026</option>    </select>
+<p class="dim tiernote">Picks our current rules would have made. We hadn&#39;t started committing timestamps yet, so we don&#39;t count them.</p>  <label class="cardpick">Card
+    <select data-cards data-for="pre">
+<option value="2026-2026-09-05">UFC Fight Night: Hooker vs. Parnasse · Sat Sep 5, 2026</option><option value="2026-2026-08-29">UFC Fight Night: Nurmagomedov vs. Song · Sat Aug 29, 2026</option><option value="2026-2026-08-22">UFC Fight Night: Hernandez vs. Rodrigues · Sat Aug 22, 2026</option><option value="2026-2026-08-15">UFC 330: Makhachev vs. Machado Garry · Sat Aug 15, 2026</option><option value="2026-2026-08-08">UFC Fight Night: Gamrot vs. Salkilld · Sat Aug 8, 2026</option><option value="2026-2026-08-01">UFC Fight Night: Medic vs. Rodriguez · Sat Aug 1, 2026</option><option value="2026-2026-07-25">UFC Fight Night: Ankalaev vs. Guskov · Sat Jul 25, 2026</option><option value="2026-2026-07-18">UFC Fight Night: Du Plessis vs. Usman · Sat Jul 18, 2026</option><option value="2026-2026-07-11">UFC 329: McGregor vs. Holloway 2 · Sat Jul 11, 2026</option><option value="2026-2026-06-27">UFC Fight Night: Fiziev vs. Torres · Sat Jun 27, 2026</option><option value="2026-2026-06-20">UFC Fight Night: Kape vs. Horiguchi · Sat Jun 20, 2026</option><option value="2026-2026-06-14">UFC Freedom 250 · Sun Jun 14, 2026</option><option value="2026-2026-06-06">UFC Fight Night: Muhammad vs. Bonfim · Sat Jun 6, 2026</option><option value="2026-2026-05-30">UFC Fight Night: Song vs. Figueiredo · Sat May 30, 2026</option><option value="2026-2026-05-16">UFC Fight Night: Allen vs. Costa · Sat May 16, 2026</option><option value="2026-2026-05-09">UFC 328: Chimaev vs. Strickland · Sat May 9, 2026</option><option value="2026-2026-05-02">UFC Fight Night: Della Maddalena vs. Prates · Sat May 2, 2026</option><option value="2026-2026-04-25">UFC Fight Night: Sterling vs. Zalal · Sat Apr 25, 2026</option><option value="2026-2026-04-18">UFC Fight Night: Burns vs. Malott · Sat Apr 18, 2026</option><option value="2026-2026-04-11">UFC 327: Prochazka vs. Ulberg · Sat Apr 11, 2026</option><option value="2026-2026-04-04">UFC Fight Night: Moicano vs. Duncan · Sat Apr 4, 2026</option><option value="2026-2026-03-28">UFC Fight Night: Adesanya vs. Pyfer · Sat Mar 28, 2026</option><option value="2026-2026-03-21">UFC Fight Night: Evloev vs. Murphy · Sat Mar 21, 2026</option><option value="2026-2026-03-14">UFC Fight Night: Emmett vs. Vallejos · Sat Mar 14, 2026</option><option value="2026-2026-03-07">UFC 326: Holloway vs. Oliveira 2 · Sat Mar 7, 2026</option><option value="2026-2026-02-28">UFC Fight Night: Moreno vs. Kavanagh · Sat Feb 28, 2026</option><option value="2026-2026-02-21">UFC Fight Night: Strickland vs. Hernandez · Sat Feb 21, 2026</option><option value="2026-2026-02-07">UFC Fight Night: Bautista vs. Oliveira · Sat Feb 7, 2026</option><option value="2026-2026-01-31">UFC 325: Volkanovski vs. Lopes 2 · Sat Jan 31, 2026</option><option value="2026-2026-01-24">UFC 324: Gaethje vs. Pimblett · Sat Jan 24, 2026</option>    </select>
   </label>
 </section>
 <section data-panel="2025" data-group="year" hidden>
@@ -56,19 +68,9 @@
     <div class="tile"><small>Bets</small><b>18–9</b><span class="dim">27 placed</span></div>
     <div class="tile"><small>Net</small><b class="pos">+$709</b><span class="dim">at $100 a unit</span></div>
   </div>
-  <label class="cardpick">Card
+<p class="dim tiernote">A backtest of the same rules, settled at opening odds with no money down.</p>  <label class="cardpick">Card
     <select data-cards data-for="2025">
 <option value="2025-2025-12-13">UFC Fight Night: Royval vs. Kape · Sat Dec 13, 2025</option><option value="2025-2025-12-06">UFC 323: Dvalishvili vs. Yan 2 · Sat Dec 6, 2025</option><option value="2025-2025-11-22">UFC Fight Night: Tsarukyan vs. Hooker · Sat Nov 22, 2025</option><option value="2025-2025-11-15">UFC 322: Della Maddalena vs. Makhachev · Sat Nov 15, 2025</option><option value="2025-2025-11-08">UFC Fight Night: Bonfim vs. Brown · Sat Nov 8, 2025</option><option value="2025-2025-11-01">UFC Fight Night: Garcia vs. Onama · Sat Nov 1, 2025</option><option value="2025-2025-10-25">UFC 321: Aspinall vs. Gane · Sat Oct 25, 2025</option><option value="2025-2025-10-18">UFC Fight Night: De Ridder vs. Allen · Sat Oct 18, 2025</option><option value="2025-2025-10-11">UFC Fight Night: Oliveira vs. Gamrot · Sat Oct 11, 2025</option><option value="2025-2025-10-04">UFC 320: Ankalaev vs. Pereira 2 · Sat Oct 4, 2025</option><option value="2025-2025-09-27">UFC Fight Night: Ulberg vs. Reyes · Sat Sep 27, 2025</option><option value="2025-2025-09-13">Noche UFC: Lopes vs. Silva · Sat Sep 13, 2025</option><option value="2025-2025-09-06">UFC Fight Night: Imavov vs. Borralho · Sat Sep 6, 2025</option><option value="2025-2025-08-23">UFC Fight Night: Walker vs. Zhang · Sat Aug 23, 2025</option><option value="2025-2025-08-16">UFC 319: Du Plessis vs. Chimaev · Sat Aug 16, 2025</option><option value="2025-2025-08-09">UFC Fight Night: Dolidze vs. Hernandez · Sat Aug 9, 2025</option><option value="2025-2025-08-02">UFC Fight Night: Taira vs. Park · Sat Aug 2, 2025</option><option value="2025-2025-07-26">UFC Fight Night: Whittaker vs. De Ridder · Sat Jul 26, 2025</option><option value="2025-2025-07-19">UFC 318: Holloway vs. Poirier 3 · Sat Jul 19, 2025</option><option value="2025-2025-07-12">UFC Fight Night: Lewis vs. Teixeira · Sat Jul 12, 2025</option><option value="2025-2025-06-28">UFC 317: Topuria vs. Oliveira · Sat Jun 28, 2025</option><option value="2025-2025-06-21">UFC Fight Night: Hill vs. Rountree Jr. · Sat Jun 21, 2025</option><option value="2025-2025-06-14">UFC Fight Night: Usman vs. Buckley · Sat Jun 14, 2025</option><option value="2025-2025-06-07">UFC 316: Dvalishvili vs. O&#39;Malley 2 · Sat Jun 7, 2025</option><option value="2025-2025-05-31">UFC Fight Night: Blanchfield vs. Barber · Sat May 31, 2025</option><option value="2025-2025-05-17">UFC Fight Night: Burns vs. Morales · Sat May 17, 2025</option><option value="2025-2025-05-10">UFC 315: Muhammad vs. Della Maddalena · Sat May 10, 2025</option><option value="2025-2025-05-03">UFC Fight Night: Sandhagen vs. Figueiredo · Sat May 3, 2025</option><option value="2025-2025-04-26">UFC Fight Night: Machado Garry vs. Prates · Sat Apr 26, 2025</option><option value="2025-2025-04-12">UFC 314: Volkanovski vs. Lopes · Sat Apr 12, 2025</option><option value="2025-2025-04-05">UFC Fight Night: Emmett vs. Murphy · Sat Apr 5, 2025</option><option value="2025-2025-03-29">UFC Fight Night: Moreno vs. Erceg · Sat Mar 29, 2025</option><option value="2025-2025-03-22">UFC Fight Night: Edwards vs. Brady · Sat Mar 22, 2025</option><option value="2025-2025-03-15">UFC Fight Night: Vettori vs. Dolidze 2 · Sat Mar 15, 2025</option><option value="2025-2025-03-08">UFC 313: Pereira vs. Ankalaev · Sat Mar 8, 2025</option><option value="2025-2025-03-01">UFC Fight Night: Kape vs. Almabayev · Sat Mar 1, 2025</option><option value="2025-2025-02-22">UFC Fight Night: Cejudo vs. Song · Sat Feb 22, 2025</option><option value="2025-2025-02-15">UFC Fight Night: Cannonier vs. Rodrigues · Sat Feb 15, 2025</option><option value="2025-2025-02-08">UFC 312: Du Plessis vs. Strickland 2 · Sat Feb 8, 2025</option><option value="2025-2025-02-01">UFC Fight Night: Adesanya vs. Imavov · Sat Feb 1, 2025</option><option value="2025-2025-01-18">UFC 311: Makhachev vs. Moicano · Sat Jan 18, 2025</option><option value="2025-2025-01-11">UFC Fight Night: Dern vs. Ribas 2 · Sat Jan 11, 2025</option>    </select>
-  </label>
-</section>
-<section data-panel="all" data-group="year" hidden>
-  <div class="tiles">
-    <div class="tile"><small>Bets</small><b>31–13</b><span class="dim">44 placed</span></div>
-    <div class="tile"><small>Net</small><b class="pos">+$1,184</b><span class="dim">at $100 a unit</span></div>
-  </div>
-  <label class="cardpick">Card
-    <select data-cards data-for="all">
-<option value="2026-2026-10-24">UFC 333: Volkanovski vs. Evloev · Sat Oct 24, 2026</option><option value="2026-2026-09-19">UFC 331: Van vs. Pantoja 2 · Sat Sep 19, 2026</option><option value="2026-2026-09-12">Noche UFC: Silva vs. Delgado · Sat Sep 12, 2026</option><option value="2026-2026-09-05">UFC Fight Night: Hooker vs. Parnasse · Sat Sep 5, 2026</option><option value="2026-2026-08-29">UFC Fight Night: Nurmagomedov vs. Song · Sat Aug 29, 2026</option><option value="2026-2026-08-22">UFC Fight Night: Hernandez vs. Rodrigues · Sat Aug 22, 2026</option><option value="2026-2026-07-25">UFC Fight Night: Ankalaev vs. Guskov · Sat Jul 25, 2026</option><option value="2026-2026-07-18">UFC Fight Night: Du Plessis vs. Usman · Sat Jul 18, 2026</option><option value="2026-2026-07-11">UFC 329: McGregor vs. Holloway 2 · Sat Jul 11, 2026</option><option value="2026-2026-06-27">UFC Fight Night: Fiziev vs. Torres · Sat Jun 27, 2026</option><option value="2026-2026-06-20">UFC Fight Night: Kape vs. Horiguchi · Sat Jun 20, 2026</option><option value="2026-2026-06-14">UFC Freedom 250 · Sun Jun 14, 2026</option><option value="2026-2026-06-06">UFC Fight Night: Muhammad vs. Bonfim · Sat Jun 6, 2026</option><option value="2026-2026-05-30">UFC Fight Night: Song vs. Figueiredo · Sat May 30, 2026</option><option value="2026-2026-05-16">UFC Fight Night: Allen vs. Costa · Sat May 16, 2026</option><option value="2026-2026-05-09">UFC 328: Chimaev vs. Strickland · Sat May 9, 2026</option><option value="2026-2026-05-02">UFC Fight Night: Della Maddalena vs. Prates · Sat May 2, 2026</option><option value="2026-2026-04-25">UFC Fight Night: Sterling vs. Zalal · Sat Apr 25, 2026</option><option value="2026-2026-04-18">UFC Fight Night: Burns vs. Malott · Sat Apr 18, 2026</option><option value="2026-2026-04-11">UFC 327: Prochazka vs. Ulberg · Sat Apr 11, 2026</option><option value="2026-2026-04-04">UFC Fight Night: Moicano vs. Duncan · Sat Apr 4, 2026</option><option value="2026-2026-03-28">UFC Fight Night: Adesanya vs. Pyfer · Sat Mar 28, 2026</option><option value="2026-2026-03-21">UFC Fight Night: Evloev vs. Murphy · Sat Mar 21, 2026</option><option value="2026-2026-03-14">UFC Fight Night: Emmett vs. Vallejos · Sat Mar 14, 2026</option><option value="2026-2026-03-07">UFC 326: Holloway vs. Oliveira 2 · Sat Mar 7, 2026</option><option value="2026-2026-02-28">UFC Fight Night: Moreno vs. Kavanagh · Sat Feb 28, 2026</option><option value="2026-2026-02-21">UFC Fight Night: Strickland vs. Hernandez · Sat Feb 21, 2026</option><option value="2026-2026-02-07">UFC Fight Night: Bautista vs. Oliveira · Sat Feb 7, 2026</option><option value="2026-2026-01-31">UFC 325: Volkanovski vs. Lopes 2 · Sat Jan 31, 2026</option><option value="2026-2026-01-24">UFC 324: Gaethje vs. Pimblett · Sat Jan 24, 2026</option><option value="2025-2025-12-13">UFC Fight Night: Royval vs. Kape · Sat Dec 13, 2025</option><option value="2025-2025-12-06">UFC 323: Dvalishvili vs. Yan 2 · Sat Dec 6, 2025</option><option value="2025-2025-11-22">UFC Fight Night: Tsarukyan vs. Hooker · Sat Nov 22, 2025</option><option value="2025-2025-11-15">UFC 322: Della Maddalena vs. Makhachev · Sat Nov 15, 2025</option><option value="2025-2025-11-08">UFC Fight Night: Bonfim vs. Brown · Sat Nov 8, 2025</option><option value="2025-2025-11-01">UFC Fight Night: Garcia vs. Onama · Sat Nov 1, 2025</option><option value="2025-2025-10-25">UFC 321: Aspinall vs. Gane · Sat Oct 25, 2025</option><option value="2025-2025-10-18">UFC Fight Night: De Ridder vs. Allen · Sat Oct 18, 2025</option><option value="2025-2025-10-11">UFC Fight Night: Oliveira vs. Gamrot · Sat Oct 11, 2025</option><option value="2025-2025-10-04">UFC 320: Ankalaev vs. Pereira 2 · Sat Oct 4, 2025</option><option value="2025-2025-09-27">UFC Fight Night: Ulberg vs. Reyes · Sat Sep 27, 2025</option><option value="2025-2025-09-13">Noche UFC: Lopes vs. Silva · Sat Sep 13, 2025</option><option value="2025-2025-09-06">UFC Fight Night: Imavov vs. Borralho · Sat Sep 6, 2025</option><option value="2025-2025-08-23">UFC Fight Night: Walker vs. Zhang · Sat Aug 23, 2025</option><option value="2025-2025-08-16">UFC 319: Du Plessis vs. Chimaev · Sat Aug 16, 2025</option><option value="2025-2025-08-09">UFC Fight Night: Dolidze vs. Hernandez · Sat Aug 9, 2025</option><option value="2025-2025-08-02">UFC Fight Night: Taira vs. Park · Sat Aug 2, 2025</option><option value="2025-2025-07-26">UFC Fight Night: Whittaker vs. De Ridder · Sat Jul 26, 2025</option><option value="2025-2025-07-19">UFC 318: Holloway vs. Poirier 3 · Sat Jul 19, 2025</option><option value="2025-2025-07-12">UFC Fight Night: Lewis vs. Teixeira · Sat Jul 12, 2025</option><option value="2025-2025-06-28">UFC 317: Topuria vs. Oliveira · Sat Jun 28, 2025</option><option value="2025-2025-06-21">UFC Fight Night: Hill vs. Rountree Jr. · Sat Jun 21, 2025</option><option value="2025-2025-06-14">UFC Fight Night: Usman vs. Buckley · Sat Jun 14, 2025</option><option value="2025-2025-06-07">UFC 316: Dvalishvili vs. O&#39;Malley 2 · Sat Jun 7, 2025</option><option value="2025-2025-05-31">UFC Fight Night: Blanchfield vs. Barber · Sat May 31, 2025</option><option value="2025-2025-05-17">UFC Fight Night: Burns vs. Morales · Sat May 17, 2025</option><option value="2025-2025-05-10">UFC 315: Muhammad vs. Della Maddalena · Sat May 10, 2025</option><option value="2025-2025-05-03">UFC Fight Night: Sandhagen vs. Figueiredo · Sat May 3, 2025</option><option value="2025-2025-04-26">UFC Fight Night: Machado Garry vs. Prates · Sat Apr 26, 2025</option><option value="2025-2025-04-12">UFC 314: Volkanovski vs. Lopes · Sat Apr 12, 2025</option><option value="2025-2025-04-05">UFC Fight Night: Emmett vs. Murphy · Sat Apr 5, 2025</option><option value="2025-2025-03-29">UFC Fight Night: Moreno vs. Erceg · Sat Mar 29, 2025</option><option value="2025-2025-03-22">UFC Fight Night: Edwards vs. Brady · Sat Mar 22, 2025</option><option value="2025-2025-03-15">UFC Fight Night: Vettori vs. Dolidze 2 · Sat Mar 15, 2025</option><option value="2025-2025-03-08">UFC 313: Pereira vs. Ankalaev · Sat Mar 8, 2025</option><option value="2025-2025-03-01">UFC Fight Night: Kape vs. Almabayev · Sat Mar 1, 2025</option><option value="2025-2025-02-22">UFC Fight Night: Cejudo vs. Song · Sat Feb 22, 2025</option><option value="2025-2025-02-15">UFC Fight Night: Cannonier vs. Rodrigues · Sat Feb 15, 2025</option><option value="2025-2025-02-08">UFC 312: Du Plessis vs. Strickland 2 · Sat Feb 8, 2025</option><option value="2025-2025-02-01">UFC Fight Night: Adesanya vs. Imavov · Sat Feb 1, 2025</option><option value="2025-2025-01-18">UFC 311: Makhachev vs. Moicano · Sat Jan 18, 2025</option><option value="2025-2025-01-11">UFC Fight Night: Dern vs. Ribas 2 · Sat Jan 11, 2025</option>    </select>
   </label>
 </section>
 
@@ -310,6 +312,224 @@
       <td class="num mono"></td>
       <td class="num mono r"></td>
       <td class="num mono">140 / 208</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</article>
+<article data-card="2026-2026-10-03" hidden class="finished">
+  <header class="cardhead">
+    <h2>UFC 332: Silva vs. Wang</h2>
+    <p class="stamp">Sat Oct 3, 2026 · Picks posted Mon Sep 28</p>
+  </header>
+
+  <h3>Our bets</h3>
+  <p class="nobets">No bets on this card.</p>
+
+  <h3>Every fight <span class="dim">picks right 10 of 13</span></h3>
+  <div class="tablewrap">
+  <table class="card-table">
+    <thead><tr>
+      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr class="main">
+      <td class="bout"><span class="tag">Main event</span>        <span class="fname">Natalia Silva</span><span class="vs">vs</span><span class="fname">Wang Cong</span></td>
+      <td class="pick">Silva 73%</td>
+      <td class="odds">Silva 65%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R5</span></td>
+      <td class="num mono">-269 / +269</td>
+      <td class="num mono">-250 / +207</td>
+      <td class="num mono">-212 / +169</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">139 / 154</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Payton Talbott</span><span class="vs">vs</span><span class="fname">Deiveson Figueiredo</span></td>
+      <td class="pick">Talbott 75%</td>
+      <td class="odds">Talbott 82%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-300 / +300</td>
+      <td class="num mono">-250 / +207</td>
+      <td class="num mono">-639 / +435</td>
+      <td class="num mono">-798 / +678</td>
+      <td class="num mono r">+18.7</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">163 / 87</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Esteban Ribovics</span><span class="vs">vs</span><span class="fname">King Green</span></td>
+      <td class="pick">Ribovics 59%</td>
+      <td class="odds">Ribovics 68%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-141 / +141</td>
+      <td class="num mono">-450 / +350</td>
+      <td class="num mono">-249 / +195</td>
+      <td class="num mono">-194 / +159</td>
+      <td class="num mono r">-15.6</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">135 / 81</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Roberto Soldic</span><span class="vs">vs</span><span class="fname">Khaos Williams</span></td>
+      <td class="pick">Williams 71% <span class="flag">Disagreed</span></td>
+      <td class="odds">Soldic 72%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+249 / -249</td>
+      <td class="num mono">-200 / +174</td>
+      <td class="num mono">-313 / +243</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 130</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Roman Kopylov</span><span class="vs">vs</span><span class="fname">Ateba Gautier</span></td>
+      <td class="pick">Gautier 75%</td>
+      <td class="odds">Gautier 65%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">+302 / -302</td>
+      <td class="num mono">+134 / -251</td>
+      <td class="num mono">+170 / -212</td>
+      <td class="num mono">+199 / -247</td>
+      <td class="num mono r">+5.4</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">120 / 193</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Imanol Rodriguez</span><span class="vs">vs</span><span class="fname">Alden Coria</span></td>
+      <td class="pick">Coria 54% <span class="flag">Disagreed</span></td>
+      <td class="odds">Rodriguez 58%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">+119 / -119</td>
+      <td class="num mono">-110 / -110</td>
+      <td class="num mono">-154 / +126</td>
+      <td class="num mono">-145 / +121</td>
+      <td class="num mono r">-6.7</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">269 / 234</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Damian Pinas</span><span class="vs">vs</span><span class="fname">Andrey Pulyaev</span></td>
+      <td class="pick">Pinas 67%</td>
+      <td class="odds">Pinas 82%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-203 / +203</td>
+      <td class="num mono">-600 / +446</td>
+      <td class="num mono">-584 / +428</td>
+      <td class="num mono">-648 / +473</td>
+      <td class="num mono r">+0.8</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">235 / 195</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Marcus McGhee</span><span class="vs">vs</span><span class="fname">Anthony Romero</span></td>
+      <td class="pick">McGhee 64%</td>
+      <td class="odds">McGhee 79%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-178 / +178</td>
+      <td class="num mono">-250 / +208</td>
+      <td class="num mono">-488 / +363</td>
+      <td class="num mono">-544 / +399</td>
+      <td class="num mono r">+12.1</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">166 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Anthony Wint</span><span class="vs">vs</span><span class="fname">Lucas Armand</span></td>
+      <td class="pick">Wint 63%</td>
+      <td class="odds">Wint 81%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-169 / +169</td>
+      <td class="num mono">-390 / +280</td>
+      <td class="num mono">-564 / +408</td>
+      <td class="num mono">-576 / +420</td>
+      <td class="num mono r">+6.4</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">290 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Johnny Walker</span><span class="vs">vs</span><span class="fname">Mick Parkin</span></td>
+      <td class="pick">Walker 56%</td>
+      <td class="odds">Walker 55%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-127 / +127</td>
+      <td class="num mono">+157 / -180</td>
+      <td class="num mono">-139 / +114</td>
+      <td class="num mono">-117 / -101</td>
+      <td class="num mono r">+14.1</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">101 / 175</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Jacobe Smith</span><span class="vs">vs</span><span class="fname">Bruce Whitehead</span></td>
+      <td class="pick">Smith 79%</td>
+      <td class="odds">Smith 86%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-374 / +374</td>
+      <td class="num mono">-950 / +637</td>
+      <td class="num mono">-938 / +606</td>
+      <td class="num mono">-1188 / +749</td>
+      <td class="num mono r">+1.7</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">204 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Alexander Hernandez</span><span class="vs">vs</span><span class="fname">Rafael Dos Anjos</span></td>
+      <td class="pick">Hernandez 58%</td>
+      <td class="odds">Hernandez 69%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R2</span></td>
+      <td class="num mono">-136 / +136</td>
+      <td class="num mono">-250 / +207</td>
+      <td class="num mono">-268 / +211</td>
+      <td class="num mono">-272 / +216</td>
+      <td class="num mono r">+1.1</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">96 / 78</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Ismail Naurdiev</span><span class="vs">vs</span><span class="fname">Marvin Vettori</span></td>
+      <td class="pick">Naurdiev 55%</td>
+      <td class="odds">Naurdiev 55%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">-124 / +124</td>
+      <td class="num mono">+149 / -170</td>
+      <td class="num mono">-137 / +113</td>
+      <td class="num mono">-133 / +115</td>
+      <td class="num mono r">+16.2</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">148 / 97</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Eric Nolan</span><span class="vs">vs</span><span class="fname">Court McGee</span></td>
+      <td class="pick">Coin flip · 50%</td>
+      <td class="odds">Nolan 67%</td>
+      <td class="result void"><b class="mark">Coin flip</b> <span class="dim">KO/TKO R3</span></td>
+      <td class="num mono">+103 / -103</td>
+      <td class="num mono">-350 / +280</td>
+      <td class="num mono">-237 / +192</td>
+      <td class="num mono">-242 / +209</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">257 / 94</td>
     </tr>
     </tbody>
   </table>
@@ -737,7 +957,7 @@
 <article data-card="2026-2026-09-05" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Hooker vs. Parnasse</h2>
-    <p class="stamp">Sat Sep 5, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Sep 5, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -980,7 +1200,7 @@
 <article data-card="2026-2026-08-29" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Nurmagomedov vs. Song</h2>
-    <p class="stamp">Sat Aug 29, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Aug 29, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -1209,7 +1429,7 @@
 <article data-card="2026-2026-08-22" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Hernandez vs. Rodrigues</h2>
-    <p class="stamp">Sat Aug 22, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Aug 22, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -1410,10 +1630,658 @@
   </table>
   </div>
 </article>
+<article data-card="2026-2026-08-15" hidden class="finished">
+  <header class="cardhead">
+    <h2>UFC 330: Makhachev vs. Machado Garry</h2>
+    <p class="stamp">Sat Aug 15, 2026 · Backtest · settled at opening odds, no money down</p>
+  </header>
+
+  <h3>Our bets</h3>
+  <div class="tablewrap">
+  <table class="bets">
+    <thead><tr>
+      <th>Bet</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td class="mono">$100</td>
+      <td class="pick">Vicente Luque · 72% <span class="dim">over Tresean Gore</span></td>
+      <td class="odds">Even 50%</td>
+      <td class="result miss"><b>Lost $100</b> <span class="dim">· Unanimous decision R3</span></td>
+      <td class="num mono">-255</td>
+      <td class="num mono">-110</td>
+      <td class="num mono"></td>
+      <td class="num mono">+113</td>
+      <td class="num mono r">-4.1</td>
+      <td class="num mono">GAP</td>
+      <td class="num mono r">1.00</td>
+      <td class="num mono">88 / 159</td>
+    </tr>
+    </tbody>
+    <tfoot><tr><td colspan="12"><b>0–1</b> · net <b class="neg">−$100</b></td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3>Every fight <span class="dim">picks right 7 of 12</span></h3>
+  <div class="tablewrap">
+  <table class="card-table">
+    <thead><tr>
+      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr class="main">
+      <td class="bout"><span class="tag">Main event</span>        <span class="fname">Islam Makhachev</span><span class="vs">vs</span><span class="fname">Ian Machado Garry</span></td>
+      <td class="pick">Makhachev 64%</td>
+      <td class="odds">Makhachev 77%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R5</span></td>
+      <td class="num mono">-179 / +179</td>
+      <td class="num mono">-400 / +330</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">97 / 120</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Mackenzie Dern</span><span class="vs">vs</span><span class="fname">Gillian Robertson</span></td>
+      <td class="pick">Robertson 61% <span class="flag">Disagreed</span></td>
+      <td class="odds">Dern 66%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R5</span></td>
+      <td class="num mono">+153 / -153</td>
+      <td class="num mono">-211 / +181</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">99 / 99</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Jalin Turner</span><span class="vs">vs</span><span class="fname">Kaue Fernandes</span></td>
+      <td class="pick">Turner 56%</td>
+      <td class="odds">Turner 65%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-127 / +127</td>
+      <td class="num mono">-200 / +174</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-118 / -101</td>
+      <td class="num mono r">-12.8</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">110 / 187</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Dustin Stoltzfus</span><span class="vs">vs</span><span class="fname">Mansur Abdul-Malik</span></td>
+      <td class="pick">Abdul-Malik 65%</td>
+      <td class="odds">Abdul-Malik 83%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Submission R2</span></td>
+      <td class="num mono">+186 / -186</td>
+      <td class="num mono">+476 / -650</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">143 / 203</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Esteban Ribovics</span><span class="vs">vs</span><span class="fname">Edson Barboza</span></td>
+      <td class="pick">Ribovics 64%</td>
+      <td class="odds">Ribovics 72%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R2</span></td>
+      <td class="num mono">-180 / +180</td>
+      <td class="num mono">-300 / +245</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">144 / 81</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Chidi Njokuani</span><span class="vs">vs</span><span class="fname">Joel Alvarez</span></td>
+      <td class="pick">Alvarez 71%</td>
+      <td class="odds">Alvarez 72%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+246 / -246</td>
+      <td class="num mono">+245 / -300</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">126 / 119</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Charles Johnson</span><span class="vs">vs</span><span class="fname">Eduardo Chapolin</span></td>
+      <td class="pick">Johnson 58%</td>
+      <td class="odds">—</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R3</span></td>
+      <td class="num mono">-136 / +136</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">108 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Donte Johnson</span><span class="vs">vs</span><span class="fname">Eric McConico</span></td>
+      <td class="pick">Johnson 65%</td>
+      <td class="odds">Johnson 67%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-184 / +184</td>
+      <td class="num mono">-225 / +189</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-366 / +299</td>
+      <td class="num mono r">+9.1</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">221 / 193</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Tresean Gore</span><span class="vs">vs</span><span class="fname">Vicente Luque</span></td>
+      <td class="pick">Luque 72%</td>
+      <td class="odds">Even 50%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+255 / -255</td>
+      <td class="num mono">-110 / -110</td>
+      <td class="num mono">—</td>
+      <td class="num mono">+113</td>
+      <td class="num mono r">-4.1</td>
+      <td class="num mono">GAP</td>
+      <td class="num mono r">1.00</td>
+      <td class="num mono">159 / 88</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Lucas Fernando</span><span class="vs">vs</span><span class="fname">Rafael Tobias</span></td>
+      <td class="pick">Fernando 54%</td>
+      <td class="odds">Fernando 65%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R3</span></td>
+      <td class="num mono">-117 / +117</td>
+      <td class="num mono">-205 / +177</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 298</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Neil Magny</span><span class="vs">vs</span><span class="fname">Ramiz Brahimaj</span></td>
+      <td class="pick">Magny 63% <span class="flag">Disagreed</span></td>
+      <td class="odds">Brahimaj 53%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R2</span></td>
+      <td class="num mono">-169 / +169</td>
+      <td class="num mono">+105 / -125</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">78 / 132</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Jeremiah Wells</span><span class="vs">vs</span><span class="fname">Myktybek Orolbai</span></td>
+      <td class="pick">Orolbai 81%</td>
+      <td class="odds">Orolbai 74%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Submission R3</span></td>
+      <td class="num mono">+416 / -416</td>
+      <td class="num mono">+263 / -325</td>
+      <td class="num mono">—</td>
+      <td class="num mono">+841 / -1298</td>
+      <td class="num mono r">+16.2</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">156 / 159</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</article>
+<article data-card="2026-2026-08-08" hidden class="finished">
+  <header class="cardhead">
+    <h2>UFC Fight Night: Gamrot vs. Salkilld</h2>
+    <p class="stamp">Sat Aug 8, 2026 · Backtest · settled at opening odds, no money down</p>
+  </header>
+
+  <h3>Our bets</h3>
+  <div class="tablewrap">
+  <table class="bets">
+    <thead><tr>
+      <th>Bet</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr>
+      <td class="mono">$77</td>
+      <td class="pick">Quillan Salkilld · 69% <span class="dim">over Mateusz Gamrot</span></td>
+      <td class="odds">Gamrot 54%</td>
+      <td class="result hit"><b>Won $85</b> <span class="dim">· Submission R1</span></td>
+      <td class="num mono">-222</td>
+      <td class="num mono">+111</td>
+      <td class="num mono"></td>
+      <td class="num mono">-173</td>
+      <td class="num mono r">+16.7</td>
+      <td class="num mono">FLIP</td>
+      <td class="num mono r">0.77</td>
+      <td class="num mono">162 / 108</td>
+    </tr>
+    </tbody>
+    <tfoot><tr><td colspan="12"><b>1–0</b> · net <b class="pos">+$85</b></td></tr></tfoot>
+  </table>
+  </div>
+
+  <h3>Every fight <span class="dim">picks right 9 of 11</span></h3>
+  <div class="tablewrap">
+  <table class="card-table">
+    <thead><tr>
+      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr class="main">
+      <td class="bout"><span class="tag">Main event</span>        <span class="fname">Quillan Salkilld</span><span class="vs">vs</span><span class="fname">Mateusz Gamrot</span></td>
+      <td class="pick">Salkilld 69% <span class="flag">Disagreed</span></td>
+      <td class="odds">Gamrot 54%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R1</span></td>
+      <td class="num mono">-222 / +222</td>
+      <td class="num mono">+111 / -131</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-173</td>
+      <td class="num mono r">+16.7</td>
+      <td class="num mono">FLIP</td>
+      <td class="num mono r">0.77</td>
+      <td class="num mono">162 / 108</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Diego Ferreira</span><span class="vs">vs</span><span class="fname">Billy Quarantillo</span></td>
+      <td class="pick">Ferreira 59%</td>
+      <td class="odds">Ferreira 65%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">-144 / +144</td>
+      <td class="num mono">-205 / +177</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">100 / 120</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Yadier del Valle</span><span class="vs">vs</span><span class="fname">Darren Elkins</span></td>
+      <td class="pick">Valle 68%</td>
+      <td class="odds">Valle 74%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-217 / +217</td>
+      <td class="num mono">-325 / +263</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-978 / +655</td>
+      <td class="num mono r">+13.7</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">215 / 87</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Alexia Thainara</span><span class="vs">vs</span><span class="fname">Amanda Lemos</span></td>
+      <td class="pick">Thainara 70%</td>
+      <td class="odds">Thainara 72%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">-239 / +239</td>
+      <td class="num mono">-300 / +245</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">200 / 104</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Ty Miller</span><span class="vs">vs</span><span class="fname">Billy Ray Goff</span></td>
+      <td class="pick">Miller 67%</td>
+      <td class="odds">Miller 62%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R3</span></td>
+      <td class="num mono">-202 / +202</td>
+      <td class="num mono">-175 / +153</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">267 / 209</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Steven Asplund</span><span class="vs">vs</span><span class="fname">Guilherme Pat</span></td>
+      <td class="pick">Asplund 56%</td>
+      <td class="odds">Asplund 65%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">-127 / +127</td>
+      <td class="num mono">-204 / +177</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">232 / 237</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Diyar Nurgozhay</span><span class="vs">vs</span><span class="fname">Bruno Lopes</span></td>
+      <td class="pick">Nurgozhay 54% <span class="flag">Disagreed</span></td>
+      <td class="odds">Lopes 66%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-119 / +119</td>
+      <td class="num mono">+186 / -220</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-174 / +157</td>
+      <td class="num mono r">+28.3</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">227 / 204</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Jose Montanha</span><span class="vs">vs</span><span class="fname">Louie Sutherland</span></td>
+      <td class="pick">Sutherland 66%</td>
+      <td class="odds">Even 50%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Submission R1</span></td>
+      <td class="num mono">+195 / -195</td>
+      <td class="num mono">-110 / -110</td>
+      <td class="num mono">—</td>
+      <td class="num mono">+166 / -175</td>
+      <td class="num mono r">+12.9</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 232</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Manoel Sousa</span><span class="vs">vs</span><span class="fname">Richie Miranda</span></td>
+      <td class="pick">Coin flip · 50%</td>
+      <td class="odds">Sousa 80%</td>
+      <td class="result void"><b class="mark">Coin flip</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+103 / -103</td>
+      <td class="num mono">-500 / +383</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">270 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Miles Johns</span><span class="vs">vs</span><span class="fname">Gianni Vazquez</span></td>
+      <td class="pick">Johns 57%</td>
+      <td class="odds">Johns 60%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-131 / +131</td>
+      <td class="num mono">-175 / +135</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-227 / +203</td>
+      <td class="num mono r">+7.9</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">126 / 265</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Juliana Miller</span><span class="vs">vs</span><span class="fname">Ravena Oliveira</span></td>
+      <td class="pick">Miller 56%</td>
+      <td class="odds">Miller 63%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R2</span></td>
+      <td class="num mono">-128 / +128</td>
+      <td class="num mono">-190 / +165</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-389 / +365</td>
+      <td class="num mono r">+15.3</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">184 / 218</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Carol Foro</span><span class="vs">vs</span><span class="fname">Gigi Canuto</span></td>
+      <td class="pick">Canuto 61% <span class="flag">Disagreed</span></td>
+      <td class="odds">Foro 65%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+158 / -158</td>
+      <td class="num mono">-200 / +174</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 350</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</article>
+<article data-card="2026-2026-08-01" hidden class="finished">
+  <header class="cardhead">
+    <h2>UFC Fight Night: Medic vs. Rodriguez</h2>
+    <p class="stamp">Sat Aug 1, 2026 · Backtest · settled at opening odds, no money down</p>
+  </header>
+
+  <h3>Our bets</h3>
+  <p class="nobets">No bets on this card.</p>
+
+  <h3>Every fight <span class="dim">picks right 9 of 12</span></h3>
+  <div class="tablewrap">
+  <table class="card-table">
+    <thead><tr>
+      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
+      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
+      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    </tr></thead>
+    <tbody>
+    <tr class="main">
+      <td class="bout"><span class="tag">Main event</span>        <span class="fname">Uros Medic</span><span class="vs">vs</span><span class="fname">Daniel Rodriguez</span></td>
+      <td class="pick">Medic 56%</td>
+      <td class="odds">Medic 80%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-126 / +126</td>
+      <td class="num mono">-501 / +386</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-383 / +302</td>
+      <td class="num mono r">-4.1</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">127 / 107</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Navajo Stirling</span><span class="vs">vs</span><span class="fname">Jan Blachowicz</span></td>
+      <td class="pick">Stirling 74%</td>
+      <td class="odds">Stirling 64%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-280 / +280</td>
+      <td class="num mono">-200 / +170</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-334 / +262</td>
+      <td class="num mono r">+9.3</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">172 / 91</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Aleksandar Rakic</span><span class="vs">vs</span><span class="fname">Marcin Tybura</span></td>
+      <td class="pick">Rakic 65%</td>
+      <td class="odds">Rakic 69%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">-190 / +190</td>
+      <td class="num mono">-250 / +210</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">116 / 91</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Robert Valentin</span><span class="vs">vs</span><span class="fname">Dusko Todorovic</span></td>
+      <td class="pick">Coin flip · 50%</td>
+      <td class="odds">Valentin 54%</td>
+      <td class="result void"><b class="mark">Coin flip</b> <span class="dim">Submission R1</span></td>
+      <td class="num mono">+101 / -101</td>
+      <td class="num mono">-130 / +110</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-169 / +144</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">215 / 137</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Gilbert Urbina</span><span class="vs">vs</span><span class="fname">Vlasto Cepo</span></td>
+      <td class="pick">Coin flip · 50%</td>
+      <td class="odds">Cepo 76%</td>
+      <td class="result void"><b class="mark">Coin flip</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-104 / +104</td>
+      <td class="num mono">+300 / -400</td>
+      <td class="num mono">—</td>
+      <td class="num mono">+259 / -321</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">196 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Noah Gugnon</span><span class="vs">vs</span><span class="fname">Milos Janicic</span></td>
+      <td class="pick">Gugnon 56%</td>
+      <td class="odds">Gugnon 64%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R1</span></td>
+      <td class="num mono">-126 / +126</td>
+      <td class="num mono">-194 / +169</td>
+      <td class="num mono">—</td>
+      <td class="num mono">+106 / -127</td>
+      <td class="num mono r">-17.5</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Tofiq Musayev</span><span class="vs">vs</span><span class="fname">Ludovit Klein</span></td>
+      <td class="pick">Klein 59%</td>
+      <td class="odds">Klein 57%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">KO/TKO R2</span></td>
+      <td class="num mono">+146 / -146</td>
+      <td class="num mono">+125 / -145</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">263 / 121</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Michael Oliveira</span><span class="vs">vs</span><span class="fname">Oban Elliott</span></td>
+      <td class="pick">Elliott 62% <span class="flag">Disagreed</span></td>
+      <td class="odds">Oliveira 71%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">+163 / -163</td>
+      <td class="num mono">-275 / +235</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 181</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Borislav Nikolic</span><span class="vs">vs</span><span class="fname">Mark Vologdin</span></td>
+      <td class="pick">Vologdin 69% <span class="flag">Disagreed</span></td>
+      <td class="odds">Nikolic 58%</td>
+      <td class="result miss"><b class="mark">✗</b> <span class="dim">Unanimous decision R3</span></td>
+      <td class="num mono">+226 / -226</td>
+      <td class="num mono">-150 / +130</td>
+      <td class="num mono">—</td>
+      <td class="num mono">—</td>
+      <td class="num mono r">—</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 270</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Bogdan Grad</span><span class="vs">vs</span><span class="fname">Dennis Buzukja</span></td>
+      <td class="pick">Grad 61%</td>
+      <td class="odds">Grad 76%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R2</span></td>
+      <td class="num mono">-160 / +160</td>
+      <td class="num mono">-400 / +300</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-195 / +167</td>
+      <td class="num mono r">-12.4</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">210 / 178</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Mateusz Rebecki</span><span class="vs">vs</span><span class="fname">Kyle Prepolec</span></td>
+      <td class="pick">Rebecki 76%</td>
+      <td class="odds">Rebecki 80%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-313 / +313</td>
+      <td class="num mono">-500 / +385</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-901 / +788</td>
+      <td class="num mono r">+8.7</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">138 / 199</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Nina Milosevic</span><span class="vs">vs</span><span class="fname">Hailey Cowan</span></td>
+      <td class="pick">Milosevic 53%</td>
+      <td class="odds">Milosevic 80%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-113 / +113</td>
+      <td class="num mono">-500 / +385</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-554 / +424</td>
+      <td class="num mono r">+1.4</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 223</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Jovan Leka</span><span class="vs">vs</span><span class="fname">Alexander Poppeck</span></td>
+      <td class="pick">Leka 66%</td>
+      <td class="odds">Leka 72%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">KO/TKO R1</span></td>
+      <td class="num mono">-193 / +193</td>
+      <td class="num mono">-300 / +250</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-337 / +262</td>
+      <td class="num mono r">+1.2</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">350 / 350</td>
+    </tr>
+    <tr>
+      <td class="bout">        <span class="fname">Stephanie Luciano</span><span class="vs">vs</span><span class="fname">Marina Spasic</span></td>
+      <td class="pick">Luciano 74%</td>
+      <td class="odds">Luciano 72%</td>
+      <td class="result hit"><b class="mark">✓</b> <span class="dim">Submission R1</span></td>
+      <td class="num mono">-282 / +282</td>
+      <td class="num mono">-300 / +250</td>
+      <td class="num mono">—</td>
+      <td class="num mono">-332 / +264</td>
+      <td class="num mono r">+1.3</td>
+      <td class="num mono"></td>
+      <td class="num mono r"></td>
+      <td class="num mono">210 / 350</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</article>
 <article data-card="2026-2026-07-25" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Ankalaev vs. Guskov</h2>
-    <p class="stamp">Sat Jul 25, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jul 25, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -1628,7 +2496,7 @@
 <article data-card="2026-2026-07-18" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Du Plessis vs. Usman</h2>
-    <p class="stamp">Sat Jul 18, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jul 18, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -1843,7 +2711,7 @@
 <article data-card="2026-2026-07-11" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 329: McGregor vs. Holloway 2</h2>
-    <p class="stamp">Sat Jul 11, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jul 11, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -2061,7 +2929,7 @@
 <article data-card="2026-2026-06-27" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Fiziev vs. Torres</h2>
-    <p class="stamp">Sat Jun 27, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jun 27, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -2265,7 +3133,7 @@
 <article data-card="2026-2026-06-20" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Kape vs. Horiguchi</h2>
-    <p class="stamp">Sat Jun 20, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jun 20, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -2494,7 +3362,7 @@
 <article data-card="2026-2026-06-14" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Freedom 250</h2>
-    <p class="stamp">Sun Jun 14, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sun Jun 14, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -2614,7 +3482,7 @@
 <article data-card="2026-2026-06-06" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Muhammad vs. Bonfim</h2>
-    <p class="stamp">Sat Jun 6, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jun 6, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -2829,7 +3697,7 @@
 <article data-card="2026-2026-05-30" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Song vs. Figueiredo</h2>
-    <p class="stamp">Sat May 30, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat May 30, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -3033,7 +3901,7 @@
 <article data-card="2026-2026-05-16" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Allen vs. Costa</h2>
-    <p class="stamp">Sat May 16, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat May 16, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -3237,7 +4105,7 @@
 <article data-card="2026-2026-05-09" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 328: Chimaev vs. Strickland</h2>
-    <p class="stamp">Sat May 9, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat May 9, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -3466,7 +4334,7 @@
 <article data-card="2026-2026-05-02" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Della Maddalena vs. Prates</h2>
-    <p class="stamp">Sat May 2, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat May 2, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -3695,7 +4563,7 @@
 <article data-card="2026-2026-04-25" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Sterling vs. Zalal</h2>
-    <p class="stamp">Sat Apr 25, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Apr 25, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -3899,7 +4767,7 @@
 <article data-card="2026-2026-04-18" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Burns vs. Malott</h2>
-    <p class="stamp">Sat Apr 18, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Apr 18, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -4089,7 +4957,7 @@
 <article data-card="2026-2026-04-11" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 327: Prochazka vs. Ulberg</h2>
-    <p class="stamp">Sat Apr 11, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Apr 11, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -4279,7 +5147,7 @@
 <article data-card="2026-2026-04-04" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Moicano vs. Duncan</h2>
-    <p class="stamp">Sat Apr 4, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Apr 4, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -4483,7 +5351,7 @@
 <article data-card="2026-2026-03-28" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Adesanya vs. Pyfer</h2>
-    <p class="stamp">Sat Mar 28, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Mar 28, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -4726,7 +5594,7 @@
 <article data-card="2026-2026-03-21" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Evloev vs. Murphy</h2>
-    <p class="stamp">Sat Mar 21, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Mar 21, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -4930,7 +5798,7 @@
 <article data-card="2026-2026-03-14" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Emmett vs. Vallejos</h2>
-    <p class="stamp">Sat Mar 14, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Mar 14, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -5173,7 +6041,7 @@
 <article data-card="2026-2026-03-07" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 326: Holloway vs. Oliveira 2</h2>
-    <p class="stamp">Sat Mar 7, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Mar 7, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -5363,7 +6231,7 @@
 <article data-card="2026-2026-02-28" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Moreno vs. Kavanagh</h2>
-    <p class="stamp">Sat Feb 28, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Feb 28, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -5567,7 +6435,7 @@
 <article data-card="2026-2026-02-21" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Strickland vs. Hernandez</h2>
-    <p class="stamp">Sat Feb 21, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Feb 21, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -5810,7 +6678,7 @@
 <article data-card="2026-2026-02-07" hidden class="finished">
   <header class="cardhead">
     <h2>UFC Fight Night: Bautista vs. Oliveira</h2>
-    <p class="stamp">Sat Feb 7, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Feb 7, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -6053,7 +6921,7 @@
 <article data-card="2026-2026-01-31" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 325: Volkanovski vs. Lopes 2</h2>
-    <p class="stamp">Sat Jan 31, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jan 31, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -6257,7 +7125,7 @@
 <article data-card="2026-2026-01-24" hidden class="finished">
   <header class="cardhead">
     <h2>UFC 324: Gaethje vs. Pimblett</h2>
-    <p class="stamp">Sat Jan 24, 2026 · Picks on record before the event</p>
+    <p class="stamp">Sat Jan 24, 2026 · Backtest · settled at opening odds, no money down</p>
   </header>
 
   <h3>Our bets</h3>
@@ -15222,8 +16090,8 @@
   </div>
 </article>
 <p class="foot">Picks right counts fights where we named a side and there was a winner:
-coin flips, draws and no contests are shown but not counted. Cards we did not post
-picks for before the event are not part of the live record.</p>
+coin flips, draws and no contests are shown but not counted. Only picks committed with
+a timestamp before the event are part of the live record; everything else is backtest.</p>
 </main>
 
 <footer>
