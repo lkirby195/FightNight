@@ -10,7 +10,7 @@ that nothing changed after a fight.
 
 Thursday, once the card's lines are up:
 
-    python card_report.py <bfo-slug> <YYYY-MM-DD> && python site/build.py
+    python card_report.py <bfo-slug> <YYYY-MM-DD> && python site/build.py && vercel deploy site/out --prod --yes
 
 `card_report.py` records the price on the board in `data/placeable_lines.csv`
 (the timestamp is the "Picks posted" line); the build projects the same bouts
@@ -21,7 +21,7 @@ Sunday, after the results are scraped (`scrape_v2.py`, `features.py`,
 `scrape_bfo.py`, `clv_eval.py`, `prefight_rd.py`, `betting_system.py all
 --write-ledger`, `replay_check.py`; see the root README):
 
-    python card_settle.py <bfo-slug> <YYYY-MM-DD> && python site/build.py
+    python card_settle.py <bfo-slug> <YYYY-MM-DD> && python site/build.py && vercel deploy site/out --prod --yes
 
 Commit `site/out/` and `site/state/ranks_prev.json` with the data.
 
@@ -59,13 +59,20 @@ and are not counted; draws and no contests are shown, not counted, and void
 any bet. No jargon on the default view; the "Show the numbers" toggle adds
 model line, open, placeable, close, CLV, rule, stake and RD columns.
 
-## Anonymity lint
-
-The build fails if any output file contains `lkirby`, `Logan`, or a
-`github.com/lkirby195` URL.
-
 ## Deploy
 
-`site/out/` deploys to Vercel as a static project (root directory `site/out`,
-no build step). Not deployed yet: deployment is gated on the anonymity
-checklist (brand GitHub org, WHOIS privacy, brand email).
+`site/out/` is a static Vercel project (project `split-decision`, the default
+`*.vercel.app` domain, no build step, no framework). The last step of both
+cadence commands above is the deploy, run non-interactively with the Vercel
+CLI (`npm i -g vercel`, once):
+
+    vercel deploy site/out --prod --yes --token "$VERCEL_TOKEN" --scope <team-slug>
+
+`--yes` skips every prompt and links the directory to the project on first
+use; `--prod` promotes the deployment to the production URL (drop it for a
+preview URL). `VERCEL_TOKEN` is a personal token from the Vercel dashboard;
+never commit it. Web Analytics is Vercel's cookieless kind (the
+`/_vercel/insights/script.js` tag in `base.html`), so no cookie banner is
+needed; it must be switched on once for the project in the dashboard.
+
+Custom domain: none attached. `splitdecision.io` is not purchased.

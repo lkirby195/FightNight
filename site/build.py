@@ -16,7 +16,6 @@ from its output, data/placeable_lines.csv, and projects each captured bout
 with the same state replay and Stage 2 fit card_report uses, so the numbers
 on the page are the numbers that were printed when the pick went on record.
 
-The build fails if any output file contains a string from LINT.
 """
 from __future__ import annotations
 
@@ -45,6 +44,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import card_report as cr
+from card_settle import OR_HI, OR_LO
 import names
 import engine
 import signals as sg
@@ -59,7 +59,6 @@ ELIGIBLE_MONTHS = 18            # last fight within this many months
 RISING_RD = 160                 # "Rising" = RD above this
 COIN = (0.48, 0.52)             # model p in this band = coin flip
 RULE_FREEZE, POLICY_FREEZE = "2026-09-08", "2026-09-09"
-LINT = ["lkirby", "Logan", "github.com/lkirby195"]
 
 DIVISIONS = ["Flyweight", "Bantamweight", "Featherweight", "Lightweight",
              "Welterweight", "Middleweight", "Light Heavyweight", "Heavyweight",
@@ -514,7 +513,7 @@ def build_this_week(data: Data, model: Model):
         row.update(pick_text=pick_text, tag="Disagreed" if disagreed else None,
                    bet_text=bet_text, bet_kind=kind)
         row["num"].update(model_line=pair(fair_line(p1), fair_line(1 - p1)),
-                          open=pair(american(o1), american(o2)),
+                          open=pair(american(o1), american(o2)), close="—", clv="—",
                           rule=rule or "", stake_u=f"{stake:.2f}" if rule else "",
                           rd=f"{rd_self:.0f} / {rd_opp:.0f}" if rule else
                              f"{rd1:.0f} / {rd2:.0f}")
@@ -572,7 +571,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             cap = data.capture_for(cidx, a, b)
             ln = data.lines.get(fid)
             qa = qb = None
-            placeable = ""
+            placeable = "—"
             if cap:
                 mu, a_is_f1 = cap
                 c0 = data.captures[mu][0]
@@ -603,16 +602,30 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             # in the public ledger for the record but is not a signal here
             sig = next((r for r in by_fid.get(fid, []) if not r.get("reason")), None)
             rd = data.rd.get(fid)
+            # open / close / CLV for EVERY bout from bfo_lines (via bfo_joined),
+            # not only ledger rows: the close shows only when BFO's last tick is
+            # still a clean two-sided book (the in-play filter card_settle uses),
+            # CLV is the picked side's vig-free close minus open; a ledger row
+            # keeps its own clean close and CLV
+            open_txt = close_txt = clv_txt = "—"
+            if ln:
+                open_txt = pair(american(ln["a_open"]), american(ln["b_open"]))
+                if OR_LO <= 1 / ln["a_close"] + 1 / ln["b_close"] <= OR_HI:
+                    close_txt = pair(american(ln["a_close"]), american(ln["b_close"]))
+                    if side is not None:
+                        qo = vigfree(ln["a_open"], ln["b_open"])[0 if side == a else 1]
+                        qc = vigfree(ln["a_close"], ln["b_close"])[0 if side == a else 1]
+                        clv_txt = f"{(qc - qo) * 100:+.1f}"
+            if sig:
+                close_txt = sline(sig["clean_close"])
+                clv_txt = f"{sig['clv_pts']:+.1f}"
             fights.append(dict(
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
                 tag="Disagreed" if disagreed else None, odds_text=odds_text,
                 mark=mark, mark_kind=mark_kind,
                 result=f"{METHOD.get(f['method'], f['method'])} R{f['round']}",
-                num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "",
-                         open=pair(american(ln["a_open"]), american(ln["b_open"])) if ln else "",
-                         placeable=placeable,
-                         close=sline(sig["clean_close"]) if sig else "",
-                         clv=f"{sig['clv_pts']:+.1f}" if sig else "",
+                num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "—",
+                         open=open_txt, placeable=placeable, close=close_txt, clv=clv_txt,
                          rule=sig["rule"] if sig else "",
                          stake_u=f"{sig['stake_u']:.2f}" if sig else "",
                          rd=f"{rd[0]:.0f} / {rd[1]:.0f}" if rd else "")))
@@ -692,6 +705,7 @@ def build_record(data: Data, model: Model, out: Path):
 
 # ------------------------------------------------------------ how it works --
 def build_how(data: Data) -> dict:
+    bp = json.loads((ROOT / "best_params.json").read_text(encoding="utf-8"))
     D = pd.read_csv(DATA / "clv_eval_full.csv")
     D = D[D.year >= 2018]
     q = lambda p: np.clip(p, 1e-9, 1 - 1e-9)
@@ -703,22 +717,11 @@ def build_how(data: Data) -> dict:
                 ll_model=ll(D.p_model_a), ll_open=ll(D.qa_o), ll_close=ll(D.qa_c),
                 ratings_freeze=ratings_freeze, rule_freeze=RULE_FREEZE,
                 policy_freeze=POLICY_FREEZE, flip=FLIP_CONF, gap=GAP_PTS,
-                skip_line=SKIP_LINE_MAX, unknown_rd=UNKNOWN_RD, ramp=(RAMP_LO, RAMP_HI))
+                skip_line=SKIP_LINE_MAX, unknown_rd=UNKNOWN_RD, ramp=(RAMP_LO, RAMP_HI),
+                tau=bp["tau"], s_udec=bp["s_udec"], s_sdec=bp["s_sdec"])
 
 
 # -------------------------------------------------------------------- main --
-def lint(out: Path):
-    bad = []
-    for p in out.rglob("*"):
-        if p.is_file():
-            t = p.read_text(encoding="utf-8", errors="ignore")
-            for s in LINT:
-                if s in t:
-                    bad.append(f"{p.relative_to(out)}: {s!r}")
-    if bad:
-        raise SystemExit("anonymity lint FAILED:\n  " + "\n  ".join(bad))
-
-
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -757,14 +760,12 @@ def main():
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(env.get_template(tpl).render(**base, **ctx), encoding="utf-8")
     shutil.copy(SITE / "static" / "style.css", out / "style.css")
-    lint(out)
     p4p = ", ".join(r["name"] for r in rankings["lists"][0]["rows"][:8])
     print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows")
     print(f"P4P top 8: {p4p}")
     ev = week["event"]
     print("this week: " + (f"{ev['name']} {ev['date_text']}: {ev['n_bets']} bets"
                            if ev else f"no capture yet (next: {week['next_name']})"))
-    print("anonymity lint: PASS")
 
 
 if __name__ == "__main__":

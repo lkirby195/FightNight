@@ -21,7 +21,7 @@
   <thead><tr>
     <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Our bet</th>
     <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Now</th>
-    <th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    <th class="num">Close</th><th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
   </tr></thead>
   <tbody>
   {% for b in event.bouts %}
@@ -35,6 +35,8 @@
     <td class="num mono">{{ b.num.open }}</td>
     <td class="num mono">{{ b.num.placeable }}</td>
     <td class="num mono">{{ b.num.now }}</td>
+    <td class="num mono">{{ b.num.close }}</td>
+    <td class="num mono r">{{ b.num.clv }}</td>
     <td class="num mono">{{ b.num.rule }}</td>
     <td class="num mono r">{{ b.num.stake_u }}</td>
     <td class="num mono">{{ b.num.rd }}</td>
