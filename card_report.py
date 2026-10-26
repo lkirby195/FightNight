@@ -157,6 +157,9 @@ OFF_CARD = {
     ("2026-10-03", 45054),   # UFC 332 Sopaj / McGhee: McGhee's original
                              # opponent; he fought Anthony Romero (45123) and
                              # the page kept both matchups
+    ("2026-10-24", 45459),   # UFC 333 Durden / Osbourne: listed by BFO on the
+                             # UFC 333 page after the 2026-10-22 capture; not
+                             # on the UFC Stats card (14 bouts), did not happen
 }
 
 
