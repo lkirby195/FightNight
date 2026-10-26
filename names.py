@@ -33,12 +33,12 @@ Adding an alias is a data change (one CSV row), not a code change. Anything
 that changes norm() moves historical joins: re-run clv_eval.py and diff
 data/bfo_joined.csv before trusting the record again.
 
-clv_eval.join_bfo applies the same near-miss test to BFO bouts dated on or
-after NAME_JOIN_STRICT_FROM (2026-10-22, the ruling). Earlier BFO rows that
-never joined keep failing silently as before: 60 of them are spelling misses
-by this test (Cattar / Kattar, Curelaba / Cutelaba, Oliynyk / Oleinik, ...)
-and adding their aliases would change the backfilled record, a separate
-decision.
+clv_eval.join_bfo applies the same near-miss test to every BFO bout, over
+the full history (the 2026-10-22 gate was lifted on 2026-10-26 once the 46
+historical misspellings it had stopped on were aliased by hand: Cattar /
+Kattar, Curelaba / Cutelaba, Oliynyk / Oleinik, Waterson / Waterson-Gomez,
+...). A new misspelling anywhere in the history stops clv_eval until a row is
+added.
 """
 from __future__ import annotations
 
@@ -51,7 +51,6 @@ import unicodedata
 ALIASES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "name_aliases.csv")
 SUFFIX_RE = re.compile(r" (?:jr|sr|ii|iii|iv)$")
 NEAR_MISS = 0.85                        # difflib ratio: at or above, a miss is an error
-NAME_JOIN_STRICT_FROM = "2026-10-22"    # clv_eval fails loud from this event date on
 _aliases: dict[str, str] | None = None
 
 

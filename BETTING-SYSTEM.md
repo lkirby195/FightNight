@@ -368,12 +368,16 @@ with both on file). When neither name resolves, the bout is a likely debut
 and the debut rule applies without error. Aliases are added by hand in
 `data/name_aliases.csv`; a row with an empty `ufcstats_name` marks a BFO
 name as a different person from any near-miss (a debutant sharing a
-surname). `clv_eval.join_bfo` applies the same test to BFO bouts dated on or
-after `names.NAME_JOIN_STRICT_FROM` (2026-10-22); 60 earlier BFO rows that
-never joined are spelling misses by this test (Cattar / Kattar, Curelaba /
-Cutelaba, Oliynyk / Oleinik, Waterson / Waterson Gomez, ...) and keep
-failing silently, because adding their aliases would change the backfilled
-record -- a separate decision.
+surname). `clv_eval.join_bfo` applies the same test to every BFO bout over
+the full history. It was gated to bouts from 2026-10-22 until 2026-10-26,
+when the 46 historical misspellings it stopped on (86 bouts: Cattar /
+Kattar, Curelaba / Cutelaba, Oliynyk / Oleinik, Waterson / Waterson-Gomez,
+Sumudaerji, ...) were aliased by hand after review. Those 86 joins added
+four backfilled rows (VanZant 2016-12-17 GAP LOSS, Sumudaerji 2020-11-28 GAP
+WIN, Cutelaba 2021-09-18 FLIP WIN placed 0.99u, Njokuani 2022-05-21 GAP WIN)
+and no live row: the four live-era bouts among them (Perez / Johnson
+2026-01-24, Oleksiejczuk / Barriault 2026-02-07, Elliott 07-18, Saidov
+07-25) fire nothing or fall under the debut rule. FULL SIM 397 -> 401 bets.
 
 ## Live-flag on-record rule (2026-09-30)
 
@@ -388,23 +392,25 @@ just not counted). Under the 40-point rule no row is affected by this test
 (the rejected crossing test would have added two); it stays as the guard.
 
 Live record after the 2026-10-22 rulings (one signal path, debut rule,
-pick'em tie-break), `python betting_system.py all` (data through 2026-10-17):
+pick'em tie-break) and the UFC 333 settle, `python betting_system.py all`
+(data through 2026-10-24):
 
 ```
-LIVE RECORD (all): 25 bets  19-6  staked 25u  P&L (placeable) +9.7u ($+972)  ROI +38.9%  t=2.29
-    P&L (open) +10.6u ($+1,060)  ROI +42.4%  t=2.41
-    FLIP: 12 bets  7-5  ROI +24.8%
+LIVE RECORD (all): 26 bets  19-7  staked 26u  P&L (placeable) +8.7u ($+872)  ROI +33.6%  t=1.96
+    P&L (open) +9.6u ($+960)  ROI +36.9%  t=2.08
+    FLIP: 13 bets  7-6  ROI +15.2%
     GAP: 13 bets  12-1  ROI +51.9%
-PLACED (policy v1): 16 placed of 25 signals  13-3  staked 12.5u  P&L +5.7u ($+567)  ROI +45.4%  t=2.22
-    FLIP: 6 placed  4-2  ROI +48.8%
+PLACED (policy v1): 17 placed of 26 signals  13-4  staked 13.4u  P&L +4.7u ($+475)  ROI +35.4%  t=1.70
+    FLIP: 7 placed  4-3  ROI +24.7%
     GAP: 10 placed  9-1  ROI +43.2%
 ```
 
-Against the record on main before them (29 bets 21-8 +9.9u, placed 17 of 29
-14-3 +7.0u) the only change is the four debut-bout rows the debut rule
-removed; every other live row is identical in every column. The one
-quotable full-sim figure: 396 bets 252-144, +81.2u at open, ROI +20.5%,
-t=4.12 (2012-2026, 3 VOID rows not counted).
+Against the record before the rulings (29 bets 21-8 +9.9u, placed 17 of 29
+14-3 +7.0u) the changes are the four debut-bout rows the debut rule removed
+and the UFC 333 FLIP (Malkoun, placed 0.92u, LOSS); every other live row is
+identical in every column. The one quotable full-sim figure: 401 bets
+255-146, +81.5u at open, ROI +20.3%, t=4.12 (2012-2026, 3 VOID rows not
+counted).
 
 ## Polymarket: a second price source, not a signal source
 
