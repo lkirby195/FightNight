@@ -18,8 +18,12 @@ requested year(s) to data/system_ledger.csv -- the ledger of record. That file
 is GENERATED, never hand-edited. clean_close is the last pre-fight paired tick
 (card_settle.paired_summary); bouts whose raw BFO close is already a clean book
 use it as-is, the rest are re-read from the BFO line history (cache_bfo/).
-live=1 marks bets whose card report was run before the event (see LIVE_CARDS);
-live=0 rows are backfilled after the fact and are never quoted as results.
+live=1 marks bets with capture proof (ruled 2026-10-26): data/placeable_lines.csv
+holds a capture for the bout (same event date, both fighters) whose captured_at
+is strictly before the event date. Nothing else grants it: not LIVE_CARDS, not
+the event date, not a freeze window. live=0 rows are backfilled after the fact
+and are never quoted as results. The git history of placeable_lines.csv is the
+audit trail.
 placeable_line is the bet side's price at the EARLIEST data/placeable_lines.csv
 capture for that bout (card_report.py writes one when it reports a future
 event): the price on the board when the pick went on record. live=1 rows with
@@ -46,10 +50,9 @@ were on file with a UFC bout before the event (signals.first_bout_dates). A
 bout with a debutant gets no projection, no signal and no row; the rule is
 decided from fights_v2, never from a per-bout list. (It replaces the 2026-09-30
 live-flag debut rule, which kept such rows as live=0.)
-On-record rule (2026-09-30): cards reported before OPEN_RULE_FROM were
-evaluated pre-event at the raw first tick, so on those cards a live signal
-must also fire at the raw opener (same pick); a signal that exists only under
-the validated open there was never on record and is live=0 (backfilled).
+(The 2026-09-30 on-record rule, which also required a live signal on a card
+reported before 2026-09-30 to fire at the raw opener, is retired with the
+capture-proof rule: every capture on file postdates the validated-open report.)
 pm_p_at_capture: the Polymarket price of the backed side at the earliest
 placeable capture, for placed rows whose capture recorded one (polymarket.py).
 """
@@ -62,17 +65,15 @@ import numpy as np
 import pandas as pd
 
 import signals
-from names import bfo_lastn, lastn as _lastn
+from names import bfo_lastn, bfo_norm, lastn as _lastn, norm as _norm
 # The constants are defined once, in signals.py; re-exported here for the
 # callers and tests that import them from betting_system.
 from signals import (FLIP_CONF, FLIP_UNITS, GAP_PTS, GAP_UNITS, RAMP_HI, RAMP_LO,  # noqa: F401
                      SKIP_LINE_MAX, UNKNOWN_RD, VOID_SUSPECT, stake_units)
 
-# Live record: every card from LIVE_FROM through LIVE_THROUGH was reported
-# pre-event, plus the dates in LIVE_CARDS. ADD EACH NEW CARD'S DATE TO LIVE_CARDS
-# WHEN ITS REPORT IS RUN PRE-EVENT; anything else is backfilled (live=0).
-LIVE_FROM, LIVE_THROUGH = "2026-01-01", "2026-07-25"
-OPEN_RULE_FROM = "2026-09-30"   # card reports evaluate the validated open from here
+# LIVE_CARDS is the report's convenience list of cards run pre-event. It is
+# NOT read to decide liveness (ruled 2026-10-26): is_live() below looks only at
+# data/placeable_lines.csv. Keep adding dates here when a report is run.
 LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
               "2026-08-29",   # UFC Shanghai
               "2026-09-05",   # UFC Paris
@@ -126,8 +127,46 @@ def load():
     return D.sort_values("event_date")
 
 
-def is_live(event_date: str) -> bool:
-    return LIVE_FROM <= event_date <= LIVE_THROUGH or event_date in LIVE_CARDS
+_captures: dict | None = None
+
+
+def capture_index(path: str = PLACEABLE) -> dict:
+    """(event_date, frozenset of normalised names) -> earliest captured_at (ISO)
+    over data/placeable_lines.csv, keyed both by full names and by surnames
+    (BFO spellings go through the alias table). Empty when the file is absent."""
+    idx: dict = {}
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
+        return idx
+    import csv
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            n1, n2 = bfo_norm(r["fighter1"]), bfo_norm(r["fighter2"])
+            for key in ((r["event_date"], frozenset((n1, n2))),
+                        (r["event_date"], frozenset((n1.split()[-1], n2.split()[-1])))):
+                t = r["captured_at"]
+                if key not in idx or t < idx[key]:
+                    idx[key] = t
+    return idx
+
+
+def is_live(bout, captures: dict | None = None) -> bool:
+    """Capture proof (ruled 2026-10-26): True iff data/placeable_lines.csv holds a
+    capture for this bout -- same event date, both fighters -- whose captured_at
+    is strictly before the event date. `bout` needs event_date, fighter_a,
+    fighter_b (a ledger-frame row or any object with those attributes). Nothing
+    else grants live status: not LIVE_CARDS, not the event date, not a freeze
+    window."""
+    global _captures
+    if captures is None:
+        if _captures is None:
+            _captures = capture_index()
+        captures = _captures
+    d = str(bout.event_date)
+    a, b = _norm(bout.fighter_a), _norm(bout.fighter_b)
+    t = captures.get((d, frozenset((a, b))))
+    if t is None:
+        t = captures.get((d, frozenset((a.split()[-1], b.split()[-1]))))
+    return t is not None and t[:10] < d
 
 
 def _decision(r, dec_a=None, dec_b=None):
@@ -174,12 +213,10 @@ def run(D):
         else:
             pnl = u * (placeable - 1) if won else -float(u)
         pm_p = np.nan if pd.isna(r.pm_a) else (float(r.pm_a) if mod1 else 1 - float(r.pm_a))
-        raw = signals.rule_at(float(r.p_model_a), float(r.a_open_raw), float(r.b_open_raw))
-        on_rec = r.event_date >= OPEN_RULE_FROM or (raw is not None and raw[1] == d.side)
         rows.append(dict(r._asdict(), rule=d.rule, mod1=mod1, conf=d.conf, u=u,
                          a_open=a_open, b_open=b_open, reason=d.reason, void=d.void,
                          pnl=pnl, pnl_at_open=pnl_open, placeable=placeable, pm_p=pm_p,
-                         on_record=on_rec, live=int(is_live(r.event_date) and on_rec),
+                         live=int(is_live(r)),
                          rd_self=r.rd_a if mod1 else r.rd_b, rd_opp=r.rd_b if mod1 else r.rd_a,
                          bet_line=d.line, stake_u=d.stake, placed=int(d.placed),
                          pnl_placed=(d.stake * pnl / u) if u else 0.0))
@@ -188,11 +225,11 @@ def run(D):
 
 def capture_prices(D):
     """(decimal price of fighter a, of fighter b, Polymarket price of fighter a)
-    at the EARLIEST placeable_lines.csv capture of each bout of D that lies on
-    a live card with captures (the price on the board when the pick went on
-    record). NaN elsewhere: every row before 2026-09-08, when captures began,
-    and every backfilled card. The Polymarket price is NaN as well when the
-    capture recorded none (pm_p_self, fighter1's price, from 2026-09-30)."""
+    at the EARLIEST placeable_lines.csv capture of each live bout of D (is_live:
+    a capture strictly before the event; the price on the board when the pick
+    went on record). NaN elsewhere: every row before 2026-09-08, when captures
+    began, and every backfilled bout. The Polymarket price is NaN as well when
+    the capture recorded none (pm_p_self, fighter1's price, from 2026-09-30)."""
     nan = lambda: pd.Series(np.nan, index=D.index, dtype=float)
     da, db, pm = nan(), nan(), nan()
     if not os.path.exists(PLACEABLE):
@@ -205,10 +242,8 @@ def capture_prices(D):
     pl["d"] = pd.to_datetime(pl.event_date)
     bl = None
     for i, r in D.iterrows():
-        if not is_live(r.event_date):
-            continue
-        if not ((pl.d - pd.Timestamp(r.event_date)).abs().dt.days <= 3).any():
-            continue                            # nothing captured for this card
+        if not is_live(r):
+            continue                            # no pre-event capture: settles at open
         if bl is None:
             bl = pd.read_csv("data/bfo_lines.csv")
             bl["d"] = pd.to_datetime(bl.event_date)

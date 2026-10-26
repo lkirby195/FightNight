@@ -49,7 +49,6 @@ import names
 import engine
 import signals as sg
 import stage2
-from betting_system import is_live
 from signals import FLIP_CONF, GAP_PTS, RAMP_HI, RAMP_LO, SKIP_LINE_MAX, UNKNOWN_RD
 from replay_check import apply_params
 
@@ -280,6 +279,11 @@ class Data:
             ev["posted"] = min(ev["posted"], r["captured_at"])
         for c in self.captures.values():
             c.sort(key=lambda r: r["captured_at"])
+        # live cards (ruled 2026-10-26): a card is on the live record only when
+        # placeable_lines.csv holds a capture for it taken strictly before the
+        # event date -- the same proof betting_system asks of a ledger row
+        self.live_dates = {d for d, ev in self.capture_events.items()
+                           if ev["posted"][:10] < d}
         # BFO line file: opening lines by mu, page titles by slug
         self.bfo = {}
         self.titles = {}
@@ -547,7 +551,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
     for f in data.fights:
         if f["event_date"][:4] != year:
             continue
-        if live_only and not is_live(f["event_date"]):
+        if live_only and f["event_date"] not in data.live_dates:
             continue
         events.setdefault((f["event_date"], f["event_name"]), []).append(f)
     cards = []
@@ -631,7 +635,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
                              rd=f"{r['rd_self']:.0f} / {r['rd_opp']:.0f}")))
         w = sum(1 for x in bets if x["won"])
         net = sum(r["pnl_placed"] for r in by_fid_rows(by_fid, bouts) if r["placed"] == 1)
-        live = is_live(ev_date)
+        live = ev_date in data.live_dates
         posted = data.capture_events.get(ev_date) or next(
             (e for cd, e in data.capture_events.items()
              if abs((date.fromisoformat(cd) - d).days) <= 1), None)

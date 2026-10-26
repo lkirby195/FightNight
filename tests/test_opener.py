@@ -1,6 +1,7 @@
 """Opener validity (scrape_bfo.validated_open, 2026-09-30) and what rides on
 it: bout_summary's fields, card_settle.paired_summary's validated opens,
-betting_system's VOID rows and the live-flag debut rule."""
+betting_system's VOID rows and the debut rule. (The 2026-09-30 on-record rule
+was retired on 2026-10-26: liveness is capture proof, tests/test_live_flag.py.)"""
 import pandas as pd
 import pytest
 
@@ -131,32 +132,13 @@ def test_a_clean_opener_never_voids(no_captures):
     assert list(B.reason) == [""] and list(B.rule) == ["GAP"]
 
 
-def test_a_pick_that_exists_only_under_the_validated_open_is_not_on_record(no_captures):
-    # 2026-05-02 is a live card reported at the raw opener. Model 95% on
-    # Jauregui (fair -1900); raw opener -110/-110 fires GAP there too -> on
-    # record. Raw opener Jauregui -2500 instead: nothing fires there, the GAP
-    # exists only at the validated -850 -> never on record, live 0.
-    on = bs.run(frame(event_date="2026-05-02", p_model_a=0.05,
-                      a_open_raw=1.909, b_open_raw=1.909))
-    off = bs.run(frame(event_date="2026-05-02", p_model_a=0.05,
-                       a_open_raw=20.0, b_open_raw=1.04))
-    assert on.iloc[0].rule == "GAP" and int(on.iloc[0].live) == 1
-    assert off.iloc[0].rule == "GAP" and int(off.iloc[0].live) == 0
-    # from OPEN_RULE_FROM the report itself evaluates the validated open
-    # (2026-10-24 UFC 333 is the live card after it; Vegas 121 and UFC 332
-    # were settled as backfill, ruling 2026-10-22)
-    new = bs.run(frame(event_date="2026-10-24", p_model_a=0.05,
-                       a_open_raw=20.0, b_open_raw=1.04))
-    assert int(new.iloc[0].live) == 1
-
-
 def test_a_raw_signal_whose_validated_pair_fails_the_sanity_filter_is_void(no_captures):
     # McMillen / Montes 2026-07-18: raw +125/-145 fired FLIP; the "corrected"
     # pair -116/+141 sums to 0.95 and fails [1.00, 1.12]. Logged VOID, not lost.
     B = bs.run(frame(event_date="2026-07-18", p_model_a=0.70, a_open=1.86, b_open=2.41,
                      a_open_raw=2.25, b_open_raw=1.69))
     assert len(B) == 1 and B.iloc[0].reason == bs.VOID_SUSPECT and B.iloc[0].rule == "FLIP"
-    assert int(B.iloc[0].live) == 1 and len(bs.counted(B)) == 0
+    assert len(bs.counted(B)) == 0
 
 
 def test_debut_rule_leaves_no_row_for_a_bout_with_a_debutant(no_captures):
@@ -167,8 +149,7 @@ def test_debut_rule_leaves_no_row_for_a_bout_with_a_debutant(no_captures):
                         b_open_raw=1.1176, p_model_a=0.05))
     debut = bs.run(frame(event_date="2026-10-24", open_suspect=0, a_open_raw=6.96,
                          b_open_raw=1.1176, p_model_a=0.05, known_b=False, projectable=False))
-    assert bs.is_live("2026-10-24")                     # the card itself is live
-    assert len(live) == 1 and int(live.iloc[0].live) == 1
+    assert len(live) == 1
     assert len(debut) == 0
     # the known flags decide, not the projectable column
     debut2 = bs.run(frame(event_date="2026-10-24", open_suspect=0, a_open_raw=6.96,

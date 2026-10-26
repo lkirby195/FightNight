@@ -379,17 +379,20 @@ and no live row: the four live-era bouts among them (Perez / Johnson
 2026-01-24, Oleksiejczuk / Barriault 2026-02-07, Elliott 07-18, Saidov
 07-25) fire nothing or fall under the debut rule. FULL SIM 397 -> 401 bets.
 
-## Live-flag on-record rule (2026-09-30)
+## Live = capture proof (ruled 2026-10-26)
 
-A live row must have been on record before the fight. Cards reported before
-`OPEN_RULE_FROM` (2026-09-30) were evaluated pre-event at the raw first tick,
-so on those cards a `live = 1` signal must also fire at the raw opener for
-the same pick (`betting_system.raw_fired`); a signal that exists only under
-the validated open there was never on record and is `live = 0`. From
-2026-09-30 `card_report.py` itself evaluates the validated open, so the test
-is moot. VOID rows keep their date-based flag (they were on record; they are
-just not counted). Under the 40-point rule no row is affected by this test
-(the rejected crossing test would have added two); it stays as the guard.
+A ledger row is `live = 1` if and only if `data/placeable_lines.csv` contains
+a capture for that bout -- same event date, both fighters -- whose
+`captured_at` is strictly before the event date (`betting_system.is_live`,
+one function). Nothing else grants live status: not `LIVE_CARDS` (which
+remains only the report's convenience list of cards to run), not the event
+date, not the 2026-01-01..07-25 freeze window of the earlier rule. The git
+history of `placeable_lines.csv` -- append-only, committed with each card --
+is the audit trail: a capture's commit shows when it reached the record. The
+2026-09-30 on-record rule (a live signal on a card reported before that date
+had to fire at the raw opener too) is retired by this one: every capture on
+file postdates the validated-open report. The site's 2026 tab lists the cards
+with a pre-event capture, the same proof.
 
 Live record after the 2026-10-22 rulings (one signal path, debut rule,
 pick'em tie-break) and the UFC 333 settle, `python betting_system.py all`
