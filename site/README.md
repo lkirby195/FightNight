@@ -62,12 +62,17 @@ model line, open, placeable, close, CLV, rule, stake and RD columns.
 
 ## Deploy
 
-`site/out/` is a static Vercel project (project `split-decision`, the default
-`*.vercel.app` domain, no build step, no framework). The last step of both
-cadence commands above is the deploy, run non-interactively with the Vercel
-CLI (`npm i -g vercel`, once):
+`site/out/` is a static Vercel project: `fightnight-out` on team
+`logankirby14-8806s-projects`, git-connected to `lkirby195/FightNight` with root
+directory `site/out`, no build step, no framework, production at
+https://fightnight-out.vercel.app. Every push to `main` deploys production and
+every branch push deploys a preview (branch alias
+`fightnight-out-git-<branch>-logankirby14-8806s-projects.vercel.app`, behind
+Vercel Authentication: team members only). The last step of both cadence
+commands above deploys a build that has not been pushed yet, run
+non-interactively with the Vercel CLI (`npm i -g vercel`, once):
 
-    vercel deploy site/out --prod --yes --token "$VERCEL_TOKEN" --scope <team-slug>
+    vercel deploy site/out --prod --yes --token "$VERCEL_TOKEN" --scope logankirby14-8806s-projects
 
 `--yes` skips every prompt and links the directory to the project on first
 use; `--prod` promotes the deployment to the production URL (drop it for a
