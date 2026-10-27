@@ -389,9 +389,11 @@ remains only the report's convenience list of cards to run), not the event
 date, not the 2026-01-01..07-25 freeze window of the earlier rule. The git
 history of `placeable_lines.csv` -- append-only, committed with each card --
 is the audit trail: a capture's commit shows when it reached the record. The
+proof is the commit timestamp of the capture row on origin, on any branch; the
+merge date is irrelevant. The
 2026-09-30 on-record rule (a live signal on a card reported before that date
 had to fire at the raw opener too) is retired by this one: every capture on
-file postdates the validated-open report. The site's 2026 tab lists the cards
+file postdates the validated-open report. The site's live tab lists the cards
 with a pre-event capture, the same proof.
 
 Live record under the capture-proof rule (2026-10-26), `python betting_system.py
@@ -412,10 +414,11 @@ PLACED (policy v1): 2 placed of 3 signals  1-1  staked 1.9u  P&L -0.2u ($-20)  R
 - 2026-10-24 UFC 333, FLIP Jacob Malkoun at +128 placeable (open +132), 0.92u,
   LOSS -0.92u, captured 2026-10-22.
 
-The 25 other 2026 rows dated before 2026-09-08 (23 of them live under the old
-date-and-LIVE_CARDS rule, plus two from the backfilled 2026-08-08 and 08-15 cards)
-are the "2026 before we published" backtest tier on the site: 17 placed, 13-4,
-+4.8u, shown and never counted. The one quotable full-sim figure: 401 bets
+The 29 other 2026 rows have no pre-event capture (23 of them live under the old
+date-and-LIVE_CARDS rule, two from the backfilled 2026-08-08 and 08-15 cards, four
+from the uncaptured 09-26, 10-10 and 10-17 cards) and are the "2026, not
+timestamped" backtest tier on the site: 19 placed, 15-4, +6.1u, shown and never
+counted. The one quotable full-sim figure: 401 bets
 255-146, +81.5u at open, ROI +20.3%, t=4.12 (2012-2026, 3 VOID rows not counted).
 
 ## Polymarket: a second price source, not a signal source

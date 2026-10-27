@@ -69,7 +69,6 @@ METHOD = {"KO/TKO": "KO/TKO", "SUB": "Submission", "U-DEC": "Unanimous decision"
           "S-DEC": "Split decision", "M-DEC": "Majority decision", "DQ": "DQ",
           "Overturned": "Overturned", "CNC": "No contest", "Other": "Other"}
 LEDGER_PUBLIC_DROP = {"units", "pnl_at_open"}      # live stays: it marks the tier
-LIVE_RECORD_FROM = "2026-09-08"   # rules frozen, timestamped captures began
 
 DATA = ROOT / "data"
 OUT_DEFAULT = SITE / "out"
@@ -542,10 +541,10 @@ def stake_note() -> str:
 
 # ------------------------------------------------------------------ record --
 def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
-                live_only: bool, before: str | None = None):
+                live_only: bool, untimestamped: bool = False):
     """Finished-card blocks for one year, newest first. live_only keeps the
-    cards with a pre-event capture (the live record); before=<date> keeps the
-    cards dated before it (the 2026 backtest tier)."""
+    cards with a pre-event capture (the live record); untimestamped keeps the
+    cards without one (the "2026, not timestamped" backtest tier)."""
     by_fid = defaultdict(list)
     for r in ledger:
         by_fid[r["fight_id"]].append(r)
@@ -555,7 +554,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             continue
         if live_only and f["event_date"] not in data.live_dates:
             continue
-        if before and f["event_date"] >= before:
+        if untimestamped and f["event_date"] in data.live_dates:
             continue
         events.setdefault((f["event_date"], f["event_name"]), []).append(f)
     cards = []
@@ -685,27 +684,30 @@ def tiles(rows: list[dict]) -> dict:
 
 
 def build_record(data: Data, model: Model, out: Path):
-    # three tiers (2026-10-26): the live record = capture-proven rows (live=1,
-    # every one dated from LIVE_RECORD_FROM); "2026 before we published" = the
-    # 2026 rows dated before LIVE_RECORD_FROM (no timestamp existed, never
-    # counted); 2025 = the sealed backtest
+    # three tiers (2026-10-26): the live record = capture-proven rows (live=1);
+    # "2026, not timestamped" = every other 2026 row, any date (no pre-event
+    # capture, never counted); 2025 = the sealed backtest
     live26 = [r for r in data.ledger if r["live"] == 1 and r["event_date"] >= "2026"]
     pre26 = [r for r in data.ledger if r["live"] == 0 and r["result"] != "VOID"
-             and "2026" <= r["event_date"] < LIVE_RECORD_FROM]
+             and r["event_date"] >= "2026"]
+    # an untimestamped row on a captured card would fall between the two card
+    # lists; none exists, and this keeps one from vanishing quietly if it does
+    stray = [r for r in pre26 if r["event_date"] in data.live_dates]
+    assert not stray, f"untimestamped rows on captured cards: {stray}"
     bt25 = [r for r in data.ledger_bt if r["event_date"][:4] == "2025"]
     cards_live = build_cards(data, model, "2026", data.preds, live26, live_only=True)
     cards_pre = build_cards(data, model, "2026", data.preds, pre26, live_only=False,
-                            before=LIVE_RECORD_FROM)
+                            untimestamped=True)
     cards25 = build_cards(data, model, "2025", data.preds_bt, bt25, live_only=False)
     tabs = [dict(key="live", label="Live since Sep 8, 2026", badge="LIVE",
                  tip="Picks committed with a timestamp before each event; money down",
                  note="Every pick here was committed with a timestamp before the event, "
                       "with the price on the board at the time.",
                  tiles=tiles(live26), cards=cards_live),
-            dict(key="pre", label="2026 before we published", badge="BACKTEST",
-                 tip="Settled at opening odds; not counted",
-                 note="Picks our current rules would have made. We hadn't started "
-                      "committing timestamps yet, so we don't count them.",
+            dict(key="untimed", label="2026, not timestamped", badge="BACKTEST",
+                 tip="No timestamp committed before the fight; settled at opening odds; not counted",
+                 note="Picks our current rules would have made on cards we didn't "
+                      "timestamp before the fight. We don't count them.",
                  tiles=tiles(pre26), cards=cards_pre),
             dict(key="2025", label="2025", badge="BACKTEST",
                  tip="Settled at opening odds, no money down",

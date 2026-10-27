@@ -46,8 +46,9 @@ as "this week"); it defaults to today.
 - `backtest_2025.py`: the sealed one-shot that wrote
   `data/system_ledger_2025_backtest.csv` and
   `data/model_only_preds_2025_backtest.csv` (the 2025 tab). Never re-run.
-- `out/record/ledger.csv`: public ledger (2026 live rows and the 2025 backtest,
-  without the `live`, `units`, `pnl_at_open` columns).
+- `out/record/ledger.csv`: public ledger (the 2026 live rows, the 2026 rows with no
+  pre-event capture and the 2025 backtest, without the `units` and `pnl_at_open`
+  columns; `live` marks the tier).
 
 ## Conventions
 

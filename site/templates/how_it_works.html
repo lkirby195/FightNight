@@ -72,13 +72,13 @@
   are graded at that posted price, not at the opening line and not at the closing
   line. Every page is generated from the ledger and committed with it, so any change
   after the fact would show in the history.</p>
-  <p>Everything before that date is backtest: the 2012–2025 run of these same rules,
-  and the 2026 picks before we published. The backtest is the evidence for the
+  <p>Everything else is backtest: the 2012–2025 run of these same rules,
+  and the 2026 cards we didn't timestamp. The backtest is the evidence for the
   system; the live record is the test of it. Backtest picks are shown, never counted.
   <a href="/record/ledger.csv">Download the ledger</a>.</p>
   <p class="num">Since {{ "September 2026" }} every posted line is captured in an
   append-only file committed with the card (the "placeable" line); live bets settle
-  there, earlier live bets settle at the opening line. CLV (closing-line value) is the
+  there, backtest rows settle at the opening line. CLV (closing-line value) is the
   picked side's vig-free closing probability minus its opening probability, in points;
   the close is the last pre-fight two-sided book, in-play ticks excluded. Across
   {{ "{:,}".format(n) }} fights from {{ years }}, when our number disagreed with the
