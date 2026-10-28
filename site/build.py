@@ -28,7 +28,7 @@ import re
 import shutil
 import sys
 from collections import Counter, defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
@@ -44,6 +44,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import card_report as cr
+import scrape_bfo as sb
 from card_settle import OR_HI, OR_LO
 import names
 import engine
@@ -153,10 +154,10 @@ def event_display(fights_name: str | None, slug: str | None, titles: dict) -> st
         return fights_name
     t = titles.get(slug, "")
     t = t.split(" | ")[0]
-    if " for " in t:
-        t = t.split(" for ")[0]
-    if t.endswith(" Odds"):
-        t = t[:-5]
+    # "UFC 334 Odds – Nov 14, 2026", "UFC 332 for October 4", "... Evloev Odds"
+    for sep in (" Odds", " for "):
+        if sep in t:
+            t = t.split(sep)[0]
     if t:
         return t
     s = re.sub(r"-\d+$", "", slug or "next card").replace("-", " ").title()
@@ -443,13 +444,49 @@ def decide(p1: float, o1: float, o2: float, rd1: float, rd2: float, dec1: float,
     return None if (d.rule is None or d.void) else d
 
 
+NEXT_LOOKBACK_DAYS = 14   # sitemap lastmod is the event date; a small margin
+
+
+def next_event(as_of: date, known: set[str]):
+    """The next UFC card on BFO, found the way card_report reaches a card:
+    the events sitemap (refreshed), then each unsettled page's own date
+    (scrape_bfo.parse_event / page_date, never guessed). Pages already in
+    bfo_lines are settled cards; the sitemap's lastmod is the event date, so
+    only pages dated within NEXT_LOOKBACK_DAYS of as_of or later are fetched.
+    -> dict(name, date, date_text, slug) for the earliest page dated on or
+    after as_of, or None (offline, nothing upcoming, or no dated page)."""
+    try:
+        sb.fetch(f"{sb.BASE}/sitemap-events.xml", refresh=True)
+        entries = sb.ufc_event_slugs()
+    except Exception as e:  # noqa: BLE001 -- offline: the page says so, plainly
+        print(f"  ! BFO sitemap unreachable ({e!r}): next card unresolved")
+        return None
+    floor = (as_of - timedelta(days=NEXT_LOOKBACK_DAYS)).isoformat()
+    best = None
+    for slug, lastmod in entries:
+        if slug in known or lastmod[:10] < floor:
+            continue
+        try:
+            sb.fetch(f"{sb.BASE}/events/{slug}", refresh=True)
+            title, ev_date, _bouts = sb.parse_event(slug)
+        except Exception as e:  # noqa: BLE001 -- undated or unreachable page
+            print(f"  ! BFO page {slug} skipped ({e!r})")
+            continue
+        if ev_date < as_of.isoformat():
+            continue
+        if best is None or ev_date < best[0]:
+            best = (ev_date, slug, title)
+    if best is None:
+        return None
+    ev_date, slug, title = best
+    return dict(name=event_display(None, slug, {slug: title}), date=ev_date,
+                date_text=day_text(date.fromisoformat(ev_date)), slug=slug)
+
+
 def build_this_week(data: Data, model: Model):
     future = sorted(d for d in data.capture_events if d >= data.as_of.isoformat())
     if not future:
-        nxt = sorted((r["event_date"], r["slug"]) for r in data.bfo.values()
-                     if r["event_date"] > data.as_of.isoformat())
-        name = event_display(None, nxt[0][1] if nxt else None, data.titles)
-        return dict(event=None, next_name=name)
+        return dict(event=None, next=next_event(data.as_of, set(data.titles)))
     ev_date = future[0]
     ev = data.capture_events[ev_date]
     d = date.fromisoformat(ev_date)
@@ -605,6 +642,15 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             # the bout's signal row; a VOID row (reason set: suspect opener) is
             # in the public ledger for the record but is not a signal here
             sig = next((r for r in by_fid.get(fid, []) if not r.get("reason")), None)
+            # the Result cell names the winner and the method ("Van · Unanimous
+            # decision R5"); fighter_a is the winner of every A_WIN row in
+            # fights_v2; a draw or no contest says so in the mark instead
+            how = f"{METHOD.get(f['method'], f['method'])} R{f['round']}"
+            if f["outcome"] == "A_WIN":
+                result_text, bet_how = f"{surname(a)} · {how}", f"{surname(a)} · {how}"
+            else:
+                what = "Draw" if f["outcome"] == "DRAW" else "No contest"
+                result_text, bet_how = how, f"{what} · {how}"
             rd = data.rd.get(fid)
             # open / close / CLV for EVERY bout from bfo_lines (via bfo_joined),
             # not only ledger rows: the close shows only when BFO's last tick is
@@ -627,7 +673,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
                 tag="Disagreed" if disagreed else None, odds_text=odds_text,
                 mark=mark, mark_kind=mark_kind,
-                result=f"{METHOD.get(f['method'], f['method'])} R{f['round']}",
+                result=result_text,
                 num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "—",
                          open=open_txt, placeable=placeable, close=close_txt, clv=clv_txt,
                          rule=sig["rule"] if sig else "",
@@ -644,7 +690,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
                     opp=b if pick_is_a else a, odds_text=odds_text,
                     result=(f"Won {money(r['pnl_placed'])}" if won
                             else f"Lost {money(-r['pnl_placed'])}"),
-                    won=won, how=f"{METHOD.get(r['method'], r['method'])} R{r['round']}",
+                    won=won, how=bet_how,
                     num=dict(model_line=sline(fair_line(p_pick)), open=sline(r["open_line"]),
                              placeable=sline(r["placeable_line"]), close=sline(r["clean_close"]),
                              clv=f"{r['clv_pts']:+.1f}", rule=r["rule"],
@@ -775,7 +821,7 @@ def main():
 
     pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "this-week/index.html": ("this_week.html", dict(week, nav="this-week")),
-             "index.html": ("this_week.html", dict(week, nav="this-week")),
+             "index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "record/index.html": ("record.html", dict(record, nav="record")),
              "how-it-works/index.html": ("how_it_works.html", dict(how, nav="how"))}
     for rel, (tpl, ctx) in pages.items():
@@ -787,8 +833,10 @@ def main():
     print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows")
     print(f"P4P top 8: {p4p}")
     ev = week["event"]
-    print("this week: " + (f"{ev['name']} {ev['date_text']}: {ev['n_bets']} bets"
-                           if ev else f"no capture yet (next: {week['next_name']})"))
+    nx = week.get("next")
+    print("this week: " + (f"{ev['name']} {ev['date_text']}: {ev['n_bets']} bets" if ev
+                           else f"no capture yet (next card: {nx['name']} {nx['date']})"
+                           if nx else "no capture yet (next card unresolved)"))
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 # site/ — the public site generator
 
 `site/build.py` renders the public record (rankings, this week's card, our record,
-how it works) as static HTML into `site/out/`. It is a read-only consumer of the
+how it works) as static HTML into `site/out/`; `/` is the rankings page and This
+week lives at `/this-week/`. It is a read-only consumer of the
 repo's data files and never touches the model, the ledger, or any script outside
 `site/`. `site/out/` is committed on every build: the commit is the public proof
 that nothing changed after a fight.

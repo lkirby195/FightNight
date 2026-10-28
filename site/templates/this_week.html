@@ -4,9 +4,13 @@
 {% if not event %}
 <header class="hero">
   <p class="kicker">This week</p>
-  <h1>Picks for {{ next_name }} post Thursday.</h1>
-  <p class="lede">Picks go up before the odds settle and are timestamped when they do.
-  Until then, see <a href="/record/">our record</a>.</p>
+  {% if next %}
+  <h1>Next card: {{ next.name }} · {{ next.date_text }}. Picks post Thursday.</h1>
+  {% else %}
+  <h1>Picks for the next card post Thursday.</h1>
+  {% endif %}
+  <p class="lede">We post picks before each card and timestamp them. Until Thursday,
+  see <a href="/record/">our record</a>.</p>
 </header>
 {% else %}
 <header class="hero">

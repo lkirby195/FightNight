@@ -29,7 +29,7 @@
   split keeps {{ (1 - s_sdec) | round(2) }}). The split-decision weight was fitted on
   fights through 2019 and checked on 2020 onward; the data pushed it from the 0.75
   we started with down to {{ s_sdec }}, close to a coin flip. A disqualification
-  scores like a split. A heavy favourite who wins a split decision can lose rating
+  scores like a split. A heavy favorite who wins a split decision can lose rating
   on the night, which is the intended signal.</p>
 
   <h2>How a pick becomes a bet</h2>
@@ -43,7 +43,7 @@
   <ul>
     <li><b>The underdog rule.</b> The odds make a fighter the underdog, but our number
     has that fighter winning at least {{ (flip * 100) | round | int }}% of the time.</li>
-    <li><b>The price rule.</b> We agree with the favourite, but the odds pay at least
+    <li><b>The price rule.</b> We agree with the favorite, but the odds pay at least
     {{ gap }} points more than our number says they should.</li>
   </ul>
   <p>How much we bet was fixed the next day, {{ policy_freeze }}: one unit (${{ 100 }})
@@ -53,9 +53,9 @@
   fighter well enough to trust the number. A fighter with no UFC bout on record gets no
   pick at all.</p>
   <p class="num">Signal rules: FLIP when the model's pick is the market underdog at the
-  opening line with P(pick) &ge; {{ flip }}; GAP when the pick is the market favourite
+  opening line with P(pick) &ge; {{ flip }}; GAP when the pick is the market favorite
   and its fair line sits &ge; {{ gap }} American points past the open; a pick'em open
-  has no favourite, so the GAP test applies. Bouts whose opening pair sums outside
+  has no favorite, so the GAP test applies. Bouts whose opening pair sums outside
   [1.00, 1.12] implied probability are skipped. The open is the validated open: a
   first tick corrected within the hour by more than 40 points is replaced by the
   correction, and a signal that fires only against the bad tick is logged VOID, never
