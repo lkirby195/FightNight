@@ -6,57 +6,87 @@
   <h1>One rating system, two rules, no exceptions</h1>
 </header>
 
-{# DRAFT COPY: placeholder until the final plain-language text is supplied. #}
 <div class="prose">
-  <h2>The rating</h2>
-  <p>Every UFC fight since 1994 goes through the same rating system, in order, one at
-  a time. A win over a strong opponent moves you up more than a win over a weak one;
-  a finish counts for more than a split decision. Each fighter also carries a margin
-  of error that shrinks with every bout and grows during a layoff. The rankings sort
-  by rating minus that margin, so a fighter has to keep earning their place.</p>
+  <h2>The ratings</h2>
+  <p>Every UFC fight since 1994 runs through the same rating system, one fight at a
+  time. A new fighter starts at 1500. Around 1800 is a contender; 2000 and
+  up is champion territory. Beating a strong opponent moves you up more than beating a
+  weak one. Each fighter also carries a margin of error: wide for a newcomer,
+  narrower with every fight, wider again after a long layoff. The rankings sort by
+  rating minus that margin, so a fighter has to keep earning the spot.</p>
+  <p class="num">The engine is a Glicko-2 variant (spec in the repo). A debutant is
+  1500 with an RD of 350; RD shrinks with results and inflates with time away
+  (volatility tau {{ tau }}). The rankings list rating minus RD for fighters with a
+  bout in the last 18 months. Engine parameters were frozen on {{ ratings_freeze }}
+  and are not tuned on anything since.</p>
 
-  <h2>The pick</h2>
-  <p>Before each card we combine the ratings with what each fighter has actually done
-  in the cage (pace, finishes, takedowns, age, layoffs, reach) to put a number on
-  every fight: our probability that each side wins. The number is fixed and posted
-  before the fights happen, and never changed afterwards. Our pick is simply the
-  side with the higher number.</p>
+  <h2>Finishes count more than decisions</h2>
+  <p>A knockout or a submission is a clear answer. A unanimous decision is a fairly
+  clear answer. A split decision tells us almost nothing about who's better, and the
+  ratings treat it that way: it barely moves either fighter.</p>
+  <p class="num">Result weights: a finish scores 1.00 for the winner, a unanimous or
+  majority decision {{ s_udec }}, a split decision {{ s_sdec }} (so the loser of a
+  split keeps {{ (1 - s_sdec) | round(2) }}). The split-decision weight was fitted on
+  fights through 2019 and checked on 2020 onward; the data pushed it from the 0.75
+  we started with down to {{ s_sdec }}, close to a coin flip. A disqualification
+  scores like a split. A heavy favorite who wins a split decision can lose rating
+  on the night, which is the intended signal.</p>
 
-  <h2>The bet</h2>
-  <p>Most weeks the odds and our numbers agree, and we do nothing. We bet only when
-  they disagree in one of two specific ways, and the bar for each was fixed on
-  {{ rule_freeze }}:</p>
+  <h2>How a pick becomes a bet</h2>
+  <p>Before each card we combine the ratings with what each fighter has done
+  in the cage (pace, finishes, takedowns, age, layoffs, reach) and put a number on
+  every fight: our probability that each side wins. Our pick is the side with the
+  higher number. We post it before the fight and never change it afterwards.</p>
+  <p>Most weeks the odds and our numbers roughly agree, and we do nothing. We bet only
+  when we disagree with the odds by a lot, in one of two ways. The bar for each was
+  fixed on {{ rule_freeze }}:</p>
   <ul>
-    <li><b>The underdog rule.</b> The odds have a fighter as the underdog, but our
-    number has that fighter winning at least {{ (flip * 100) | round | int }}% of the time.</li>
-    <li><b>The price rule.</b> We agree with the favourite, but the odds are at least
-    {{ gap }} points shorter than our number says they should be.</li>
+    <li><b>The underdog rule.</b> The odds make a fighter the underdog, but our number
+    has that fighter winning at least {{ (flip * 100) | round | int }}% of the time.</li>
+    <li><b>The price rule.</b> We agree with the favorite, but the odds pay at least
+    {{ gap }} points more than our number says they should.</li>
   </ul>
-  <p>How much we bet was fixed on {{ policy_freeze }}: one unit (${{ 100 }}) when the
-  fighter we're backing has a solid track record, sliding to half a unit as the record
-  thins out. We don't bet at all when our fighter is a bigger underdog than
-  +{{ skip_line | int }} (more than {{ (skip_line / 100) | round(1) }}-to-1 against), or when
-  neither fighter has enough results to trust.</p>
+  <p>How much we bet was fixed the next day, {{ policy_freeze }}: one unit (${{ 100 }})
+  when we know the fighter we're backing well, sliding to half a unit as the track
+  record thins. We skip long shots (anything +{{ skip_line | int }} or longer, more than
+  {{ (skip_line / 100) | round(1) }}-to-1 against) and fights where we don't know either
+  fighter well enough to trust the number. A fighter with no UFC bout on record gets no
+  pick at all.</p>
+  <p class="num">Signal rules: FLIP when the model's pick is the market underdog at the
+  opening line with P(pick) &ge; {{ flip }}; GAP when the pick is the market favorite
+  and its fair line sits &ge; {{ gap }} American points past the open; a pick'em open
+  has no favorite, so the GAP test applies. Bouts whose opening pair sums outside
+  [1.00, 1.12] implied probability are skipped. The open is the validated open: a
+  first tick corrected within the hour by more than 40 points is replaced by the
+  correction, and a signal that fires only against the bad tick is logged VOID, never
+  bet. Placement policy v1: stake 1u up to a backed-side RD of {{ ramp[0] }}, falling
+  linearly to 0.5u at RD {{ ramp[1] }} and floored there; no bet when the backed side
+  is longer than +{{ skip_line | int }} or when both fighters' RD exceeds
+  {{ unknown_rd }}. Every signal is still logged at flat 1u so the rules can be
+  judged apart from the sizing.</p>
 
-  <h2>Keeping it honest</h2>
-  <p>Picks and bets are posted before each event and timestamped. Every page on this
-  site is generated from the public ledger and committed alongside it, so any change
-  after a fight would be visible. Results are graded at the price that was on the board
-  when the pick went up, not the opening line and not the closing line.</p>
-
-  <h2>The numbers</h2>
-  <p>Three things were frozen and dated, and none of them are tuned on results since:</p>
-  <ul>
-    <li>Ratings engine and its parameters: frozen {{ ratings_freeze }}.</li>
-    <li>Betting rules: frozen {{ rule_freeze }}.</li>
-    <li>Stake sizing: frozen {{ policy_freeze }}.</li>
-  </ul>
-  <p>Across {{ "{:,}".format(n) }} fights from {{ years }}, when our number disagreed with
-  the opening odds by 10 points, the closing odds moved about
-  <b>{{ "%.1f" | format(move10) }} points our way</b>. Taken at the opening line and graded
-  against the close, our picks averaged <b>{{ "%+.2f" | format(clv) }} points</b> of
-  closing-line value per fight.</p>
-  <div class="tablewrap">
+  <h2>How the record is kept</h2>
+  <p>The live record starts on Sep 8, 2026. That is the day the betting rules froze
+  and the day we began committing every pick with a timestamp before the fight,
+  together with the price that was on the board. Nothing is edited after. Results
+  are graded at that posted price, not at the opening line and not at the closing
+  line. Every page is generated from the ledger and committed with it, so any change
+  after the fact would show in the history.</p>
+  <p>Everything else is backtest: the 2012–2025 run of these same rules,
+  and the 2026 cards we didn't timestamp. The backtest is the evidence for the
+  system; the live record is the test of it. Backtest picks are shown, never counted.
+  <a href="/record/ledger.csv">Download the ledger</a>.</p>
+  <p class="num">Since {{ "September 2026" }} every posted line is captured in an
+  append-only file committed with the card (the "placeable" line); live bets settle
+  there, backtest rows settle at the opening line. CLV (closing-line value) is the
+  picked side's vig-free closing probability minus its opening probability, in points;
+  the close is the last pre-fight two-sided book, in-play ticks excluded. Across
+  {{ "{:,}".format(n) }} fights from {{ years }}, when our number disagreed with the
+  opening odds by 10 points the closing odds moved about
+  <b>{{ "%.1f" | format(move10) }} points our way</b>; taken at the open and graded at
+  the close, our picks averaged <b>{{ "%+.2f" | format(clv) }} points</b> of CLV per
+  fight.</p>
+  <div class="num tablewrap">
   <table class="small">
     <thead><tr><th>Forecaster</th><th class="r">Log-loss ({{ years }}, n={{ "{:,}".format(n) }})</th></tr></thead>
     <tbody>
@@ -66,7 +96,7 @@
     </tbody>
   </table>
   </div>
-  <p class="dim">Lower is better. The closing market knows more than we do; our claim is
+  <p class="num dim">Lower is better. The closing market knows more than we do; our claim is
   narrower: we reach the market's answer early, and we only bet the gaps it leaves open.</p>
 </div>
 {% endblock %}

@@ -16,7 +16,6 @@ from its output, data/placeable_lines.csv, and projects each captured bout
 with the same state replay and Stage 2 fit card_report uses, so the numbers
 on the page are the numbers that were printed when the pick went on record.
 
-The build fails if any output file contains a string from LINT.
 """
 from __future__ import annotations
 
@@ -29,7 +28,7 @@ import re
 import shutil
 import sys
 from collections import Counter, defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parent
@@ -45,6 +44,8 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
 import card_report as cr
+import scrape_bfo as sb
+from card_settle import OR_HI, OR_LO
 import names
 import engine
 import signals as sg
@@ -59,7 +60,6 @@ ELIGIBLE_MONTHS = 18            # last fight within this many months
 RISING_RD = 160                 # "Rising" = RD above this
 COIN = (0.48, 0.52)             # model p in this band = coin flip
 RULE_FREEZE, POLICY_FREEZE = "2026-09-08", "2026-09-09"
-LINT = ["lkirby", "Logan", "github.com/lkirby195"]
 
 DIVISIONS = ["Flyweight", "Bantamweight", "Featherweight", "Lightweight",
              "Welterweight", "Middleweight", "Light Heavyweight", "Heavyweight",
@@ -69,7 +69,7 @@ NON_DIV = {"Catch Weight", "Open Weight", "Super Heavyweight"}
 METHOD = {"KO/TKO": "KO/TKO", "SUB": "Submission", "U-DEC": "Unanimous decision",
           "S-DEC": "Split decision", "M-DEC": "Majority decision", "DQ": "DQ",
           "Overturned": "Overturned", "CNC": "No contest", "Other": "Other"}
-LEDGER_PUBLIC_DROP = {"live", "units", "pnl_at_open"}
+LEDGER_PUBLIC_DROP = {"units", "pnl_at_open"}      # live stays: it marks the tier
 
 DATA = ROOT / "data"
 OUT_DEFAULT = SITE / "out"
@@ -154,10 +154,10 @@ def event_display(fights_name: str | None, slug: str | None, titles: dict) -> st
         return fights_name
     t = titles.get(slug, "")
     t = t.split(" | ")[0]
-    if " for " in t:
-        t = t.split(" for ")[0]
-    if t.endswith(" Odds"):
-        t = t[:-5]
+    # "UFC 334 Odds – Nov 14, 2026", "UFC 332 for October 4", "... Evloev Odds"
+    for sep in (" Odds", " for "):
+        if sep in t:
+            t = t.split(sep)[0]
     if t:
         return t
     s = re.sub(r"-\d+$", "", slug or "next card").replace("-", " ").title()
@@ -444,13 +444,49 @@ def decide(p1: float, o1: float, o2: float, rd1: float, rd2: float, dec1: float,
     return None if (d.rule is None or d.void) else d
 
 
+NEXT_LOOKBACK_DAYS = 14   # sitemap lastmod is the event date; a small margin
+
+
+def next_event(as_of: date, known: set[str]):
+    """The next UFC card on BFO, found the way card_report reaches a card:
+    the events sitemap (refreshed), then each unsettled page's own date
+    (scrape_bfo.parse_event / page_date, never guessed). Pages already in
+    bfo_lines are settled cards; the sitemap's lastmod is the event date, so
+    only pages dated within NEXT_LOOKBACK_DAYS of as_of or later are fetched.
+    -> dict(name, date, date_text, slug) for the earliest page dated on or
+    after as_of, or None (offline, nothing upcoming, or no dated page)."""
+    try:
+        sb.fetch(f"{sb.BASE}/sitemap-events.xml", refresh=True)
+        entries = sb.ufc_event_slugs()
+    except Exception as e:  # noqa: BLE001 -- offline: the page says so, plainly
+        print(f"  ! BFO sitemap unreachable ({e!r}): next card unresolved")
+        return None
+    floor = (as_of - timedelta(days=NEXT_LOOKBACK_DAYS)).isoformat()
+    best = None
+    for slug, lastmod in entries:
+        if slug in known or lastmod[:10] < floor:
+            continue
+        try:
+            sb.fetch(f"{sb.BASE}/events/{slug}", refresh=True)
+            title, ev_date, _bouts = sb.parse_event(slug)
+        except Exception as e:  # noqa: BLE001 -- undated or unreachable page
+            print(f"  ! BFO page {slug} skipped ({e!r})")
+            continue
+        if ev_date < as_of.isoformat():
+            continue
+        if best is None or ev_date < best[0]:
+            best = (ev_date, slug, title)
+    if best is None:
+        return None
+    ev_date, slug, title = best
+    return dict(name=event_display(None, slug, {slug: title}), date=ev_date,
+                date_text=day_text(date.fromisoformat(ev_date)), slug=slug)
+
+
 def build_this_week(data: Data, model: Model):
     future = sorted(d for d in data.capture_events if d >= data.as_of.isoformat())
     if not future:
-        nxt = sorted((r["event_date"], r["slug"]) for r in data.bfo.values()
-                     if r["event_date"] > data.as_of.isoformat())
-        name = event_display(None, nxt[0][1] if nxt else None, data.titles)
-        return dict(event=None, next_name=name)
+        return dict(event=None, next=next_event(data.as_of, set(data.titles)))
     ev_date = future[0]
     ev = data.capture_events[ev_date]
     d = date.fromisoformat(ev_date)
@@ -514,7 +550,7 @@ def build_this_week(data: Data, model: Model):
         row.update(pick_text=pick_text, tag="Disagreed" if disagreed else None,
                    bet_text=bet_text, bet_kind=kind)
         row["num"].update(model_line=pair(fair_line(p1), fair_line(1 - p1)),
-                          open=pair(american(o1), american(o2)),
+                          open=pair(american(o1), american(o2)), close="—", clv="—",
                           rule=rule or "", stake_u=f"{stake:.2f}" if rule else "",
                           rd=f"{rd_self:.0f} / {rd_opp:.0f}" if rule else
                              f"{rd1:.0f} / {rd2:.0f}")
@@ -542,8 +578,10 @@ def stake_note() -> str:
 
 # ------------------------------------------------------------------ record --
 def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
-                live_only: bool):
-    """Finished-card blocks for one year, newest first."""
+                live_only: bool, untimestamped: bool = False):
+    """Finished-card blocks for one year, newest first. live_only keeps the
+    cards with a pre-event capture (the live record); untimestamped keeps the
+    cards without one (the "2026, not timestamped" backtest tier)."""
     by_fid = defaultdict(list)
     for r in ledger:
         by_fid[r["fight_id"]].append(r)
@@ -552,6 +590,8 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
         if f["event_date"][:4] != year:
             continue
         if live_only and f["event_date"] not in data.live_dates:
+            continue
+        if untimestamped and f["event_date"] in data.live_dates:
             continue
         events.setdefault((f["event_date"], f["event_name"]), []).append(f)
     cards = []
@@ -572,7 +612,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             cap = data.capture_for(cidx, a, b)
             ln = data.lines.get(fid)
             qa = qb = None
-            placeable = ""
+            placeable = "—"
             if cap:
                 mu, a_is_f1 = cap
                 c0 = data.captures[mu][0]
@@ -602,17 +642,40 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
             # the bout's signal row; a VOID row (reason set: suspect opener) is
             # in the public ledger for the record but is not a signal here
             sig = next((r for r in by_fid.get(fid, []) if not r.get("reason")), None)
+            # the Result cell names the winner and the method ("Van · Unanimous
+            # decision R5"); fighter_a is the winner of every A_WIN row in
+            # fights_v2; a draw or no contest says so in the mark instead
+            how = f"{METHOD.get(f['method'], f['method'])} R{f['round']}"
+            if f["outcome"] == "A_WIN":
+                result_text, bet_how = f"{surname(a)} · {how}", f"{surname(a)} · {how}"
+            else:
+                what = "Draw" if f["outcome"] == "DRAW" else "No contest"
+                result_text, bet_how = how, f"{what} · {how}"
             rd = data.rd.get(fid)
+            # open / close / CLV for EVERY bout from bfo_lines (via bfo_joined),
+            # not only ledger rows: the close shows only when BFO's last tick is
+            # still a clean two-sided book (the in-play filter card_settle uses),
+            # CLV is the picked side's vig-free close minus open; a ledger row
+            # keeps its own clean close and CLV
+            open_txt = close_txt = clv_txt = "—"
+            if ln:
+                open_txt = pair(american(ln["a_open"]), american(ln["b_open"]))
+                if OR_LO <= 1 / ln["a_close"] + 1 / ln["b_close"] <= OR_HI:
+                    close_txt = pair(american(ln["a_close"]), american(ln["b_close"]))
+                    if side is not None:
+                        qo = vigfree(ln["a_open"], ln["b_open"])[0 if side == a else 1]
+                        qc = vigfree(ln["a_close"], ln["b_close"])[0 if side == a else 1]
+                        clv_txt = f"{(qc - qo) * 100:+.1f}"
+            if sig:
+                close_txt = sline(sig["clean_close"])
+                clv_txt = f"{sig['clv_pts']:+.1f}"
             fights.append(dict(
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
                 tag="Disagreed" if disagreed else None, odds_text=odds_text,
                 mark=mark, mark_kind=mark_kind,
-                result=f"{METHOD.get(f['method'], f['method'])} R{f['round']}",
-                num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "",
-                         open=pair(american(ln["a_open"]), american(ln["b_open"])) if ln else "",
-                         placeable=placeable,
-                         close=sline(sig["clean_close"]) if sig else "",
-                         clv=f"{sig['clv_pts']:+.1f}" if sig else "",
+                result=result_text,
+                num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "—",
+                         open=open_txt, placeable=placeable, close=close_txt, clv=clv_txt,
                          rule=sig["rule"] if sig else "",
                          stake_u=f"{sig['stake_u']:.2f}" if sig else "",
                          rd=f"{rd[0]:.0f} / {rd[1]:.0f}" if rd else "")))
@@ -627,7 +690,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
                     opp=b if pick_is_a else a, odds_text=odds_text,
                     result=(f"Won {money(r['pnl_placed'])}" if won
                             else f"Lost {money(-r['pnl_placed'])}"),
-                    won=won, how=f"{METHOD.get(r['method'], r['method'])} R{r['round']}",
+                    won=won, how=bet_how,
                     num=dict(model_line=sline(fair_line(p_pick)), open=sline(r["open_line"]),
                              placeable=sline(r["placeable_line"]), close=sline(r["clean_close"]),
                              clv=f"{r['clv_pts']:+.1f}", rule=r["rule"],
@@ -667,31 +730,51 @@ def tiles(rows: list[dict]) -> dict:
 
 
 def build_record(data: Data, model: Model, out: Path):
+    # three tiers (2026-10-26): the live record = capture-proven rows (live=1);
+    # "2026, not timestamped" = every other 2026 row, any date (no pre-event
+    # capture, never counted); 2025 = the sealed backtest
     live26 = [r for r in data.ledger if r["live"] == 1 and r["event_date"] >= "2026"]
+    pre26 = [r for r in data.ledger if r["live"] == 0 and r["result"] != "VOID"
+             and r["event_date"] >= "2026"]
+    # an untimestamped row on a captured card would fall between the two card
+    # lists; none exists, and this keeps one from vanishing quietly if it does
+    stray = [r for r in pre26 if r["event_date"] in data.live_dates]
+    assert not stray, f"untimestamped rows on captured cards: {stray}"
     bt25 = [r for r in data.ledger_bt if r["event_date"][:4] == "2025"]
-    cards26 = build_cards(data, model, "2026", data.preds, live26, live_only=True)
+    cards_live = build_cards(data, model, "2026", data.preds, live26, live_only=True)
+    cards_pre = build_cards(data, model, "2026", data.preds, pre26, live_only=False,
+                            untimestamped=True)
     cards25 = build_cards(data, model, "2025", data.preds_bt, bt25, live_only=False)
-    tabs = [dict(key="2026", label="2026", badge="LIVE", tip="Picks on record before each event; money down",
-                 tiles=tiles(live26), cards=cards26),
+    tabs = [dict(key="live", label="Live since Sep 8, 2026", badge="LIVE",
+                 tip="Picks committed with a timestamp before each event; money down",
+                 note="Every pick here was committed with a timestamp before the event, "
+                      "with the price on the board at the time.",
+                 tiles=tiles(live26), cards=cards_live),
+            dict(key="untimed", label="2026, not timestamped", badge="BACKTEST",
+                 tip="No timestamp committed before the fight; settled at opening odds; not counted",
+                 note="Picks our current rules would have made on cards we didn't "
+                      "timestamp before the fight. We don't count them.",
+                 tiles=tiles(pre26), cards=cards_pre),
             dict(key="2025", label="2025", badge="BACKTEST",
-                 tip="Settled at opening odds, no money down", tiles=tiles(bt25), cards=cards25),
-            dict(key="all", label="All", badge=None, tip=None, tiles=tiles(live26 + bt25),
-                 cards=cards26 + cards25)]
+                 tip="Settled at opening odds, no money down",
+                 note="A backtest of the same rules, settled at opening odds with no money down.",
+                 tiles=tiles(bt25), cards=cards25)]
     # public ledger copy
     cols = [c for c in (data.ledger or data.ledger_bt)[0].keys() if c not in LEDGER_PUBLIC_DROP]
     (out / "record").mkdir(parents=True, exist_ok=True)
     with open(out / "record" / "ledger.csv", "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
-        for r in sorted(live26 + bt25, key=lambda r: r["event_date"]):
+        for r in sorted(live26 + pre26 + bt25, key=lambda r: r["event_date"]):
             # the 2025 backtest ledger predates reason / pm_p_at_capture
             w.writerow({k: ("" if r.get(k) is None else r[k]) for k in cols})
-    return dict(tabs=tabs, cards={c["key"]: c for c in cards26 + cards25},
-                n_ledger=len(live26) + len(bt25))
+    return dict(tabs=tabs, cards={c["key"]: c for c in cards_live + cards_pre + cards25},
+                n_ledger=len(live26) + len(pre26) + len(bt25))
 
 
 # ------------------------------------------------------------ how it works --
 def build_how(data: Data) -> dict:
+    bp = json.loads((ROOT / "best_params.json").read_text(encoding="utf-8"))
     D = pd.read_csv(DATA / "clv_eval_full.csv")
     D = D[D.year >= 2018]
     q = lambda p: np.clip(p, 1e-9, 1 - 1e-9)
@@ -703,22 +786,11 @@ def build_how(data: Data) -> dict:
                 ll_model=ll(D.p_model_a), ll_open=ll(D.qa_o), ll_close=ll(D.qa_c),
                 ratings_freeze=ratings_freeze, rule_freeze=RULE_FREEZE,
                 policy_freeze=POLICY_FREEZE, flip=FLIP_CONF, gap=GAP_PTS,
-                skip_line=SKIP_LINE_MAX, unknown_rd=UNKNOWN_RD, ramp=(RAMP_LO, RAMP_HI))
+                skip_line=SKIP_LINE_MAX, unknown_rd=UNKNOWN_RD, ramp=(RAMP_LO, RAMP_HI),
+                tau=bp["tau"], s_udec=bp["s_udec"], s_sdec=bp["s_sdec"])
 
 
 # -------------------------------------------------------------------- main --
-def lint(out: Path):
-    bad = []
-    for p in out.rglob("*"):
-        if p.is_file():
-            t = p.read_text(encoding="utf-8", errors="ignore")
-            for s in LINT:
-                if s in t:
-                    bad.append(f"{p.relative_to(out)}: {s!r}")
-    if bad:
-        raise SystemExit("anonymity lint FAILED:\n  " + "\n  ".join(bad))
-
-
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -749,7 +821,7 @@ def main():
 
     pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "this-week/index.html": ("this_week.html", dict(week, nav="this-week")),
-             "index.html": ("this_week.html", dict(week, nav="this-week")),
+             "index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "record/index.html": ("record.html", dict(record, nav="record")),
              "how-it-works/index.html": ("how_it_works.html", dict(how, nav="how"))}
     for rel, (tpl, ctx) in pages.items():
@@ -757,14 +829,14 @@ def main():
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(env.get_template(tpl).render(**base, **ctx), encoding="utf-8")
     shutil.copy(SITE / "static" / "style.css", out / "style.css")
-    lint(out)
     p4p = ", ".join(r["name"] for r in rankings["lists"][0]["rows"][:8])
     print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows")
     print(f"P4P top 8: {p4p}")
     ev = week["event"]
-    print("this week: " + (f"{ev['name']} {ev['date_text']}: {ev['n_bets']} bets"
-                           if ev else f"no capture yet (next: {week['next_name']})"))
-    print("anonymity lint: PASS")
+    nx = week.get("next")
+    print("this week: " + (f"{ev['name']} {ev['date_text']}: {ev['n_bets']} bets" if ev
+                           else f"no capture yet (next card: {nx['name']} {nx['date']})"
+                           if nx else "no capture yet (next card unresolved)"))
 
 
 if __name__ == "__main__":

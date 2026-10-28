@@ -4,8 +4,10 @@
 <header class="hero">
   <p class="kicker">Our record</p>
   <h1>Every pick, every bet, on the record</h1>
-  <p class="lede">Bets are ${{ 100 }} a unit. 2026 is live money: picks posted before each event.
-  2025 is a backtest of the same rules, settled at opening odds with no money down.
+  <p class="lede">The live record starts Sep 8, 2026: that is when the betting rules froze
+  and we began committing timestamped picks before each event. Everything else, the
+  2012–2025 backtest and the 2026 cards we didn't timestamp, is the evidence for the system;
+  the live record is the test of it. Bets are ${{ 100 }} a unit.
   <a href="/record/ledger.csv">Download the ledger</a>.</p>
 </header>
 
@@ -23,6 +25,7 @@
     <div class="tile"><small>Bets</small><b>{{ t.tiles.w }}–{{ t.tiles.l }}</b><span class="dim">{{ t.tiles.bets }} placed</span></div>
     <div class="tile"><small>Net</small><b class="{{ 'pos' if t.tiles.pos else 'neg' }}">{{ t.tiles.net }}</b><span class="dim">at $100 a unit</span></div>
   </div>
+  {% if t.note %}<p class="dim tiernote">{{ t.note }}</p>{% endif %}
   {% if t.cards %}
   <label class="cardpick">Card
     <select data-cards data-for="{{ t.key }}">
@@ -108,6 +111,6 @@
 </article>
 {% endfor %}
 <p class="foot">Picks right counts fights where we named a side and there was a winner:
-coin flips, draws and no contests are shown but not counted. Cards we did not post
-picks for before the event are not part of the live record.</p>
+coin flips, draws and no contests are shown but not counted. Only picks committed with
+a timestamp before the event are part of the live record; everything else is backtest.</p>
 {% endblock %}
