@@ -122,8 +122,9 @@ def day_text(d: date) -> str:
     return f"{d:%a %b} {d.day}, {d.year}"
 
 
-def short_day(d: date) -> str:
-    return f"{d:%a %b} {d.day}"
+def short_day(d: date, today: date) -> str:
+    """Weekday, month and day; the year too when d is outside today's calendar year."""
+    return day_text(d) if d.year != today.year else f"{d:%a %b} {d.day}"
 
 
 def months_ago(d: date, n: int) -> date:
@@ -384,7 +385,8 @@ def build_rankings(data: Data):
                           score=fo.rating - fo.rd,
                           division=division_of(fid, h, data.overrides),
                           last3=[x["res"] for x in h[-3:]],
-                          last=last_fight_text(h[-1]), last_date=short_day(h[-1]["date"])))
+                          last=last_fight_text(h[-1]),
+                          last_date=short_day(h[-1]["date"], data.as_of)))
     # previous ranks (rotated only when the data moves)
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
     if state.get("data_through") == data.data_through:
@@ -564,7 +566,7 @@ def build_this_week(data: Data, model: Model):
     else:
         summary = f"{n_bets} bets this week, {money(sum(stakes))} in play."
     return dict(event=dict(name=event_display(None, ev["slug"], data.titles),
-                           date_text=day_text(d), posted_text=short_day(posted.date()),
+                           date_text=day_text(d), posted_text=short_day(posted.date(), data.as_of),
                            summary=summary, bouts=rows, n_bets=n_bets),
                 stake_note=stake_note())
 
@@ -704,7 +706,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list,
              if abs((date.fromisoformat(cd) - d).days) <= 1), None)
         if posted:
             posted_text = "Picks posted " + short_day(
-                datetime.fromisoformat(posted["posted"]).date())
+                datetime.fromisoformat(posted["posted"]).date(), data.as_of)
         elif live:
             posted_text = "Picks on record before the event"
         else:
