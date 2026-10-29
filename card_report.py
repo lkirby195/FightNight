@@ -160,6 +160,9 @@ OFF_CARD = {
     ("2026-10-24", 45459),   # UFC 333 Durden / Osbourne: listed by BFO on the
                              # UFC 333 page after the 2026-10-22 capture; not
                              # on the UFC Stats card (14 bouts), did not happen
+    ("2026-10-31", 45462),   # UFC Vegas 123 Petroski / Bekoev: priced by BFO
+                             # on 2026-10-29, not on the UFC Stats card (12
+                             # bouts); kept out of the capture until it is
 }
 
 
