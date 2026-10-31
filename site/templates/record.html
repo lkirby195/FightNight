@@ -4,17 +4,14 @@
 <header class="hero">
   <p class="kicker">Our record</p>
   <h1>Every pick, every bet, on the record</h1>
-  <p class="lede">The live record starts Sep 8, 2026: that is when the betting rules froze
-  and we began committing timestamped picks before each event. Everything else, the
-  2012–2025 backtest and the 2026 cards we didn't timestamp, is the evidence for the system;
-  the live record is the test of it. Bets are ${{ 100 }} a unit.
+  <p class="lede">Pick a year, then a card. Bets are ${{ 100 }} a unit.
   <a href="/record/ledger.csv">Download the ledger</a>.</p>
 </header>
 
 <div class="tabs" role="tablist">
   {% for t in tabs %}
   <button type="button" data-tab="{{ t.key }}" data-group="year" class="tab{% if loop.first %} on{% endif %}">
-    {{ t.label }}{% if t.badge %} <span class="badge {{ t.badge | lower }}" title="{{ t.tip }}">{{ t.badge }}</span>{% endif %}
+    {{ t.label }}
   </button>
   {% endfor %}
 </div>
@@ -22,10 +19,9 @@
 {% for t in tabs %}
 <section data-panel="{{ t.key }}" data-group="year" {% if not loop.first %}hidden{% endif %}>
   <div class="tiles">
-    <div class="tile"><small>Bets</small><b>{{ t.tiles.w }}–{{ t.tiles.l }}</b><span class="dim">{{ t.tiles.bets }} placed</span></div>
-    <div class="tile"><small>Net</small><b class="{{ 'pos' if t.tiles.pos else 'neg' }}">{{ t.tiles.net }}</b><span class="dim">at $100 a unit</span></div>
+    <div class="tile"><small>{{ t.tiles.bets }} placed</small><b>{{ t.tiles.w }}–{{ t.tiles.l }}</b><span class="dim">net <span class="{{ 'pos' if t.tiles.pos else 'neg' }}">{{ t.tiles.net }}</span> at $100 a unit</span></div>
   </div>
-  {% if t.note %}<p class="dim tiernote">{{ t.note }}</p>{% endif %}
+  {% if t.note %}<p class="dim tabnote">{{ t.note }}</p>{% endif %}
   {% if t.cards %}
   <label class="cardpick">Card
     <select data-cards data-for="{{ t.key }}">
@@ -111,6 +107,5 @@
 </article>
 {% endfor %}
 <p class="foot">Picks right counts fights where we named a side and there was a winner:
-coin flips, draws and no contests are shown but not counted. Only picks committed with
-a timestamp before the event are part of the live record; everything else is backtest.</p>
+coin flips, draws and no contests are shown but not counted.</p>
 {% endblock %}
