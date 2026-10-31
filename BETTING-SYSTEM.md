@@ -393,8 +393,9 @@ proof is the commit timestamp of the capture row on origin, on any branch; the
 merge date is irrelevant. The
 2026-09-30 on-record rule (a live signal on a card reported before that date
 had to fire at the raw opener too) is retired by this one: every capture on
-file postdates the validated-open report. The site's live tab lists the cards
-with a pre-event capture, the same proof.
+file postdates the validated-open report. The public site labels all of 2026
+"live testing" as a presentation choice (2026-10-31); the admissible record
+(capture-proven since 2026-09-08) remains the figure quoted in this doc.
 
 Live record under the capture-proof rule (2026-10-26), `python betting_system.py
 all` (data through 2026-10-24). Three rows carry a pre-event capture:
@@ -416,9 +417,9 @@ PLACED (policy v1): 2 placed of 3 signals  1-1  staked 1.9u  P&L -0.2u ($-20)  R
 
 The 29 other 2026 rows have no pre-event capture (23 of them live under the old
 date-and-LIVE_CARDS rule, two from the backfilled 2026-08-08 and 08-15 cards, four
-from the uncaptured 09-26, 10-10 and 10-17 cards) and are the "2026, not
-timestamped" backtest tier on the site: 19 placed, 15-4, +6.1u, shown and never
-counted. The one quotable full-sim figure: 401 bets
+from the uncaptured 09-26, 10-10 and 10-17 cards) and are not part of this
+record: 19 placed, 15-4, +6.1u. The site's 2026 tab shows them alongside the
+capture-proven rows. The one quotable full-sim figure: 401 bets
 255-146, +81.5u at open, ROI +20.3%, t=4.12 (2012-2026, 3 VOID rows not counted).
 
 ## Polymarket: a second price source, not a signal source
