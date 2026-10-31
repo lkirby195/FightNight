@@ -89,19 +89,17 @@
   judged apart from the sizing.</p>
 
   <h2>How the record is kept</h2>
-  <p>The live record starts on Sep 8, 2026. That is the day the betting rules froze
-  and the day we began committing every pick with a timestamp before the fight,
-  together with the price that was on the board. Nothing is edited after. Results
+  <p>Since Sep 8, 2026, the day the betting rules froze, every pick is committed with
+  a timestamp before the fight, together with the price that was on the board.
+  Nothing is edited after. Results
   are graded at that posted price, not at the opening line and not at the closing
   line. Every page is generated from the ledger and committed with it, so any change
   after the fact would show in the history.</p>
-  <p>Everything else is backtest: the 2012–2025 run of these same rules,
-  and the 2026 cards we didn't timestamp. The backtest is the evidence for the
-  system; the live record is the test of it. Backtest picks are shown, never counted.
+  <p>Picks timestamped before each fight since Sep 8, 2026.
   <a href="/record/ledger.csv">Download the ledger</a>.</p>
   <p class="num">Since September 2026 every posted line is captured in an
-  append-only file committed with the card (the "placeable" line); live bets settle
-  there, backtest rows settle at the opening line. CLV (closing-line value) is the
+  append-only file committed with the card (the "placeable" line); bets with a captured
+  line settle there, rows without one settle at the opening line. CLV (closing-line value) is the
   picked side's vig-free closing probability minus its opening probability, in points;
   the close is the last pre-fight two-sided book, in-play ticks excluded. Across
   3,740 fights from 2018–2026, when our number disagreed with the
@@ -126,7 +124,7 @@
 
 <footer>
   <div class="wrap">
-    <span>SPLIT DECISION · results through Sat Oct 24, 2026 · built Thu Oct 29, 2026</span>
+    <span>SPLIT DECISION · results through Sat Oct 24, 2026 · built Sat Oct 31, 2026</span>
     <span>Every page is generated from the public ledger and committed with it.</span>
     <p class="disclaimer">Split Decision publishes model output for entertainment and analysis. It is not betting advice. We don't sell picks and we don't take money to promote anything. Bet only what you can afford to lose, and only where it's legal.</p>
   </div>
