@@ -46,6 +46,7 @@ h3{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:up
 table{width:100%;border-collapse:collapse;background:var(--soft);border:3px solid var(--ink)}
 thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:9px 10px;text-align:left;font-weight:500;white-space:nowrap}
 thead th.r{text-align:right}
+thead th[title]{cursor:help;text-decoration:underline dotted}
 tbody td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
 tbody tr.main td{background:#FCFCFA}
