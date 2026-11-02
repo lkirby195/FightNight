@@ -75,7 +75,7 @@
   <p class="nobets">No bets on this card.</p>
   {% endif %}
 
-  <h3>Every fight <span class="dim">picks right {{ c.hits }} of {{ c.total }}</span></h3>
+  <h3>Every fight <span class="dim">picks right {{ c.hits }} of {{ c.total }}{% if c.clv %} · card CLV {{ c.clv }} pts over {{ c.clv_n }} projected{% endif %}</span></h3>
   <div class="tablewrap">
   <table class="card-table">
     <thead><tr>

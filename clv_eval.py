@@ -71,6 +71,13 @@ def gen_model_preds():
     return M
 
 
+def _clean(r, col):
+    """A clean-close column of a bfo_lines row, NaN when the file predates
+    the column or the row has no value yet."""
+    v = getattr(r, col, float("nan"))
+    return float("nan") if v is None or v == "" else float(v)
+
+
 def join_bfo():
     b = pd.read_csv("data/bfo_lines.csv", parse_dates=["event_date"]).drop_duplicates("mu")
     f = pd.read_csv("data/fights_v2.csv", parse_dates=["event_date"])
@@ -113,7 +120,12 @@ def join_bfo():
                 b_close=r.f2_close if f1a else r.f1_close,
                 open_suspect=int(r.open_suspect),
                 a_open_raw=r.f1_open_raw if f1a else r.f2_open_raw,
-                b_open_raw=r.f2_open_raw if f1a else r.f1_open_raw))
+                b_open_raw=r.f2_open_raw if f1a else r.f1_open_raw,
+                # card_settle's clean close (NaN until a card is settled or
+                # backfilled); CLV here stays graded at the raw close
+                a_close_clean=_clean(r, "f1_close_clean" if f1a else "f2_close_clean"),
+                b_close_clean=_clean(r, "f2_close_clean" if f1a else "f1_close_clean"),
+                inplay_ticks_dropped=_clean(r, "inplay_ticks_dropped")))
     J = pd.DataFrame(rows).drop_duplicates("fight_id")
     J.to_csv("data/bfo_joined.csv", index=False)
     return J

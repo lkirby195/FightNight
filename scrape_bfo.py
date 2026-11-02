@@ -280,7 +280,13 @@ def summarize(mu: int, refresh=False):
 COLS = ["slug", "event_title", "event_date", "mu", "fighter1", "fighter2",
         "f1_open", "f1_close", "f2_open", "f2_close",
         "f1_ticks", "f2_ticks", "t_open", "t_close",
-        "open_suspect", "f1_open_raw", "f2_open_raw"]
+        "open_suspect", "f1_open_raw", "f2_open_raw",
+        # clean close (card_settle.paired_summary: the last paired tick that is
+        # a clean two-sided book) and the in-play ticks it skipped; written by
+        # card_settle (settle / --backfill), blank until then. The scrape and
+        # rebuild() leave them as they are: f1_close / f2_close stay the raw
+        # last tick. Re-run `card_settle.py --backfill <year>` after a rebuild.
+        "f1_close_clean", "f2_close_clean", "inplay_ticks_dropped"]
 
 OUT = "data/bfo_lines.csv"
 
@@ -292,9 +298,10 @@ def _am(dec: float) -> str:
 def rebuild(start_year=2010, end_year=2027, out_path=OUT):
     """Rewrite every row of out_path dated within [start_year, end_year) from
     its series (cache_bfo/, fetched when absent): opens, closes, tick counts,
-    timestamps and the open_suspect / raw-open columns. Row order and the
-    identity columns (slug, title, date, mu, names) are untouched. Prints
-    what changed and every flagged bout."""
+    timestamps and the open_suspect / raw-open columns. Row order, the
+    identity columns (slug, title, date, mu, names) and the clean-close
+    columns (card_settle's) are untouched. Prints what changed and every
+    flagged bout."""
     with open(out_path, newline="", encoding="utf-8") as fh:
         rows = list(csv.DictReader(fh))
     n_open = n_close = n_flag = n_err = 0

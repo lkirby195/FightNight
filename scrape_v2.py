@@ -8,7 +8,11 @@ Pass B (2.7k requests): fighter pages -> fighters_v2.csv
 Pass C (optional, 9k requests): fight-details pages -> fight_stats_v2.csv
     strike ATTEMPTS, control time, head/body/leg, distance/clinch/ground.
 
-All raw HTML is disk-cached under cache/, so re-runs cost nothing.
+All raw HTML is disk-cached under cache/, so re-runs cost nothing -- except
+an event page dated today or later, which is never cached (its results are
+not in yet; a copy taken then would serve a results-less card on Sunday,
+as UFC Vegas 123 did on 2026-11-02), and pass A refuses to write a card
+whose every bout has a blank winner (check_results).
 """
 from __future__ import annotations
 
@@ -31,16 +35,25 @@ os.makedirs(OUT, exist_ok=True)
 SESS = UFCStatsSession(delay=0.35)
 
 
-def fetch(url: str) -> str:
+def fetch(url: str, cache: bool = True) -> str:
+    """Cached GET. cache=False fetches live and neither reads nor writes the
+    cache: for a page still changing (an event not yet fought). Anything
+    that pulls an upcoming event page by hand (the Thursday gate) must pass
+    cache=False too."""
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key + ".html")
-    if os.path.exists(path):
+    if cache and os.path.exists(path):
         with open(path, encoding="utf-8") as fh:
             return fh.read()
     html = SESS.get(url)
-    with open(path, "w", encoding="utf-8") as fh:
-        fh.write(html)
+    if cache:
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write(html)
     return html
+
+
+def _today() -> str:
+    return datetime.now().date().isoformat()
 
 
 def _id(href: str) -> str:
@@ -73,7 +86,10 @@ def scrape_events() -> list[dict]:
 
 
 def scrape_event_fights(event: dict) -> list[dict]:
-    soup = BeautifulSoup(fetch(f"http://ufcstats.com/event-details/{event['event_id']}"), "lxml")
+    # an event dated today or later has no results yet: never cache its page
+    cache = event["event_date"] < _today()
+    soup = BeautifulSoup(fetch(f"http://ufcstats.com/event-details/{event['event_id']}",
+                               cache=cache), "lxml")
     rows = soup.select("tr.b-fight-details__table-row")
     fights, order = [], 0
     for tr in rows:
@@ -176,6 +192,23 @@ def write_csv(path, cols, rows):
         w.writerows(rows)
 
 
+def check_results(fights: list[dict]) -> None:
+    """Refuse a card whose every bout has a blank winner: the event page was
+    read before UFC Stats posted the results (a pre-event copy in cache/, or
+    a card listed under completed events too early). Raises RuntimeError
+    naming the events; nothing is written."""
+    by_ev: dict[tuple, list[str]] = {}
+    for f in fights:
+        by_ev.setdefault((f["event_id"], f["event_name"], f["event_date"]), []).append(f["outcome"])
+    bad = [k for k, outs in by_ev.items() if outs and all(o == "" for o in outs)]
+    if bad:
+        names = "; ".join(f"{n} {d} ({eid})" for eid, n, d in bad)
+        raise RuntimeError(f"results missing for every bout of: {names} -- the event page "
+                           f"was read before the results were posted; delete its copy under "
+                           f"{CACHE}/ (sha1 of http://ufcstats.com/event-details/<event_id>) "
+                           f"and run pass A again")
+
+
 def main(which="A"):
     if which in ("A", "AB"):
         events = scrape_events()
@@ -185,6 +218,7 @@ def main(which="A"):
             fights += scrape_event_fights(ev)
             if i % 50 == 0:
                 print(f"  {i}/{len(events)} events, {len(fights)} fights", flush=True)
+        check_results(fights)
         # Missed-weight flags (a_mw/b_mw, 0/1) are not on UFC Stats. Carry them
         # over from the existing file by fight_id so a re-scrape does not drop
         # them; fights not in the previous file default to 0 (unverified).

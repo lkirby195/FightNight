@@ -438,6 +438,7 @@ def main(slug, ev_date_s):
     print_signals(sig)
     if future:
         record_placeable(slug, ev_date_s, bouts, pm_by_mu)
+    return bouts                                # card_settle writes their clean closes
 
 
 def print_signals(sig):

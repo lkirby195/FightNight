@@ -83,6 +83,17 @@ def vigfree(d1: float, d2: float) -> tuple[float, float]:
     return a / (a + b), b / (a + b)
 
 
+def close_of(ln: dict):
+    """The closing pair (a, b) to show for a bout: the clean close card_settle
+    wrote when the row has one, else the raw last tick when it is still a
+    clean two-sided book (card_settle's in-play filter), else None."""
+    if ln.get("a_close_clean") is not None:
+        return ln["a_close_clean"], ln["b_close_clean"]
+    if OR_LO <= 1 / ln["a_close"] + 1 / ln["b_close"] <= OR_HI:
+        return ln["a_close"], ln["b_close"]
+    return None
+
+
 def american(dec: float) -> int:
     return int(round((dec - 1) * 100)) if dec >= 2 else int(round(-100 / (dec - 1)))
 
@@ -251,13 +262,21 @@ class Data:
         self.fights = read_csv(DATA / "fights_v2.csv")
         self.fights.sort(key=lambda r: (r["event_date"], int(r["bout_order"])))
         self.data_through = max(f["event_date"] for f in self.fights)
+        # the debut rule's data: a bout counts as projected (card CLV) only
+        # when both fighters have an earlier UFC bout on file, as card_report
+        self.first = sg.first_bout_dates(pd.DataFrame(self.fights))
         self.preds = {r["fight_id"]: float(r["p_model_a"])
                       for r in read_csv(DATA / "model_only_preds.csv")}
         self.preds_bt = {r["fight_id"]: float(r["p_model_a"])
                          for r in read_csv(DATA / "model_only_preds_2025_backtest.csv")}
-        self.lines = {r["fight_id"]: {k: float(r[k]) for k in
-                                      ("a_open", "a_close", "b_open", "b_close")}
-                      for r in read_csv(DATA / "bfo_joined.csv")}
+        self.lines = {}
+        for r in read_csv(DATA / "bfo_joined.csv"):
+            ln = {k: float(r[k]) for k in ("a_open", "a_close", "b_open", "b_close")}
+            # the clean close card_settle wrote (settle or --backfill), None
+            # when the row has none: close_of() falls back to the raw close
+            for k in ("a_close_clean", "b_close_clean"):
+                ln[k] = float(r[k]) if r.get(k) else None
+            self.lines[r["fight_id"]] = ln
         self.rd = {r["fight_id"]: (float(r["rd_a"]), float(r["rd_b"]))
                    for r in read_csv(DATA / "prefight_rd.csv")}
         self.ledger = read_csv(DATA / "system_ledger.csv")
@@ -293,6 +312,11 @@ class Data:
             self.titles.setdefault(r["slug"], r["event_title"])
         self.overrides = {r["fighter_id"]: r["division"] for r in read_csv(OVERRIDES)
                           if r.get("fighter_id")}
+
+    def projectable(self, f: dict) -> bool:
+        """signals' debut rule for a fights_v2 row: both fighters on record."""
+        return (sg.on_record(f["fighter_a_id"], f["event_date"], self.first)
+                and sg.on_record(f["fighter_b_id"], f["event_date"], self.first))
 
     def capture_index(self, ev_date: str) -> dict[frozenset, int]:
         """Name-pair -> mu for captures within a day of ev_date."""
@@ -600,7 +624,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
                                       f["fighter_b_id"], f["fighter_b"]) for f in bouts])
             p_all = {f["fight_id"]: proj[i][0] for i, f in enumerate(bouts)}
         cidx = data.capture_index(ev_date)
-        fights, bets, hits, total = [], [], 0, 0
+        fights, bets, hits, total, card_clv = [], [], 0, 0, []
         for f in bouts:
             a, b, fid = f["fighter_a"], f["fighter_b"], f["fight_id"]
             p_a = preds.get(fid, p_all.get(fid) if missing else None)
@@ -648,19 +672,25 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
                 result_text, bet_how = how, f"{what} · {how}"
             rd = data.rd.get(fid)
             # open / close / CLV for EVERY bout from bfo_lines (via bfo_joined),
-            # not only ledger rows: the close shows only when BFO's last tick is
-            # still a clean two-sided book (the in-play filter card_settle uses),
-            # CLV is the picked side's vig-free close minus open; a ledger row
-            # keeps its own clean close and CLV
+            # not only ledger rows: the close is card_settle's clean close when
+            # the row has one, else the raw last tick while it is still a clean
+            # book (close_of); CLV is the picked side's vig-free close minus
+            # open; a ledger row keeps its own clean close and CLV. The card
+            # CLV is card_settle's number: over the projected bouts, the
+            # vig-free close minus open on the side the model leans to against
+            # the market (its p above the vig-free open), not the pick side.
             open_txt = close_txt = clv_txt = "—"
+            cl = close_of(ln) if ln else None
             if ln:
                 open_txt = pair(american(ln["a_open"]), american(ln["b_open"]))
-                if OR_LO <= 1 / ln["a_close"] + 1 / ln["b_close"] <= OR_HI:
-                    close_txt = pair(american(ln["a_close"]), american(ln["b_close"]))
+                if cl:
+                    close_txt = pair(american(cl[0]), american(cl[1]))
+                    qo_a, qc_a = vigfree(ln["a_open"], ln["b_open"])[0], vigfree(*cl)[0]
                     if side is not None:
-                        qo = vigfree(ln["a_open"], ln["b_open"])[0 if side == a else 1]
-                        qc = vigfree(ln["a_close"], ln["b_close"])[0 if side == a else 1]
+                        qo, qc = (qo_a, qc_a) if side == a else (1 - qo_a, 1 - qc_a)
                         clv_txt = f"{(qc - qo) * 100:+.1f}"
+                    if fid in preds and data.projectable(f):
+                        card_clv.append(qc_a - qo_a if p_a > qo_a else qo_a - qc_a)
             if sig:
                 close_txt = sline(sig["clean_close"])
                 clv_txt = f"{sig['clv_pts']:+.1f}"
@@ -706,7 +736,9 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
         cards.append(dict(key=f"{year}-{ev_date}", name=ev_name, date=ev_date,
                           date_text=day_text(d), posted_text=posted_text,
                           bets=bets, w=w, l=len(bets) - w, net=money(net, signed=True),
-                          net_u=net, fights=fights, hits=hits, total=total))
+                          net_u=net, fights=fights, hits=hits, total=total,
+                          clv=(f"{sum(card_clv) / len(card_clv) * 100:+.2f}" if card_clv else None),
+                          clv_n=len(card_clv)))
     return cards
 
 
