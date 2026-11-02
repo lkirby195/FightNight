@@ -94,6 +94,17 @@ def close_of(ln: dict):
     return None
 
 
+def our_side_clv(p_a: float, a_open: float, b_open: float, a_close: float, b_close: float) -> float:
+    """card_settle's CLV for one bout, in probability: the vig-free close
+    minus open on OUR side, the fighter the model prices higher than the
+    opening market (a when p_a is above a's vig-free open, else b), so a
+    positive number means the market moved toward us. The CLV column and
+    the card CLV (its mean over the projected bouts) both use this, so the
+    card's number is the mean of its column."""
+    qo_a, qc_a = vigfree(a_open, b_open)[0], vigfree(a_close, b_close)[0]
+    return qc_a - qo_a if p_a > qo_a else qo_a - qc_a
+
+
 def american(dec: float) -> int:
     return int(round((dec - 1) * 100)) if dec >= 2 else int(round(-100 / (dec - 1)))
 
@@ -674,31 +685,29 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
             # open / close / CLV for EVERY bout from bfo_lines (via bfo_joined),
             # not only ledger rows: the close is card_settle's clean close when
             # the row has one, else the raw last tick while it is still a clean
-            # book (close_of); CLV is the picked side's vig-free close minus
-            # open; a ledger row keeps its own clean close and CLV. The card
-            # CLV is card_settle's number: over the projected bouts, the
-            # vig-free close minus open on the side the model leans to against
-            # the market (its p above the vig-free open), not the pick side.
+            # book (close_of); CLV is card_settle's number (our_side_clv) for
+            # every projected bout (a pred in the file, both fighters on
+            # record), "—" otherwise, and the card CLV is its mean, so the
+            # card's number is the mean of its column. A ledger row keeps its
+            # own clean close; its clv_pts is the same side at the same close.
             open_txt = close_txt = clv_txt = "—"
+            clv_val = None
             cl = close_of(ln) if ln else None
             if ln:
                 open_txt = pair(american(ln["a_open"]), american(ln["b_open"]))
                 if cl:
                     close_txt = pair(american(cl[0]), american(cl[1]))
-                    qo_a, qc_a = vigfree(ln["a_open"], ln["b_open"])[0], vigfree(*cl)[0]
-                    if side is not None:
-                        qo, qc = (qo_a, qc_a) if side == a else (1 - qo_a, 1 - qc_a)
-                        clv_txt = f"{(qc - qo) * 100:+.1f}"
                     if fid in preds and data.projectable(f):
-                        card_clv.append(qc_a - qo_a if p_a > qo_a else qo_a - qc_a)
+                        clv_val = our_side_clv(p_a, ln["a_open"], ln["b_open"], *cl)
+                        clv_txt = f"{clv_val * 100:+.1f}"
+                        card_clv.append(clv_val)
             if sig:
                 close_txt = sline(sig["clean_close"])
-                clv_txt = f"{sig['clv_pts']:+.1f}"
             fights.append(dict(
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
                 tag="Disagreed" if disagreed else None, odds_text=odds_text,
                 mark=mark, mark_kind=mark_kind,
-                result=result_text,
+                result=result_text, clv_val=clv_val,
                 num=dict(model_line=pair(fair_line(p_a), fair_line(1 - p_a)) if p_a is not None else "—",
                          open=open_txt, placeable=placeable, close=close_txt, clv=clv_txt,
                          rule=sig["rule"] if sig else "",
@@ -738,6 +747,7 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
                           bets=bets, w=w, l=len(bets) - w, net=money(net, signed=True),
                           net_u=net, fights=fights, hits=hits, total=total,
                           clv=(f"{sum(card_clv) / len(card_clv) * 100:+.2f}" if card_clv else None),
+                          clv_val=(sum(card_clv) / len(card_clv) if card_clv else None),
                           clv_n=len(card_clv)))
     return cards
 
