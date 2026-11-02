@@ -22,6 +22,17 @@ pre-registration point: the live record from 2026-09-08 forward is the test.
 Constants in `betting_system.py`: `FLIP_CONF = 0.65`, `FLIP_UNITS = 1`,
 `GAP_PTS = 100`, `GAP_UNITS = 1`.
 
+## March 2027 review
+
+Threshold and rule variants examined between the freeze and the first scheduled
+review (March 2027). Each is a diagnostic on a branch, never a rule change; each
+one that reads 2025 or 2026 outcomes is a holdout peek and is logged here so the
+review can discount it.
+
+- FLIP 0.70 examined 2026-11-02 (diag/flip-070.md) - rejected. Band [0.65,0.70) is
+  +30.6% ROI on 109 train bets and 12-5 in 2025-26; 0.70 removes it for no gain.
+  Logged as a holdout peek.
+
 ## Placement policy v1 (frozen 2026-09-09)
 
 The signal rules above decide what is logged; the placement policy decides
