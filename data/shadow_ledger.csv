@@ -1,0 +1,31 @@
+event_date,event,fight_id,fighter,rule,live,units,rd_self,rd_opp,placed,stake_u,pnl_placed,open_line,placeable_line,clean_close,clv_pts,result,method,round,pnl,pnl_at_open,reason,pm_p_at_capture,would_place,shadow_stake
+2026-01-24,UFC 324: Gaethje vs. Pimblett,780cab0cd07589e4,Nikita Krylov,SHADOW_D61,0,1,95.19,121.6,0,0.0,0.0,170,,112,9.37,WIN,KO/TKO,3,1.7,1.7,,,1,1.0
+2026-01-24,UFC 324: Gaethje vs. Pimblett,007e8e0d4a39d82c,Song Yadong,SHADOW_D61,0,1,104.26,110.13,0,0.0,0.0,250,,181,6.46,LOSS,U-DEC,3,-1.0,-1.0,,,1,1.0
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,84e8ccc3c97c2b4c,Eduarda Moura,SHADOW_D61,0,1,174.11,183.05,0,0.0,0.0,163,,263,-9.09,LOSS,U-DEC,3,-1.0,-1.0,,,0,0.68
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,abefaf1807941ee4,Niko Price,SHADOW_D61,0,1,98.7,191.8,0,0.0,0.0,275,,217,4.35,LOSS,KO/TKO,1,-1.0,-1.0,,,0,1.0
+2026-02-07,UFC Fight Night: Bautista vs. Oliveira,6cca11f353a2b42d,Julius Walker,SHADOW_D61,0,1,243.82,103.64,0,0.0,0.0,145,,135,1.44,LOSS,KO/TKO,2,-1.0,-1.0,,,1,0.5
+2026-02-21,UFC Fight Night: Strickland vs. Hernandez,04b7bcc0e8488604,Serghei Spivac,SHADOW_D61,0,1,109.1,231.2,0,0.0,0.0,160,,102,10.0,WIN,U-DEC,3,1.6,1.6,,,1,1.0
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,bbe0f3653de9f6a8,Shem Rock,SHADOW_D61,0,1,284.82,275.13,0,0.0,0.0,160,,-128,16.66,LOSS,U-DEC,3,-1.0,-1.0,,,0,0.5
+2026-03-21,UFC Fight Night: Evloev vs. Murphy,43e26b46cbb51985,Austen Lane,SHADOW_D61,0,1,187.06,265.88,0,0.0,0.0,350,,493,-5.19,LOSS,KO/TKO,1,-1.0,-1.0,,,0,0.59
+2026-04-11,UFC 327: Prochazka vs. Ulberg,5b49c3d36907c6df,Francisco Prado,SHADOW_D61,0,1,168.98,162.8,0,0.0,0.0,210,,176,4.93,LOSS,U-DEC,3,-1.0,-1.0,,,0,0.72
+2026-04-18,UFC Fight Night: Burns vs. Malott,5a209522211d7530,Karine Silva,SHADOW_D61,0,1,149.96,121.96,0,0.0,0.0,210,,320,-7.82,LOSS,U-DEC,3,-1.0,-1.0,,,1,0.86
+2026-05-02,UFC Fight Night: Della Maddalena vs. Prates,1cb0711cd49dd95e,Kevin Christian,SHADOW_D61,0,1,273.39,155.97,0,0.0,0.0,330,,177,11.78,LOSS,KO/TKO,1,-1.0,-1.0,,,0,0.5
+2026-05-09,UFC 328: Chimaev vs. Strickland,303018d7459323b4,William Gomis,SHADOW_D61,0,1,174.66,133.13,0,0.0,0.0,230,,171,6.52,LOSS,U-DEC,3,-1.0,-1.0,,,1,0.68
+2026-05-09,UFC 328: Chimaev vs. Strickland,9d35723a53749931,Marco Tulio,SHADOW_D61,0,1,194.08,124.98,0,0.0,0.0,190,,-177,28.16,LOSS,U-DEC,3,-1.0,-1.0,,,1,0.54
+2026-05-16,UFC Fight Night: Allen vs. Costa,6242cda790f2085d,Tuco Tokkos,SHADOW_D61,0,1,222.08,201.2,0,0.0,0.0,250,,143,11.89,LOSS,U-DEC,3,-1.0,-1.0,,,0,0.5
+2026-05-16,UFC Fight Night: Allen vs. Costa,a6ec8573a9d38c51,Timmy Cuamba,SHADOW_D61,0,1,192.11,237.33,0,0.0,0.0,170,,117,9.2,LOSS,SUB,2,-1.0,-1.0,,,0,0.56
+2026-06-06,UFC Fight Night: Muhammad vs. Bonfim,c47796e11a801e12,Santiago Luna,SHADOW_D61,0,1,242.17,115.57,0,0.0,0.0,210,,114,14.15,LOSS,SUB,3,-1.0,-1.0,,,1,0.5
+2026-06-14,UFC Freedom 250,127ba4a1ccb3d4a6,Steve Garcia,SHADOW_D61,0,1,127.83,124.42,0,0.0,0.0,190,,125,11.11,LOSS,KO/TKO,2,-1.0,-1.0,,,1,1.0
+2026-08-08,UFC Fight Night: Gamrot vs. Salkilld,13380a8d6cdbb381,Diyar Nurgozhay,SHADOW_D61,0,1,226.86,203.5,0,0.0,0.0,186,,-174,28.29,WIN,KO/TKO,1,1.86,1.86,,,0,0.5
+2026-08-15,UFC 330: Makhachev vs. Machado Garry,4700d42c9869674a,Gillian Robertson,SHADOW_D61,0,1,99.03,99.47,0,0.0,0.0,181,,226,-3.95,LOSS,U-DEC,5,-1.0,-1.0,,,1,1.0
+2026-09-19,UFC 331: Van vs. Pantoja 2,d89cc2cb92cd8407,Michael Aswell Jr.,SHADOW_D61,0,1,189.02,230.39,0,0.0,0.0,247,,134,14.52,WIN,S-DEC,3,2.47,2.47,,,0,0.58
+2026-09-26,UFC Fight Night: Rosas Jr. vs. Barcelos,30b73c201daa089c,Christian Edwards,SHADOW_D61,0,1,261.4,184.5,0,0.0,0.0,208,,184,2.59,WIN,KO/TKO,3,2.08,2.08,,,0,0.5
+2026-09-26,UFC Fight Night: Rosas Jr. vs. Barcelos,29423f522e76f12e,Brady Hiestand,SHADOW_D61,0,1,190.21,189.09,0,0.0,0.0,387,,287,5.08,WIN,SUB,2,3.87,3.87,,,0,0.57
+2026-10-03,UFC 332: Silva vs. Wang,e87db876810cbc3c,Court McGee,SHADOW_D61,0,1,93.76,256.51,0,0.0,0.0,280,,209,6.1,LOSS,KO/TKO,3,-1.0,-1.0,,,0,1.0
+2026-10-10,UFC Fight Night: Allen vs. Duncan,c56bbc28d155f846,Otari Tanzilovi,SHADOW_D61,0,1,290.38,212.2,0,0.0,0.0,200,,173,2.95,WIN,KO/TKO,2,2.0,2.0,,,0,0.5
+2026-10-17,UFC Fight Night: Buckley vs. Malott,856716a6ee05e0ca,Tanner Boser,SHADOW_D61,0,1,126.72,173.16,0,0.0,0.0,190,,162,3.78,WIN,KO/TKO,3,1.9,1.9,,,1,1.0
+2026-10-17,UFC Fight Night: Buckley vs. Malott,49707683a6ebf34c,Nate Landwehr,SHADOW_D61,0,1,124.63,259.02,0,0.0,0.0,195,,239,-4.38,LOSS,KO/TKO,2,-1.0,-1.0,,,1,1.0
+2026-10-17,UFC Fight Night: Buckley vs. Malott,c20c949ceba035f3,Mike Malott,SHADOW_D61,0,1,136.87,103.18,0,0.0,0.0,245,,-122,24.98,WIN,KO/TKO,2,2.45,2.45,,,1,0.95
+2026-10-24,UFC 333: Volkanovski vs. Evloev,c6bcc7e9fb90da47,Dominick Reyes,SHADOW_D61,0,1,102.16,141.86,0,0.0,0.0,173,,160,1.72,WIN,KO/TKO,1,1.73,1.73,,,1,1.0
+2026-10-24,UFC 333: Volkanovski vs. Evloev,8788a6dda6e64aff,Rizvan Kuniev,SHADOW_D61,0,1,232.42,94.64,0,0.0,0.0,222,,158,8.79,LOSS,U-DEC,3,-1.0,-1.0,,,1,0.5
+2026-10-31,UFC Fight Night: Moicano vs. Nolan,8b2fcf7f83bf72b6,Theodor Berggren,SHADOW_D61,0,1,289.28,290.53,0,0.0,0.0,186,,197,-0.23,LOSS,KO/TKO,2,-1.0,-1.0,,,0,0.5

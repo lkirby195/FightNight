@@ -32,6 +32,12 @@ frozen rule, the pre-filter, the pick'em tie-break, the debut rule and the
 placement stake live there, not here. Names resolve through
 names.make_resolver: a spelling near-miss raises NameJoinError (never
 guessed), a fighter not on file is a debut (no projection, no signal).
+
+Shadow signals (pre-registered 2026-11-03): for an event dated
+signals.SHADOW_FROM or later the report ends its signal list with a separate
+"Shadow - not a bet" section (SHADOW_D61 from signals.classify with
+shadow=True, and what policy v1 would do). Logged only: never a bet, never
+counted, never on the site; no existing report line changes.
 """
 from __future__ import annotations
 
@@ -308,13 +314,7 @@ def signals(bouts, preds, rds, future):
         if b["mu"] not in preds:
             continue
         rd1, rd2 = rds[b["mu"]]
-        c = cap.get(b["mu"])
-        if c is not None:
-            dec1, dec2 = c
-        elif future:
-            dec1, dec2 = b["f1_close"], b["f2_close"]
-        else:
-            dec1 = dec2 = None
+        dec1, dec2 = _price_of_record(b, cap, future)
         d = sg.classify(preds[b["mu"]], b["f1_open"], b["f2_open"], rd1, rd2,
                         o1_raw=b.get("f1_open_raw"), o2_raw=b.get("f2_open_raw"),
                         open_suspect=bool(b.get("open_suspect")), dec1=dec1, dec2=dec2)
@@ -326,6 +326,43 @@ def signals(bouts, preds, rds, future):
                             opn=d.open_line, line=d.line,
                             rd_self=rd1 if mod1 else rd2, rd_opp=rd2 if mod1 else rd1,
                             tag=tag, stake=d.stake, void=d.void, decision=d)
+    return out
+
+
+def _price_of_record(b, cap, future):
+    """(dec1, dec2) a stake is sized at: the earliest capture on file for the
+    bout, else the current line for a future card, else (None, None): the open."""
+    c = cap.get(b["mu"])
+    if c is not None:
+        return c
+    if future:
+        return b["f1_close"], b["f2_close"]
+    return None, None
+
+
+def shadows(bouts, preds, rds, future):
+    """mu -> shadow entry for every projected bout the SHADOW_D61 tag fires on
+    (signals.classify with shadow=True), sized at the same price of record as
+    signals(). Logged only: never a bet, never counted. Every field comes from
+    the Decision's shadow."""
+    cap = earliest_capture()
+    out = {}
+    for b in bouts:
+        if b["mu"] not in preds:
+            continue
+        rd1, rd2 = rds[b["mu"]]
+        dec1, dec2 = _price_of_record(b, cap, future)
+        s = sg.classify(preds[b["mu"]], b["f1_open"], b["f2_open"], rd1, rd2,
+                        o1_raw=b.get("f1_open_raw"), o2_raw=b.get("f2_open_raw"),
+                        open_suspect=bool(b.get("open_suspect")), dec1=dec1, dec2=dec2,
+                        shadow=True).shadow
+        if s is None:
+            continue
+        mod1 = s.side == 1
+        out[b["mu"]] = dict(tag=s.tag, who=b["f1"] if mod1 else b["f2"], conf=s.conf,
+                            gap=s.gap, opn=s.open_line, line=s.line,
+                            rd_self=rd1 if mod1 else rd2, rd_opp=rd2 if mod1 else rd1,
+                            would_place=s.would_place, skip=s.skip, stake=s.stake)
     return out
 
 
@@ -436,6 +473,8 @@ def main(slug, ev_date_s):
     print(f"Polymarket: {n_pm} bouts with a market ({sum(1 for r in pm_by_mu.values() if r)} "
           f"matched to BFO, {len(pm_extra)} not on BFO); BFO: {len(bouts)} bouts")
     print_signals(sig)
+    if sg.shadow_window(ev_date_s):
+        print_shadows(shadows(keep, preds, rds, future))
     if future:
         record_placeable(slug, ev_date_s, bouts, pm_by_mu)
     return bouts                                # card_settle writes their clean closes
@@ -453,6 +492,19 @@ def print_signals(sig):
     for s in live + void:
         print(f"  {s['rule']:4s} {s['who']:28s} {s['conf']:.0%}  open {s['opn']:+d}  "
               f"line {s['line']:+d}  RD {s['rd_self']:.0f}/{s['rd_opp']:.0f}  {s['tag']}")
+
+
+def print_shadows(sh):
+    """The "Shadow - not a bet" section: the SHADOW_D61 bouts, logged only
+    (never placed, never counted, never on the site), each with what policy
+    v1 would do (would place at shadow_stake, or its skip)."""
+    print()
+    print(f"Shadow - not a bet ({sg.SHADOW_D61}, logged only): {len(sh)}")
+    for s in sh.values():
+        act = f"would place {s['stake']:.2f}u" if s["would_place"] else f"would {s['skip']}"
+        print(f"  {s['tag']} {s['who']:28s} {s['conf']:.0%}  open {s['opn']:+d}  "
+              f"line {s['line']:+d}  RD {s['rd_self']:.0f}/{s['rd_opp']:.0f}  "
+              f"gap {s['gap'] * 100:+.1f} pts  {act}")
 
 
 if __name__ == "__main__":
