@@ -1,0 +1,7 @@
+metric,real,null_mean,null_p50,null_p95,pct_null_below_real,share_null_ge_real
+max pooled t (grid),3.4445,1.2424,1.254,2.3198,100.0,0.0
+rules positive in every block,22.0,4.212,2.0,18.0,96.9,0.031
+walk-forward OOS ROI %,13.3206,-6.2459,-6.0785,5.5367,99.7,0.003
+GAP pooled ROI %,7.2175,-5.7484,-5.6532,3.3235,99.6,0.004
+FLIP pooled ROI %,22.2512,-6.1358,-6.006,7.9778,100.0,0.0
+grid mean pooled ROI %,11.7573,-5.5899,-5.8117,3.2799,100.0,0.0
