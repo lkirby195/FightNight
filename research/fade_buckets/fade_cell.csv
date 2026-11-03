@@ -1,0 +1,4 @@
+cell,definition,n,wl,w,l,net_u,roi_pct,roi_se_pct,t,mean_open_dec,mean_open_us,clv_n,mean_clv_pp,gap_tagged,flip_tagged,mkt_exp_w,mod_exp_w,p_mkt_le_w
+pre-registered,"p_mod in [0.45,0.60], p_mkt >= 0.70, both RD <= 160, dog open <= +250",11,0-11,0,11,-11.0,-100.0,0.0,,3.359,236,11,4.92,0,0,3.16,5.01,0.0242
+(a) no RD filter,"p_mod in [0.45,0.60], p_mkt >= 0.70, dog open <= +250",53,10-43,10,43,-19.8,-37.36,18.03,-2.07,3.374,237,53,3.58,0,0,15.05,24.48,0.0789
+(b) no price cap,"p_mod in [0.45,0.60], p_mkt >= 0.70, both RD <= 160",23,4-19,4,19,-7.75,-33.7,30.82,-1.09,3.598,260,23,3.7,0,0,6.16,10.45,0.2213
