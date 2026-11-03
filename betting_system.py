@@ -55,6 +55,13 @@ reported before 2026-09-30 to fire at the raw opener, is retired with the
 capture-proof rule: every capture on file postdates the validated-open report.)
 pm_p_at_capture: the Polymarket price of the backed side at the earliest
 placeable capture, for placed rows whose capture recorded one (polymarket.py).
+Shadow signals (pre-registered 2026-11-03): SHADOW_D61 rows (signals.classify
+with shadow=True) are evaluated only for events dated signals.SHADOW_FROM
+(2026-01-01) or later, printed in their own SHADOW (not placed) block and, with
+--write-ledger, written to data/shadow_ledger.csv (the ledger's columns plus
+would_place and shadow_stake). They are never placed and never counted: not in
+LIVE RECORD, FULL SIM, a PLACED block or data/system_ledger.csv. A shadow row
+is live only with capture proof AND an event dated after signals.SHADOW_FREEZE.
 """
 from __future__ import annotations
 
@@ -86,6 +93,7 @@ LIVE_CARDS = {"2026-08-22",   # UFC Sacramento (no bets)
 # 2026-10-17 Edmonton.
 
 LEDGER = "data/system_ledger.csv"
+SHADOW_LEDGER = "data/shadow_ledger.csv"    # shadow rows: logged only, never counted
 PLACEABLE = "data/placeable_lines.csv"      # written by card_report.py
 PREFIGHT_RD = "data/prefight_rd.csv"        # written by prefight_rd.py
 LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "units",
@@ -93,6 +101,7 @@ LEDGER_COLS = ["event_date", "event", "fight_id", "fighter", "rule", "live", "un
                "open_line", "placeable_line", "clean_close", "clv_pts", "result",
                "method", "round", "pnl", "pnl_at_open", "reason", "pm_p_at_capture"]
 B_COLS = ["event_date", "rule", "live", "u", "pnl", "pnl_at_open", "placed", "stake_u"]
+SHADOW_EXTRA = ["would_place", "shadow_stake"]
 
 am = lambda dec: np.where(dec >= 2, (dec - 1) * 100, -100 / (dec - 1))
 amp = lambda q: np.where(q >= .5, -100 * q / (1 - q), 100 * (1 - q) / q)
@@ -170,14 +179,14 @@ def is_live(bout, captures: dict | None = None) -> bool:
     return t is not None and t[:10] < d
 
 
-def _decision(r, dec_a=None, dec_b=None):
+def _decision(r, dec_a=None, dec_b=None, shadow=False):
     """signals.classify for one row of load()'s frame, fighter_a as side 1."""
     return signals.classify(float(r.p_model_a), float(r.a_open), float(r.b_open),
                             float(r.rd_a), float(r.rd_b),
                             known1=bool(r.known_a), known2=bool(r.known_b),
                             o1_raw=float(r.a_open_raw), o2_raw=float(r.b_open_raw),
                             open_suspect=bool(r.open_suspect),
-                            dec1=dec_a, dec2=dec_b)
+                            dec1=dec_a, dec2=dec_b, shadow=shadow)
 
 
 def run(D):
@@ -221,6 +230,52 @@ def run(D):
                          rd_self=r.rd_a if mod1 else r.rd_b, rd_opp=r.rd_b if mod1 else r.rd_a,
                          bet_line=d.line, stake_u=d.stake, placed=int(d.placed),
                          pnl_placed=(d.stake * pnl / u) if u else 0.0))
+    return pd.DataFrame(rows).sort_values("event_date")
+
+
+def run_shadow(D):
+    """The shadow rows: SHADOW_D61 (signals.classify with shadow=True) on the
+    bouts of D dated signals.SHADOW_FROM or later -- nothing earlier is
+    evaluated -- in run()'s layout plus would_place and shadow_stake. Logged
+    only: a notional 1u (units, pnl, pnl_at_open), placed 0, stake_u 0,
+    pnl_placed 0; would_place / shadow_stake say what policy v1 would do.
+    live = capture proof (is_live) AND an event dated after
+    signals.SHADOW_FREEZE; a live row settles pnl at its earliest capture,
+    every other row at open."""
+    D = D[D.event_date >= signals.SHADOW_FROM]
+    if D.rd_a.isna().any():
+        raise SystemExit(f"{PREFIGHT_RD} has no row for {int(D.rd_a.isna().sum())} "
+                         f"bouts: run prefight_rd.py")
+    D = D[[_decision(r, shadow=True).shadow is not None
+           for r in D.itertuples(index=False)]].copy()
+    if len(D) == 0:
+        return pd.DataFrame(columns=B_COLS + SHADOW_EXTRA)
+    D["live"] = [int(is_live(r) and str(r.event_date) > signals.SHADOW_FREEZE)
+                 for r in D.itertuples(index=False)]
+    D["dec_a"] = D["dec_b"] = np.nan
+    L = D[D.live == 1]
+    if len(L):                                  # price of record: live rows only
+        da, db, _ = capture_prices(L)
+        D.loc[L.index, "dec_a"], D.loc[L.index, "dec_b"] = da, db
+    rows = []
+    for r in D.itertuples(index=False):
+        dec_a = None if pd.isna(r.dec_a) else float(r.dec_a)
+        dec_b = None if pd.isna(r.dec_b) else float(r.dec_b)
+        s = _decision(r, dec_a, dec_b, shadow=True).shadow
+        mod1 = s.side == 1
+        won = (int(r.y_a) == 1) == mod1
+        pnl_open = (r.a_open if mod1 else r.b_open) - 1 if won else -1.0
+        placeable = dec_a if mod1 else dec_b
+        if placeable is None:
+            pnl, placeable = pnl_open, np.nan
+        else:
+            pnl = placeable - 1 if won else -1.0
+        rows.append(dict(r._asdict(), rule=s.tag, mod1=mod1, conf=s.conf, u=1,
+                         reason="", void=False, pnl=pnl, pnl_at_open=pnl_open,
+                         placeable=placeable, pm_p=np.nan,
+                         rd_self=r.rd_a if mod1 else r.rd_b, rd_opp=r.rd_b if mod1 else r.rd_a,
+                         bet_line=s.line, stake_u=0.0, placed=0, pnl_placed=0.0,
+                         would_place=int(s.would_place), shadow_stake=s.stake))
     return pd.DataFrame(rows).sort_values("event_date")
 
 
@@ -319,6 +374,32 @@ def _report_placed(B, col):
               f"ROI {gp.sum()/g.stake_u.sum():+.1%}")
 
 
+def report_shadow(S):
+    """SHADOW (not placed) block: the shadow rows, logged only. Live rows
+    (capture proof, event after SHADOW_FREEZE) settle at their capture, all
+    rows at open; P&L at a notional 1u, then at shadow_stake on the rows
+    policy v1 would place. Never part of any other summary."""
+    print()
+    print(f"SHADOW (not placed): {signals.SHADOW_D61}, events from {signals.SHADOW_FROM}, "
+          f"frozen {signals.SHADOW_FREEZE} -- logged only, never placed or counted")
+    for label, G, col in ((f"live (capture proof, event after {signals.SHADOW_FREEZE})",
+                           S[S.live == 1] if len(S) else S, "pnl"),
+                          ("all rows (live and backfilled, at open)", S, "pnl_at_open")):
+        if len(G) == 0:
+            print(f"    {label}: 0 rows")
+            continue
+        p = G[col]
+        print(f"    {label}: {len(G)} rows  {int((p > 0).sum())}-{int((p < 0).sum())}  "
+              f"1u P&L {p.sum():+.1f}u  ROI {p.sum() / len(G):+.1%}")
+        W = G[G.would_place == 1]
+        if len(W):
+            pw = W.shadow_stake * W[col]
+            print(f"        would place (policy v1): {len(W)} of {len(G)}  "
+                  f"{int((pw > 0).sum())}-{int((pw < 0).sum())}  at shadow_stake "
+                  f"{W.shadow_stake.sum():.1f}u  P&L {pw.sum():+.1f}u  "
+                  f"ROI {pw.sum() / W.shadow_stake.sum():+.1%}")
+
+
 def _bfo_mu(bl, r):
     """BFO matchup id for one bout: same date (+-3d), same opening prices
     (validated or raw), same surnames (names.py: BFO aliases applied,
@@ -359,7 +440,7 @@ def _clean_close(bl, r):
     return (f1c, f2c) if a_is_f1 else (f2c, f1c)
 
 
-def write_ledger(B, path=LEDGER):
+def write_ledger(B, path=LEDGER, extra=()):
     """Write every triggered bet in B to `path`, sorted by date then bout order.
     open_line / placeable_line / clean_close are American odds of the bet side;
     clv_pts is the bet side's vig-free close minus open, in prob points; pnl
@@ -369,7 +450,9 @@ def write_ledger(B, path=LEDGER):
     (stake_u * pnl per unit); method / round come from fights_v2. VOID rows
     (reason set, units 0) are logged at the raw opener they fired on, result
     VOID, and settle nothing; pm_p_at_capture is the Polymarket price of the
-    backed side at the earliest capture, placed rows only."""
+    backed side at the earliest capture, placed rows only. `extra` columns of
+    B are appended as they are (the shadow ledger's would_place and
+    shadow_stake)."""
     bl = pd.read_csv("data/bfo_lines.csv")
     bl["d"] = pd.to_datetime(bl.event_date)
     rows = []
@@ -400,8 +483,9 @@ def write_ledger(B, path=LEDGER):
                          reason=r.reason,
                          pm_p_at_capture=("" if (pd.isna(r.pm_p) or int(r.placed) != 1)
                                           else round(float(r.pm_p), 4)),
-                         _bo=r.bout_order, **{"round": int(r["rnd"])}))
-    L = (pd.DataFrame(rows, columns=LEDGER_COLS + ["_bo"])
+                         _bo=r.bout_order, **{"round": int(r["rnd"])},
+                         **{c: r[c] for c in extra}))
+    L = (pd.DataFrame(rows, columns=LEDGER_COLS + list(extra) + ["_bo"])
          .sort_values(["event_date", "_bo"]).drop(columns="_bo"))
     L.to_csv(path, index=False)
     print(f"wrote {path}: {len(L)} rows  staked {L.units.sum()}u  "
@@ -423,5 +507,8 @@ if __name__ == "__main__":
     B = run(D)
     report(B[B.live == 1], f"LIVE RECORD ({a.year})", placeable=True)
     report(B, f"FULL SIM ({a.year})")
+    S = run_shadow(D)
+    report_shadow(S)
     if a.write_ledger:
         write_ledger(B)
+        write_ledger(S, SHADOW_LEDGER, extra=SHADOW_EXTRA)

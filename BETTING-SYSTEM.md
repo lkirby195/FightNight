@@ -32,6 +32,57 @@ review can discount it.
 - FLIP 0.70 examined 2026-11-02 (diag/flip-070.md) - rejected. Band [0.65,0.70) is
   +30.6% ROI on 109 train bets and 12-5 in 2025-26; 0.70 removes it for no gain.
   Logged as a holdout peek.
+- SHADOW_D61 pre-registered 2026-11-03 (see "Shadow signals") - logged only,
+  decided here. Its definition comes from 2008-2022 (research/rule_search) and
+  was not changed after its 2026 rows before the freeze (30, live = 0) were
+  printed when the shadow ledger was first written. The 2025 read is still
+  unrun.
+
+## Shadow signals (pre-registered 2026-11-03)
+
+A shadow signal is logged, never bet. It is never placed, never counted (not in
+LIVE RECORD, FULL SIM, a PLACED block or `data/system_ledger.csv`) and never
+shown on the site. One is defined:
+
+```
+SHADOW_D61: at the validated open (the prices GAP / FLIP use), on a bout that is
+            projectable under the debut rule and passes the pre-filter:
+              fav   = the market favourite (a pick'em has none: no tag)
+              p_mkt = the vig-free probability of fav
+              p_mod(fav) < 0.50              the model picks the dog
+              gap = p_mod(fav) - p_mkt <= -0.20
+              FLIP does not fire on the bout
+            The tag is on the dog. GAP cannot co-fire (the model picks the
+            dog); signals.classify asserts it.
+```
+
+It is `research/rule_search`'s D61 (dog, gap <= -20 pp, p_mod < .50) minus the
+bouts FLIP already takes. Over 2012-2022 the classifier's SHADOW_D61 set equals
+that set exactly on fight_id (309 bouts, on the research frame). Constants in
+`signals.py`: `SHADOW_D61`, `SHADOW_GAP = -0.20`, `SHADOW_FROM = 2026-01-01`,
+`SHADOW_FREEZE = 2026-11-03`. The frozen constants are untouched.
+
+- Computed only on request: `signals.classify(..., shadow=True)` fills
+  `Decision.shadow`, and the signal fields are identical either way. The site
+  never asks. The ledger and the card report ask only for events dated
+  `SHADOW_FROM` or later, so 2023-2025 are never evaluated.
+- Each shadow row records `would_place` (policy v1's filters at the price of
+  record: dog <= +250, not both RD > 160) and `shadow_stake` (policy v1's RD
+  ramp on the dog's RD, whatever the filters say). Both are logged only.
+- `betting_system.py` prints a separate `SHADOW (not placed)` block.
+  `--write-ledger` also writes `data/shadow_ledger.csv`: the ledger's columns
+  plus `would_place` and `shadow_stake`, events from 2026-01-01 on, `units` 1
+  (notional), `placed` 0, `stake_u` 0, `pnl_placed` 0.
+- Live: the capture-proof rule AND an event dated after `SHADOW_FREEZE`. Every
+  earlier row is live = 0 and settles at open, like a backfilled row; a live
+  row settles at its earliest capture. At the freeze the file has 30 rows
+  (2026-01-24 to 2026-10-31), all live = 0.
+- `card_report.py` (and `card_settle.py` through it) prints a separate
+  "Shadow - not a bet" section after the signals. No existing report line
+  changes.
+- Decided at the March 2027 review, from the shadow record plus the
+  rule-search family's one-shot 2025 read. That 2025 read has NOT been run
+  and is not to be run before the review; 2025 stays sealed.
 
 ## Placement policy v1 (frozen 2026-09-09)
 
@@ -246,9 +297,9 @@ Every decision a signal needs is made in `signals.py`, by one function:
 
 ```
 signals.classify(p1, o1, o2, rd1, rd2, known1=, known2=,
-                 o1_raw=, o2_raw=, open_suspect=, dec1=, dec2=)
+                 o1_raw=, o2_raw=, open_suspect=, dec1=, dec2=, shadow=)
     -> Decision(projectable, reason, rule, side, conf, gap_pts,
-                open_line, line, stake, skip, void)
+                open_line, line, stake, skip, void, shadow)
 ```
 
 `card_report.py` (and `card_settle.py` through it), `betting_system.py

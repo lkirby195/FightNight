@@ -12,6 +12,8 @@ Constants, with their freeze dates:
   OVERROUND_LO, OVERROUND_HI                   odds-sanity pre-filter, frozen 2026-09-08
   SKIP_LINE_MAX, UNKNOWN_RD, RAMP_LO, RAMP_HI  placement policy v1, frozen 2026-09-09
   VOID_SUSPECT                                 opener validity, 2026-09-30 (final 2026-10-01)
+  SHADOW_D61, SHADOW_GAP, SHADOW_FROM,         shadow signal, pre-registered 2026-11-03:
+  SHADOW_FREEZE                                logged only, never placed or counted
 
 Rulings 2026-10-22:
   Debut rule: a bout is projectable only when BOTH fighters are on file with a
@@ -27,11 +29,12 @@ classify() takes a bout's pre-fight state (the model's P(fighter1), the
 validated opening pair, the raw first ticks and open_suspect, both pre-fight
 RDs, whether each fighter is on record) plus the price the bet would settle
 at, and returns a Decision: projectable, reason, the signal (rule and side)
-and the policy-v1 stake.
+and the policy-v1 stake. Asked with shadow=True it also returns the shadow
+tag (Decision.shadow); the signal fields are the same either way.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 # ---- signal rules, frozen 2026-09-08 (BETTING-SYSTEM.md) -----------------
 FLIP_CONF = 0.65          # FLIP: the pick is the market underdog and P(pick) >= this
@@ -52,6 +55,15 @@ RAMP_LO, RAMP_HI = 130, 200    # 1u up to a backed-side RD of RAMP_LO, 0.5u at R
 
 # ---- opener validity, 2026-09-30 (final 2026-10-01) ----------------------
 VOID_SUSPECT = "void: suspect opener"   # fires only against the raw tick of an open_suspect bout
+
+# ---- shadow signals, pre-registered 2026-11-03 (BETTING-SYSTEM.md) -------
+# Logged only: never placed, never counted in any record, never on the site.
+# Decided at the March 2027 review. classify() evaluates them only when asked
+# (shadow=True), and callers ask only for events in shadow_window().
+SHADOW_D61 = "SHADOW_D61"      # model picks the market dog, P_model(fav) - P_open(fav) <= SHADOW_GAP, not FLIP
+SHADOW_GAP = -0.20             # probability; P_open = vig-free validated open (research/rule_search D61)
+SHADOW_FROM = "2026-01-01"     # first event date the shadow tag is evaluated for
+SHADOW_FREEZE = "2026-11-03"   # a shadow row can be live only for an event dated after this
 
 REASON_DEBUT = "debut"
 REASON_NO_PROJECTION = "no projection"
@@ -76,6 +88,12 @@ def stake_units(rd_self, rd_opp, line) -> float:
         return 0.0
     if rd_self > UNKNOWN_RD and rd_opp > UNKNOWN_RD:
         return 0.0
+    return ramp_units(rd_self)
+
+
+def ramp_units(rd_self) -> float:
+    """Placement policy v1's RD ramp alone: 1u up to a backed-side RD of
+    RAMP_LO, 0.5u at RAMP_HI and floored there (no skips)."""
     return float(min(1.0, max(0.5, 1 - (rd_self - RAMP_LO) / (RAMP_HI - RAMP_LO) * 0.5)))
 
 
@@ -116,6 +134,57 @@ def rule_at(p1: float, o1: float, o2: float):
     return ("GAP", side, conf, gap) if gap >= GAP_PTS else None
 
 
+def shadow_window(event_date) -> bool:
+    """True for an event the shadow tag is evaluated for: dated SHADOW_FROM or
+    later. Nothing earlier is evaluated (2025 stays sealed)."""
+    return str(event_date) >= SHADOW_FROM
+
+
+def shadow_at(p1: float, o1: float, o2: float):
+    """SHADOW_D61 at one opening pair -> (side, conf, gap) or None, before
+    the FLIP exclusion (classify applies it). The prices and the pre-filter
+    the frozen rule uses; fav = the market favourite (none at a pick'em),
+    gap = P_model(fav) - vig-free P_open(fav). Fires when the model picks the
+    dog (P_model(fav) < 0.50) and gap <= SHADOW_GAP; side is the dog, conf
+    P(dog)."""
+    if not OVERROUND_LO <= 1 / o1 + 1 / o2 <= OVERROUND_HI:
+        return None
+    fav = market_favourite(o1, o2)
+    if fav is None:
+        return None
+    p_fav = p1 if fav == 1 else 1 - p1
+    q_fav = (1 / (o1 if fav == 1 else o2)) / (1 / o1 + 1 / o2)
+    gap = p_fav - q_fav
+    if p_fav < .5 and gap <= SHADOW_GAP:
+        return (2 if fav == 1 else 1), 1 - p_fav, gap
+    return None
+
+
+@dataclass(frozen=True)
+class Shadow:
+    """A shadow tag on one bout: logged only, never placed, never counted.
+    tag          SHADOW_D61
+    side         1 | 2: the market underdog, which the model picks
+    conf         P(side); gap P_model(fav) - vig-free P_open(fav) (<= SHADOW_GAP)
+    open_line    the side's opening American line
+    line         the price of record (American, rounded), as for a signal
+    stake        shadow_stake: policy v1's RD ramp on the side's RD, skips aside
+    skip         policy v1's skip at that line ("" = would_place)"""
+    tag: str
+    side: int
+    conf: float
+    gap: float
+    open_line: int
+    line: int
+    stake: float
+    skip: str
+
+    @property
+    def would_place(self) -> bool:
+        """Policy v1's filters pass: side <= +SKIP_LINE_MAX, not both RD > UNKNOWN_RD."""
+        return self.skip == ""
+
+
 @dataclass(frozen=True)
 class Decision:
     """What classify() says about one bout.
@@ -128,7 +197,9 @@ class Decision:
     line         the price of record the stake is sized at (American, rounded)
     stake        policy-v1 units (0.0 when not placed or VOID); placed = stake > 0
     skip         "" | "skip: +NNN" | "skip: both unknown" for an unplaced signal
-    void         True for a VOID row: logged, never settled, placed or counted"""
+    void         True for a VOID row: logged, never settled, placed or counted
+    shadow       the Shadow tag when asked for (classify(shadow=True)) and it
+                 fires; None otherwise. Never part of the signal."""
     projectable: bool
     reason: str = ""
     rule: str | None = None
@@ -140,6 +211,7 @@ class Decision:
     stake: float = 0.0
     skip: str = ""
     void: bool = False
+    shadow: Shadow | None = None
 
     @property
     def signal(self):
@@ -156,7 +228,7 @@ NO_SIGNAL = Decision(projectable=True)
 
 def classify(p1, o1, o2, rd1, rd2, *, known1=True, known2=True,
              o1_raw=None, o2_raw=None, open_suspect=False,
-             dec1=None, dec2=None) -> Decision:
+             dec1=None, dec2=None, shadow=False) -> Decision:
     """The one signal decision for a bout.
 
     p1            model P(fighter1), None when no projection exists
@@ -167,7 +239,36 @@ def classify(p1, o1, o2, rd1, rd2, *, known1=True, known2=True,
                   signal that fires only there is a VOID row (opener validity)
     dec1, dec2    the price of record per side (decimal) the stake is sized at
                   (placeable capture / current line); the open when None
+    shadow        also evaluate the shadow tag (Decision.shadow). Off by
+                  default: a caller that does not ask never computes it, and
+                  the signal fields are identical either way.
     """
+    d = _signal(p1, o1, o2, rd1, rd2, known1=known1, known2=known2, o1_raw=o1_raw,
+                o2_raw=o2_raw, open_suspect=open_suspect, dec1=dec1, dec2=dec2)
+    if not (shadow and d.projectable):
+        return d
+    hit = shadow_at(p1, o1, o2)
+    if hit is None:
+        return d
+    # the model picks the market dog, so the frozen rule can only say FLIP
+    assert not (d.rule == "GAP" and not d.void), "SHADOW_D61 co-fired with GAP"
+    if d.rule == "FLIP" and not d.void:
+        return d                                # FLIP fires: no shadow
+    side, conf, gap = hit
+    opn = o1 if side == 1 else o2
+    dec = (dec1 if side == 1 else dec2)
+    line = int(round(american(opn if dec is None else dec)))
+    rd_self, rd_opp = (rd1, rd2) if side == 1 else (rd2, rd1)
+    return replace(d, shadow=Shadow(tag=SHADOW_D61, side=side, conf=conf, gap=gap,
+                                    open_line=int(round(american(opn))), line=line,
+                                    stake=round(ramp_units(rd_self), 2),
+                                    skip=skip_reason(rd_self, rd_opp, line)))
+
+
+def _signal(p1, o1, o2, rd1, rd2, *, known1, known2, o1_raw, o2_raw, open_suspect,
+            dec1, dec2) -> Decision:
+    """classify()'s signal decision (the frozen rule, the debut rule, opener
+    validity, the policy-v1 stake), without the shadow tag."""
     if not (known1 and known2):
         return Decision(projectable=False, reason=REASON_DEBUT)
     if p1 is None:
