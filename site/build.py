@@ -6,10 +6,11 @@ Read-only over the repo's data files:
   data/fights_v2.csv, data/prefight_rd.csv, data/system_ledger.csv,
   data/system_ledger_2025_backtest.csv, data/model_only_preds.csv,
   data/model_only_preds_2025_backtest.csv, data/bfo_joined.csv,
-  data/bfo_lines.csv, data/placeable_lines.csv, data/clv_eval_full.csv,
+  data/bfo_lines.csv, data/placeable_lines.csv,
   best_params.json, site/division_overrides.csv
-Writes site/out/ (the deployable static site) and site/state/ranks_prev.json
-(the rank snapshot behind the movement column).
+Writes site/out/ (the deployable static site, three pages plus
+site/out/vercel.json, which redirects the retired /how-it-works/ to /) and
+site/state/ranks_prev.json (the rank snapshot behind the movement column).
 
 Run card_report.py for the upcoming event first: the This-week page is built
 from its output, data/placeable_lines.csv, and projects each captured bout
@@ -50,7 +51,7 @@ import names
 import engine
 import signals as sg
 import stage2
-from signals import FLIP_CONF, GAP_PTS, RAMP_HI, RAMP_LO, SKIP_LINE_MAX, UNKNOWN_RD
+from signals import SKIP_LINE_MAX
 from replay_check import apply_params
 
 BRAND = "SPLIT DECISION"
@@ -59,7 +60,11 @@ TOP_N = 15                      # rows per ranking table
 ELIGIBLE_MONTHS = 18            # last fight within this many months
 RISING_RD = 160                 # "Rising" = RD above this
 COIN = (0.48, 0.52)             # model p in this band = coin flip
-RULE_FREEZE, POLICY_FREEZE = "2026-09-08", "2026-09-09"
+# The How it works page was retired at launch (2026-11-05); its old URL
+# redirects to the rankings (written to out/vercel.json on every build).
+VERCEL_JSON = {"redirects": [
+    {"source": "/how-it-works", "destination": "/", "permanent": True},
+    {"source": "/how-it-works/", "destination": "/", "permanent": True}]}
 
 DIVISIONS = ["Flyweight", "Bantamweight", "Featherweight", "Lightweight",
              "Welterweight", "Middleweight", "Light Heavyweight", "Heavyweight",
@@ -796,24 +801,6 @@ def build_record(data: Data, model: Model, out: Path):
                 n_ledger=len(rows26) + len(bt25))
 
 
-# ------------------------------------------------------------ how it works --
-def build_how(data: Data) -> dict:
-    bp = json.loads((ROOT / "best_params.json").read_text(encoding="utf-8"))
-    D = pd.read_csv(DATA / "clv_eval_full.csv")
-    D = D[D.year >= 2018]
-    q = lambda p: np.clip(p, 1e-9, 1 - 1e-9)
-    ll = lambda p: float(-np.mean(D.y_a * np.log(q(p)) + (1 - D.y_a) * np.log(1 - q(p))))
-    slope = float(np.polyfit(D.dis, D.mv, 1)[0])
-    ratings_freeze = max(r["last_fight"] for r in read_csv(DATA / "ratings.csv"))
-    return dict(n=len(D), years=f"{int(D.year.min())}–{int(D.year.max())}",
-                clv=D.clv.mean() * 100, move10=slope * 10,
-                ll_model=ll(D.p_model_a), ll_open=ll(D.qa_o), ll_close=ll(D.qa_c),
-                ratings_freeze=ratings_freeze, rule_freeze=RULE_FREEZE,
-                policy_freeze=POLICY_FREEZE, flip=FLIP_CONF, gap=GAP_PTS,
-                skip_line=SKIP_LINE_MAX, unknown_rd=UNKNOWN_RD, ramp=(RAMP_LO, RAMP_HI),
-                tau=bp["tau"], s_udec=bp["s_udec"], s_sdec=bp["s_sdec"])
-
-
 # -------------------------------------------------------------------- main --
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
@@ -841,18 +828,17 @@ def main():
         shutil.rmtree(out)
     out.mkdir(parents=True)
     record = build_record(data, model, out)
-    how = build_how(data)
 
     pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "this-week/index.html": ("this_week.html", dict(week, nav="this-week")),
              "index.html": ("rankings.html", dict(rankings, nav="rankings")),
-             "record/index.html": ("record.html", dict(record, nav="record")),
-             "how-it-works/index.html": ("how_it_works.html", dict(how, nav="how"))}
+             "record/index.html": ("record.html", dict(record, nav="record"))}
     for rel, (tpl, ctx) in pages.items():
         p = out / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(env.get_template(tpl).render(**base, **ctx), encoding="utf-8")
     shutil.copy(SITE / "static" / "style.css", out / "style.css")
+    (out / "vercel.json").write_text(json.dumps(VERCEL_JSON, indent=2) + "\n", encoding="utf-8")
     p4p = ", ".join(r["name"] for r in rankings["lists"][0]["rows"][:8])
     print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows")
     print(f"P4P top 8: {p4p}")
