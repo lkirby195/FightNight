@@ -1,28 +1,61 @@
 # site/ — the public site generator
 
-`site/build.py` renders the public record (rankings, this week's card, our record,
-how it works) as static HTML into `site/out/`; `/` is the rankings page and This
-week lives at `/this-week/`. It is a read-only consumer of the
+`site/build.py` renders the public record (rankings, this week's card, our record)
+as static HTML into `site/out/`; `/` is the rankings page and This week lives at
+`/this-week/`. The How it works page was retired at launch (2026-11-05);
+`out/vercel.json` redirects its old URL to `/`. It is a read-only consumer of the
 repo's data files and never touches the model, the ledger, or any script outside
 `site/`. `site/out/` is committed on every build: the commit is the public proof
 that nothing changed after a fight.
 
-## Weekly cadence (two commands each)
+## Weekly cadence (automated)
 
-Thursday, once the card's lines are up:
+`.github/workflows/cadence.yml` runs `cadence.py` on a schedule and pushes what
+it changed to `main`; Vercel deploys `main`. Nobody has to be at a keyboard.
 
-    python card_report.py <bfo-slug> <YYYY-MM-DD> && python site/build.py && vercel deploy site/out --prod --yes
+| When (Mountain) | Command | What it does |
+|---|---|---|
+| Thu 09:23 | `cadence.py report` | next card from UFC Stats; its BFO page(s); bouts BFO prices that are not on the UFC Stats card kept out; gate: 80% of the card priced; `card_report.py` capture; build |
+| Fri 09:23 | `cadence.py report --final` | fallback: does nothing if Thursday posted; a card still not postable is a failure |
+| Sun 09:23 | `cadence.py settle` | `scrape_v2.py new`, `features.py`, `scrape_bfo.py`, `clv_eval.py`, `prefight_rd.py`, `betting_system.py all --write-ledger`, `replay_check.py` (gate), `card_settle.py`; build |
+| Mon 09:23 | `cadence.py settle --final` | fallback: does nothing if Sunday settled; results still missing is a failure |
 
-`card_report.py` records the price on the board in `data/placeable_lines.csv`
-(the timestamp is the "Picks posted" line); the build projects the same bouts
-with the same code and renders This week. Add the card's date to `LIVE_CARDS` in
-`betting_system.py` in the same commit.
+Every run is safe to repeat: a card already captured is never re-posted
+(`placeable_lines.csv` is append-only and the first capture is the price of
+record), and a settle with no new card on UFC Stats changes nothing. A failure
+pushes nothing (the site keeps the last good build) and opens a "Cadence
+failed" issue that mentions the repo owner. The job summary of every run shows
+the bout table. Run any command by hand from the Actions tab (Run workflow;
+`dry_run` checks the card and the gate and writes nothing), or locally:
 
-Sunday, after the results are scraped (`scrape_v2.py`, `features.py`,
-`scrape_bfo.py`, `clv_eval.py`, `prefight_rd.py`, `betting_system.py all
---write-ledger`, `replay_check.py`; see the root README):
+    python cadence.py report --dry-run
+    python cadence.py report
+    python cadence.py settle
 
-    python card_settle.py <bfo-slug> <YYYY-MM-DD> && python site/build.py && vercel deploy site/out --prod --yes
+What used to be done by hand and is now automatic:
+
+- **Which card and slug.** The next card on the UFC Stats upcoming list; the BFO
+  pages dated within a day of it. BFO often splits one card over two pages (UFC
+  Vegas 124: main card on a page dated Sunday, the rest on one dated Saturday);
+  `card_report.py` and `card_settle.py` take a comma-separated slug list and
+  treat it as one card, projected in one Stage 2 frame.
+- **OFF_CARD.** UFC Stats is the authority on what is on a card. A BFO bout
+  that matches no UFC Stats bout (a withdrawal, a phantom listing) or repeats one
+  already matched goes to `--off` for that run. `OFF_CARD` in `card_report.py`
+  still works for a manual override.
+- **LIVE_CARDS.** Not updated any more; it decides nothing (liveness is the
+  capture).
+- **Cache busting.** CI starts with empty caches; locally, `cadence.py settle`
+  drops the pre-fight copies of the settled card's BFO page and series first.
+  `scrape_v2.py new` reads the completed-events list and new event pages live
+  and appends only what is new.
+- **Line endings.** Generated files keep the line endings of their committed
+  copies, so a Linux run does not rewrite every line of a CRLF file.
+
+The manual commands still work, for a re-run or a one-off:
+
+    python card_report.py <bfo-slug>[,<slug>] <YYYY-MM-DD> [--off MU,...] && python site/build.py
+    python card_settle.py <bfo-slug>[,<slug>] <YYYY-MM-DD> [--off MU,...] && python site/build.py
 
 Commit `site/out/` and `site/state/ranks_prev.json` with the data.
 
@@ -63,15 +96,14 @@ model line, open, placeable, close, CLV, rule, stake and RD columns.
 
 ## Deploy
 
-`site/out/` is a static Vercel project: `fightnight-out` on team
+The cadence deploys by pushing to `main`. `site/out/` is a static Vercel project: `fightnight-out` on team
 `logankirby14-8806s-projects`, git-connected to `lkirby195/FightNight` with root
 directory `site/out`, no build step, no framework, production at
 https://fightnight-out.vercel.app. Every push to `main` deploys production and
 every branch push deploys a preview (branch alias
 `fightnight-out-git-<branch>-logankirby14-8806s-projects.vercel.app`, behind
-Vercel Authentication: team members only). The last step of both cadence
-commands above deploys a build that has not been pushed yet, run
-non-interactively with the Vercel CLI (`npm i -g vercel`, once):
+Vercel Authentication: team members only). To deploy a local build that has not
+been pushed, use the Vercel CLI (`npm i -g vercel`, once):
 
     vercel deploy site/out --prod --yes --token "$VERCEL_TOKEN" --scope logankirby14-8806s-projects
 

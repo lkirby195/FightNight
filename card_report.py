@@ -1,6 +1,19 @@
 """Card report: model projections + open/close lines + CLV for one UFC event.
 
-Usage: python card_report.py <bfo-event-slug> <event-date YYYY-MM-DD>
+Usage: python card_report.py <bfo-event-slug>[,<slug>...] <event-date YYYY-MM-DD> [--off MU[,MU...]]
+
+Several slugs (comma-separated) are one card: since 2026-11 BFO often splits a
+card across two event pages (UFC Vegas 124: main card on one page dated the
+Sunday, the rest on another dated the Saturday). Their bouts are read in the
+order given, a matchup id seen twice is kept once, and the whole card is
+projected in ONE Stage 2 frame (project() centres terms per frame, so two
+half-card runs would print different numbers than the site shows). Each
+captured row keeps the slug of the page its bout came from.
+
+--off: more BFO matchup ids to treat as off the card for this run, on top of
+OFF_CARD. cadence.py passes the bouts BFO prices that are not on the UFC Stats
+card (UFC Stats is the authority on what is on a card), so a withdrawn or
+phantom bout never reaches the append-only capture.
 
 Builds fighter states from all fights STRICTLY BEFORE event-date (leakage-safe),
 projects every bout with the frozen Stage 2 model (trained <2026), pulls
@@ -209,7 +222,7 @@ def record_placeable(slug, ev_date_s, bouts, pm_by_mu=None, path=PLACEABLE):
             w.writeheader()
         for b in new:
             rec = pm_by_mu.get(b["mu"])
-            w.writerow(dict(event_date=ev_date_s, bfo_slug=slug, mu=str(b["mu"]),
+            w.writerow(dict(event_date=ev_date_s, bfo_slug=b.get("slug", slug), mu=str(b["mu"]),
                             fighter1=b["f1"], fighter2=b["f2"],
                             f1_line=b["f1_close"], f2_line=b["f2_close"],
                             captured_at=now,
@@ -366,8 +379,9 @@ def shadows(bouts, preds, rds, future):
     return out
 
 
-def main(slug, ev_date_s):
+def main(slug, ev_date_s, extra_off=()):
     ev_date = date.fromisoformat(ev_date_s)
+    extra_off = {int(mu) for mu in extra_off}
     eng, car, meta = build_states(ev_date)
     # BFO name -> fighter id: aliases, suffix strip, exact / joined (names.py);
     # a near-miss raises NameJoinError, a fighter not on file is a debut
@@ -383,11 +397,16 @@ def main(slug, ev_date_s):
                                       mt.get("reach"), mt.get("stance"))
 
     future = ev_date >= date.today()
-    bouts = get_card(slug, fresh=future)        # live prices for a future card
-    off = [b for b in bouts if (ev_date_s, b["mu"]) in OFF_CARD]
-    for b in off:
+    bouts, seen = [], set()                     # live prices for a future card
+    for s_ in slug.split(","):                  # one card over every page given
+        for b in get_card(s_, fresh=future):
+            if b["mu"] not in seen:
+                seen.add(b["mu"])
+                bouts.append(dict(b, slug=s_))
+    is_off = lambda b: (ev_date_s, b["mu"]) in OFF_CARD or b["mu"] in extra_off
+    for b in filter(is_off, bouts):
         print(f"off card: dropped {b['f1']} / {b['f2']} (mu {b['mu']})")
-    bouts = [b for b in bouts if (ev_date_s, b["mu"]) not in OFF_CARD]
+    bouts = [b for b in bouts if not is_off(b)]
     pm_by_mu, pm_extra = pm_lookup(bouts, ev_date_s, future)
     model = fit_model()
     preds, rds, ids = project([(b["mu"], b["f1"], b["f2"]) for b in bouts],
@@ -476,7 +495,7 @@ def main(slug, ev_date_s):
     if sg.shadow_window(ev_date_s):
         print_shadows(shadows(keep, preds, rds, future))
     if future:
-        record_placeable(slug, ev_date_s, bouts, pm_by_mu)
+        record_placeable(slug.split(",")[0], ev_date_s, bouts, pm_by_mu)
     return bouts                                # card_settle writes their clean closes
 
 
@@ -507,5 +526,18 @@ def print_shadows(sh):
               f"gap {s['gap'] * 100:+.1f} pts  {act}")
 
 
+def parse_off(args):
+    """`--off 1,2` / `--off=1,2` in args -> (positional args, {mu, ...})."""
+    pos, off, it = [], set(), iter(args)
+    for a in it:
+        if a == "--off" or a.startswith("--off="):
+            val = a.split("=", 1)[1] if "=" in a else next(it, "")
+            off |= {int(x) for x in val.split(",") if x.strip()}
+        else:
+            pos.append(a)
+    return pos, off
+
+
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    pos, off = parse_off(sys.argv[1:])
+    main(pos[0], pos[1], extra_off=off)

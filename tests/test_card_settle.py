@@ -50,7 +50,7 @@ def test_main_takes_off_card_from_card_report_for_that_date_only(monkeypatch):
                         {("2026-09-19", 44891), ("2026-01-01", 41067)})
     monkeypatch.setattr(card_report, "get_card", card_report.get_card)  # restored after
     ran = []
-    monkeypatch.setattr(card_report, "main", lambda slug, d: ran.append((slug, d)))
+    monkeypatch.setattr(card_report, "main", lambda slug, d, **kw: ran.append((slug, d)))
     card_settle.main("ufc-331-4302", "2026-09-19")
     assert ran == [("ufc-331-4302", "2026-09-19")]
     installed = card_report.get_card
@@ -104,13 +104,13 @@ def test_write_clean_closes_fills_the_matched_rows_and_leaves_the_rest(tmp_path,
 def test_main_writes_the_clean_closes_of_the_bouts_card_report_reported(monkeypatch):
     bouts = [dict(mu=44397, f1_close=2.44, f2_close=1.61, inplay_dropped=1)]
     monkeypatch.setattr(card_report, "get_card", card_report.get_card)
-    monkeypatch.setattr(card_report, "main", lambda slug, d: bouts)
+    monkeypatch.setattr(card_report, "main", lambda slug, d, **kw: bouts)
     written = []
     monkeypatch.setattr(card_settle, "write_clean_closes", lambda b: written.append(b))
     card_settle.main("ufc-331-4302", "2026-09-19")
     assert written == [bouts]
     written.clear()
-    monkeypatch.setattr(card_report, "main", lambda slug, d: None)   # nothing reported
+    monkeypatch.setattr(card_report, "main", lambda slug, d, **kw: None)   # nothing reported
     card_settle.main("ufc-331-4302", "2026-09-19")
     assert written == []
 

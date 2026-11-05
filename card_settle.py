@@ -30,8 +30,9 @@ does the same for every row of that year dated before today, from the
 cached series. The ledger keeps computing its own clean close
 (betting_system._clean_close) and does not read these columns.
 
-Usage:  python card_settle.py <bfo-event-slug> <event-date YYYY-MM-DD>
-        (same CLI as card_report.py; use this for any event < ~4 months old)
+Usage:  python card_settle.py <bfo-event-slug>[,<slug>...] <event-date YYYY-MM-DD> [--off MU[,MU...]]
+        (same CLI as card_report.py, several slugs for a card BFO splits across
+        pages; use this for any event < ~4 months old)
         python card_settle.py --backfill <year>
 """
 import csv
@@ -176,22 +177,24 @@ def backfill(year: int, path=scrape_bfo.OUT, today: str | None = None):
     return bouts
 
 
-def main(slug, ev_date_s):
+def main(slug, ev_date_s, extra_off=()):
     """card_report.main with the in-play-safe fetcher, minus the bouts
-    card_report.OFF_CARD lists for this date (card_report.main drops them
-    again afterwards, as a backstop); then the clean closes of the bouts it
-    reported go to bfo_lines (write_clean_closes)."""
-    off = frozenset(mu for d, mu in card_report.OFF_CARD if d == ev_date_s)
+    card_report.OFF_CARD lists for this date and `extra_off` (card_report.main
+    drops them again afterwards, as a backstop); then the clean closes of the
+    bouts it reported go to bfo_lines (write_clean_closes)."""
+    extra_off = frozenset(int(mu) for mu in extra_off)
+    off = frozenset(mu for d, mu in card_report.OFF_CARD if d == ev_date_s) | extra_off
     card_report.get_card = functools.partial(get_card_clean, off=off)
-    bouts = card_report.main(slug, ev_date_s)
+    bouts = card_report.main(slug, ev_date_s, extra_off=extra_off)
     if bouts:
         write_clean_closes(bouts)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 3 and sys.argv[1] == "--backfill":
-        backfill(int(sys.argv[2]))
-    elif len(sys.argv) == 3:
-        main(sys.argv[1], sys.argv[2])
+    pos, off = card_report.parse_off(sys.argv[1:])
+    if len(pos) == 2 and pos[0] == "--backfill":
+        backfill(int(pos[1]))
+    elif len(pos) == 2:
+        main(pos[0], pos[1], extra_off=off)
     else:
         sys.exit(__doc__)

@@ -27,10 +27,14 @@ Betting system: `BETTING-SYSTEM.md` (KISS rule, validated 2012–2026, t=2.42).
 
 ```
 pipeline/session.py     UFC Stats HTTP session (SHA-256 proof-of-work solver)
+cadence.py              The weekly loop, automated (Thursday report, Sunday
+                        settle); scheduled by .github/workflows/cadence.yml.
+                        See site/README.md "Weekly cadence (automated)"
 pipeline/scrape_v2.py   A: event tables -> fights_v2.csv (per-fight KD/str/TD/sub)
                         B: fighter pages -> fighters_v2.csv (DOB/height/reach/stance)
                         C: fight details -> fight_details_v2.csv (attempts, control,
                            target/position splits; corner-order fixed by name key)
+                        new: A + B for what is not on file yet, then C (weekly)
 pipeline/scrape_bfo.py  BestFightOdds line histories -> bfo_lines.csv
                         (sitemap -> event pages -> /api/ggd, base64+ROT47 decoded;
                          validated open = first paired tick unless corrected

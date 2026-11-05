@@ -7,6 +7,12 @@ Pass B (2.7k requests): fighter pages -> fighters_v2.csv
     DOB, height, reach, stance.
 Pass C (optional, 9k requests): fight-details pages -> fight_stats_v2.csv
     strike ATTEMPTS, control time, head/body/leg, distance/clinch/ground.
+Mode `new` (the weekly cadence, cadence.py settle): passes A and B for what is
+    new since data/fights_v2.csv -- the completed-events list fetched live,
+    only events not on file, only fighters not on file -- then pass C. Rows
+    already on file are left byte-for-byte as they are, so it costs a handful
+    of requests and needs no cache/. A full `A` / `B` run is still the way to
+    pick up a historical correction (an overturned result).
 
 All raw HTML is disk-cached under cache/, so re-runs cost nothing -- except
 an event page dated today or later, which is never cached (its results are
@@ -66,8 +72,19 @@ def _int(txt: str):
 
 
 # ---------------------------------------------------------------- pass A
-def scrape_events() -> list[dict]:
-    soup = BeautifulSoup(fetch("/statistics/events/completed?page=all"), "lxml")
+def scrape_events(fresh: bool = False) -> list[dict]:
+    """Completed events, oldest first. fresh=True reads the list live (the
+    cached copy never learns about a new card)."""
+    return _parse_events(fetch("/statistics/events/completed?page=all", cache=not fresh))
+
+
+def upcoming_events() -> list[dict]:
+    """Upcoming events (always live), soonest first."""
+    return _parse_events(fetch("/statistics/events/upcoming?page=all", cache=False))
+
+
+def _parse_events(html: str) -> list[dict]:
+    soup = BeautifulSoup(html, "lxml")
     events = []
     for tr in soup.select("tr.b-statistics__table-row"):
         a = tr.select_one("a.b-link")
@@ -85,9 +102,11 @@ def scrape_events() -> list[dict]:
     return events
 
 
-def scrape_event_fights(event: dict) -> list[dict]:
-    # an event dated today or later has no results yet: never cache its page
-    cache = event["event_date"] < _today()
+def scrape_event_fights(event: dict, cache: bool | None = None) -> list[dict]:
+    # an event dated today or later has no results yet: never cache its page.
+    # cache=False forces a live read (mode `new`, the Thursday card check).
+    if cache is None:
+        cache = event["event_date"] < _today()
     soup = BeautifulSoup(fetch(f"http://ufcstats.com/event-details/{event['event_id']}",
                                cache=cache), "lxml")
     rows = soup.select("tr.b-fight-details__table-row")
@@ -190,6 +209,70 @@ def write_csv(path, cols, rows):
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
+
+
+class ResultsPending(RuntimeError):
+    """A card UFC Stats lists as completed has a bout with no result yet."""
+
+
+def read_rows(path):
+    """-> (fieldnames, rows as str dicts) of a CSV on file."""
+    with open(path, encoding="utf-8", newline="") as fh:
+        rd = csv.DictReader(fh)
+        return rd.fieldnames, list(rd)
+
+
+def main_new(today: str | None = None) -> list[dict]:
+    """Incremental scrape for the weekly cadence. Pass A for the completed
+    events not in data/fights_v2.csv (list and pages read live), pass B for
+    the fighters not in data/fighters_v2.csv, then pass C (incremental by
+    fight id). Rows on file are rewritten exactly as read; new fights carry
+    a_mw / b_mw = 0 like a full pass A. Refuses, before writing anything, a
+    new card with any bout lacking a result (ResultsPending: not posted yet,
+    try again later) or one dated before the last card on file (a late
+    listing: run the full pass A). -> the new events, oldest first."""
+    today = today or _today()
+    fpath, dpath = f"{OUT}/fights_v2.csv", f"{OUT}/fighters_v2.csv"
+    cols, rows = read_rows(fpath)
+    if cols != FIGHT_COLS:
+        raise SystemExit(f"{fpath} has columns {cols}; expected {FIGHT_COLS}")
+    have = {r["event_id"] for r in rows}
+    last = max(r["event_date"] for r in rows)
+    new = [e for e in scrape_events(fresh=True)
+           if e["event_id"] not in have and e["event_date"] < today]
+    if not new:
+        print(f"scrape new: nothing new on UFC Stats (last card on file {last})")
+        return []
+    early = [e for e in new if e["event_date"] < last]
+    if early:
+        raise RuntimeError("scrape new: " + "; ".join(f"{e['event_name']} {e['event_date']}"
+                           for e in early) + f" is dated before the last card on file "
+                           f"({last}); run the full `scrape_v2.py A` instead")
+    fights = []
+    for ev in new:
+        fights += scrape_event_fights(ev, cache=False)
+    check_results(fights)
+    pending = [f for f in fights if not f["outcome"]]
+    if pending:
+        raise ResultsPending("results not posted yet for " + "; ".join(
+            f"{f['fighter_a']} vs {f['fighter_b']} ({f['event_name']} {f['event_date']})"
+            for f in pending))
+    for f in fights:
+        f["a_mw"], f["b_mw"] = "0", "0"
+    write_csv(fpath, FIGHT_COLS, rows + fights)
+    print(f"scrape new: +{len(fights)} bouts from " + "; ".join(
+        f"{e['event_name']} {e['event_date']}" for e in new))
+    dcols, drows = read_rows(dpath)
+    if dcols != FIGHTER_COLS:
+        raise SystemExit(f"{dpath} has columns {dcols}; expected {FIGHTER_COLS}")
+    known = {r["fighter_id"] for r in drows}
+    ids = sorted({f[k] for f in fights for k in ("fighter_a_id", "fighter_b_id")} - known)
+    drows += [scrape_fighter(fid) for fid in ids]
+    drows.sort(key=lambda r: r["fighter_id"])
+    write_csv(dpath, FIGHTER_COLS, drows)
+    print(f"scrape new: +{len(ids)} fighters")
+    main_c()
+    return new
 
 
 def check_results(fights: list[dict]) -> None:
@@ -352,4 +435,9 @@ def main_c():
 
 if __name__ == "__main__":
     arg = sys.argv[1] if len(sys.argv) > 1 else "A"
-    main_c() if arg == "C" else main(arg)
+    if arg == "C":
+        main_c()
+    elif arg == "new":
+        main_new()
+    else:
+        main(arg)
