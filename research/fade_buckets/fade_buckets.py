@@ -549,9 +549,9 @@ def main():
     gm, gmed = U.gap.mean(), U.gap.median()
 
     # write
-    T.to_csv(os.path.join(OUT, "bucket_table.csv"), index=False)
-    TA.to_csv(os.path.join(OUT, "bucket_table_agree.csv"), index=False)
-    F.to_csv(os.path.join(OUT, "fade_cell.csv"), index=False)
+    T.to_csv(os.path.join(OUT, "bucket_table.csv"), index=False, lineterminator="\n")
+    TA.to_csv(os.path.join(OUT, "bucket_table_agree.csv"), index=False, lineterminator="\n")
+    F.to_csv(os.path.join(OUT, "fade_cell.csv"), index=False, lineterminator="\n")
     sub = ("1u flat on the model side at its opening price · bars ±1 SE "
            "(arrow = clipped at the axis) · number under each point = bouts")
     roi_chart(T, os.path.join(OUT, "bucket_roi.png"),
