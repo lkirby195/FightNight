@@ -72,9 +72,10 @@ PY = sys.executable
 
 
 # ------------------------------------------------------------------ output --
-def say(msg: str = "") -> None:
+def say(msg: str = "", echo: bool = True) -> None:
     """Print, and add to the GitHub Actions job summary when there is one."""
-    print(msg, flush=True)
+    if echo:
+        print(msg, flush=True)
     path = os.environ.get("GITHUB_STEP_SUMMARY")
     if path:
         with open(path, "a", encoding="utf-8") as fh:
@@ -94,7 +95,7 @@ def run(*args: str, summary: bool = False) -> str:
             lines.append(line)
     out = "".join(lines)
     if summary:
-        say(f"\n```\n$ python {' '.join(args)}\n{out.rstrip()}\n```\n")
+        say(f"\n```\n$ python {' '.join(args)}\n{out.rstrip()}\n```\n", echo=False)
     if p.returncode:
         raise SystemExit(f"cadence: `python {' '.join(args)}` exited {p.returncode}")
     return out
