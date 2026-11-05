@@ -74,6 +74,10 @@ as "this week"); it defaults to today.
 - `static/style.css` copied to `out/style.css`.
 - `division_overrides.csv` (`fighter_id,division`): overrides the default
   division (modal weight class of the last three fights).
+- `state/card_order.json`: the UFC Stats running order of the card
+  `cadence.py report` captured (main event first). This week lists the bouts in
+  that order; without it, capture order (which puts a prelim first when BFO
+  splits the card over two pages).
 - `state/ranks_prev.json`: rank snapshot behind the "Move" column. It rotates
   only when the data moves (new results), so re-building within a week keeps the
   same comparison.

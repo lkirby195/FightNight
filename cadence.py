@@ -138,7 +138,7 @@ def match_card(bfo_bouts, card):
         elif fid in matched:
             off.append(dict(b, why="duplicate listing"))
         else:
-            on.append(b)
+            on.append(dict(b, fight_id=fid))
             matched.add(fid)
     return on, off, matched
 
@@ -232,6 +232,23 @@ def finish(commit_msg_path: str | None, subject: str, body: list[str]) -> None:
 
 
 # ----------------------------------------------------------------- report --
+CARD_ORDER = "site/state/card_order.json"
+
+
+def write_card_order(ev, card, on, path=CARD_ORDER) -> list[int]:
+    """The captured bouts' BFO matchup ids in UFC Stats running order, main
+    event first, for site/build.py (This week lists the card in this order
+    and tags the first bout as the main event). -> the ids."""
+    import json
+    pos = {f["fight_id"]: -int(f["bout_order"]) for f in card}     # N = main event
+    mus = [b["mu"] for b in sorted(on, key=lambda b: pos[b["fight_id"]])]
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(dict(event_date=ev["event_date"], event_name=ev["event_name"], mus=mus),
+                  fh, indent=1)
+        fh.write("\n")
+    return mus
+
+
 def cmd_report(a) -> int:
     import card_report
     import scrape_v2
@@ -288,6 +305,7 @@ def cmd_report(a) -> int:
     args = ["card_report.py", slug, ev_date]
     if off:
         args += ["--off", ",".join(str(b["mu"]) for b in off)]
+    write_card_order(ev, card, on)
     out = run(*args, summary=True)
     m = re.search(r"signals at open .*?: (\d+)\s+placed \(policy v1\): (\d+)", out)
     n_sig, n_placed = (int(m.group(1)), int(m.group(2))) if m else (None, None)

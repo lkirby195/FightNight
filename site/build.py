@@ -79,6 +79,10 @@ LEDGER_PUBLIC_DROP = {"units", "pnl_at_open"}      # live stays: 1 = capture-pro
 DATA = ROOT / "data"
 OUT_DEFAULT = SITE / "out"
 STATE = SITE / "state" / "ranks_prev.json"
+# UFC Stats running order of the card cadence.py captured (main event first):
+# {"event_date", "event_name", "mus"}. BFO splits some cards over two pages,
+# so capture order alone can put a prelim at the top of This week.
+CARD_ORDER = SITE / "state" / "card_order.json"
 OVERRIDES = SITE / "division_overrides.csv"
 
 
@@ -535,8 +539,13 @@ def build_this_week(data: Data, model: Model):
     resolve = model.resolver(d)
     eng = model.states(d)[0]
     disp = lambda fid, bfo_name: eng.fighters[fid].name if fid else bfo_name
+    mus = ev["mus"]
+    order = json.loads(CARD_ORDER.read_text(encoding="utf-8")) if CARD_ORDER.exists() else {}
+    if order.get("event_date") == ev_date:     # UFC Stats order, main event first
+        rank = {int(mu): i for i, mu in enumerate(order["mus"])}
+        mus = sorted(mus, key=lambda mu: rank.get(mu, len(rank)))
     bouts, proj_in = [], []
-    for mu in ev["mus"]:
+    for mu in mus:
         first, last = data.captures[mu][0], data.captures[mu][-1]
         i1, i2 = resolve(first["fighter1"], first["fighter2"])
         b = dict(mu=mu, f1=disp(i1, first["fighter1"]), f2=disp(i2, first["fighter2"]),

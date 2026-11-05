@@ -29,7 +29,7 @@ def test_match_card_keeps_card_bouts_and_drops_phantoms_and_duplicates():
            dict(mu=45599, f1="Seokhyeon Ko", f2="Wellington Turman"),
            dict(mu=45600, f1="Wellington Turman", f2="Seokhyeon Ko")]       # listed twice
     on, off, matched = cadence.match_card(bfo, CARD)
-    assert [b["mu"] for b in on] == [45564, 45556, 45599]
+    assert [(b["mu"], b["fight_id"]) for b in on] == [(45564, "f1"), (45556, "f2"), (45599, "f3")]
     assert [(b["mu"], b["why"]) for b in off] == [(45561, "not on the UFC Stats card"),
                                                   (45600, "duplicate listing")]
     assert matched == {"f1", "f2", "f3"}
@@ -137,3 +137,12 @@ def test_scrape_bfo_writes_only_fought_cards(tmp_path):
     # a Saturday card's page dated the Sunday is in; next weekend's is out
     assert scrape_bfo.fought_through(str(tmp_path / "f.csv")) == "2026-11-08"
     assert scrape_bfo.fought_through(str(tmp_path / "missing.csv")) is None
+
+
+def test_card_order_puts_the_main_event_first(tmp_path):
+    import json
+    card = [dict(c, bout_order=n) for c, n in zip(CARD, (3, 1, 2))]    # f1 is the main event
+    on = [dict(mu=10, fight_id="f2"), dict(mu=20, fight_id="f3"), dict(mu=30, fight_id="f1")]
+    ev = dict(event_date="2026-11-07", event_name="UFC Fight Night: Cortes Acosta vs. Walker")
+    assert cadence.write_card_order(ev, card, on, path=tmp_path / "o.json") == [30, 20, 10]
+    assert json.loads((tmp_path / "o.json").read_text())["mus"] == [30, 20, 10]
