@@ -17,7 +17,7 @@ it changed to `main`; Vercel deploys `main`. Nobody has to be at a keyboard.
 |---|---|---|
 | Thu 09:23 | `cadence.py report` | next card from UFC Stats; its BFO page(s); bouts BFO prices that are not on the UFC Stats card kept out; gate: 80% of the card priced; `card_report.py` capture; build |
 | Fri 09:23 | `cadence.py report --final` | fallback: does nothing if Thursday posted; a card still not postable is a failure |
-| Sun 09:23 | `cadence.py settle` | `scrape_v2.py new`, `features.py`, `scrape_bfo.py`, `clv_eval.py`, `prefight_rd.py`, `betting_system.py all --write-ledger`, `replay_check.py` (gate), `card_settle.py`; build |
+| Sun 09:23 | `cadence.py settle` | `scrape_v2.py new`, `features.py`, `scrape_bfo.py`, `card_settle.py` (clean closes), `clv_eval.py`, `prefight_rd.py`, `betting_system.py all --write-ledger`, `replay_check.py` (gate); build |
 | Mon 09:23 | `cadence.py settle --final` | fallback: does nothing if Sunday settled; results still missing is a failure |
 
 Every run is safe to repeat: a card already captured is never re-posted

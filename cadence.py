@@ -36,12 +36,14 @@ report (Thursday, Friday as the fallback)
 settle (Sunday, Monday as the fallback)
   1. scrape_v2.py new: the completed cards not on file. None -> nothing to do.
      Results not posted yet -> nothing to do (an error on --final).
-  2. features.py, scrape_bfo.py, clv_eval.py, prefight_rd.py,
-     betting_system.py all --write-ledger, replay_check.py (the merge gate:
-     a FAIL stops the run before anything is committed).
+  2. features.py, scrape_bfo.py.
   3. card_settle.py for each new card at its UFC Stats date, slugs from the
      Thursday capture (else the BFO rows dated within a day), --off for BFO
-     bouts that did not happen; then site/build.py.
+     bouts that did not happen. It writes the clean closes to bfo_lines, so
+     it comes before clv_eval, which carries them into bfo_joined.
+  4. clv_eval.py, prefight_rd.py, betting_system.py all --write-ledger,
+     replay_check.py (the merge gate: a FAIL stops the run before anything
+     is committed), site/build.py.
 
 Generated files keep the line endings their committed copies have (the repo
 mixes CRLF and LF by history; a Linux run would otherwise rewrite every line
@@ -364,11 +366,9 @@ def cmd_settle(a) -> int:
     y1 = t.year + 1 + (t.month == 12)        # plus the neighbour across New Year
     run("features.py")
     run("scrape_bfo.py", str(y0), str(y1))
-    run("clv_eval.py")
-    run("prefight_rd.py")
-    run("betting_system.py", "all", "--write-ledger")
-    run("replay_check.py", summary=True)
 
+    # card_settle writes the clean closes into bfo_lines, so it runs before
+    # clv_eval, which carries them into bfo_joined (the site's Close / CLV)
     _, rows = scrape_v2.read_rows("data/fights_v2.csv")
     body, names_ = ["Automated (cadence.py settle)."], []
     for ev in new:
@@ -394,6 +394,11 @@ def cmd_settle(a) -> int:
                     + (f": picks {m.group(1)}-{m.group(2)}" if m else "")
                     + (f"; off the card: " + ", ".join(f"{b['f1']} / {b['f2']}" for b in off)
                        if off else "") + ".")
+
+    run("clv_eval.py")
+    run("prefight_rd.py")
+    run("betting_system.py", "all", "--write-ledger")
+    run("replay_check.py", summary=True)
     run("site/build.py")
     body.append("Ledger regenerated (betting_system.py all --write-ledger); replay PASS; "
                 "site rebuilt.")
