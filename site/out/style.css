@@ -121,11 +121,12 @@ table.rank .div{display:block;font-family:var(--mono);font-size:11px;color:var(-
 .cards2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0}
 @media(max-width:760px){
   .cards2{grid-template-columns:1fr}
-  table.rank thead th{padding:7px 5px;font-size:9.5px;letter-spacing:.05em}
+  table.rank thead th{padding:7px 5px;font-size:9.5px;letter-spacing:.05em;white-space:normal;line-height:1.25;vertical-align:bottom}
   table.rank tbody td{padding:8px 5px}
   table.rank .last{font-size:12px;overflow-wrap:anywhere}
 }
 @media(max-width:560px){
+  body.numbers table.rank .c-last,body.numbers table.rank .c-move{display:none}   /* room for Confidence / Net rating */
   .topbar .wrap{row-gap:6px}
   .nav{flex-basis:100%;order:3;gap:20px}
 }
@@ -135,6 +136,7 @@ table.rank .div{display:block;font-family:var(--mono);font-size:11px;color:var(-
   table.rank tbody td{padding:7px 4px}
   table.rank thead th{padding:7px 4px}
   table.rank .fname{font-size:13.5px}
+  body.numbers table.rank tbody td,body.numbers table.rank thead th{padding-left:3px;padding-right:3px}
 }
 .card{background:var(--soft);border:2px solid var(--ink);padding:16px}
 .card h3{margin-top:0}
