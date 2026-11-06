@@ -25,9 +25,11 @@ recent=1 when the event was within 120 days of the scrape. Checked on the
 2026-11-05 scrape (688 recent rows, 220 bouts, 97 of them with moneyline
 in-play ticks): no prop tick lands at or after the moneyline's in-play onset,
 and no prop's last tick is more than 10 min past the last clean pre-fight
-moneyline tick. Books pull props at the bell. --join still writes the
-card_settle clean close (p1/p2_close_clean) for every row; it differs from the
-raw last tick on 9 older rows (out-of-band closes) and on no recent row.
+moneyline tick. Books pull props at the bell. Every row still carries the
+card_settle clean close (p1/p2_close_clean, t_close_clean,
+inplay_ticks_dropped), computed from the same series at scrape time and stored
+in bfo_props.csv, so --join needs no cache. It differs from the raw last tick
+on 9 older rows (out-of-band closes) and on no recent row.
 
 BFO /api/ggd returns HTTP 500 every time for some goes-the-distance histories
 (of bouts with a total: under 2% a year in 2015-21, 4-5% in 2022-23
@@ -45,7 +47,11 @@ Usage:
       (default types: totals,gtd)
   python scrape_bfo_props.py --join
       data/bfo_props.csv -> data/bfo_props_joined.csv (fight_id; fighter props
-      oriented to fights_v2 a/b) + a coverage report
+      oriented to fights_v2 a/b) + a coverage report. Reads no cache and makes
+      no requests; refuses if any row lacks the clean close.
+  python scrape_bfo_props.py --backfill-clean
+      one-off: add the clean-close columns to an older bfo_props.csv from
+      cache_bfo/; refuses unless every row's series is cached
 """
 from __future__ import annotations
 
@@ -69,7 +75,18 @@ JOINED = "data/bfo_props_joined.csv"
 COLS = ["slug", "event_date", "mu", "fighter1", "fighter2", "prop", "line", "tn", "pt",
         "label1", "label2", "p1_open", "p1_close", "p2_open", "p2_close",
         "p1_ticks", "p2_ticks", "t_open", "t_close", "open_suspect",
-        "p1_open_raw", "p2_open_raw", "recent"]
+        "p1_open_raw", "p2_open_raw", "recent",
+        "p1_close_clean", "p2_close_clean", "t_close_clean", "inplay_ticks_dropped"]
+CLEAN = COLS[-4:]
+
+
+def clean_close(js1, js2):
+    """card_settle's in-play-safe close: the last paired tick whose overround is
+    in [1.00, 1.15]. -> dict of the CLEAN columns (blank when no series)."""
+    from card_settle import paired_summary
+    s = paired_summary(js1, js2) if js1 and js2 else None
+    vals = (s[1], s[3], s[5], s[6]) if s else ("", "", "", "")
+    return dict(zip(CLEAN, vals))
 
 RE_OVER = re.compile(r"^Over (\d+)½ rounds?$")
 RE_UNDER = re.compile(r"^Under (\d+)½ rounds?$")
@@ -154,6 +171,12 @@ def scrape(y0: int, y1: int, types: set):
         d = pd.read_csv(OUT, usecols=["mu", "pt", "tn"])
         done = set(zip(d.mu, d.pt, d.tn))
     new = not os.path.exists(OUT)
+    if not new:
+        with open(OUT, encoding="utf-8") as fh0:
+            header = fh0.readline().strip().split(",")
+        if header != COLS:
+            sys.exit(f"{OUT} has an older column layout; run "
+                     "`python scrape_bfo_props.py --backfill-clean` first")
     fh = open(OUT, "a", newline="", encoding="utf-8")
     w = csv.DictWriter(fh, fieldnames=COLS, lineterminator="\n")
     if new:
@@ -184,7 +207,8 @@ def scrape(y0: int, y1: int, types: set):
                 skipped += 1
                 continue
             try:
-                s = sb.bout_summary(gpd(mu, 1, pt, tn), gpd(mu, 2, pt, tn))
+                js1, js2 = gpd(mu, 1, pt, tn), gpd(mu, 2, pt, tn)
+                s = sb.bout_summary(js1, js2)
             except Exception as e:  # noqa: BLE001
                 print(f"  GGD ERR mu={mu} pt={pt} tn={tn}: {e}", flush=True)
                 continue
@@ -202,7 +226,7 @@ def scrape(y0: int, y1: int, types: set):
                         "t_open": s["t_open"], "t_close": s["t_close"],
                         "open_suspect": s["open_suspect"],
                         "p1_open_raw": s["f1_open_raw"], "p2_open_raw": s["f2_open_raw"],
-                        "recent": recent})
+                        "recent": recent, **clean_close(js1, js2)})
             done.add((mu, pt, tn))
             written += 1
             n_ev_rows += 1
@@ -250,18 +274,15 @@ def join():
     fp = P.tn.isin([1, 2]) & f1a.notna()
     P.loc[fp, "side"] = [("a" if (tn == 1) == bool(x) else "b")
                          for tn, x in zip(P.loc[fp, "tn"], f1a[fp])]
-    # In-play-safe close, same rule as card_settle.paired_summary: the last
-    # paired tick whose overround is in [1.00, 1.15]. BFO keeps in-play ticks
-    # for ~4 months after an event, so p1_close/p2_close (raw last tick) can be
-    # mid-fight prices on recent cards. Computed from the disk cache only.
-    from card_settle import paired_summary
-    clean = []
-    for r in P.itertuples():
-        s1, s2 = (cached_gpd(int(r.mu), sd, int(r.pt), int(r.tn)) for sd in (1, 2))
-        s = paired_summary(s1, s2) if s1 and s2 else None
-        clean.append((s[1], s[3], s[5], s[6]) if s else (None, None, None, None))
-    P[["p1_close_clean", "p2_close_clean", "t_close_clean", "inplay_ticks_dropped"]] = clean
-    J = P[P.fight_id.notna()].drop(columns=["slug"])
+    # In-play-safe close (card_settle rule) is stored in bfo_props.csv itself,
+    # written at scrape time or by --backfill-clean, so the join needs no cache.
+    missing = P[CLEAN].isna().any(axis=1)
+    if missing.any():
+        sys.exit(f"{int(missing.sum())} rows of {OUT} have no clean close; run "
+                 "`python scrape_bfo_props.py --backfill-clean` where cache_bfo/ "
+                 "holds the prop series (nothing written)")
+    order = [c for c in COLS if c not in CLEAN and c != "slug"] + ["fight_id", "side"] + CLEAN
+    J = P[P.fight_id.notna()][order]
     J.to_csv(JOINED, index=False, lineterminator="\n")
     # Coverage against our fight records (not BFO's bout list, which includes
     # cancelled and re-booked matchups). ml = fight has a joined moneyline.
@@ -285,14 +306,43 @@ def join():
     moved = (P.p1_close_clean != P.p1_close) | (P.p2_close_clean != P.p2_close)
     print("rows whose clean close differs from the raw last tick, by recent flag:",
           P.assign(moved=moved).groupby("recent").moved.agg(["sum", "size"]).to_dict("index"))
-    print("rows with no cached series (clean close missing):", int(P.p1_close_clean.isna().sum()))
     return cov
+
+
+def backfill_clean():
+    """One-off: add the CLEAN columns to an older bfo_props.csv from the disk
+    cache. Existing columns are copied as the original strings. Refuses to write
+    unless every row's series is cached."""
+    with open(OUT, newline="", encoding="utf-8") as fh:
+        rd = csv.DictReader(fh)
+        rows = list(rd)
+        old = rd.fieldnames
+    if old == COLS:
+        print(f"{OUT} already has the clean-close columns; nothing to do")
+        return
+    out, miss = [], 0
+    for r in rows:
+        js = [cached_gpd(int(r["mu"]), sd, int(r["pt"]), int(r["tn"])) for sd in (1, 2)]
+        miss += int(not (js[0] and js[1]))
+        out.append({**{c: r.get(c, "") for c in COLS}, **clean_close(*js)})
+    if miss:
+        sys.exit(f"refusing: {miss} of {len(rows)} rows have no cached series in "
+                 f"{sb.CACHE}/ (nothing written)")
+    tmp = OUT + ".tmp"
+    with open(tmp, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=COLS, lineterminator="\n")
+        w.writeheader()
+        w.writerows(out)
+    os.replace(tmp, OUT)
+    print(f"backfilled clean close on {len(out)} rows")
 
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if "--join" in sys.argv:
         join()
+    elif "--backfill-clean" in sys.argv:
+        backfill_clean()
     else:
         types = {"totals", "gtd"}
         for a in sys.argv:

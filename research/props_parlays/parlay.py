@@ -85,7 +85,7 @@ emp = pd.DataFrame(out)
 pd.set_option("display.width", 200)
 print(emp.round(3).to_string(index=False))
 print("\nplaced legs per card (2012-24):", P.groupby("event_date").size().value_counts().sort_index().to_dict())
-print("median leg decimal price:", P.d.median().round(3), " mean:", P.d.mean().round(3))
+print("median leg decimal price:", round(float(P.d.median()), 3), " mean:", round(float(P.d.mean()), 3))
 
 # ---- Monte Carlo seasons: legs drawn from the empirical price mix ----
 rng = np.random.default_rng(20261105)
