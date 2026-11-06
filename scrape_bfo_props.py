@@ -224,16 +224,22 @@ def join():
                          for tn, x in zip(P.loc[fp, "tn"], f1a[fp])]
     J = P[P.fight_id.notna()].drop(columns=["slug"])
     J.to_csv(JOINED, index=False, lineterminator="\n")
-    P["year"] = P.event_date.str[:4]
-    cov = P.groupby(["year", "prop"]).agg(rows=("mu", "size"), bouts=("mu", "nunique"),
-                                          joined=("fight_id", lambda s: s.notna().mean()))
-    bl = pd.read_csv(sb.OUT)
-    bl["year"] = bl.event_date.str[:4]
-    base = bl.drop_duplicates("mu").groupby("year").mu.nunique().rename("bfo_bouts")
-    cov = cov.reset_index().merge(base, on="year", how="left")
-    cov["bout_cov"] = cov.bouts / cov.bfo_bouts
+    # Coverage against our fight records (not BFO's bout list, which includes
+    # cancelled and re-booked matchups). ml = fight has a joined moneyline.
+    # Counts only; no outcomes are read here.
+    F = pd.read_csv("data/fights_v2.csv", usecols=["fight_id", "event_date"])
+    F = F[F.event_date >= str(P.event_date.min())].copy()
+    F["year"] = F.event_date.str[:4]
+    F["ml"] = F.fight_id.isin(pd.read_csv("data/bfo_joined.csv", usecols=["fight_id"]).fight_id)
+    for p in ("total", "gtd"):
+        F[p] = F.fight_id.isin(J.loc[J.prop == p, "fight_id"])
+    cov = F.groupby("year").agg(fights=("fight_id", "size"), ml=("ml", "mean"),
+                                total=("total", "mean"), gtd=("gtd", "mean"))
+    cov["total|ml"] = F[F.ml].groupby("year").total.mean()
+    cov["gtd|ml"] = F[F.ml].groupby("year").gtd.mean()
     pd.set_option("display.width", 200)
-    print(cov.round(3).to_string(index=False))
+    print("share of fights_v2 fights with each price:")
+    print(cov.round(3).to_string())
     tot = P[P.prop == "total"]
     print("\ntotals lines:", tot.line.value_counts().sort_index().to_dict())
     print(f"joined rows: {len(J)} of {len(P)} ({len(J) / len(P):.1%})")
