@@ -69,7 +69,9 @@ METHOD = {"TKO/KO": "ko", "submission": "sub", "decision": "dec"}
 
 def gpd(mu: int, side: int, pt: int, tn: int):
     """One side's prop line history (decoded ggd JSON), or None when empty."""
-    raw = sb.fetch(f"{sb.BASE}/api/ggd?m={mu}&p={side}&pt={pt}&tn={tn}")
+    # BFO answers 500 every time for some prop histories (~2-15% of GTD props);
+    # one attempt, no backoff, so we don't keep hitting a failing endpoint.
+    raw = sb.fetch(f"{sb.BASE}/api/ggd?m={mu}&p={side}&pt={pt}&tn={tn}", no_retry=(500,))
     raw = re.sub(r"[^A-Za-z0-9+/=]", "", raw)
     if not raw:
         return None

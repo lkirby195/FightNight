@@ -10687,3 +10687,581 @@ ufc-3053,2023-12-17,21912,Colby Covington,Leon Edwards,total,2.5,0,33,Over 2½ r
 ufc-3053,2023-12-17,21912,Colby Covington,Leon Edwards,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.27778,1.32051,3.4,3.17,12,12,1702384308000,1702757628000,0,1.27778,3.4,0
 ufc-3053,2023-12-17,21912,Colby Covington,Leon Edwards,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.45455,1.4878,2.7,2.53,21,21,1702369312000,1702791444000,0,1.45455,2.7,0
 ufc-3053,2023-12-17,21912,Colby Covington,Leon Edwards,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.52632,1.5848,2.48,2.3,34,32,1702369564000,1702791108000,0,1.52632,2.48,0
+ufc-3123,2024-01-13,33361,Johnny Walker,Magomed Ankalaev,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.60976,1.5988,2.28,2.26,9,9,1704885499000,1705188244000,0,1.60976,2.28,0
+ufc-3123,2024-01-13,33361,Johnny Walker,Magomed Ankalaev,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.3,2.3,1.57143,1.56497,3,3,1704900255000,1704953544000,0,2.3,1.57143,0
+ufc-3123,2024-01-13,33361,Johnny Walker,Magomed Ankalaev,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,3.15,3.1,1.31746,1.33333,3,3,1704900255000,1704953544000,0,3.15,1.31746,0
+ufc-3123,2024-01-13,33361,Johnny Walker,Magomed Ankalaev,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,4.2,4.13,1.2,1.20747,3,3,1704900255000,1704953544000,0,4.2,1.2,0
+ufc-3123,2024-01-13,33474,Gabriel Benitez,Jim Miller,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.73529,1.76336,2.08,2.0,8,8,1704892210000,1705164615000,0,1.73529,2.08,0
+ufc-3123,2024-01-13,33474,Gabriel Benitez,Jim Miller,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.55,2.68,1.47619,1.43103,9,9,1704902055000,1705164615000,0,2.55,1.47619,0
+ufc-3123,2024-01-13,33474,Gabriel Benitez,Jim Miller,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,3.07,1.35714,1.34722,15,15,1704891237000,1705174051000,0,3.0,1.35714,0
+ufc-3123,2024-01-13,33475,Mario Bautista,Ricky Simon,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.27778,1.28011,3.4,3.4,3,3,1704902776000,1704959545000,0,1.27778,3.4,0
+ufc-3123,2024-01-13,33475,Mario Bautista,Ricky Simon,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.54945,1.54945,2.35,2.37,6,6,1704902776000,1705193891000,0,1.54945,2.35,0
+ufc-3123,2024-01-13,33475,Mario Bautista,Ricky Simon,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.66667,1.65359,2.1,2.16,15,15,1704901330000,1705194482000,0,1.66667,2.1,0
+ufc-3123,2024-01-13,33477,Brunno Ferreira,Phil Hawes,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.63,2.83,1.44444,1.39683,6,6,1704903497000,1704961226000,0,2.63,1.44444,0
+ufc-3123,2024-01-13,33477,Brunno Ferreira,Phil Hawes,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,4.4,4.93,1.18868,1.15798,5,5,1704903497000,1704961226000,0,4.4,1.18868,0
+ufc-3123,2024-01-13,33477,Brunno Ferreira,Phil Hawes,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,5.0,6.02,1.14925,1.11123,33,21,1704903497000,1705008686000,0,5.0,1.14925,0
+ufc-3123,2024-01-13,33479,Andrei Arlovski,Waldo Cortes-Acosta,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.72464,1.71942,2.05,2.07,4,4,1704962426000,1705064541000,0,1.72464,2.05,0
+ufc-3123,2024-01-13,33479,Andrei Arlovski,Waldo Cortes-Acosta,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.4,2.53,1.5,1.48077,4,4,1704962426000,1704983977000,0,2.4,1.5,0
+ufc-3123,2024-01-13,33479,Andrei Arlovski,Waldo Cortes-Acosta,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.75,2.93,1.4,1.369,72,40,1704962426000,1705190836000,0,2.75,1.4,0
+ufc-3123,2024-01-13,33725,Matthew Semelsberger,Preston Parsons,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.66667,1.57471,2.1,2.3,5,5,1704963385000,1705123492000,0,1.66667,2.1,0
+ufc-3123,2024-01-13,33725,Matthew Semelsberger,Preston Parsons,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.3,2.2,1.57143,1.62893,3,3,1704963385000,1704986289000,0,2.3,1.57143,0
+ufc-3123,2024-01-13,33725,Matthew Semelsberger,Preston Parsons,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.47,1.5,1.51282,82,46,1704963385000,1705188678000,0,2.5,1.5,0
+ufc-3123,2024-01-13,33485,Gaston Bolanos,Marcus McGhee,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.72993,1.67568,2.02,2.12,5,5,1704990406000,1705179136000,0,1.72993,2.02,0
+ufc-3123,2024-01-13,33485,Gaston Bolanos,Marcus McGhee,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.4,2.45,1.53191,1.51813,4,4,1704965579000,1705065276000,0,2.4,1.53191,0
+ufc-3123,2024-01-13,33485,Gaston Bolanos,Marcus McGhee,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.63,2.83,1.44444,1.4,8,8,1704965580000,1705173693000,0,2.63,1.44444,0
+ufc-3123,2024-01-13,33480,Farid Basharat,Taylor Lapilus,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2,1.19305,4.0,4.33,4,4,1704967107000,1704992062000,0,1.2,4.0,0
+ufc-3123,2024-01-13,33480,Farid Basharat,Taylor Lapilus,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.35842,3.0,3.0,4,4,1704967226000,1705065491000,0,1.36364,3.0,0
+ufc-3123,2024-01-13,33480,Farid Basharat,Taylor Lapilus,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.43478,2.63,2.71,8,8,1704967226000,1705185160000,0,1.44444,2.63,0
+ufc-3123,2024-01-13,33652,Jean Silva,Westin Wilson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.4,3.3,1.28571,1.30675,6,6,1704967706000,1705065731000,0,3.4,1.28571,0
+ufc-3123,2024-01-13,33652,Jean Silva,Westin Wilson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,5.75,5.58,1.1,1.1199,3,3,1704967706000,1704999013000,0,5.75,1.1,0
+ufc-3123,2024-01-13,33652,Jean Silva,Westin Wilson,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,7.0,7.07,1.07102,1.0823,8,8,1704967706000,1705159443000,0,7.0,1.07102,0
+ufc-3123,2024-01-13,33483,Nikolas Motta,Tom Nolan,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.0,3.0,1.36364,1.35971,8,8,1704968547000,1705176512000,0,3.0,1.36364,0
+ufc-3123,2024-01-13,33483,Nikolas Motta,Tom Nolan,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,5.5,5.5,1.125,1.12151,3,3,1704968547000,1704999792000,0,5.5,1.125,0
+ufc-3123,2024-01-13,33483,Nikolas Motta,Tom Nolan,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,7.0,7.02,1.07102,1.08264,6,6,1704968547000,1705101212000,0,7.0,1.07102,0
+ufc-3123,2024-01-13,33726,Felipe Bunes,Joshua van,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6135,1.60241,2.2,2.23,5,5,1704969387000,1705176512000,0,1.6135,2.2,0
+ufc-3123,2024-01-13,33726,Felipe Bunes,Joshua van,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.15,1.66667,1.65789,7,7,1704969387000,1705176512000,0,2.1,1.66667,0
+ufc-3123,2024-01-13,33726,Felipe Bunes,Joshua van,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.39,1.53191,1.54348,11,11,1704969387000,1705176512000,0,2.4,1.53191,0
+ufc-3122,2024-01-20,33360,Jimmy Flick,Malcolm Gordon,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.95238,1.9901,1.8,1.76923,7,7,1705584879000,1705794034000,0,1.95238,1.8,0
+ufc-3122,2024-01-20,33360,Jimmy Flick,Malcolm Gordon,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,3.0,1.36364,1.35461,3,3,1705584879000,1705585356000,0,3.0,1.36364,0
+ufc-3122,2024-01-20,33360,Jimmy Flick,Malcolm Gordon,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,3.58,1.27778,1.2681,103,55,1705584272000,1705792948000,0,3.4,1.27778,0
+ufc-297-3106,2024-01-21,33198,Dricus Du Plessis,Sean Strickland,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.44444,1.42017,2.63,2.71,23,23,1705405106000,1705785387000,0,1.44444,2.63,0
+ufc-297-3106,2024-01-21,33198,Dricus Du Plessis,Sean Strickland,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.73529,1.82645,2.02,1.93458,27,27,1705424407000,1705816584000,0,1.73529,2.02,0
+ufc-297-3106,2024-01-21,33198,Dricus Du Plessis,Sean Strickland,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,2.17,2.32,1.63694,1.5618,22,22,1705424407000,1705785387000,0,2.17,1.63694,0
+ufc-297-3106,2024-01-21,33198,Dricus Du Plessis,Sean Strickland,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.7,2.88,1.42553,1.37313,15,15,1705424407000,1705785387000,0,2.7,1.42553,0
+ufc-297-3106,2024-01-21,33198,Dricus Du Plessis,Sean Strickland,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.8,3.13,1.41667,1.3367,31,31,1705343405000,1705785387000,0,2.8,1.41667,0
+ufc-297-3106,2024-01-21,33349,Mayra Bueno Silva,Raquel Pennington,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.17857,1.1675,4.35,4.7,8,8,1705424767000,1705768707000,0,1.17857,4.35,0
+ufc-297-3106,2024-01-21,33349,Mayra Bueno Silva,Raquel Pennington,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.34965,1.33333,3.0,3.1,12,12,1705424767000,1705768707000,0,1.34965,3.0,0
+ufc-297-3106,2024-01-21,33349,Mayra Bueno Silva,Raquel Pennington,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.56497,1.51813,2.32,2.42,6,6,1705424767000,1705768707000,0,1.56497,2.32,0
+ufc-297-3106,2024-01-21,33349,Mayra Bueno Silva,Raquel Pennington,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.80645,1.77519,1.92593,1.9901,13,13,1705424767000,1705813901000,0,1.80645,1.92593,0
+ufc-297-3106,2024-01-21,33349,Mayra Bueno Silva,Raquel Pennington,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.9434,1.87719,1.8,1.8547,44,28,1705424767000,1705768707000,0,1.9434,1.8,0
+ufc-297-3106,2024-01-21,33354,Mike Malott,Neil Magny,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.8,1.8,1.95238,1.95238,1,1,1705566277000,1705566277000,0,1.8,1.95238,0
+ufc-297-3106,2024-01-21,33354,Mike Malott,Neil Magny,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.5,2.5,1.5,1.5102,2,2,1705566277000,1705580653000,0,2.5,1.5,0
+ufc-297-3106,2024-01-21,33356,Chris Curtis,Marc-Andre Barriault,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.32787,1.34014,3.15,3.1,3,3,1705509387000,1705566876000,0,1.32787,3.15,0
+ufc-297-3106,2024-01-21,33356,Chris Curtis,Marc-Andre Barriault,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.62893,1.625,2.2,2.22,5,5,1705509387000,1705681728000,0,1.62893,2.2,0
+ufc-297-3106,2024-01-21,33355,Arnold Allen,Movsar Evloev,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.12987,1.14065,5.3,5.17,5,5,1705510698000,1705613081000,0,1.12987,5.3,0
+ufc-297-3106,2024-01-21,33355,Arnold Allen,Movsar Evloev,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.25,1.26178,3.65,3.63,6,6,1705510698000,1705613081000,0,1.25,3.65,0
+ufc-297-3106,2024-01-21,33357,Brad Katona,Garrett Armfield,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.24876,3.4,3.7,15,15,1705570116000,1705661426000,0,1.28571,3.4,0
+ufc-297-3106,2024-01-21,33357,Brad Katona,Garrett Armfield,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.4878,2.5,2.53,18,18,1705570116000,1705662264000,0,1.5,2.5,0
+ufc-297-3106,2024-01-21,33351,Charles Jourdain,Sean Woodson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.33333,3.0,3.13,3,3,1705573734000,1705579589000,0,1.36364,3.0,0
+ufc-297-3106,2024-01-21,33351,Charles Jourdain,Sean Woodson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.66667,1.64935,2.1,2.16,4,4,1705573734000,1705582595000,0,1.66667,2.1,0
+ufc-297-3106,2024-01-21,33351,Charles Jourdain,Sean Woodson,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.74074,1.7874,2.0,1.97087,8,8,1705518745000,1705675336000,0,1.74074,2.0,0
+ufc-297-3106,2024-01-21,33353,Ramon Taveras,Serhiy Sidey,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.8,1.81967,1.95238,1.92593,10,10,1705576228000,1705800409000,0,1.8,1.95238,0
+ufc-297-3106,2024-01-21,33353,Ramon Taveras,Serhiy Sidey,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.4,2.72,1.53191,1.41667,8,8,1705576228000,1705758177000,0,2.4,1.53191,0
+ufc-297-3106,2024-01-21,33353,Ramon Taveras,Serhiy Sidey,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.63,3.26,1.44444,1.30769,15,15,1705576228000,1705801075000,0,2.63,1.44444,0
+ufc-297-3106,2024-01-21,33359,Gillian Robertson,Polyana Viana,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.53191,2.3,2.39,3,3,1705577373000,1705583929000,0,1.57143,2.3,0
+ufc-297-3106,2024-01-21,33359,Gillian Robertson,Polyana Viana,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.12,1.64935,1.68027,5,5,1705577373000,1705612211000,0,2.1,1.64935,0
+ufc-297-3106,2024-01-21,33359,Gillian Robertson,Polyana Viana,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.3,2.44,1.57143,1.51546,147,80,1705577439000,1705799443000,0,2.3,1.57143,0
+ufc-297-3106,2024-01-21,33358,Sam Patterson,Yohan Lainesse,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.2,2.21,1.6135,1.62893,4,4,1705579478000,1705612450000,0,2.2,1.6135,0
+ufc-297-3106,2024-01-21,33358,Sam Patterson,Yohan Lainesse,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.4,3.67,1.28571,1.25381,3,3,1705579478000,1705586758000,0,3.4,1.28571,0
+ufc-297-3106,2024-01-21,33358,Sam Patterson,Yohan Lainesse,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.0,4.55,1.2,1.18315,66,39,1705580077000,1705797033000,0,4.0,1.2,0
+ufc-297-3106,2024-01-21,33653,Jasmine Jasudavicius,Priscila Cachoeira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.31153,3.0,3.25,10,10,1705581158000,1705750742000,0,1.36364,3.0,0
+ufc-297-3106,2024-01-21,33653,Jasmine Jasudavicius,Priscila Cachoeira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.6135,1.64935,2.2,2.18,17,17,1705581158000,1705792589000,0,1.6135,2.2,0
+ufc-297-3106,2024-01-21,33653,Jasmine Jasudavicius,Priscila Cachoeira,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.72464,1.8,2.05,1.95238,90,54,1705581158000,1705795526000,0,1.72464,2.05,0
+ufc-fight-night-3158,2024-02-03,33719,Diana Belbita,Molly McCann,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.14925,1.19305,4.8,4.33,11,11,1706632943000,1706993687000,0,1.14925,4.8,0
+ufc-fight-night-3158,2024-02-03,33719,Diana Belbita,Molly McCann,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.28986,1.35971,3.35,2.99,12,12,1706632943000,1706993687000,0,1.28986,3.35,0
+ufc-fight-night-3158,2024-02-03,33719,Diana Belbita,Molly McCann,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.37736,1.46512,2.9,2.58,22,22,1706632234000,1707004243000,0,1.37736,2.9,0
+ufc-fight-night-3158,2024-02-03,33744,Azat Maksum,Charles Johnson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.17857,1.17361,4.5,4.57,5,5,1706633546000,1706942088000,0,1.17857,4.5,0
+ufc-fight-night-3158,2024-02-03,33744,Azat Maksum,Charles Johnson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.33784,3.0,3.1,6,6,1706606199000,1706810313000,0,1.36364,3.0,0
+ufc-fight-night-3158,2024-02-03,33744,Azat Maksum,Charles Johnson,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.44053,2.63,2.69,164,88,1706606199000,1707002125000,0,1.44444,2.63,0
+ufc-fight-night-3158,2024-02-03,33871,Pete Rodriguez,Themba Gorimbo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.1,2.26,1.66667,1.60241,12,12,1706606560000,1706982508000,0,2.1,1.66667,0
+ufc-fight-night-3158,2024-02-03,33871,Pete Rodriguez,Themba Gorimbo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.45,3.98,1.27778,1.22222,9,9,1706632943000,1706963087000,0,3.45,1.27778,0
+ufc-fight-night-3158,2024-02-03,33871,Pete Rodriguez,Themba Gorimbo,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.75,4.26,1.25,1.20161,55,35,1706606560000,1706981669000,0,3.75,1.25,0
+ufc-fight-night-3158,2024-02-03,33718,Blake Bilder,Jeongyeong Lee,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.44444,1.47393,2.63,2.54,5,5,1706787761000,1706963088000,0,1.44444,2.63,0
+ufc-fight-night-3158,2024-02-03,33718,Blake Bilder,Jeongyeong Lee,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.83333,1.92593,1.90909,1.82645,9,9,1706787761000,1706985763000,0,1.83333,1.90909,0
+ufc-fight-night-3158,2024-02-03,33718,Blake Bilder,Jeongyeong Lee,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.90909,2.11,1.83333,1.70922,93,53,1706787761000,1706987903000,0,1.90909,1.83333,0
+ufc-fight-night-3158,2024-02-03,33712,Julija Stoliarenko,Luana Carolina,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.35971,1.50761,3.0,2.45,18,18,1706633545000,1706995368000,0,1.35971,3.0,0
+ufc-fight-night-3158,2024-02-03,33712,Julija Stoliarenko,Luana Carolina,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.65789,1.92593,2.14,1.8,19,19,1706633545000,1706998227000,0,1.65789,2.14,0
+ufc-fight-night-3158,2024-02-03,33712,Julija Stoliarenko,Luana Carolina,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.8,2.08,1.9434,1.71429,17,17,1706633545000,1706995898000,0,1.8,1.9434,0
+ufc-fight-night-3158,2024-02-03,33713,Landon Quinones,Marquel Mederos,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.43478,1.3876,2.65,2.88,7,7,1706634387000,1706981553000,0,1.43478,2.65,0
+ufc-fight-night-3158,2024-02-03,33713,Landon Quinones,Marquel Mederos,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.87719,1.74074,1.8547,2.04,15,15,1706634387000,1706992061000,0,1.87719,1.8547,0
+ufc-fight-night-3158,2024-02-03,33713,Landon Quinones,Marquel Mederos,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.12,1.9434,1.66667,1.80645,18,18,1706634387000,1706994044000,0,2.12,1.66667,0
+ufc-fight-night-3158,2024-02-03,33711,Jamal Pogues,Thomas Petersen,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.37736,1.42017,2.85,2.71,9,9,1706635124000,1706976752000,0,1.37736,2.85,0
+ufc-fight-night-3158,2024-02-03,33711,Jamal Pogues,Thomas Petersen,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.74627,1.83333,2.02,1.91743,10,10,1706635124000,1706976752000,0,1.74627,2.02,0
+ufc-fight-night-3158,2024-02-03,33711,Jamal Pogues,Thomas Petersen,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.9434,2.02,1.8,1.75758,101,57,1706634387000,1706994614000,0,1.9434,1.8,0
+ufc-fight-night-3160,2024-02-04,33705,Nassourdine Imavov,Roman Dolidze,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.16949,1.2681,4.6,3.53,20,20,1706626469000,1707011900000,0,1.16949,4.6,0
+ufc-fight-night-3160,2024-02-04,33705,Nassourdine Imavov,Roman Dolidze,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.6135,1.57143,2.2,2.32,25,25,1706601398000,1707011900000,0,1.6135,2.2,0
+ufc-fight-night-3160,2024-02-04,33705,Nassourdine Imavov,Roman Dolidze,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.51282,1.97087,2.43,1.78125,18,18,1706626469000,1707011900000,0,1.51282,2.43,0
+ufc-fight-night-3160,2024-02-04,33705,Nassourdine Imavov,Roman Dolidze,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.74627,2.37,2.02,1.54348,12,12,1706626469000,1707011900000,0,1.74627,2.02,0
+ufc-fight-night-3160,2024-02-04,33705,Nassourdine Imavov,Roman Dolidze,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.63,2.56,1.44444,1.47847,13,13,1706602478000,1706980366000,0,2.63,1.44444,0
+ufc-fight-night-3160,2024-02-04,33721,Drew Dober,Renato Moicano,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.95238,1.93458,1.8,1.81967,8,8,1706603198000,1707011415000,0,1.95238,1.8,0
+ufc-fight-night-3160,2024-02-04,33721,Drew Dober,Renato Moicano,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,2.87,1.36364,1.3876,3,3,1706603319000,1706631741000,0,3.0,1.36364,0
+ufc-fight-night-3160,2024-02-04,33721,Drew Dober,Renato Moicano,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,3.31,1.28571,1.30395,117,63,1706603319000,1707010761000,0,3.4,1.28571,0
+ufc-fight-night-3160,2024-02-04,33806,Muslim Salikhov,Randy Brown,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28986,1.28818,3.35,3.4,5,5,1706630660000,1706942088000,0,1.28986,3.35,0
+ufc-fight-night-3160,2024-02-04,33806,Muslim Salikhov,Randy Brown,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.6135,1.6135,2.2,2.23,4,4,1706603799000,1706721614000,0,1.6135,2.2,0
+ufc-fight-night-3160,2024-02-04,33806,Muslim Salikhov,Randy Brown,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.72464,1.76336,2.05,2.0,88,50,1706603799000,1707005129000,0,1.72464,2.05,0
+ufc-fight-night-3160,2024-02-04,33716,Natalia Silva,Viviane Araujo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.16,1.17361,4.8,4.43,7,7,1706631380000,1706982752000,0,1.16,4.8,0
+ufc-fight-night-3160,2024-02-04,33716,Natalia Silva,Viviane Araujo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.28571,1.3413,3.4,3.11,7,7,1706604759000,1706982752000,0,1.28571,3.4,0
+ufc-fight-night-3160,2024-02-04,33716,Natalia Silva,Viviane Araujo,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.36364,1.40984,3.0,2.78,163,90,1706604759000,1706992901000,0,1.36364,3.0,0
+ufc-fight-night-3160,2024-02-04,33715,Aliaskhab Khizriev,Makhmud Muradov,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.53191,1.55556,2.4,2.33,8,8,1706605479000,1706984553000,0,1.53191,2.4,0
+ufc-fight-night-3160,2024-02-04,33715,Aliaskhab Khizriev,Makhmud Muradov,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.02,2.06,1.74627,1.72993,5,5,1706631872000,1706959369000,0,2.02,1.74627,0
+ufc-fight-night-3160,2024-02-04,33722,Charles Radtke,Gilbert Urbina,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.63694,1.62893,2.18,2.19,3,3,1706632234000,1706942208000,0,1.63694,2.18,0
+ufc-fight-night-3160,2024-02-04,33722,Charles Radtke,Gilbert Urbina,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.18,1.66667,1.64516,4,4,1706605719000,1706808975000,0,2.1,1.66667,0
+ufc-fight-night-3160,2024-02-04,33722,Charles Radtke,Gilbert Urbina,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.48,1.53191,1.50761,166,90,1706605839000,1707005515000,0,2.4,1.53191,0
+ufc-3163,2024-02-10,33997,Bolaji Oki,Timothy Cuamba,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5988,1.58824,2.25,2.27,3,3,1707518339000,1707551458000,0,1.5988,2.25,0
+ufc-3163,2024-02-10,33997,Bolaji Oki,Timothy Cuamba,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.12,1.66667,1.68027,7,7,1707481852000,1707607358000,0,2.1,1.66667,0
+ufc-3163,2024-02-10,33736,Bruna Brasil,Loma Lookboonmee,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22989,1.23641,3.9,3.85,3,3,1707329067000,1707387886000,0,1.22989,3.9,0
+ufc-3163,2024-02-10,33736,Bruna Brasil,Loma Lookboonmee,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.42553,1.43103,2.7,2.71,4,4,1707329067000,1707412712000,0,1.42553,2.7,0
+ufc-3163,2024-02-10,33736,Bruna Brasil,Loma Lookboonmee,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.51282,1.51546,2.45,2.47,107,57,1707329067000,1707596694000,0,1.51282,2.45,0
+ufc-3163,2024-02-10,33742,Devin Clark,Marcin Prachnio,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.26667,1.30675,3.5,3.27,5,5,1707329921000,1707570809000,0,1.26667,3.5,0
+ufc-3163,2024-02-10,33742,Devin Clark,Marcin Prachnio,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.54945,1.62893,2.35,2.22,7,7,1707329921000,1707570809000,0,1.54945,2.35,0
+ufc-3163,2024-02-10,33742,Devin Clark,Marcin Prachnio,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.61728,1.74074,2.2,2.04,38,27,1707329921000,1707594532000,0,1.61728,2.2,0
+ufc-3163,2024-02-10,33738,Jeremiah Wells,Max Griffin,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.40816,1.41667,2.75,2.75,5,5,1707334606000,1707518799000,0,1.40816,2.75,0
+ufc-3163,2024-02-10,33738,Jeremiah Wells,Max Griffin,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.77519,1.84034,1.97087,1.9009,7,7,1707334606000,1707594532000,0,1.77519,1.97087,0
+ufc-3163,2024-02-10,33738,Jeremiah Wells,Max Griffin,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.9434,2.04,1.8,1.75188,75,42,1707334606000,1707602441000,0,1.9434,1.8,0
+ufc-3163,2024-02-10,33740,Bogdan Guskov,Zac Pauga,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.97087,2.01,1.77519,1.76336,20,20,1707335311000,1707602238000,0,1.97087,1.77519,0
+ufc-3163,2024-02-10,33740,Bogdan Guskov,Zac Pauga,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.95,3.0,1.36364,1.35461,15,15,1707335311000,1707602238000,0,2.95,1.36364,0
+ufc-3163,2024-02-10,33740,Bogdan Guskov,Zac Pauga,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,3.53,1.28986,1.2681,67,44,1707335311000,1707602319000,0,3.4,1.28986,0
+ufc-3163,2024-02-10,33986,Fernie Garcia,Hyder Amil,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22989,1.23641,3.85,3.82,4,4,1707336035000,1707392689000,0,1.22989,3.85,0
+ufc-3163,2024-02-10,33986,Fernie Garcia,Hyder Amil,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.41667,1.42553,2.75,2.73,4,4,1707336035000,1707478128000,0,1.41667,2.75,0
+ufc-3163,2024-02-10,33986,Fernie Garcia,Hyder Amil,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.51282,1.52632,2.45,2.44,105,61,1707336035000,1707600508000,0,1.51282,2.45,0
+ufc-3163,2024-02-10,33852,Daniel Marcos,Qileng Aori,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25974,1.25974,3.55,3.55,2,2,1707336409000,1707336516000,0,1.25974,3.55,0
+ufc-3163,2024-02-10,33852,Daniel Marcos,Qileng Aori,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.5,2.45,2.45,2,2,1707336409000,1707336516000,0,1.5,2.45,0
+ufc-3163,2024-02-10,33852,Daniel Marcos,Qileng Aori,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.64516,1.64516,2.17,2.17,2,2,1707336409000,1707336516000,0,1.64516,2.17,0
+ufc-3163,2024-02-10,33737,Aori Qileng,Daniel Marcos,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.28571,3.4,3.4,1,1,1707393512000,1707393512000,0,1.28571,3.4,0
+ufc-3163,2024-02-10,33737,Aori Qileng,Daniel Marcos,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.50505,2.5,2.51,2,2,1707393512000,1707494579000,0,1.5,2.5,0
+ufc-3163,2024-02-10,33737,Aori Qileng,Daniel Marcos,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.6135,1.6135,2.2,2.21,22,18,1707393512000,1707596984000,0,1.6135,2.2,0
+ufc-3194,2024-02-11,33735,Jack Hermansson,Joe Pyfer,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.55556,1.57143,2.35,2.29,17,17,1707235953000,1707591319000,0,1.55556,2.35,0
+ufc-3194,2024-02-11,33735,Jack Hermansson,Joe Pyfer,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.18,1.64935,1.64516,8,8,1707214963000,1707613366000,0,2.1,1.64935,0
+ufc-3194,2024-02-11,33735,Jack Hermansson,Joe Pyfer,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,2.7,2.74,1.42553,1.41494,5,5,1707235953000,1707551097000,0,2.7,1.42553,0
+ufc-3194,2024-02-11,33735,Jack Hermansson,Joe Pyfer,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,3.35,3.3,1.29851,1.30675,5,5,1707235953000,1707551097000,0,3.35,1.29851,0
+ufc-3194,2024-02-11,33735,Jack Hermansson,Joe Pyfer,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,3.8,1.28571,1.24213,14,14,1707215083000,1707602187000,0,3.4,1.28571,0
+ufc-3194,2024-02-11,33920,Andre Fili,Dan Ige,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25974,1.2681,3.55,3.5,3,3,1707327023000,1707383804000,0,1.25974,3.55,0
+ufc-3194,2024-02-11,33920,Andre Fili,Dan Ige,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.4902,2.48,2.53,7,7,1707327023000,1707617480000,0,1.5,2.48,0
+ufc-3194,2024-02-11,33920,Andre Fili,Dan Ige,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.60606,1.62112,2.2,2.21,8,8,1707316707000,1707617080000,0,1.60606,2.2,0
+ufc-3194,2024-02-11,33987,Ihor Potieria,Robert Bryczek,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.15,3.06,1.32787,1.35088,4,4,1707327384000,1707384645000,0,3.15,1.32787,0
+ufc-3194,2024-02-11,33987,Ihor Potieria,Robert Bryczek,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,5.6,5.57,1.12987,1.12821,3,3,1707327384000,1707384645000,0,5.6,1.12987,0
+ufc-3194,2024-02-11,33987,Ihor Potieria,Robert Bryczek,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,7.0,6.78,1.08333,1.08811,12,12,1707321392000,1707592516000,0,7.0,1.08333,0
+ufc-3194,2024-02-11,33731,Brad Tavares,Gregory Rodrigues,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.4386,2.9,2.64,10,10,1707327757000,1707564419000,0,1.36364,2.9,0
+ufc-3194,2024-02-11,33731,Brad Tavares,Gregory Rodrigues,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.72993,1.93458,2.05,1.81301,16,16,1707327757000,1707613365000,0,1.72993,2.05,0
+ufc-3194,2024-02-11,33732,Darrius Flowers,Michael Johnson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.81967,1.82645,1.91743,1.91743,3,3,1707327756000,1707386206000,0,1.81967,1.91743,0
+ufc-3194,2024-02-11,33732,Darrius Flowers,Michael Johnson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.65,2.57,1.43478,1.45662,3,3,1707327756000,1707386206000,0,2.65,1.43478,0
+ufc-3194,2024-02-11,33732,Darrius Flowers,Michael Johnson,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,3.08,1.35971,1.35842,104,59,1707327756000,1707611798000,0,3.0,1.35971,0
+ufc-3194,2024-02-11,33730,Armen Petrosyan,Rodolfo Vieira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.60606,1.59172,2.23,2.28,13,13,1707328226000,1707609853000,0,1.60606,2.23,0
+ufc-3194,2024-02-11,33730,Armen Petrosyan,Rodolfo Vieira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.32,2.31,1.56497,1.55866,3,3,1707328226000,1707386686000,0,2.32,1.56497,0
+ufc-3194,2024-02-11,33730,Armen Petrosyan,Rodolfo Vieira,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.65,2.68,1.44444,1.4329,10,10,1707328226000,1707586769000,0,2.65,1.44444,0
+ufc-3194,2024-02-11,33734,Carlos Prates,Trevin Giles,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.74627,1.74627,2.02,2.03,6,6,1707328466000,1707594537000,0,1.74627,2.02,0
+ufc-3194,2024-02-11,33734,Carlos Prates,Trevin Giles,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.55,2.61,1.47619,1.45045,5,5,1707328466000,1707594537000,0,2.55,1.47619,0
+ufc-3194,2024-02-11,33734,Carlos Prates,Trevin Giles,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,3.1,1.34965,1.33784,40,27,1707328104000,1707596421000,0,3.0,1.34965,0
+ufc-3156,2024-02-17,33697,Andrea Lee,Miranda Maverick,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.13986,1.15083,5.1,4.93,9,9,1707843273000,1708146889000,0,1.13986,5.1,0
+ufc-3156,2024-02-17,33697,Andrea Lee,Miranda Maverick,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.26667,1.28818,3.55,3.4,8,8,1707843273000,1708146889000,0,1.26667,3.55,0
+ufc-3156,2024-02-17,33697,Andrea Lee,Miranda Maverick,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.34965,1.36765,3.0,2.96,100,55,1707842793000,1708207941000,0,1.34965,3.0,0
+ufc-298-3112,2024-02-18,33706,Paulo Costa,Robert Whittaker,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.4,2.75,2.75,1,1,1707816406000,1707816406000,0,1.4,2.75,0
+ufc-298-3112,2024-02-18,33706,Paulo Costa,Robert Whittaker,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.72464,1.70423,2.05,2.1,3,3,1707816407000,1708232571000,0,1.72464,2.05,0
+ufc-298-3112,2024-02-18,33706,Paulo Costa,Robert Whittaker,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.83333,1.80645,1.90909,1.9434,11,11,1707816407000,1708232126000,0,1.83333,1.90909,0
+ufc-298-3112,2024-02-18,33668,Geoff Neal,Ian Machado Garry,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.4,2.75,2.75,1,1,1708017409000,1708017409000,0,1.4,2.75,0
+ufc-298-3112,2024-02-18,33668,Geoff Neal,Ian Machado Garry,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.72464,1.72464,2.05,2.05,1,1,1708017409000,1708017409000,0,1.72464,2.05,0
+ufc-298-3112,2024-02-18,33668,Geoff Neal,Ian Machado Garry,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.8,1.8547,1.95238,1.89286,3,3,1708017409000,1708213541000,0,1.8,1.95238,0
+ufc-298-3112,2024-02-18,33690,Henry Cejudo,Merab Dvalishvili,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.12987,1.13793,5.3,5.2,3,3,1707831122000,1708017649000,0,1.12987,5.3,0
+ufc-298-3112,2024-02-18,33690,Henry Cejudo,Merab Dvalishvili,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.25,1.26596,3.65,3.55,3,3,1707831122000,1708017649000,0,1.25,3.65,0
+ufc-298-3112,2024-02-18,33690,Henry Cejudo,Merab Dvalishvili,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.32787,1.34602,3.1,3.07,90,50,1707829360000,1708180242000,0,1.32787,3.1,0
+ufc-298-3112,2024-02-18,33919,Anthony Hernandez,Roman Kopylov,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.64516,1.62893,2.17,2.21,7,7,1707835114000,1708212172000,0,1.64516,2.17,0
+ufc-298-3112,2024-02-18,33919,Anthony Hernandez,Roman Kopylov,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.63,2.57,1.44444,1.46948,19,19,1707835114000,1708094200000,0,2.63,1.44444,0
+ufc-298-3112,2024-02-18,33815,Amanda Lemos,Mackenzie Dern,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.44444,1.5618,2.63,2.32,12,12,1707839803000,1708177718000,0,1.44444,2.63,0
+ufc-298-3112,2024-02-18,33815,Amanda Lemos,Mackenzie Dern,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.91743,2.15,1.81967,1.66225,21,21,1707839803000,1708220565000,0,1.91743,1.81967,0
+ufc-298-3112,2024-02-18,33815,Amanda Lemos,Mackenzie Dern,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.2,2.48,1.61728,1.5102,90,56,1707839803000,1708222298000,0,2.2,1.61728,0
+ufc-298-3112,2024-02-18,33921,Carlos Vera,Rinya Nakamura,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.64516,1.82645,2.16,1.91743,22,22,1707909277000,1708219972000,0,1.64516,2.16,0
+ufc-298-3112,2024-02-18,33921,Carlos Vera,Rinya Nakamura,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.25,2.64,1.5988,1.4386,15,15,1707909277000,1708188292000,0,2.25,1.5988,0
+ufc-298-3112,2024-02-18,33921,Carlos Vera,Rinya Nakamura,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.87,1.4878,1.3876,25,24,1707909277000,1708193816000,0,2.5,1.4878,0
+ufc-298-3112,2024-02-18,33694,Brendson Ribeiro,Zhang Mingyang,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.1,3.2,1.33898,1.31847,12,12,1707841965000,1708023053000,0,3.1,1.33898,0
+ufc-298-3112,2024-02-18,33694,Brendson Ribeiro,Zhang Mingyang,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,4.9,4.77,1.16,1.16026,11,11,1707841965000,1708023053000,0,4.9,1.16,0
+ufc-298-3112,2024-02-18,33694,Brendson Ribeiro,Zhang Mingyang,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,5.25,5.92,1.13986,1.11751,16,15,1707840870000,1708023053000,0,5.25,1.13986,0
+ufc-298-3112,2024-02-18,33854,Danny Barlow,Josh Quinlan,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.63694,1.64935,2.18,2.17,14,14,1707841966000,1708216723000,0,1.63694,2.18,0
+ufc-298-3112,2024-02-18,33854,Danny Barlow,Josh Quinlan,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.38,2.35,1.53763,1.53763,11,11,1707841966000,1708115573000,0,2.38,1.53763,0
+ufc-298-3112,2024-02-18,33854,Danny Barlow,Josh Quinlan,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.9,2.79,1.37736,1.41152,76,47,1707841966000,1708212162000,0,2.9,1.37736,0
+ufc-298-3112,2024-02-18,33699,Oban Elliott,Val Woodburn,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6993,1.66667,2.05,2.1,2,2,1708021671000,1708021732000,0,1.6993,2.05,0
+ufc-298-3112,2024-02-18,33699,Oban Elliott,Val Woodburn,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.42,2.26,1.54945,1.60606,3,3,1707973972000,1708214849000,0,2.42,1.54945,0
+ufc-298-3112,2024-02-18,33699,Oban Elliott,Val Woodburn,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.78,2.71,1.44444,1.40816,18,14,1707975758000,1708214952000,0,2.78,1.44444,0
+ufc-3162,2024-02-25,33746,Raul Rosas Jr,Ricky Turcios,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.41667,1.34247,2.7,3.05,9,9,1708531353000,1708807024000,0,1.41667,2.7,0
+ufc-3162,2024-02-25,33746,Raul Rosas Jr,Ricky Turcios,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.8,1.64935,1.9009,2.17,15,15,1708350891000,1708820679000,0,1.8,1.9009,0
+ufc-3162,2024-02-25,33805,Brandon Moreno,Brandon Royval,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.21978,1.21978,4.0,3.93,8,8,1708448562000,1708838458000,0,1.21978,4.0,0
+ufc-3162,2024-02-25,33805,Brandon Moreno,Brandon Royval,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.43478,1.45249,2.65,2.58,8,8,1708448562000,1708838458000,0,1.43478,2.65,0
+ufc-3162,2024-02-25,33805,Brandon Moreno,Brandon Royval,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.66667,1.71429,2.1,2.06,9,9,1708350771000,1708838458000,0,1.66667,2.1,0
+ufc-3162,2024-02-25,33805,Brandon Moreno,Brandon Royval,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.95238,1.97087,1.7874,1.76923,8,8,1708448562000,1708838458000,0,1.95238,1.7874,0
+ufc-3162,2024-02-25,33805,Brandon Moreno,Brandon Royval,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.12,2.15,1.66667,1.64103,25,22,1708447841000,1708838960000,0,2.12,1.66667,0
+ufc-3162,2024-02-25,33729,Brian Ortega,Yair Rodriguez,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.32787,3.0,3.12,4,4,1708508052000,1708807267000,0,1.36364,3.0,0
+ufc-3162,2024-02-25,33729,Brian Ortega,Yair Rodriguez,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.66667,1.65789,2.1,2.16,10,10,1708350771000,1708819609000,0,1.66667,2.1,0
+ufc-3162,2024-02-25,33729,Brian Ortega,Yair Rodriguez,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,2.05,2.07,1.72464,1.69444,4,4,1708508052000,1708807267000,0,2.05,1.72464,0
+ufc-3162,2024-02-25,33729,Brian Ortega,Yair Rodriguez,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.4,2.48,1.53191,1.49261,4,4,1708508052000,1708807267000,0,2.4,1.53191,0
+ufc-3162,2024-02-25,33729,Brian Ortega,Yair Rodriguez,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.63,2.64,1.44444,1.45249,11,11,1708508052000,1708807267000,0,2.63,1.44444,0
+ufc-3162,2024-02-25,33918,Daniel Zellhuber,Francisco Prado,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.51282,1.46729,2.43,2.55,11,11,1708530591000,1708807148000,0,1.51282,2.43,0
+ufc-3162,2024-02-25,33918,Daniel Zellhuber,Francisco Prado,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,1.86957,1.66667,1.86207,17,17,1708350891000,1708807148000,0,2.1,1.66667,0
+ufc-3162,2024-02-25,33750,Sam Hughes,Yazmin Jauregui,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2381,1.2611,3.8,3.52,6,6,1708532086000,1708806906000,0,1.2381,3.8,0
+ufc-3162,2024-02-25,33750,Sam Hughes,Yazmin Jauregui,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.48077,3.0,2.51,10,10,1708351012000,1708806906000,0,1.36364,3.0,0
+ufc-3162,2024-02-25,33751,Chris Duncan,Manuel Torres,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.63,2.49,1.44444,1.49751,16,16,1708351012000,1708830162000,0,2.63,1.44444,0
+ufc-3162,2024-02-25,33751,Chris Duncan,Manuel Torres,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,4.0,4.27,1.22222,1.19231,12,12,1708594734000,1708806782000,0,4.0,1.22222,0
+ufc-3162,2024-02-25,33751,Chris Duncan,Manuel Torres,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.5,5.09,1.18215,1.14535,80,47,1708594854000,1708812502000,0,4.5,1.18215,0
+ufc-3162,2024-02-25,33917,Christian Quinonez,Raoni Barcelos,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.63694,2.3,2.17,5,5,1708595458000,1708806666000,0,1.57143,2.3,0
+ufc-3162,2024-02-25,33917,Christian Quinonez,Raoni Barcelos,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.8,2.27,1.95238,1.59172,17,17,1708351012000,1708820679000,0,1.8,1.95238,0
+ufc-3162,2024-02-25,33917,Christian Quinonez,Raoni Barcelos,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.6,1.53191,1.45662,40,28,1708595458000,1708814833000,0,2.4,1.53191,0
+ufc-3162,2024-02-25,33748,Jesus Santos Aguilar,Mateus Mendonca,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5988,1.57143,2.25,2.3,6,6,1708625693000,1708630122000,0,1.5988,2.25,0
+ufc-3162,2024-02-25,33748,Jesus Santos Aguilar,Mateus Mendonca,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.2,2.19,1.65789,1.64516,7,7,1708619323000,1708630122000,0,2.2,1.65789,0
+ufc-3162,2024-02-25,33985,Daniel da Silva,Edgar Chairez,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,5.5,5.5,1.125,1.14286,5,5,1708649156000,1708812378000,0,5.5,1.125,0
+ufc-3162,2024-02-25,33747,Daniel Lacerda,Edgar Chairez,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.63,2.49,1.44444,1.4902,12,12,1708351251000,1708811506000,0,2.63,1.44444,0
+ufc-3162,2024-02-25,33747,Daniel Lacerda,Edgar Chairez,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,4.0,4.25,1.22222,1.19342,8,8,1708596897000,1708806306000,0,4.0,1.22222,0
+ufc-3162,2024-02-25,33747,Daniel Lacerda,Edgar Chairez,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.5,4.85,1.18215,1.15601,24,18,1708596897000,1708814681000,0,4.5,1.18215,0
+ufc-3162,2024-02-25,33915,Claudio Puelles,Fares Ziam,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.42373,3.0,2.68,7,7,1708597615000,1708794560000,0,1.36364,3.0,0
+ufc-3162,2024-02-25,33915,Claudio Puelles,Fares Ziam,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.57143,1.82645,2.3,1.90909,14,14,1708351251000,1708824173000,0,1.57143,2.3,0
+ufc-3162,2024-02-25,33915,Claudio Puelles,Fares Ziam,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.83333,2.06,1.90909,1.71429,34,26,1708597736000,1708823854000,0,1.83333,1.90909,0
+ufc-3162,2024-02-25,33914,Denys Bondar,Luis Rodriguez,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28986,1.29326,3.4,3.33,5,5,1708533155000,1708806064000,0,1.28986,3.4,0
+ufc-3162,2024-02-25,33914,Denys Bondar,Luis Rodriguez,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.6135,1.57803,2.2,2.3,5,5,1708350891000,1708806064000,0,1.6135,2.2,0
+ufc-3162,2024-02-25,33914,Denys Bondar,Luis Rodriguez,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.66667,1.72993,2.12,2.04,125,69,1708532073000,1708820741000,0,1.66667,2.12,0
+ufc-3162,2024-02-25,33749,Felipe Dos Santos,Victor Altamirano,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.18868,1.21645,4.4,3.98,5,5,1708533528000,1708805948000,0,1.18868,4.4,0
+ufc-3162,2024-02-25,33749,Felipe Dos Santos,Victor Altamirano,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.4,1.39526,2.75,2.81,5,5,1708434172000,1708673678000,0,1.4,2.75,0
+ufc-3162,2024-02-25,33749,Felipe Dos Santos,Victor Altamirano,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.4878,1.52356,2.5,2.42,12,12,1708533155000,1708820741000,0,1.4878,2.5,0
+ufc-3162,2024-02-25,33916,Erik Silva,Muhammad Naimov,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6135,1.60976,2.2,2.2,4,4,1708599537000,1708805706000,0,1.6135,2.2,0
+ufc-3162,2024-02-25,33916,Erik Silva,Muhammad Naimov,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.4,2.19,2.75,1.62893,6,6,1708351131000,1708805706000,0,1.4,2.75,0
+ufc-3162,2024-02-25,33916,Erik Silva,Muhammad Naimov,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.53,1.53191,1.47847,61,36,1708599537000,1708816945000,0,2.4,1.53191,0
+ufc-3193,2024-03-02,33984,Jairzinho Rozenstruik,Shamil Gaziev,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.44,2.4,1.54945,1.54645,10,10,1709124396000,1709406059000,0,2.44,1.54945,0
+ufc-3193,2024-03-02,33984,Jairzinho Rozenstruik,Shamil Gaziev,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.95,3.83,1.22989,1.22989,7,7,1709132565000,1709406059000,0,3.95,1.22989,0
+ufc-3193,2024-03-02,33984,Jairzinho Rozenstruik,Shamil Gaziev,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,5.25,5.17,1.12987,1.13423,3,3,1709132565000,1709406059000,0,5.25,1.12987,0
+ufc-3193,2024-03-02,33984,Jairzinho Rozenstruik,Shamil Gaziev,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,6.5,6.5,1.08969,1.09009,3,3,1709132565000,1709406059000,0,6.5,1.08969,0
+ufc-3193,2024-03-02,33984,Jairzinho Rozenstruik,Shamil Gaziev,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,8.5,7.93,1.05,1.06676,19,18,1709122002000,1709375939000,0,8.5,1.05,0
+ufc-3193,2024-03-02,33975,Tyson Pedro,Vitor Petrino,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.63291,1.68027,2.24,2.12,6,6,1709130510000,1709343763000,0,1.63291,2.24,0
+ufc-3193,2024-03-02,33975,Tyson Pedro,Vitor Petrino,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.5,2.55,1.4878,1.47619,4,4,1709136887000,1709343763000,0,2.5,1.4878,0
+ufc-3193,2024-03-02,33983,Alex Perez,Muhammad Mokaev,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.35971,1.41667,2.95,2.75,8,8,1709134714000,1709416968000,0,1.35971,2.95,0
+ufc-3193,2024-03-02,33983,Alex Perez,Muhammad Mokaev,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.89286,1.9434,1.89286,1.8,11,11,1709133651000,1709416968000,0,1.89286,1.89286,0
+ufc-3193,2024-03-02,33983,Alex Perez,Muhammad Mokaev,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.0,2.51,1.74074,1.52632,23,23,1709127987000,1709417244000,0,2.0,1.74074,0
+ufc-3193,2024-03-02,34090,Bekzat Almakhan,Umar Nurmagomedov,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4878,1.54945,2.58,2.37,8,8,1709135307000,1709301897000,0,1.4878,2.58,0
+ufc-3193,2024-03-02,34090,Bekzat Almakhan,Umar Nurmagomedov,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.96154,2.12,1.7874,1.67568,5,5,1709137595000,1709257494000,0,1.96154,1.7874,0
+ufc-3193,2024-03-02,34072,Matt Schnell,Steve Erceg,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.70922,1.74074,2.06,2.02,10,10,1709139768000,1709375338000,0,1.70922,2.06,0
+ufc-3193,2024-03-02,34072,Matt Schnell,Steve Erceg,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.38,2.5,1.53763,1.4878,8,8,1709139768000,1709300335000,0,2.38,1.53763,0
+ufc-3193,2024-03-02,34072,Matt Schnell,Steve Erceg,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.75,1.5,1.41322,16,16,1709131953000,1709413884000,0,2.5,1.5,0
+ufc-3193,2024-03-02,34191,Bernardo Sopai,Vinicius Oliveira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.64516,1.6993,2.16,2.1,7,7,1709224375000,1709284495000,0,1.64516,2.16,0
+ufc-3193,2024-03-02,34191,Bernardo Sopai,Vinicius Oliveira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.35,2.5,1.54945,1.4878,6,6,1709224375000,1709226041000,0,2.35,1.54945,0
+ufc-3193,2024-03-02,34191,Bernardo Sopai,Vinicius Oliveira,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.8,2.95,1.4,1.36765,112,62,1709222573000,1709410408000,0,2.8,1.4,0
+ufc-3193,2024-03-02,33982,Eryk Anders,Jamie Pickett,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.41667,2.85,2.7,6,6,1709217158000,1709411678000,0,1.4,2.85,0
+ufc-3193,2024-03-02,33982,Eryk Anders,Jamie Pickett,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.75758,1.74627,2.0,2.02,8,8,1709217158000,1709411678000,0,1.75758,2.0,0
+ufc-3193,2024-03-02,33979,Aiemann Zahabi,Javid Basharat,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2,1.20833,4.25,4.1,11,11,1709151649000,1709391522000,0,1.2,4.25,0
+ufc-3193,2024-03-02,33979,Aiemann Zahabi,Javid Basharat,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.4,1.42553,2.8,2.71,13,13,1709151649000,1709391522000,0,1.4,2.8,0
+ufc-3193,2024-03-02,33979,Aiemann Zahabi,Javid Basharat,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.51282,1.53763,2.45,2.43,54,37,1709151649000,1709408804000,0,1.51282,2.45,0
+ufc-3193,2024-03-02,34089,Christian Leroy Duncan,Claudio Ribeiro,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.93458,1.84746,1.8,1.89286,10,10,1709220039000,1709407255000,0,1.93458,1.8,0
+ufc-3193,2024-03-02,34089,Christian Leroy Duncan,Claudio Ribeiro,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.05,2.95,1.34965,1.35971,6,6,1709220039000,1709344724000,0,3.05,1.34965,0
+ufc-3193,2024-03-02,34190,Aj Cunningham,Ludovit Klein,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.80645,1.98039,1.93458,1.78125,10,10,1709221000000,1709331055000,0,1.80645,1.93458,0
+ufc-3193,2024-03-02,34190,Aj Cunningham,Ludovit Klein,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.95,3.2,1.36364,1.31746,8,8,1709221000000,1709329136000,0,2.95,1.36364,0
+ufc-3193,2024-03-02,34190,Aj Cunningham,Ludovit Klein,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.8,3.9,1.2381,1.23419,17,17,1709220412000,1709389716000,0,3.8,1.2381,0
+ufc-3193,2024-03-02,33977,Abdul-Kareem Al-Selwady,Loik Radzhabov,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.29851,1.32787,3.3,3.15,6,6,1709156078000,1709387456000,0,1.29851,3.3,0
+ufc-3193,2024-03-02,33977,Abdul-Kareem Al-Selwady,Loik Radzhabov,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.57143,1.60241,2.3,2.25,6,6,1709156078000,1709302618000,0,1.57143,2.3,0
+ufc-3193,2024-03-02,33977,Abdul-Kareem Al-Selwady,Loik Radzhabov,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.73529,1.76336,2.02,1.97087,36,25,1709156078000,1709401481000,0,1.73529,2.02,0
+ufc-3157,2024-03-09,33700,Asu Almabaev,Cj Vergara,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4878,1.49261,2.5,2.5,3,3,1709821631000,1709890146000,0,1.4878,2.5,0
+ufc-3157,2024-03-09,33700,Asu Almabaev,Cj Vergara,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.02,2.06,1.72993,1.71429,5,5,1709821631000,1710004510000,0,2.02,1.72993,0
+ufc-3157,2024-03-09,33700,Asu Almabaev,Cj Vergara,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.2,2.32,1.61728,1.58824,31,20,1709821631000,1710027088000,0,2.2,1.61728,0
+ufc-3157,2024-03-09,33924,Joanne Wood,Maryna Moroz,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.13986,1.20747,5.0,4.17,25,25,1709812245000,1710006894000,0,1.13986,5.0,0
+ufc-3157,2024-03-09,33924,Joanne Wood,Maryna Moroz,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.31746,1.37594,3.25,2.92,26,26,1709812245000,1710006894000,0,1.31746,3.25,0
+ufc-3157,2024-03-09,33924,Joanne Wood,Maryna Moroz,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.34965,1.47393,3.0,2.52,40,36,1709811179000,1710014476000,0,1.34965,3.0,0
+ufc-299-3155,2024-03-10,32385,Marlon Vera,Sean O'Malley,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.12987,1.14728,5.4,4.97,11,11,1709650969000,1710005815000,0,1.12987,5.4,0
+ufc-299-3155,2024-03-10,32385,Marlon Vera,Sean O'Malley,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.25,1.2681,3.65,3.53,11,11,1709650969000,1710005815000,0,1.25,3.65,0
+ufc-299-3155,2024-03-10,32385,Marlon Vera,Sean O'Malley,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.41667,1.42553,2.7,2.71,11,11,1709650969000,1710005815000,0,1.41667,2.7,0
+ufc-299-3155,2024-03-10,32385,Marlon Vera,Sean O'Malley,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.65789,1.62893,2.2,2.21,16,16,1709624554000,1710049741000,0,1.65789,2.2,0
+ufc-299-3155,2024-03-10,32385,Marlon Vera,Sean O'Malley,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.96,1.82645,1.38462,1.95238,42,42,1709461368000,1710049638000,0,2.96,1.38462,0
+ufc-299-3155,2024-03-10,33752,Benoit Saint-Denis,Dustin Poirier,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.47619,1.42735,2.6,2.7,11,11,1709625291000,1710046729000,0,1.47619,2.6,0
+ufc-299-3155,2024-03-10,33752,Benoit Saint-Denis,Dustin Poirier,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.97087,1.95238,1.76923,1.79365,10,10,1709663919000,1710045162000,0,1.97087,1.76923,0
+ufc-299-3155,2024-03-10,33752,Benoit Saint-Denis,Dustin Poirier,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,2.8,2.61,1.4,1.45045,8,8,1709663919000,1710006176000,0,2.8,1.4,0
+ufc-299-3155,2024-03-10,33752,Benoit Saint-Denis,Dustin Poirier,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,3.95,3.58,1.21978,1.2611,10,10,1709663919000,1710020214000,0,3.95,1.21978,0
+ufc-299-3155,2024-03-10,33752,Benoit Saint-Denis,Dustin Poirier,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.4,4.09,1.18182,1.21413,51,33,1709625536000,1710019504000,0,4.4,1.18182,0
+ufc-299-3155,2024-03-10,33670,Kevin Holland,Michael Page,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.21978,1.25381,4.0,3.67,9,9,1709665719000,1710006176000,0,1.21978,4.0,0
+ufc-299-3155,2024-03-10,33670,Kevin Holland,Michael Page,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.53191,1.52083,2.4,2.44,11,11,1709641138000,1710006176000,0,1.53191,2.4,0
+ufc-299-3155,2024-03-10,33670,Kevin Holland,Michael Page,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.6135,1.64516,2.2,2.19,456,237,1709641259000,1710032451000,0,1.6135,2.2,0
+ufc-299-3155,2024-03-10,33669,Gilbert Burns,Jack Della Maddalena,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5,1.53763,2.5,2.4,15,15,1709642818000,1710035324000,0,1.5,2.5,0
+ufc-299-3155,2024-03-10,33669,Gilbert Burns,Jack Della Maddalena,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.04,2.22,1.72993,1.625,12,12,1709669321000,1710042415000,0,2.04,1.72993,0
+ufc-299-3155,2024-03-10,33669,Gilbert Burns,Jack Della Maddalena,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.55,1.5,1.48309,19,19,1709642818000,1710042677000,0,2.5,1.5,0
+ufc-299-3155,2024-03-10,33667,Petr Yan,Song Yadong,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.14925,1.14124,4.9,5.1,20,20,1709667279000,1710038327000,0,1.14925,4.9,0
+ufc-299-3155,2024-03-10,33667,Petr Yan,Song Yadong,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.30581,3.0,3.29,18,18,1709643659000,1710029810000,0,1.36364,3.0,0
+ufc-299-3155,2024-03-10,33667,Petr Yan,Song Yadong,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.38911,2.63,2.91,61,42,1709643659000,1710029810000,0,1.44444,2.63,0
+ufc-299-3155,2024-03-10,33672,Curtis Blaydes,Jailton Almeida,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.66667,1.64935,2.1,2.18,16,16,1709644019000,1710036763000,0,1.66667,2.1,0
+ufc-299-3155,2024-03-10,33672,Curtis Blaydes,Jailton Almeida,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.3,2.37,1.56497,1.54645,19,19,1709730173000,1710036763000,0,2.3,1.56497,0
+ufc-299-3155,2024-03-10,33672,Curtis Blaydes,Jailton Almeida,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.75,2.69,1.4,1.43478,514,265,1709644019000,1710037486000,0,2.75,1.4,0
+ufc-299-3155,2024-03-10,34189,Katlyn Cerminara,Maycee Barber,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.15408,1.15408,5.0,5.0,1,1,1709814904000,1709814904000,0,1.15408,5.0,0
+ufc-299-3155,2024-03-10,34189,Katlyn Cerminara,Maycee Barber,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.25,1.25,3.55,3.75,2,2,1709814904000,1709885226000,0,1.25,3.55,0
+ufc-299-3155,2024-03-10,34189,Katlyn Cerminara,Maycee Barber,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.28571,1.3096,3.4,3.28,2,2,1709814904000,1709828324000,0,1.28571,3.4,0
+ufc-299-3155,2024-03-10,33704,Katlyn Chookagian,Maycee Barber,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.10989,1.10989,6.25,5.6,4,4,1709736296000,1709921348000,0,1.10989,6.25,0
+ufc-299-3155,2024-03-10,33704,Katlyn Chookagian,Maycee Barber,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.21978,1.24331,4.0,3.77,5,5,1709736296000,1709921348000,0,1.21978,4.0,0
+ufc-299-3155,2024-03-10,33704,Katlyn Chookagian,Maycee Barber,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.28986,1.32573,3.4,3.2,9,9,1709735442000,1709992877000,0,1.28986,3.4,0
+ufc-299-3155,2024-03-10,33703,Mateusz Gamrot,Rafael Dos Anjos,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.12987,1.14728,5.3,5.03,3,3,1709733774000,1709815507000,0,1.12987,5.3,0
+ufc-299-3155,2024-03-10,33703,Mateusz Gamrot,Rafael Dos Anjos,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.25974,1.27933,3.6,3.49,4,4,1709733774000,1709815507000,0,1.25974,3.6,0
+ufc-299-3155,2024-03-10,33703,Mateusz Gamrot,Rafael Dos Anjos,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.34965,1.35211,3.0,3.05,8,8,1709732443000,1710034286000,0,1.34965,3.0,0
+ufc-299-3155,2024-03-10,33701,Kyler Phillips,Pedro Munhoz,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.14925,1.15385,4.8,4.83,5,5,1709738444000,1709817065000,0,1.14925,4.8,0
+ufc-299-3155,2024-03-10,33701,Kyler Phillips,Pedro Munhoz,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.28986,1.2907,3.35,3.39,6,6,1709738444000,1709817065000,0,1.28986,3.35,0
+ufc-299-3155,2024-03-10,33701,Kyler Phillips,Pedro Munhoz,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.37736,1.35971,2.9,3.02,122,66,1709737363000,1710022118000,0,1.37736,2.9,0
+ufc-299-3155,2024-03-10,34212,Ion Cutelaba,Philipe Lins,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.05,2.16,1.72464,1.64516,8,8,1709817545000,1710028373000,0,2.05,1.72464,0
+ufc-299-3155,2024-03-10,34212,Ion Cutelaba,Philipe Lins,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.55,3.68,1.25,1.25641,6,6,1709817545000,1710006316000,0,3.55,1.25,0
+ufc-299-3155,2024-03-10,34212,Ion Cutelaba,Philipe Lins,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.5,4.19,1.18215,1.2,188,97,1709817545000,1710027646000,0,4.5,1.18215,0
+ufc-299-3155,2024-03-10,33922,Michal Oleksiejczuk,Michel Pereira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.53191,1.54945,2.4,2.37,6,6,1709817906000,1710029583000,0,1.53191,2.4,0
+ufc-299-3155,2024-03-10,33922,Michal Oleksiejczuk,Michel Pereira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.18,2.15,1.63694,1.64516,3,3,1709822708000,1709885346000,0,2.18,1.63694,0
+ufc-299-3155,2024-03-10,33922,Michal Oleksiejczuk,Michel Pereira,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.65,2.46,1.44444,1.51813,81,49,1709814765000,1710014482000,0,2.65,1.44444,0
+ufc-299-3155,2024-03-10,33923,Josh Parisian,Robelis Despaigne,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.3,3.31,1.29851,1.3012,4,4,1709820909000,1709906939000,0,3.3,1.29851,0
+ufc-299-3155,2024-03-10,33923,Josh Parisian,Robelis Despaigne,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,5.4,5.6,1.12987,1.1199,3,3,1709820909000,1709886665000,0,5.4,1.12987,0
+ufc-299-3155,2024-03-10,33923,Josh Parisian,Robelis Despaigne,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,6.25,6.9,1.1,1.08278,222,116,1709820909000,1710026688000,0,6.25,1.1,0
+ufc-3192,2024-03-16,33972,Macy Chiasson,Pannie Kianzad,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.12987,1.16447,5.25,4.8,5,5,1710361976000,1710597298000,0,1.12987,5.25,0
+ufc-3192,2024-03-16,33972,Macy Chiasson,Pannie Kianzad,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.26316,1.32787,3.7,3.13,16,16,1710361732000,1710630425000,0,1.26316,3.7,0
+ufc-3192,2024-03-16,33972,Macy Chiasson,Pannie Kianzad,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.3125,1.35461,3.35,3.03,18,18,1710361852000,1710631764000,0,1.3125,3.35,0
+ufc-3192,2024-03-16,33971,Bryan Barberena,Gerald Meerschaert,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.51282,1.54945,2.43,2.35,5,5,1710421739000,1710597298000,0,1.51282,2.43,0
+ufc-3192,2024-03-16,33971,Bryan Barberena,Gerald Meerschaert,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.26,2.17,1.625,1.65359,6,6,1710364023000,1710597298000,0,2.26,1.625,0
+ufc-3192,2024-03-16,33971,Bryan Barberena,Gerald Meerschaert,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.51,1.5,1.49505,15,15,1710363409000,1710630053000,0,2.5,1.5,0
+ufc-3192,2024-03-16,34186,Mike Davis,Natan Levy,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2381,1.25641,3.8,3.65,5,5,1710433985000,1710597297000,0,1.2381,3.8,0
+ufc-3192,2024-03-16,34186,Mike Davis,Natan Levy,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.47619,1.52356,2.55,2.41,10,10,1710433985000,1710628748000,0,1.47619,2.55,0
+ufc-3192,2024-03-16,34186,Mike Davis,Natan Levy,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.86957,1.64935,1.86957,2.15,45,34,1710432891000,1710628769000,0,1.86957,1.86957,0
+ufc-3192,2024-03-16,33973,Chelsea Chandler,Josiane Nunes,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.32787,1.36364,3.1,2.93,9,9,1710428448000,1710597297000,0,1.32787,3.1,0
+ufc-3192,2024-03-16,33973,Chelsea Chandler,Josiane Nunes,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.71942,1.7874,2.06,1.96154,16,16,1710428448000,1710627173000,0,1.71942,2.06,0
+ufc-3192,2024-03-16,33973,Chelsea Chandler,Josiane Nunes,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.9434,2.03,1.8,1.74074,48,33,1710427487000,1710625728000,0,1.9434,1.8,0
+ufc-3192,2024-03-16,33967,Jafel Filho,Ode Osbourne,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6993,1.75188,2.08,2.01,5,5,1710430616000,1710597297000,0,1.6993,2.08,0
+ufc-3192,2024-03-16,33967,Jafel Filho,Ode Osbourne,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.55,2.52,1.47619,1.49261,6,6,1710430616000,1710597297000,0,2.55,1.47619,0
+ufc-3192,2024-03-16,33967,Jafel Filho,Ode Osbourne,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,3.02,1.34965,1.35971,119,66,1710429408000,1710612412000,0,3.0,1.34965,0
+ufc-3192,2024-03-16,33965,Danny Silva,Josh Culibao,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2381,1.2681,3.8,3.53,9,9,1710421006000,1710606534000,0,1.2381,3.8,0
+ufc-3192,2024-03-16,33965,Danny Silva,Josh Culibao,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.47619,1.51813,2.55,2.46,8,8,1710421006000,1710621530000,0,1.47619,2.55,0
+ufc-3192,2024-03-16,33965,Danny Silva,Josh Culibao,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.61728,1.65359,2.2,2.16,311,163,1710419565000,1710623711000,0,1.61728,2.2,0
+ufc-3192,2024-03-16,33969,Cory McKenna,Jaqueline Amorim,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22989,1.23256,3.85,3.83,5,5,1710432891000,1710597432000,0,1.22989,3.85,0
+ufc-3192,2024-03-16,33969,Cory McKenna,Jaqueline Amorim,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.47619,1.49751,2.55,2.5,10,10,1710432891000,1710597432000,0,1.47619,2.55,0
+ufc-3192,2024-03-16,33969,Cory McKenna,Jaqueline Amorim,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.64516,1.60606,2.17,2.24,131,73,1710430729000,1710622744000,0,1.64516,2.17,0
+ufc-3192,2024-03-16,34278,Mitch Ramirez,Thiago Moises,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6135,1.63291,2.2,2.21,12,12,1710442028000,1710610751000,0,1.6135,2.2,0
+ufc-3192,2024-03-16,34278,Mitch Ramirez,Thiago Moises,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.2,2.25,1.6135,1.5848,7,7,1710442028000,1710610751000,0,2.2,1.6135,0
+ufc-3192,2024-03-16,34278,Mitch Ramirez,Thiago Moises,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.61,1.53191,1.45872,109,61,1710442028000,1710621659000,0,2.4,1.53191,0
+ufc-3192,2024-03-16,33970,Chad Anheliger,Charalampos Grigoriou,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.44444,1.46296,2.63,2.59,3,3,1710426288000,1710444671000,0,1.44444,2.63,0
+ufc-3192,2024-03-16,33970,Chad Anheliger,Charalampos Grigoriou,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.91743,1.84034,1.81967,1.90909,7,7,1710426288000,1710619739000,0,1.91743,1.81967,0
+ufc-3192,2024-03-16,33970,Chad Anheliger,Charalampos Grigoriou,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.2,2.13,1.61728,1.67568,80,44,1710424607000,1710618538000,0,2.2,1.61728,0
+ufc-3206,2024-03-17,34092,Marcin Tybura,Tai Tuivasa,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.77519,1.78125,1.97087,1.98039,19,19,1710261533000,1710638686000,0,1.77519,1.97087,0
+ufc-3206,2024-03-17,34092,Marcin Tybura,Tai Tuivasa,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.7,2.78,1.42553,1.4,5,5,1710261533000,1710435068000,0,2.7,1.42553,0
+ufc-3206,2024-03-17,34092,Marcin Tybura,Tai Tuivasa,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,4.0,4.0,1.21978,1.21277,15,15,1710261533000,1710638686000,0,4.0,1.21978,0
+ufc-3206,2024-03-17,34092,Marcin Tybura,Tai Tuivasa,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,5.3,5.2,1.13986,1.14451,3,3,1710261533000,1710435068000,0,5.3,1.13986,0
+ufc-3206,2024-03-17,34092,Marcin Tybura,Tai Tuivasa,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,5.6,5.68,1.11976,1.11792,27,18,1710261533000,1710592609000,0,5.6,1.11976,0
+ufc-3206,2024-03-17,33968,Ange Loosa,Bryan Battle,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25,1.2611,3.65,3.53,6,6,1710360523000,1710637377000,0,1.25,3.65,0
+ufc-3206,2024-03-17,33968,Ange Loosa,Bryan Battle,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.52356,2.54,2.43,7,7,1710351531000,1710637377000,0,1.5,2.54,0
+ufc-3206,2024-03-17,33964,Kennedy Nzechukwu,Ovince St. Preux,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.2,2.27,1.61728,1.59172,14,14,1710361254000,1710602576000,0,2.2,1.61728,0
+ufc-3206,2024-03-17,33964,Kennedy Nzechukwu,Ovince St. Preux,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.6,3.98,1.25974,1.22222,10,10,1710361254000,1710602576000,0,3.6,1.25974,0
+ufc-3206,2024-03-17,33964,Kennedy Nzechukwu,Ovince St. Preux,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.3,4.88,1.18868,1.15748,87,53,1710361254000,1710631845000,0,4.3,1.18868,0
+ufc-3206,2024-03-17,33974,Christian Rodriguez,Isaac Dulgarian,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.40816,1.41152,2.75,2.72,5,5,1710419446000,1710597070000,0,1.40816,2.75,0
+ufc-3206,2024-03-17,33974,Christian Rodriguez,Isaac Dulgarian,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.76923,1.83333,1.97087,1.90909,8,8,1710419446000,1710597070000,0,1.76923,1.97087,0
+ufc-3206,2024-03-17,33974,Christian Rodriguez,Isaac Dulgarian,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.9434,2.04,1.8,1.72464,14,13,1710419205000,1710632964000,0,1.9434,1.8,0
+ufc-3202,2024-03-23,34058,Andre Lima,Igor da Silva,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.53763,1.51282,2.44,2.47,3,3,1711036977000,1711053549000,0,1.53763,2.44,0
+ufc-3202,2024-03-23,34058,Andre Lima,Igor da Silva,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.96154,1.96154,1.77519,1.77519,2,2,1711053535000,1711053549000,0,1.96154,1.77519,0
+ufc-3202,2024-03-23,34288,Andre Lima,Igor Severino,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5,1.5,2.5,2.5,1,1,1711005790000,1711005790000,0,1.5,2.5,0
+ufc-3202,2024-03-23,34288,Andre Lima,Igor Severino,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.90909,1.90909,1.83333,1.83333,1,1,1711005790000,1711005790000,0,1.90909,1.83333,0
+ufc-3202,2024-03-23,34288,Andre Lima,Igor Severino,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.1,2.1,1.66667,1.66667,1,1,1711005790000,1711005790000,0,2.1,1.66667,0
+ufc-3202,2024-03-23,34061,Mick Parkin,Mohammed Usman,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28986,1.28986,3.35,3.35,2,2,1711054631000,1711054738000,0,1.28986,3.35,0
+ufc-3202,2024-03-23,34061,Mick Parkin,Mohammed Usman,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5814,1.55866,2.34,2.35,3,3,1711040215000,1711054738000,0,1.5814,2.34,0
+ufc-3202,2024-03-23,34061,Mick Parkin,Mohammed Usman,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.72464,1.68027,2.05,2.12,80,45,1711005911000,1711234962000,0,1.72464,2.05,0
+ufc-3174,2024-03-24,33817,Amanda Ribas,Rose Namajunas,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.26667,1.24213,3.5,3.75,13,13,1710863327000,1710996189000,0,1.26667,3.5,0
+ufc-3174,2024-03-24,33817,Amanda Ribas,Rose Namajunas,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.52632,1.49505,2.4,2.5,17,17,1710863327000,1711030971000,0,1.52632,2.4,0
+ufc-3174,2024-03-24,33817,Amanda Ribas,Rose Namajunas,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.81967,1.78125,1.91743,1.96154,7,7,1710863327000,1710996189000,0,1.81967,1.91743,0
+ufc-3174,2024-03-24,33817,Amanda Ribas,Rose Namajunas,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.2,2.12,1.6135,1.68027,8,8,1710859749000,1710946020000,0,2.2,1.6135,0
+ufc-3174,2024-03-24,33817,Amanda Ribas,Rose Namajunas,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.29,1.53191,1.5848,14,14,1710859749000,1711207984000,0,2.4,1.53191,0
+ufc-3174,2024-03-24,34294,Justin Tafa,Karl Williams,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5814,1.54348,2.34,2.39,9,9,1710946131000,1711222033000,0,1.5814,2.34,0
+ufc-3174,2024-03-24,34294,Justin Tafa,Karl Williams,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.0,1.98039,1.75758,1.77519,5,5,1710959578000,1711213753000,0,2.0,1.75758,0
+ufc-3174,2024-03-24,34069,Aj Dobson,Edmen Shahbazyan,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.51282,1.5291,2.43,2.4,6,6,1710962808000,1710998709000,0,1.51282,2.43,0
+ufc-3174,2024-03-24,34069,Aj Dobson,Edmen Shahbazyan,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.08,2.01,1.73529,1.75188,7,7,1710948289000,1711237621000,0,2.08,1.73529,0
+ufc-3174,2024-03-24,34060,Cameron Saaiman,Payton Talbott,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25974,1.25641,3.55,3.65,5,5,1710964609000,1711212671000,0,1.25974,3.55,0
+ufc-3174,2024-03-24,34060,Cameron Saaiman,Payton Talbott,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5102,1.4902,2.52,2.53,6,6,1710956561000,1711212671000,0,1.5102,2.52,0
+ufc-3174,2024-03-24,34060,Cameron Saaiman,Payton Talbott,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.57143,1.59172,2.3,2.28,13,13,1710955485000,1711224104000,0,1.57143,2.3,0
+ufc-3174,2024-03-24,34293,Billy Quartantillo,Youssef Zalal,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2,1.22075,4.1,4.0,7,7,1710965701000,1711213620000,0,1.2,4.1,0
+ufc-3174,2024-03-24,34293,Billy Quartantillo,Youssef Zalal,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.34965,1.38314,3.05,2.89,9,9,1710965701000,1711247579000,0,1.34965,3.05,0
+ufc-3174,2024-03-24,34293,Billy Quartantillo,Youssef Zalal,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.44643,2.65,2.66,13,13,1710963296000,1711213620000,0,1.44444,2.65,0
+ufc-3174,2024-03-24,34066,Fernando Padilla,Luis Pajuelo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5102,1.51546,2.52,2.43,6,6,1710966647000,1711213393000,0,1.5102,2.52,0
+ufc-3174,2024-03-24,34066,Fernando Padilla,Luis Pajuelo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.92593,2.02,1.80645,1.75188,5,5,1710968222000,1711213393000,0,1.92593,1.80645,0
+ufc-3174,2024-03-24,34066,Fernando Padilla,Luis Pajuelo,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.2,2.35,1.60606,1.57803,18,17,1710964372000,1711245095000,0,2.2,1.60606,0
+ufc-3174,2024-03-24,34062,Kurt Holobaugh,Trey Ogden,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.33223,3.0,3.12,8,8,1711004710000,1711213259000,0,1.36364,3.0,0
+ufc-3174,2024-03-24,34062,Kurt Holobaugh,Trey Ogden,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.65789,1.6135,2.2,2.22,9,9,1710969287000,1711213259000,0,1.65789,2.2,0
+ufc-3174,2024-03-24,34289,Julian Erosa,Ricardo Ramos,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.60976,2.3,2.23,9,9,1711004830000,1711226100000,0,1.57143,2.3,0
+ufc-3174,2024-03-24,34289,Julian Erosa,Ricardo Ramos,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.2,2.3,1.6135,1.5814,10,10,1711004830000,1711226100000,0,2.2,1.6135,0
+ufc-3174,2024-03-24,34291,Cody Gibson,Miles Johns,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.2681,3.4,3.53,14,14,1711005190000,1711213259000,0,1.28571,3.4,0
+ufc-3174,2024-03-24,34291,Cody Gibson,Miles Johns,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.53191,1.52632,2.4,2.43,16,16,1711005190000,1711228623000,0,1.53191,2.4,0
+ufc-3174,2024-03-24,34063,Jarno Errens,Steven Nguyen,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.30675,3.4,3.23,5,5,1711005190000,1711212777000,0,1.28571,3.4,0
+ufc-3174,2024-03-24,34063,Jarno Errens,Steven Nguyen,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.55556,2.5,2.35,6,6,1711005190000,1711212777000,0,1.5,2.5,0
+ufc-3174,2024-03-24,34063,Jarno Errens,Steven Nguyen,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.6135,1.70423,2.2,2.1,143,76,1711005190000,1711238210000,0,1.6135,2.2,0
+ufc-3174,2024-03-24,34065,Darya Zheleznyakova,Montserrat Rendon,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22222,1.22222,4.0,4.0,1,1,1711005550000,1711005550000,0,1.22222,4.0,0
+ufc-3174,2024-03-24,34065,Darya Zheleznyakova,Montserrat Rendon,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.36101,3.0,3.03,2,2,1711005550000,1711033014000,0,1.36364,3.0,0
+ufc-3174,2024-03-24,34065,Darya Zheleznyakova,Montserrat Rendon,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.44444,2.63,2.69,148,78,1711005550000,1711212098000,0,1.44444,2.63,0
+ufc-3225,2024-03-30,34302,Andre Petroski,Jacob Malkoun,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.25381,3.4,3.63,7,7,1711566193000,1711824546000,0,1.28571,3.4,0
+ufc-3225,2024-03-30,34302,Andre Petroski,Jacob Malkoun,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.53191,1.53763,2.4,2.4,9,9,1711366390000,1711824546000,0,1.53191,2.4,0
+ufc-3225,2024-03-30,34302,Andre Petroski,Jacob Malkoun,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.66667,1.67568,2.1,2.13,614,313,1711624275000,1711841389000,0,1.66667,2.1,0
+ufc-3225,2024-03-30,34300,Angel Pacheco,Caolan Loughran,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.44444,1.51813,2.63,2.44,5,5,1711566193000,1711814705000,0,1.44444,2.63,0
+ufc-3225,2024-03-30,34300,Angel Pacheco,Caolan Loughran,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.95238,2.15,1.8,1.66225,6,6,1711366390000,1711775958000,0,1.95238,1.8,0
+ufc-3225,2024-03-30,34300,Angel Pacheco,Caolan Loughran,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.45,1.53191,1.51546,105,63,1711624515000,1711838631000,0,2.4,1.53191,0
+ufc-3173,2024-03-31,34299,Erin Blanchfield,Manon Fiorot,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22222,1.20747,4.0,4.0,15,15,1711465030000,1711796124000,0,1.22222,4.0,0
+ufc-3173,2024-03-31,34299,Erin Blanchfield,Manon Fiorot,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.40486,3.0,2.75,12,12,1711465030000,1711796124000,0,1.36364,3.0,0
+ufc-3173,2024-03-31,34299,Erin Blanchfield,Manon Fiorot,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.57143,1.62893,2.3,2.19,13,13,1711465030000,1711796125000,0,1.57143,2.3,0
+ufc-3173,2024-03-31,34299,Erin Blanchfield,Manon Fiorot,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.72464,1.91743,2.05,1.83333,30,30,1711361829000,1711859946000,0,1.72464,2.05,0
+ufc-3173,2024-03-31,34299,Erin Blanchfield,Manon Fiorot,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.8,1.98039,1.95238,1.78125,27,27,1711361829000,1711860450000,0,1.8,1.95238,0
+ufc-3173,2024-03-31,34298,Joaquin Buckley,Vicente Luque,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.6135,2.3,2.21,19,19,1711465030000,1711821185000,0,1.57143,2.3,0
+ufc-3173,2024-03-31,34298,Joaquin Buckley,Vicente Luque,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.3,2.23,1.57143,1.6135,6,6,1711361829000,1711856230000,0,2.3,1.57143,0
+ufc-3173,2024-03-31,34298,Joaquin Buckley,Vicente Luque,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.55,1.5,1.47619,316,163,1711361829000,1711812907000,0,2.5,1.5,0
+ufc-3173,2024-03-31,34303,Bruno Silva,Chris Weidman,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.74074,2.3,2.02,18,18,1711361948000,1711856453000,0,1.57143,2.3,0
+ufc-3173,2024-03-31,34303,Bruno Silva,Chris Weidman,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.63,2.58,1.44444,1.46512,11,11,1711465150000,1711856453000,0,2.63,1.44444,0
+ufc-3173,2024-03-31,34303,Bruno Silva,Chris Weidman,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,2.97,1.36364,1.36765,508,264,1711465150000,1711856453000,0,3.0,1.36364,0
+ufc-3173,2024-03-31,34296,Nursulton Ruziboev,Sedriques Dumas,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.95238,1.98039,1.8,1.76923,20,20,1711362189000,1711852749000,0,1.95238,1.8,0
+ufc-3173,2024-03-31,34296,Nursulton Ruziboev,Sedriques Dumas,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.4,3.43,1.28571,1.28011,6,6,1711465150000,1711830085000,0,3.4,1.28571,0
+ufc-3173,2024-03-31,34296,Nursulton Ruziboev,Sedriques Dumas,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.0,4.24,1.22222,1.19763,15,15,1711465150000,1711830085000,0,4.0,1.22222,0
+ufc-3173,2024-03-31,34307,Bill Algeo,Kyle Nelson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25,1.21645,3.55,3.93,8,8,1711465149000,1711795164000,0,1.25,3.55,0
+ufc-3173,2024-03-31,34307,Bill Algeo,Kyle Nelson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.44444,1.41667,2.63,2.76,8,8,1711366150000,1711726505000,0,1.44444,2.63,0
+ufc-3173,2024-03-31,34307,Bill Algeo,Kyle Nelson,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.5,1.52083,2.5,2.45,16,16,1711465149000,1711852774000,0,1.5,2.5,0
+ufc-3173,2024-03-31,34295,Chidi Njokuani,Rhys McKee,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.72464,2.05,2.05,1.71942,13,13,1711366150000,1711830085000,0,1.72464,2.05,0
+ufc-3173,2024-03-31,34295,Chidi Njokuani,Rhys McKee,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.4,3.5,1.28571,1.27322,7,7,1711465150000,1711830085000,0,3.4,1.28571,0
+ufc-3173,2024-03-31,34295,Chidi Njokuani,Rhys McKee,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.0,4.34,1.22222,1.19268,22,19,1711465270000,1711830085000,0,4.0,1.22222,0
+ufc-3173,2024-03-31,34306,Jamall Emmers,Nate Landwehr,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.34965,1.35461,3.0,3.0,3,3,1711563653000,1711565472000,0,1.34965,3.0,0
+ufc-3173,2024-03-31,34306,Jamall Emmers,Nate Landwehr,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.70423,1.64516,2.12,2.18,6,6,1711560902000,1711841362000,0,1.70423,2.12,0
+ufc-3173,2024-03-31,34297,Lupita Godinez,Virna Jandiroba,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.14925,1.13986,5.0,5.0,4,4,1711635306000,1711727108000,0,1.14925,5.0,0
+ufc-3173,2024-03-31,34297,Lupita Godinez,Virna Jandiroba,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.28986,1.27778,3.4,3.45,4,4,1711635306000,1711727108000,0,1.28986,3.4,0
+ufc-3173,2024-03-31,34332,Herbert Burns,Julio Arce,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.83333,1.73529,1.90909,2.03,6,6,1711366269000,1711846282000,0,1.83333,1.90909,0
+ufc-3173,2024-03-31,34332,Herbert Burns,Julio Arce,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,2.68,1.36364,1.42553,4,4,1711566073000,1711793965000,0,3.0,1.36364,0
+ufc-3173,2024-03-31,34332,Herbert Burns,Julio Arce,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,3.21,1.28571,1.32051,8,8,1711622474000,1711844622000,0,3.4,1.28571,0
+ufc-3173,2024-03-31,34305,Connor Matthews,Dennis Buzukja,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.27778,3.0,3.42,4,4,1711566073000,1711793844000,0,1.36364,3.0,0
+ufc-3173,2024-03-31,34305,Connor Matthews,Dennis Buzukja,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.66667,1.57471,2.1,2.31,5,5,1711366269000,1711793844000,0,1.66667,2.1,0
+ufc-3173,2024-03-31,34305,Connor Matthews,Dennis Buzukja,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.72464,1.72993,2.05,2.05,6,6,1711623193000,1711664750000,0,1.72464,2.05,0
+ufc-3173,2024-03-31,34304,Anton Turkalj,Ibo Aslan,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.95238,2.26,1.8,1.5988,6,6,1711366269000,1711842905000,0,1.95238,1.8,0
+ufc-3173,2024-03-31,34304,Anton Turkalj,Ibo Aslan,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,3.4,1.36364,1.28011,5,5,1711566072000,1711793486000,0,3.0,1.36364,0
+ufc-3173,2024-03-31,34304,Anton Turkalj,Ibo Aslan,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.5,4.03,1.18215,1.21882,13,13,1711615633000,1711834319000,0,4.5,1.18215,0
+ufc-3173,2024-03-31,34301,Melissa Gatto,Victoria Dudakova,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.28571,1.22989,3.4,3.87,4,4,1711566073000,1711792766000,0,1.28571,3.4,0
+ufc-3173,2024-03-31,34301,Melissa Gatto,Victoria Dudakova,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.5,1.45455,2.5,2.62,5,5,1711366270000,1711792766000,0,1.5,2.5,0
+ufc-3173,2024-03-31,34301,Melissa Gatto,Victoria Dudakova,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.54945,1.54645,2.3,2.38,169,90,1711623914000,1711814953000,0,1.54945,2.3,0
+ufc-3230,2024-04-06,34348,Brendan Allen,Chris Curtis,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.29851,1.29412,3.3,3.33,3,3,1712158014000,1712257278000,0,1.29851,3.3,0
+ufc-3230,2024-04-06,34348,Brendan Allen,Chris Curtis,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.57471,1.5988,2.36,2.26,4,4,1712157193000,1712257278000,0,1.57471,2.36,0
+ufc-3230,2024-04-06,34348,Brendan Allen,Chris Curtis,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.97087,2.0,1.75758,1.74074,4,4,1712158014000,1712418439000,0,1.97087,1.75758,0
+ufc-3230,2024-04-06,34348,Brendan Allen,Chris Curtis,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.4,2.4,1.52632,1.5291,3,3,1712158014000,1712257278000,0,2.4,1.52632,0
+ufc-3230,2024-04-06,34432,Alexander Hernandez,Damon Jackson,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.62893,1.68966,2.2,2.08,11,11,1712160785000,1712421323000,0,1.62893,2.2,0
+ufc-3230,2024-04-06,34432,Alexander Hernandez,Damon Jackson,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.34,2.52,1.5814,1.49261,12,12,1712158738000,1712446611000,0,2.34,1.5814,0
+ufc-3230,2024-04-06,34425,Chepe Mariscal,Morgan Charriere,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25,1.25641,3.65,3.68,5,5,1712161734000,1712426139000,0,1.25,3.65,0
+ufc-3230,2024-04-06,34425,Chepe Mariscal,Morgan Charriere,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.47619,1.46729,2.62,2.59,4,4,1712159586000,1712258839000,0,1.47619,2.62,0
+ufc-3230,2024-04-06,34425,Chepe Mariscal,Morgan Charriere,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.5814,1.57143,2.36,2.33,12,12,1712160063000,1712445053000,0,1.5814,2.36,0
+ufc-3230,2024-04-06,34426,Christos Giagos,Ignacio Bahamondes,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57471,1.5291,2.36,2.42,24,24,1712160168000,1712426140000,0,1.57471,2.36,0
+ufc-3230,2024-04-06,34426,Christos Giagos,Ignacio Bahamondes,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.14,2.16,1.65789,1.64516,19,19,1712162586000,1712426140000,0,2.14,1.65789,0
+ufc-3230,2024-04-06,34426,Christos Giagos,Ignacio Bahamondes,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.55,1.5,1.47393,20,20,1712150812000,1712443286000,0,2.5,1.5,0
+ufc-3230,2024-04-06,34471,Charlie Campbell,Trevor Peek,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.32787,2.1,3.15,1.6993,8,8,1712167987000,1712441704000,0,1.32787,3.15,0
+ufc-3230,2024-04-06,34471,Charlie Campbell,Trevor Peek,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.66667,3.27,2.14,1.30675,4,4,1712167987000,1712261242000,0,1.66667,2.14,0
+ufc-3230,2024-04-06,34471,Charlie Campbell,Trevor Peek,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.86957,4.05,1.86957,1.21739,14,14,1712167987000,1712441488000,0,1.86957,1.86957,0
+ufc-3230,2024-04-06,34430,Alex Morono,Court McGee,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.38462,2.9,2.82,13,13,1712244542000,1712437384000,0,1.36364,2.9,0
+ufc-3230,2024-04-06,34430,Alex Morono,Court McGee,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.73529,1.71429,2.08,2.07,13,13,1712241200000,1712438594000,0,1.73529,2.08,0
+ufc-3230,2024-04-06,34431,Lukasz Brzeski,Valter Walker,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5814,1.6135,2.34,2.24,9,9,1712160289000,1712373682000,0,1.5814,2.34,0
+ufc-3230,2024-04-06,34431,Lukasz Brzeski,Valter Walker,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.3,2.27,1.57143,1.57143,4,4,1712167975000,1712260641000,0,2.3,1.57143,0
+ufc-3230,2024-04-06,34429,Germaine de Randamie,Norma Dumont,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.16,1.17361,4.75,4.63,7,7,1712245742000,1712416058000,0,1.16,4.75,0
+ufc-3230,2024-04-06,34429,Germaine de Randamie,Norma Dumont,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.30303,1.32258,3.4,3.2,14,14,1712241536000,1712436656000,0,1.30303,3.4,0
+ufc-3230,2024-04-06,34429,Germaine de Randamie,Norma Dumont,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.35714,1.39216,3.0,2.87,12,12,1712228935000,1712416058000,0,1.35714,3.0,0
+ufc-3230,2024-04-06,34603,Pedro Falcao,Victor Hugo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.45455,1.46948,2.6,2.58,10,10,1712330486000,1712426601000,0,1.45455,2.6,0
+ufc-3230,2024-04-06,34603,Pedro Falcao,Victor Hugo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.86957,1.86957,1.86957,1.86957,9,9,1712330486000,1712426601000,0,1.86957,1.86957,0
+ufc-3230,2024-04-06,34433,Dan Argueta,Jean Matsumoto,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.18868,1.19305,4.35,4.33,8,8,1712248267000,1712422643000,0,1.18868,4.35,0
+ufc-3230,2024-04-06,34433,Dan Argueta,Jean Matsumoto,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.38462,1.35714,2.94,3.04,8,8,1712242392000,1712422643000,0,1.38462,2.94,0
+ufc-3230,2024-04-06,34433,Dan Argueta,Jean Matsumoto,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.44843,2.65,2.67,11,11,1712233848000,1712433202000,0,1.44444,2.65,0
+ufc-3230,2024-04-06,34468,Cesar Almeida,Dylan Budka,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.29851,1.29412,3.3,3.33,3,3,1712249348000,1712267008000,0,1.29851,3.3,0
+ufc-3230,2024-04-06,34468,Cesar Almeida,Dylan Budka,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.55556,1.55556,2.4,2.35,6,6,1712242631000,1712429722000,0,1.55556,2.4,0
+ufc-3230,2024-04-06,34473,Melissa Dixon,Nora Cornolle,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.16,1.21978,4.75,3.95,4,4,1712310574000,1712417497000,0,1.16,4.75,0
+ufc-3230,2024-04-06,34473,Melissa Dixon,Nora Cornolle,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.32787,1.5,3.1,2.48,4,4,1712310574000,1712417497000,0,1.32787,3.1,0
+ufc-3230,2024-04-06,34473,Melissa Dixon,Nora Cornolle,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.66667,2.65,2.12,4,4,1712310574000,1712417497000,0,1.44444,2.65,0
+ufc-3230,2024-04-06,34470,Melissa Mullins,Nora Cornolle,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25,1.25,3.55,3.75,2,2,1712267486000,1712353759000,0,1.25,3.55,0
+ufc-3230,2024-04-06,34470,Melissa Mullins,Nora Cornolle,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.45045,3.0,2.68,6,6,1712267486000,1712410754000,0,1.36364,3.0,0
+ufc-3230,2024-04-06,34470,Melissa Mullins,Nora Cornolle,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.5618,2.63,2.41,45,30,1712267608000,1712429870000,0,1.44444,2.63,0
+ufc-3159,2024-04-13,34347,Jalin Turner,Renato Moicano,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.9434,1.98039,1.83333,1.78125,13,13,1712688054000,1713051440000,0,1.9434,1.83333,0
+ufc-3159,2024-04-13,34347,Jalin Turner,Renato Moicano,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,3.07,1.35971,1.34014,7,7,1712758755000,1712979189000,0,3.0,1.35971,0
+ufc-3159,2024-04-13,34347,Jalin Turner,Renato Moicano,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.75,3.78,1.25,1.2445,12,12,1712672937000,1713050975000,0,3.75,1.25,0
+ufc-3159,2024-04-13,34034,Jessica Andrade,Marina Rodriguez,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.31746,1.35461,3.2,3.03,9,9,1712759705000,1713037408000,0,1.31746,3.2,0
+ufc-3159,2024-04-13,34034,Jessica Andrade,Marina Rodriguez,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.60241,1.71429,2.3,2.08,20,20,1712688302000,1713049522000,0,1.60241,2.3,0
+ufc-3159,2024-04-13,34034,Jessica Andrade,Marina Rodriguez,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.74074,1.8547,2.0,1.89286,24,24,1712675328000,1713050016000,0,1.74074,2.0,0
+ufc-3159,2024-04-13,33814,Bobby Green,Jim Miller,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.35971,1.37313,3.0,2.93,18,18,1712760425000,1713046869000,0,1.35971,3.0,0
+ufc-3159,2024-04-13,33814,Bobby Green,Jim Miller,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.68493,1.74074,2.14,2.03,23,23,1712688428000,1713048452000,0,1.68493,2.14,0
+ufc-3159,2024-04-13,33808,Cody Garbrandt,Deiveson Figueiredo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5102,1.52356,2.52,2.43,15,15,1712688653000,1713036688000,0,1.5102,2.52,0
+ufc-3159,2024-04-13,33808,Cody Garbrandt,Deiveson Figueiredo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.08,2.16,1.6993,1.64516,12,12,1712761286000,1713036688000,0,2.08,1.6993,0
+ufc-3159,2024-04-13,33808,Cody Garbrandt,Deiveson Figueiredo,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.3,2.55,1.57143,1.48544,18,18,1712678217000,1713046527000,0,2.3,1.57143,0
+ufc-300-3205,2024-04-14,34091,Alex Pereira,Jamahal Hill,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.625,1.51282,2.26,2.48,22,22,1711479764000,1713072174000,0,1.625,2.26,0
+ufc-300-3205,2024-04-14,34091,Alex Pereira,Jamahal Hill,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.23,2.18,1.60606,1.63291,7,7,1712176499000,1713056834000,0,2.23,1.60606,0
+ufc-300-3205,2024-04-14,34091,Alex Pereira,Jamahal Hill,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,2.95,2.93,1.36364,1.36364,5,5,1712176499000,1713056834000,0,2.95,1.36364,0
+ufc-300-3205,2024-04-14,34091,Alex Pereira,Jamahal Hill,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,3.65,3.53,1.25974,1.2681,5,5,1712176499000,1712838068000,0,3.65,1.25974,0
+ufc-300-3205,2024-04-14,34091,Alex Pereira,Jamahal Hill,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.0,4.03,1.22222,1.21645,17,17,1711467290000,1713070265000,0,4.0,1.22222,0
+ufc-300-3205,2024-04-14,33803,Yan Xiaonan,Zhang Weili,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.21978,1.24096,4.0,3.77,17,17,1712177351000,1713015311000,0,1.21978,4.0,0
+ufc-300-3205,2024-04-14,33803,Yan Xiaonan,Zhang Weili,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.41667,1.4902,2.7,2.5,17,17,1712177351000,1713015311000,0,1.41667,2.7,0
+ufc-300-3205,2024-04-14,33803,Yan Xiaonan,Zhang Weili,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.64935,1.74074,2.2,2.03,24,24,1711480012000,1713068219000,0,1.64935,2.2,0
+ufc-300-3205,2024-04-14,33803,Yan Xiaonan,Zhang Weili,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.89286,2.18,1.84746,1.63694,18,18,1712177351000,1713061401000,0,1.89286,1.84746,0
+ufc-300-3205,2024-04-14,33813,Justin Gaethje,Max Holloway,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.21978,1.22075,4.0,4.0,18,18,1712258234000,1713055985000,0,1.21978,4.0,0
+ufc-300-3205,2024-04-14,33813,Justin Gaethje,Max Holloway,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.40816,1.41667,2.75,2.72,23,23,1712258234000,1713062341000,0,1.40816,2.75,0
+ufc-300-3205,2024-04-14,33813,Justin Gaethje,Max Holloway,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.72464,1.63694,2.08,2.2,17,17,1711480503000,1713064629000,0,1.72464,2.08,0
+ufc-300-3205,2024-04-14,33813,Justin Gaethje,Max Holloway,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,1.83333,1.88496,1.89286,1.8547,11,11,1712258234000,1713055985000,0,1.83333,1.89286,0
+ufc-300-3205,2024-04-14,33753,Arman Tsarukyan,Charles Oliveira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.79365,1.72464,1.98039,2.06,26,26,1711481109000,1713062939000,0,1.79365,1.98039,0
+ufc-300-3205,2024-04-14,33753,Arman Tsarukyan,Charles Oliveira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.65,2.74,1.43478,1.41494,18,18,1712259092000,1713049281000,0,2.65,1.43478,0
+ufc-300-3205,2024-04-14,33708,Bo Nickal,Cody Brundage,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.0,3.29,1.35714,1.31348,20,20,1711481827000,1713061030000,0,3.0,1.35714,0
+ufc-300-3205,2024-04-14,33708,Bo Nickal,Cody Brundage,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,5.25,6.0,1.12987,1.10142,13,13,1712260166000,1712889913000,0,5.25,1.12987,0
+ufc-300-3205,2024-04-14,33708,Bo Nickal,Cody Brundage,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,6.0,7.53,1.11111,1.06959,32,32,1711468020000,1713060208000,0,6.0,1.11111,0
+ufc-300-3205,2024-04-14,33709,Aleksandar Rakic,Jiri Prochazka,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.61728,1.5814,2.2,2.28,18,18,1712670059000,1713034989000,0,1.61728,2.2,0
+ufc-300-3205,2024-04-14,33709,Aleksandar Rakic,Jiri Prochazka,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.12,2.22,1.70423,1.61728,16,16,1712668502000,1713058534000,0,2.12,1.70423,0
+ufc-300-3205,2024-04-14,33709,Aleksandar Rakic,Jiri Prochazka,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.65,2.64,1.44444,1.45662,16,16,1712664771000,1713056730000,0,2.65,1.44444,0
+ufc-300-3205,2024-04-14,33710,Aljamain Sterling,Calvin Kattar,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2,1.22075,4.1,3.97,9,9,1712671140000,1713038846000,0,1.2,4.1,0
+ufc-300-3205,2024-04-14,33710,Aljamain Sterling,Calvin Kattar,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.43478,1.48309,2.76,2.54,14,14,1712668990000,1713038846000,0,1.43478,2.76,0
+ufc-300-3205,2024-04-14,33898,Holly Holm,Kayla Harrison,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.34965,1.35461,3.05,3.03,7,7,1712676673000,1712979451000,0,1.34965,3.05,0
+ufc-300-3205,2024-04-14,33898,Holly Holm,Kayla Harrison,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.64516,1.6993,2.17,2.09,14,14,1712676673000,1713054567000,0,1.64516,2.17,0
+ufc-300-3205,2024-04-14,34033,Diego Lopes,Sodiq Yusuff,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.51282,1.60606,2.43,2.24,16,16,1712678114000,1713053366000,0,1.51282,2.43,0
+ufc-300-3205,2024-04-14,34033,Diego Lopes,Sodiq Yusuff,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.07,2.2,1.6993,1.625,9,9,1712678114000,1712979312000,0,2.07,1.6993,0
+ufc-300-3205,2024-04-14,34033,Diego Lopes,Sodiq Yusuff,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.57,1.52632,1.47393,22,22,1712670768000,1713053597000,0,2.4,1.52632,0
+ufc-3252,2024-04-27,34710,David Onama,Jonathan Pearce,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.5,1.50761,2.5,2.45,7,7,1713870925000,1714260549000,0,1.5,2.5,0
+ufc-3252,2024-04-27,34710,David Onama,Jonathan Pearce,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.2,2.11,1.6135,1.68966,10,10,1713870925000,1714260549000,0,2.2,1.6135,0
+ufc-3252,2024-04-27,34710,David Onama,Jonathan Pearce,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.47,1.5,1.50505,204,112,1713870925000,1714260549000,0,2.5,1.5,0
+ufc-3252,2024-04-27,34544,Tim Means,Uros Medic,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.57143,1.63291,2.3,2.2,13,13,1713871525000,1714256362000,0,1.57143,2.3,0
+ufc-3252,2024-04-27,34544,Tim Means,Uros Medic,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.5,2.47,1.5,1.50761,8,8,1713871525000,1714234039000,0,2.5,1.5,0
+ufc-3252,2024-04-27,34544,Tim Means,Uros Medic,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.75,2.82,1.4,1.4,169,95,1713871525000,1714246533000,0,2.75,1.4,0
+ufc-3252,2024-04-27,34546,Rani Yahya,Victor Henry,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.37313,2.75,2.92,10,10,1714013366000,1714227556000,0,1.4,2.75,0
+ufc-3252,2024-04-27,34546,Rani Yahya,Victor Henry,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.72464,1.75188,2.05,2.02,13,13,1714013366000,1714249272000,0,1.72464,2.05,0
+ufc-3252,2024-04-27,34546,Rani Yahya,Victor Henry,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.8,1.9434,1.95238,1.81967,63,44,1714013367000,1714253402000,0,1.8,1.95238,0
+ufc-3252,2024-04-27,34706,Austin Hubbard,Michal Figlak,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.25,1.20243,3.75,4.25,5,5,1714013967000,1714248677000,0,1.25,3.75,0
+ufc-3252,2024-04-27,34706,Austin Hubbard,Michal Figlak,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.44444,1.4065,2.63,2.8,6,6,1714013967000,1714248677000,0,1.44444,2.63,0
+ufc-3252,2024-04-27,34706,Austin Hubbard,Michal Figlak,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.5,1.4902,2.5,2.52,12,12,1714013967000,1714248677000,0,1.5,2.5,0
+ufc-3252,2024-04-27,34547,Caio Machado,Don'tale Mayes,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.36364,1.31447,3.0,3.27,5,5,1714014326000,1714250246000,0,1.36364,3.0,0
+ufc-3252,2024-04-27,34547,Caio Machado,Don'tale Mayes,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.54945,1.55249,2.3,2.35,10,10,1714014326000,1714250246000,0,1.54945,2.3,0
+ufc-3252,2024-04-27,34547,Caio Machado,Don'tale Mayes,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.66667,1.67568,2.1,2.13,115,66,1714014327000,1714254318000,0,1.66667,2.1,0
+ufc-3252,2024-04-27,34549,Ketlen Souza,Marnic Mann,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.22222,1.20747,4.0,4.13,5,5,1714014807000,1714231532000,0,1.22222,4.0,0
+ufc-3252,2024-04-27,34549,Ketlen Souza,Marnic Mann,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.36364,1.35971,3.0,2.99,6,6,1714014807000,1714231532000,0,1.36364,3.0,0
+ufc-3252,2024-04-27,34549,Ketlen Souza,Marnic Mann,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.44444,1.46512,2.63,2.62,16,16,1714014807000,1714252561000,0,1.44444,2.63,0
+ufc-3252,2024-04-27,34779,Chris Padilla,James Llontop,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.62893,1.62893,2.2,2.2,2,2,1714159894000,1714159997000,0,1.62893,2.2,0
+ufc-3252,2024-04-27,34779,Chris Padilla,James Llontop,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.44,2.33,1.54945,1.56497,3,3,1714147532000,1714159997000,0,2.44,1.54945,0
+ufc-3252,2024-04-27,34551,Ivana Petrovic,Na Liang,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.8,1.8,1.95238,1.9434,11,11,1714015167000,1714249886000,0,1.8,1.95238,0
+ufc-3252,2024-04-27,34551,Ivana Petrovic,Na Liang,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.63,2.75,1.44444,1.40486,8,8,1714015167000,1714144276000,0,2.63,1.44444,0
+ufc-3252,2024-04-27,34551,Ivana Petrovic,Na Liang,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.0,3.41,1.36364,1.2924,56,35,1714015167000,1714236312000,0,3.0,1.36364,0
+ufc-3252,2024-04-27,34550,Gabriel Benitez,Maheshate,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.6135,1.59524,2.2,2.28,2,2,1714016847000,1714140927000,0,1.6135,2.2,0
+ufc-3252,2024-04-27,34550,Gabriel Benitez,Maheshate,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.05,2.2,1.72464,1.6135,2,2,1714016847000,1714100369000,0,2.05,1.72464,0
+ufc-3252,2024-04-27,34550,Gabriel Benitez,Maheshate,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.3,2.54,1.57143,1.49261,9,9,1714016847000,1714248246000,0,2.3,1.57143,0
+ufc-3260,2024-04-28,34643,Alex Perez,Matheus Nicolau,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.27778,1.22831,3.45,3.93,17,17,1713888796000,1714267518000,0,1.27778,3.45,0
+ufc-3260,2024-04-28,34643,Alex Perez,Matheus Nicolau,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.56497,1.4386,2.33,2.67,21,21,1713888796000,1714267518000,0,1.56497,2.33,0
+ufc-3260,2024-04-28,34643,Alex Perez,Matheus Nicolau,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.88496,1.68027,1.84746,2.12,17,17,1713888796000,1714267518000,0,1.88496,1.84746,0
+ufc-3260,2024-04-28,34643,Alex Perez,Matheus Nicolau,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.1,1.92593,1.66667,1.83333,23,23,1713866724000,1714267518000,0,2.1,1.66667,0
+ufc-3260,2024-04-28,34643,Alex Perez,Matheus Nicolau,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.17,1.53191,1.65359,74,55,1713866724000,1714267790000,0,2.4,1.53191,0
+ufc-3260,2024-04-28,34542,Bogdan Guskov,Ryan Spann,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.0,3.04,1.36364,1.35336,14,14,1713869724000,1714266079000,0,3.0,1.36364,0
+ufc-3260,2024-04-28,34542,Bogdan Guskov,Ryan Spann,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,4.5,5.33,1.18215,1.13158,11,11,1713869724000,1714266079000,0,4.5,1.18215,0
+ufc-3260,2024-04-28,34542,Bogdan Guskov,Ryan Spann,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,5.5,6.62,1.125,1.09091,60,37,1713869724000,1714265750000,0,5.5,1.125,0
+ufc-3260,2024-04-28,34545,Ariane Lipski,Karine Silva,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.54945,1.58824,2.35,2.27,7,7,1713890950000,1714163717000,0,1.54945,2.35,0
+ufc-3260,2024-04-28,34545,Ariane Lipski,Karine Silva,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.1,2.23,1.66667,1.6135,15,15,1713870084000,1714263559000,0,2.1,1.66667,0
+ufc-3260,2024-04-28,34545,Ariane Lipski,Karine Silva,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.4,2.54,1.53191,1.4878,12,12,1713870084000,1714245204000,0,2.4,1.53191,0
+ufc-3260,2024-04-28,34552,Austen Lane,Jhonata Diniz,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,3.0,3.09,1.36364,1.34602,16,16,1713870565000,1714228290000,0,3.0,1.36364,0
+ufc-3260,2024-04-28,34552,Austen Lane,Jhonata Diniz,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.0,4.77,1.36364,1.16026,6,6,1713870565000,1714044679000,0,3.0,1.36364,0
+ufc-3260,2024-04-28,34552,Austen Lane,Jhonata Diniz,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,3.4,6.43,1.28571,1.0998,48,33,1713870565000,1714260114000,0,3.4,1.28571,0
+ufc-3231,2024-05-04,34561,Jamie Mullarkey,Mauricio Ruffy,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.67568,1.68027,2.12,2.11,7,7,1714587916000,1714865973000,0,1.67568,2.12,0
+ufc-3231,2024-05-04,34561,Jamie Mullarkey,Mauricio Ruffy,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.45,2.43,1.5,1.5102,3,3,1714587916000,1714639893000,0,2.45,1.5,0
+ufc-3231,2024-05-04,34561,Jamie Mullarkey,Mauricio Ruffy,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.9,2.86,1.37736,1.38462,29,22,1714587916000,1714865992000,0,2.9,1.37736,0
+ufc-3231,2024-05-04,34555,Dione Barbosa,Ernesta Kareckaite,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2381,1.2681,3.75,3.5,7,7,1714589009000,1714864279000,0,1.2381,3.75,0
+ufc-3231,2024-05-04,34555,Dione Barbosa,Ernesta Kareckaite,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.45455,1.47847,2.6,2.56,8,8,1714589009000,1714864279000,0,1.45455,2.6,0
+ufc-3231,2024-05-04,34555,Dione Barbosa,Ernesta Kareckaite,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.55556,1.62112,2.33,2.21,35,28,1714589009000,1714864279000,0,1.55556,2.33,0
+ufc-3231,2024-05-04,34557,Ismael Bonfim,Vinc Pichel,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.38462,2.8,2.84,19,19,1714590078000,1714850377000,0,1.4,2.8,0
+ufc-3231,2024-05-04,34557,Ismael Bonfim,Vinc Pichel,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.8,1.96154,1.9434,1.79365,22,22,1714590078000,1714861413000,0,1.8,1.9434,0
+ufc-3231,2024-05-04,34557,Ismael Bonfim,Vinc Pichel,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.02,2.15,1.73529,1.65359,33,27,1714590078000,1714862246000,0,2.02,1.73529,0
+ufc-3231,2024-05-04,34554,Alessandro Costa,Kevin Borjas,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.43478,1.44444,2.65,2.64,5,5,1714592601000,1714850964000,0,1.43478,2.65,0
+ufc-3231,2024-05-04,34554,Alessandro Costa,Kevin Borjas,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.89286,1.86957,1.83333,1.86957,5,5,1714592601000,1714860321000,0,1.89286,1.83333,0
+ufc-3231,2024-05-04,34554,Alessandro Costa,Kevin Borjas,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.17,2.08,1.64516,1.71429,43,30,1714592601000,1714860477000,0,2.17,1.64516,0
+ufc-3271,2024-05-05,34349,Alexandre Pantoja,Steve Erceg,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.27778,1.20921,3.4,4.15,18,18,1714420388000,1714583606000,0,1.27778,3.4,0
+ufc-3271,2024-05-05,34349,Alexandre Pantoja,Steve Erceg,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.56497,1.41841,2.3,2.73,19,19,1714420388000,1714617210000,0,1.56497,2.3,0
+ufc-3271,2024-05-05,34349,Alexandre Pantoja,Steve Erceg,total,3.5,0,34,Over 3½ rounds,Under 3½ rounds,1.78125,1.62112,2.0,2.21,34,34,1714391228000,1714882152000,0,1.78125,2.0,0
+ufc-3271,2024-05-05,34349,Alexandre Pantoja,Steve Erceg,total,4.5,0,35,Over 4½ rounds,Under 4½ rounds,2.3,1.97087,1.57143,1.77519,11,11,1714420388000,1714572192000,0,2.3,1.57143,0
+ufc-3271,2024-05-05,34349,Alexandre Pantoja,Steve Erceg,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.68,2.23,1.46512,1.61728,34,34,1714391831000,1714882303000,0,2.68,1.46512,0
+ufc-3271,2024-05-05,34709,Jonathan Martinez,Jose Aldo,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.18868,1.19417,4.1,4.37,11,11,1714571003000,1714842816000,0,1.18868,4.1,0
+ufc-3271,2024-05-05,34709,Jonathan Martinez,Jose Aldo,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.38462,1.3876,2.98,2.88,14,14,1714570513000,1714878562000,0,1.38462,2.98,0
+ufc-3271,2024-05-05,34553,Anthony Smith,Vitor Petrino,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.47619,1.48544,2.62,2.54,7,7,1714469343000,1714700615000,0,1.47619,2.62,0
+ufc-3271,2024-05-05,34553,Anthony Smith,Vitor Petrino,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.25,2.2,1.5988,1.62893,6,6,1714486629000,1714700615000,0,2.25,1.5988,0
+ufc-3271,2024-05-05,34553,Anthony Smith,Vitor Petrino,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.8,2.66,1.42553,1.44053,18,18,1714469475000,1714878585000,0,2.8,1.42553,0
+ufc-3271,2024-05-05,34799,Ihor Potieria,Michel Pereira,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,2.16,1.9901,1.67568,1.76923,28,28,1714469475000,1714874488000,0,2.16,1.67568,0
+ufc-3271,2024-05-05,34799,Ihor Potieria,Michel Pereira,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,3.8,3.45,1.2381,1.28249,11,11,1714489990000,1714859378000,0,3.8,1.2381,0
+ufc-3271,2024-05-05,34799,Ihor Potieria,Michel Pereira,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,4.6,4.16,1.18182,1.20408,26,25,1714469717000,1714876787000,0,4.6,1.18182,0
+ufc-3271,2024-05-05,34558,Caio Borralho,Paul Craig,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.47619,1.46948,2.62,2.58,9,9,1714469822000,1714796962000,0,1.47619,2.62,0
+ufc-3271,2024-05-05,34558,Caio Borralho,Paul Craig,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.2,2.14,1.61728,1.65359,8,8,1714492881000,1714626691000,0,2.2,1.61728,0
+ufc-3271,2024-05-05,34558,Caio Borralho,Paul Craig,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.76,2.6,1.43478,1.46083,53,36,1714469822000,1714873668000,0,2.76,1.43478,0
+ufc-3271,2024-05-05,34564,Jack Shore,Joanderson Brito,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.51282,1.53476,2.43,2.41,10,10,1714495762000,1714850376000,0,1.51282,2.43,0
+ufc-3271,2024-05-05,34564,Jack Shore,Joanderson Brito,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,2.14,2.11,1.65789,1.67114,12,12,1714495762000,1714850376000,0,2.14,1.65789,0
+ufc-3271,2024-05-05,34564,Jack Shore,Joanderson Brito,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.5,2.48,1.4878,1.50251,17,17,1714495762000,1714873156000,0,2.5,1.4878,0
+ufc-3271,2024-05-05,34562,Iasmin Lucindo,Karolina Kowalkiewicz,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.2,1.20921,4.2,4.18,9,9,1714576272000,1714838497000,0,1.2,4.2,0
+ufc-3271,2024-05-05,34562,Iasmin Lucindo,Karolina Kowalkiewicz,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.40816,1.43668,2.75,2.68,11,11,1714576272000,1714869917000,0,1.40816,2.75,0
+ufc-3271,2024-05-05,34562,Iasmin Lucindo,Karolina Kowalkiewicz,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.53763,1.53191,2.38,2.42,14,14,1714576272000,1714870892000,0,1.53763,2.38,0
+ufc-3271,2024-05-05,34556,Elves Brener,Myktybek Orolbai,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.31746,1.33333,3.2,3.13,7,7,1714579153000,1714869917000,0,1.31746,3.2,0
+ufc-3271,2024-05-05,34556,Elves Brener,Myktybek Orolbai,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.74627,1.65359,2.02,2.16,22,22,1714579153000,1714869917000,0,1.74627,2.02,0
+ufc-3271,2024-05-05,34556,Elves Brener,Myktybek Orolbai,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,1.90909,1.84746,1.83333,1.88496,122,70,1714579153000,1714869917000,0,1.90909,1.83333,0
+ufc-3271,2024-05-05,34563,Drakkar Klose,Joaquim Silva,total,1.5,0,32,Over 1½ rounds,Under 1½ rounds,1.4,1.40486,2.85,2.78,10,10,1714586487000,1714867289000,0,1.4,2.85,0
+ufc-3271,2024-05-05,34563,Drakkar Klose,Joaquim Silva,total,2.5,0,33,Over 2½ rounds,Under 2½ rounds,1.84746,1.92593,1.88496,1.82645,8,8,1714586487000,1714847737000,0,1.84746,1.88496,0
+ufc-3271,2024-05-05,34563,Drakkar Klose,Joaquim Silva,gtd,,0,1,Fight goes to decision,Fight doesn't go to decision,2.12,2.19,1.66667,1.64103,18,18,1714586487000,1714867651000,0,2.12,1.66667,0

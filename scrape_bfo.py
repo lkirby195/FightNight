@@ -62,9 +62,12 @@ S.headers.update({"User-Agent": UA})
 _last = [0.0]
 
 
-def fetch(url: str, binary=False, refresh=False) -> str:
+def fetch(url: str, binary=False, refresh=False, no_retry=()) -> str:
     """Cached GET. refresh=True re-downloads and overwrites the cached copy
-    (card_report uses it for future events, whose lines are still moving)."""
+    (card_report uses it for future events, whose lines are still moving).
+    no_retry: HTTP status codes to raise on immediately instead of backing off
+    (scrape_bfo_props passes 500, which /api/ggd returns deterministically for
+    some prop histories). Default () keeps the original 5-attempt behaviour."""
     key = hashlib.sha1(url.encode()).hexdigest()
     path = os.path.join(CACHE, key)
     if os.path.exists(path) and not refresh:
@@ -83,7 +86,8 @@ def fetch(url: str, binary=False, refresh=False) -> str:
                 fh.write(r.content)
             return r.content if binary else r.text
         except Exception as e:  # noqa: BLE001
-            if attempt == 4:
+            status = getattr(getattr(e, "response", None), "status_code", None)
+            if attempt == 4 or status in no_retry:
                 raise
             time.sleep(2 ** attempt)
 
