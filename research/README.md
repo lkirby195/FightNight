@@ -26,3 +26,26 @@ adoption bar. Bets where a lock was available won 64.2%, against 57.9% for the
 rest, so hedging sells our best bets at a discount, and hedging the rest costs
 even more. Riding everything wins. With no rules at all (every bout, model side
 at open, 2012-22), ROI is -3.05%, and hedging makes it worse.
+
+## props_parlays (2026-11-05)
+Questions: should we parlay our picks, is there a round over/under edge, and are
+other props worth isolating? Answers: parlays, not now. They multiply whatever
+the true per-leg edge is (backtest 2-leg doubled P&L), and that edge isn't
+pinned down live, so it's Kelly-style sizing through the back door. Round totals:
+our fighter features beat weight class + moneyline on goes-the-distance by
+0.014-0.021 log-loss in both 2015-22 and 2023-24. That's signal, not an edge:
+there are no prop prices in the repo yet. Method props on our side: no skew
+(winners by decision 50.5% vs 46.2% expected). "Favorites overpriced in
+decision-heavy fights": null once price is controlled (p 0.82-0.88).
+Caveat: the pre-registered tercile test "passed" but was confounded with price;
+reported as a null.
+
+## totals_edge (2026-11-05)
+Question: does our duration model beat BFO's closing rounds-totals price?
+Answer: no. Pre-registered gate failed on 2023-24 (O/U 2.5, n=870: stack gain
+-0.0016, t -1.32), so 2025+ was not read and stays clean. The market beats
+the model outright by 0.013-0.021 log-loss. The model does predict the
+open-to-close move (coef 0.09, t 6.7 with the open controlled; a null model
+gets 0.016), but the close already has it. Post-hoc: books load the vig on the
+short side (blind Under / "inside the distance" loses 10-16% over 2015-24);
+the long side is break-even before 2023.

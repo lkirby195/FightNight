@@ -786,12 +786,12 @@ def main():
     S = pd.DataFrame(srows)
 
     # write
-    C.to_csv(os.path.join(OUT, "coverage.csv"), index=False)
-    rules.to_csv(os.path.join(OUT, "rules.csv"), index=False)
-    T.to_csv(os.path.join(OUT, "rule_blocks.csv"), index=False)
-    W.to_csv(os.path.join(OUT, "walkforward.csv"), index=False)
-    ND.to_csv(os.path.join(OUT, "null_dist.csv"), index=False)
-    S.to_csv(os.path.join(OUT, "null_summary.csv"), index=False)
+    C.to_csv(os.path.join(OUT, "coverage.csv"), index=False, lineterminator="\n")
+    rules.to_csv(os.path.join(OUT, "rules.csv"), index=False, lineterminator="\n")
+    T.to_csv(os.path.join(OUT, "rule_blocks.csv"), index=False, lineterminator="\n")
+    W.to_csv(os.path.join(OUT, "walkforward.csv"), index=False, lineterminator="\n")
+    ND.to_csv(os.path.join(OUT, "null_dist.csv"), index=False, lineterminator="\n")
+    S.to_csv(os.path.join(OUT, "null_summary.csv"), index=False, lineterminator="\n")
     wf_chart(WB, os.path.join(OUT, "walkforward_pnl.png"),
              f"Walk-forward rule search, out of sample {WF_YEARS[0]}-{WF_YEARS[-1]}",
              f"Each year bets the grid rule with the best pooled t on earlier years "
