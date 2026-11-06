@@ -2,6 +2,13 @@
 Read-only studies. None changed the frozen signal or placement rules. Each
 folder has its own README, script, and outputs, reproducible at the commit listed.
 
+Reproducibility means byte-identical outputs on a rerun **in the same
+environment**. Across library versions, expect floating-point noise in the
+last digits. For example, scikit-learn 1.7.2 vs 1.9.1 (pandas 2.3 vs 3.0) moved
+fitted probabilities by at most about 5e-12, with no change to any count, row,
+label or reported result. Compare those runs numerically (tolerance 1e-9),
+not by hash.
+
 ## fade_buckets (2026-11-03, e1915a9)
 Question: should we bet the underdog when the model still picks the favorite but
 rates it well below the market? Answer: no. 2018-22: 741 bets, 232-509,

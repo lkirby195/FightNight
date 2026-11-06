@@ -108,8 +108,11 @@ data/bfo_props.csv          15,431 prop lines 2015-2026 (raw scrape): O/U 1.5/2.
                             cross-book mean, side 1 = Over/Yes. GTD missing on
                             <2% of bouts/yr 2015-21, 4-5% 2022-26, 13% in 2024
                             (BFO returns 500 for those histories)
-data/bfo_props_joined.csv   bfo_props joined to fights_v2 (fight_id, side) plus
-                            p1/p2_close_clean; cancelled/re-booked bouts dropped
+data/bfo_props_joined.csv   bfo_props joined to fights_v2 (fight_id, side);
+                            cancelled/re-booked bouts dropped. Both files carry
+                            the card_settle clean close (p1/p2_close_clean,
+                            t_close_clean, inplay_ticks_dropped), so --join
+                            needs no cache
 data/name_aliases.csv       bfo_name -> ufcstats_name, hand-maintained (names.py);
                             an empty ufcstats_name marks a distinct person
 data/model_only_preds.csv   walk-forward model-only probs (no market input)
