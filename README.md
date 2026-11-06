@@ -36,6 +36,11 @@ pipeline/scrape_bfo.py  BestFightOdds line histories -> bfo_lines.csv
                          validated open = first paired tick unless corrected
                          within the hour (open_suspect), last tick = close;
                          --rebuild rewrites every row from the cached series)
+pipeline/scrape_bfo_props.py  BFO prop line histories -> bfo_props.csv (rounds
+                        totals, goes the distance; method with --types method).
+                        Same open rule as scrape_bfo; --join -> bfo_props_joined.csv
+                        with fight_id, a/b side for fighter props, and the
+                        card_settle in-play-safe clean close (from cache only)
 pipeline/features.py    Stage 1 Glicko replay + leakage-safe rolling features
                         -> features_v2.csv
 pipeline/stage2.py      Antisymmetric feature matrix (paired diffs, mirror aug)
@@ -98,6 +103,13 @@ data/bfo_lines.csv          8,010 bouts: opening + closing mean lines 2010-2026;
                             and the raw first ticks (f1_open_raw, f2_open_raw)
 data/bfo_joined.csv         bfo_lines joined to fights_v2 by fight_id (a/b
                             orientation), with open_suspect and a/b_open_raw
+data/bfo_props.csv          15,431 prop lines 2015-2026 (raw scrape): O/U 1.5/2.5/
+                            3.5/4.5 rounds and goes the distance, open + close
+                            cross-book mean, side 1 = Over/Yes. GTD missing on
+                            <2% of bouts/yr 2015-21, 4-5% 2022-26, 13% in 2024
+                            (BFO returns 500 for those histories)
+data/bfo_props_joined.csv   bfo_props joined to fights_v2 (fight_id, side) plus
+                            p1/p2_close_clean; cancelled/re-booked bouts dropped
 data/name_aliases.csv       bfo_name -> ufcstats_name, hand-maintained (names.py);
                             an empty ufcstats_name marks a distinct person
 data/model_only_preds.csv   walk-forward model-only probs (no market input)

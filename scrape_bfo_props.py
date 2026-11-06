@@ -20,10 +20,22 @@ so props and moneylines share one open rule. Side 1 is always Over / Yes /
 "fighter wins by X"; side 2 is Under / No / "not that".
 
 In-play: BFO prunes in-play ticks from older events. For events under ~4 months
-old the last tick can be in-play (see card_settle). Rows carry recent=1 when
-the event was within 120 days of the scrape; filter them before using closes.
+old the last moneyline tick can be in-play (see card_settle). Rows carry
+recent=1 when the event was within 120 days of the scrape. Checked on the
+2026-11-05 scrape (688 recent rows, 220 bouts, 97 of them with moneyline
+in-play ticks): no prop tick lands at or after the moneyline's in-play onset,
+and no prop's last tick is more than 10 min past the last clean pre-fight
+moneyline tick. Books pull props at the bell. --join still writes the
+card_settle clean close (p1/p2_close_clean) for every row; it differs from the
+raw last tick on 9 older rows (out-of-band closes) and on no recent row.
 
-Polite: scrape_bfo.fetch (0.45 s spacing, disk cache cache_bfo/, retries).
+BFO /api/ggd returns HTTP 500 every time for some goes-the-distance histories
+(of bouts with a total: under 2% a year in 2015-21, 4-5% in 2022-23
+and 2025-26, 13% in 2024). Those props are tried once
+(no backoff), skipped, and retried on the next run.
+
+Polite: scrape_bfo.fetch (0.45 s spacing, disk cache cache_bfo/, retries;
+no retry on 500 for /api/ggd).
 Resumable: a (mu, pt, tn) already in the output is never fetched or written
 twice. Event list = the UFC slugs already in data/bfo_lines.csv.
 
@@ -39,6 +51,7 @@ from __future__ import annotations
 
 import base64
 import csv
+import hashlib
 import html as H
 import json
 import os
@@ -72,6 +85,21 @@ def gpd(mu: int, side: int, pt: int, tn: int):
     # BFO answers 500 every time for some prop histories (~2-15% of GTD props);
     # one attempt, no backoff, so we don't keep hitting a failing endpoint.
     raw = sb.fetch(f"{sb.BASE}/api/ggd?m={mu}&p={side}&pt={pt}&tn={tn}", no_retry=(500,))
+    return _decode(raw)
+
+
+def cached_gpd(mu: int, side: int, pt: int, tn: int):
+    """gpd from the disk cache only; None when the series was never cached.
+    Never touches the network (join() calls this for every row)."""
+    url = f"{sb.BASE}/api/ggd?m={mu}&p={side}&pt={pt}&tn={tn}"
+    path = os.path.join(sb.CACHE, hashlib.sha1(url.encode()).hexdigest())
+    if not os.path.exists(path):
+        return None
+    with open(path, "rb") as fh:
+        return _decode(fh.read().decode("utf-8", "replace"))
+
+
+def _decode(raw: str):
     raw = re.sub(r"[^A-Za-z0-9+/=]", "", raw)
     if not raw:
         return None
@@ -222,6 +250,17 @@ def join():
     fp = P.tn.isin([1, 2]) & f1a.notna()
     P.loc[fp, "side"] = [("a" if (tn == 1) == bool(x) else "b")
                          for tn, x in zip(P.loc[fp, "tn"], f1a[fp])]
+    # In-play-safe close, same rule as card_settle.paired_summary: the last
+    # paired tick whose overround is in [1.00, 1.15]. BFO keeps in-play ticks
+    # for ~4 months after an event, so p1_close/p2_close (raw last tick) can be
+    # mid-fight prices on recent cards. Computed from the disk cache only.
+    from card_settle import paired_summary
+    clean = []
+    for r in P.itertuples():
+        s1, s2 = (cached_gpd(int(r.mu), sd, int(r.pt), int(r.tn)) for sd in (1, 2))
+        s = paired_summary(s1, s2) if s1 and s2 else None
+        clean.append((s[1], s[3], s[5], s[6]) if s else (None, None, None, None))
+    P[["p1_close_clean", "p2_close_clean", "t_close_clean", "inplay_ticks_dropped"]] = clean
     J = P[P.fight_id.notna()].drop(columns=["slug"])
     J.to_csv(JOINED, index=False, lineterminator="\n")
     # Coverage against our fight records (not BFO's bout list, which includes
@@ -243,6 +282,10 @@ def join():
     tot = P[P.prop == "total"]
     print("\ntotals lines:", tot.line.value_counts().sort_index().to_dict())
     print(f"joined rows: {len(J)} of {len(P)} ({len(J) / len(P):.1%})")
+    moved = (P.p1_close_clean != P.p1_close) | (P.p2_close_clean != P.p2_close)
+    print("rows whose clean close differs from the raw last tick, by recent flag:",
+          P.assign(moved=moved).groupby("recent").moved.agg(["sum", "size"]).to_dict("index"))
+    print("rows with no cached series (clean close missing):", int(P.p1_close_clean.isna().sum()))
     return cov
 
 
