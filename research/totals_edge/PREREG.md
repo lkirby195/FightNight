@@ -97,4 +97,6 @@ already exists.
   inside dev.
 
 ## Amendments
-(none)
+None to the tests. After the run: a FutureWarning filter (no effect on
+outputs; byte-identical rerun checked), and post-hoc analyses in `posthoc.py`,
+labelled not pre-registered and limited to 2015-24.
