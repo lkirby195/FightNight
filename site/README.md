@@ -103,8 +103,9 @@ marked "Coin flip", and are not counted; a debut bout has no pick. On Our record
 the pick carries ✓ (right), ✗ (wrong) or – (not counted: coin flip, draw, no
 contest); draws and no contests void any bet. Rankings show the last three
 results as ✓ / ✗ / – (win, loss, draw or no contest), shape first, colour as a
-second cue. The "Show the numbers" toggle (Rankings only) adds RD and rating
-minus RD.
+second cue. The "Show the numbers" toggle (Rankings only) adds Confidence (the
+RD, shown as ±RD) and Net rating (rating − RD, the ranking order); the visible
+rating is labelled Gross rating (2026-11-06).
 
 ## Deploy
 

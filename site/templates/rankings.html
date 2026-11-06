@@ -17,8 +17,8 @@
   <div class="tablewrap">
   <table class="rank">
     <thead><tr>
-      <th class="r">#</th><th>Fighter</th><th class="r">Rating</th><th>Last 3</th><th>Last fight</th><th class="r">Move</th>
-      <th class="num r">RD</th><th class="num r">Rating − RD</th>
+      <th class="r">#</th><th>Fighter</th><th class="r">Gross rating</th><th>Last 3</th><th class="c-last">Last fight</th><th class="r c-move">Move</th>
+      <th class="num r" title="How sure we are of the gross rating: the fighter is probably within this many points of it. Tighter is more confident.">Confidence</th><th class="num r" title="Gross rating minus the confidence band. The rankings are ordered by this.">Net rating</th>
     </tr></thead>
     <tbody>
     {% for r in l.rows %}
@@ -27,10 +27,10 @@
       <td><span class="fname">{{ r.name }}</span>{% if l.key == "p4p" and r.division %}<span class="div">{{ r.division }}</span>{% endif %}</td>
       <td class="r mono rating">{{ r.rating_i }}</td>
       <td class="form">{% for x in r.last3 %}<span class="res {{ x }}" title="{{ {'W': 'Win', 'L': 'Loss', 'D': 'Draw', 'NC': 'No contest'}.get(x, x) }}">{{ {'W': '✓', 'L': '✗'}.get(x, '–') }}</span>{% endfor %}</td>
-      <td class="last">{{ r.last }} <span class="dim">{{ r.last_date }}</span></td>
-      <td class="r mono move {% if r.move.startswith('▲') %}up{% elif r.move.startswith('▼') %}down{% endif %}">{{ r.move }}</td>
-      <td class="num r mono">{{ r.rd_i }}</td>
-      <td class="num r mono">{{ (r.score) | round | int }}</td>
+      <td class="last c-last">{{ r.last }} <span class="dim">{{ r.last_date }}</span></td>
+      <td class="r mono c-move move {% if r.move.startswith('▲') %}up{% elif r.move.startswith('▼') %}down{% endif %}">{{ r.move }}</td>
+      <td class="num r mono">±{{ r.rd_i }}</td>
+      <td class="num r mono">{{ r.rating_i - r.rd_i }}</td>
     </tr>
     {% endfor %}
     </tbody>
@@ -41,20 +41,21 @@
 
 <div class="cards2">
   <div class="card">
-    <h3>Reading the rating</h3>
+    <h3>Reading the ratings</h3>
     <p>Everyone starts at <b>1500</b>. Around <b>1800</b> is a solid contender.
     <b>2000 and up</b> is title territory: only a handful of fighters get there at a time.</p>
-    <p>We rank by the rating minus how unsure we are of it. A fighter who has fought
+    <p>We rank by <b>net rating</b>: the gross rating minus our confidence band, how
+    far off the gross rating could be. A fighter who has fought
     often and recently gets full credit; a long layoff or a thin record costs a fighter
     places until the results come in.</p>
   </div>
   {% if explainer %}
   <div class="card">
     <h3>Why {{ explainer.one.name }} is above {{ explainer.two.name }}</h3>
-    <p>{{ explainer.two.name }} has the higher rating ({{ explainer.two.rating_i }} against
+    <p>{{ explainer.two.name }} has the higher gross rating ({{ explainer.two.rating_i }} against
     {{ explainer.one.rating_i }}) but we're less sure of it: fewer or older results, so a
-    wider margin of error ({{ explainer.two.rd_i }} points against {{ explainer.one.rd_i }}).
-    Rating minus that margin puts {{ explainer.one.name }} first.</p>
+    wider confidence band (±{{ explainer.two.rd_i }} against ±{{ explainer.one.rd_i }}).
+    Net rating, gross minus that band, puts {{ explainer.one.name }} first.</p>
   </div>
   {% endif %}
 </div>
@@ -67,7 +68,7 @@
     {% for r in rising %}
     <li><span class="fname">{{ r.name }}</span>{% if r.division %} <span class="div">{{ r.division }}</span>{% endif %}
       <span class="mono">{{ r.rating_i }}</span> <span class="dim">{{ r.last }} {{ r.last_date }}</span>
-      <span class="num mono dim">RD {{ r.rd_i }}</span></li>
+      <span class="num mono dim">confidence ±{{ r.rd_i }}</span></li>
     {% endfor %}
   </ul>
 </section>
