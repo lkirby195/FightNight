@@ -1,0 +1,30 @@
+# Exact versions for the scheduled cadence (.github/workflows/cadence.yml),
+# Python 3.13. These reproduced the committed data byte-for-byte on
+# 2026-11-05 (UFC Vegas 123 rolled back and re-settled from empty caches).
+# A different scikit-learn / numpy / pandas can move model probabilities in
+# the last digits and rewrite every row of the generated CSVs, so upgrade
+# these deliberately, in their own commit, with a replay and a re-settle.
+beautifulsoup4==4.15.0
+certifi==2026.10.18
+charset-normalizer==3.5.1
+idna==3.20
+iniconfig==2.3.0
+Jinja2==3.1.6
+joblib==1.6.0
+lxml==6.1.3
+MarkupSafe==3.0.3
+numpy==2.5.3
+packaging==26.3
+pandas==3.0.5
+pluggy==1.6.0
+Pygments==2.21.0
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+requests==2.34.2
+scikit-learn==1.9.1
+scipy==1.18.1
+six==1.17.0
+soupsieve==2.9.2
+threadpoolctl==3.7.0
+typing_extensions==4.16.0
+urllib3==2.8.0

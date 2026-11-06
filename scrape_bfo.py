@@ -29,6 +29,13 @@ Polite: 0.45s spacing, disk cache (cache_bfo/), resumable. Incremental by
 matchup id: a bout already in data/bfo_lines.csv (or already written this run
 under another slug for the same event) is never written twice.
 
+Not fought yet = not written (2026-11-05): a page dated after the last card in
+data/fights_v2.csv plus one day (BFO dates some Saturday cards, or half of
+one, on the Sunday) is skipped. Its lines are still moving, and since a row is
+never written twice, writing it early would freeze a pre-fight tick as the
+bout's close. A fresh sitemap lists the next few cards weeks ahead, so the
+automated Sunday run (empty cache, cadence.py) would otherwise do exactly that.
+
 Usage: python scrape_bfo.py [start_year end_year] [--rebuild]
   --rebuild first rewrites every row already on file from its cached series
   (fetching any series the cache lacks), row order and identity columns
@@ -45,7 +52,7 @@ import os
 import re
 import sys
 import time
-from datetime import datetime
+from datetime import date, datetime, timedelta
 
 import requests
 from bs4 import BeautifulSoup
@@ -351,7 +358,20 @@ def rebuild(start_year=2010, end_year=2027, out_path=OUT):
     return flagged
 
 
+def fought_through(path="data/fights_v2.csv"):
+    """-> ISO date of the last card on file plus one day: BFO pages dated
+    later have not been fought (None when there is no fights file)."""
+    if not os.path.exists(path):
+        return None
+    with open(path, newline="", encoding="utf-8") as fh:
+        last = max((r["event_date"] for r in csv.DictReader(fh)), default=None)
+    if last is None:
+        return None
+    return (date.fromisoformat(last) + timedelta(days=1)).isoformat()
+
+
 def main(start_year=2022, end_year=2027, out_path=OUT):
+    cutoff = fought_through()
     done = set()
     if os.path.exists(out_path):
         with open(out_path, newline="", encoding="utf-8") as fh:
@@ -378,6 +398,10 @@ def main(start_year=2022, end_year=2027, out_path=OUT):
                 title, ev_date, bouts = parse_event(slug)
             except Exception as e:  # noqa: BLE001
                 print(f"  EV ERR {slug}: {e!r}", flush=True)
+                continue
+            if cutoff and ev_date > cutoff:
+                if any(str(b["mu"]) not in done for b in bouts):
+                    print(f"  not fought yet, skipped: {slug} ({ev_date})", flush=True)
                 continue
             for b in bouts:
                 if str(b["mu"]) in done:
