@@ -139,10 +139,14 @@ def test_scrape_bfo_writes_only_fought_cards(tmp_path):
     assert scrape_bfo.fought_through(str(tmp_path / "missing.csv")) is None
 
 
-def test_card_order_puts_the_main_event_first(tmp_path):
+def test_this_week_state_orders_the_card_and_keeps_the_openers(tmp_path):
     import json
     card = [dict(c, bout_order=n) for c, n in zip(CARD, (3, 1, 2))]    # f1 is the main event
-    on = [dict(mu=10, fight_id="f2"), dict(mu=20, fight_id="f3"), dict(mu=30, fight_id="f1")]
+    op = lambda x: dict(f1_open=x, f2_open=1.5, f1_open_raw=x, f2_open_raw=1.5, open_suspect=False)
+    on = [dict(mu=10, fight_id="f2", **op(2.1)), dict(mu=20, fight_id="f3", **op(2.2)),
+          dict(mu=30, fight_id="f1", **op(2.3))]
     ev = dict(event_date="2026-11-07", event_name="UFC Fight Night: Cortes Acosta vs. Walker")
-    assert cadence.write_card_order(ev, card, on, path=tmp_path / "o.json") == [30, 20, 10]
-    assert json.loads((tmp_path / "o.json").read_text())["mus"] == [30, 20, 10]
+    assert cadence.write_this_week(ev, card, on, path=tmp_path / "w.json") == [30, 20, 10]
+    st = json.loads((tmp_path / "w.json").read_text())
+    assert st["mus"] == [30, 20, 10] and st["event_date"] == "2026-11-07"
+    assert st["opens"]["30"] == op(2.3) and set(st["opens"]) == {"10", "20", "30"}

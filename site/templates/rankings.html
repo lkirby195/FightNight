@@ -4,8 +4,6 @@
 <header class="hero">
   <p class="kicker">Rankings</p>
   <h1>Who's actually best</h1>
-  <p class="lede">Every UFC fight since 1994 run through one rating system. No voting, no
-  promotion. A fighter needs a bout since {{ eligible_since }} to be listed.</p>
 </header>
 
 <div class="pills" role="tablist">
@@ -28,7 +26,7 @@
       <td class="r mono">{{ r.rank }}</td>
       <td><span class="fname">{{ r.name }}</span>{% if l.key == "p4p" and r.division %}<span class="div">{{ r.division }}</span>{% endif %}</td>
       <td class="r mono rating">{{ r.rating_i }}</td>
-      <td class="dots">{% for x in r.last3 %}<span class="dot {{ x }}" title="{{ x }}"></span>{% endfor %}</td>
+      <td class="form">{% for x in r.last3 %}<span class="res {{ x }}" title="{{ {'W': 'Win', 'L': 'Loss', 'D': 'Draw', 'NC': 'No contest'}.get(x, x) }}">{{ {'W': '✓', 'L': '✗'}.get(x, '–') }}</span>{% endfor %}</td>
       <td class="last">{{ r.last }} <span class="dim">{{ r.last_date }}</span></td>
       <td class="r mono move {% if r.move.startswith('▲') %}up{% elif r.move.startswith('▼') %}down{% endif %}">{{ r.move }}</td>
       <td class="num r mono">{{ r.rd_i }}</td>

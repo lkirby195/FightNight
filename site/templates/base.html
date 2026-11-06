@@ -18,7 +18,7 @@
       <a href="/this-week/" {% if nav == "this-week" %}class="on"{% endif %}>This week</a>
       <a href="/record/" {% if nav == "record" %}class="on"{% endif %}>Our record</a>
     </nav>
-    <button class="numbers-toggle" id="numbers-toggle" type="button" aria-pressed="false">Show the numbers</button>
+    {% if numbers_toggle %}<button class="numbers-toggle" id="numbers-toggle" type="button" aria-pressed="false">Show the numbers</button>{% endif %}
   </div>
 </div>
 
@@ -28,9 +28,8 @@
 
 <footer>
   <div class="wrap">
-    <span>{{ brand }} · results through {{ data_through }} · built {{ as_of }}</span>
-    <span>Every page is generated from the public ledger and committed with it.</span>
-    <p class="disclaimer">Split Decision publishes model output for entertainment and analysis. It is not betting advice. We don't sell picks and we don't take money to promote anything. Bet only what you can afford to lose, and only where it's legal.</p>
+    <span>{{ brand }} · results through {{ data_through }}</span>
+    <p class="disclaimer">Split Decision publishes model output for entertainment and analysis. It is not betting advice. Bet only what you can afford to lose, and only where it's legal.</p>
   </div>
 </footer>
 
@@ -39,6 +38,7 @@
   // "Show the numbers": reveals the .num columns on every table.
   var btn = document.getElementById('numbers-toggle');
   function setNumbers(on) {
+    if (!btn) return;
     document.body.classList.toggle('numbers', on);
     btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     btn.textContent = on ? 'Hide the numbers' : 'Show the numbers';
@@ -47,7 +47,7 @@
   var saved = null;
   try { saved = localStorage.getItem('numbers'); } catch (e) {}
   if (saved === '1') setNumbers(true);
-  btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
+  if (btn) btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
 
   // Tabs and pills: [data-tab="x"] buttons show [data-panel="x"] in the same group.
   document.querySelectorAll('[data-tab]').forEach(function (b) {

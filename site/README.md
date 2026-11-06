@@ -70,33 +70,41 @@ as "this week"); it defaults to today.
 
 - `templates/` Jinja2 templates; `base.html` carries the nav, the wordmark
   (`BRAND` in `build.py`, placeholder `SPLIT DECISION`) and the few lines of
-  vanilla JS (year tabs, division pills, card dropdown, "Show the numbers").
+  vanilla JS (year tabs, division pills, card dropdown, "Show the numbers"
+  on Rankings, the only page with hidden columns). `_fights.html` is the one
+  fight table This week and Our record share.
 - `static/style.css` copied to `out/style.css`.
 - `division_overrides.csv` (`fighter_id,division`): overrides the default
   division (modal weight class of the last three fights).
-- `state/card_order.json`: the UFC Stats running order of the card
-  `cadence.py report` captured (main event first). This week lists the bouts in
-  that order; without it, capture order (which puts a prelim first when BFO
-  splits the card over two pages).
+- `state/this_week.json`: what `cadence.py report` knew about the card it
+  captured: the UFC Stats running order (main event first; This week lists
+  the bouts in that order) and each bout's validated BFO opener as
+  `card_report` read it. bfo_lines has no row for a card not fought yet, so
+  without it This week would show our first capture as the opening line and
+  classify the signal there instead of at the open.
 - `state/ranks_prev.json`: rank snapshot behind the "Move" column. It rotates
   only when the data moves (new results), so re-building within a week keeps the
   same comparison.
 - `backtest_2025.py`: the sealed one-shot that wrote
   `data/system_ledger_2025_backtest.csv` and
   `data/model_only_preds_2025_backtest.csv` (the 2025 tab). Never re-run.
-- `out/record/ledger.csv`: public ledger (every 2026 row and the 2025 backtest,
-  without the `units` and `pnl_at_open` columns; `live` = 1 marks the rows with a
-  pre-event capture).
+- The public ledger download (`out/record/ledger.csv`) was retired 2026-11-06;
+  `data/system_ledger.csv` in the repo is the record of truth.
 
 ## Conventions
 
-1 unit = $100. Model probabilities are whole-number percentages; market
-probabilities are the vig-removed pair normalised to 100. "The odds said" is
-the latest capture for the upcoming card and the earliest capture (else the
-opening line) for results. Model picks between 48% and 52% show as a coin flip
-and are not counted; draws and no contests are shown, not counted, and void
-any bet. No jargon on the default view; the "Show the numbers" toggle adds
-model line, open, placeable, close, CLV, rule, stake and RD columns.
+1 unit = $100. This week and Our record show one table (2026-11-06): Fight,
+Pick, Bet (Yes/No), Prediction odds, Opening line, and Current odds (This week)
+or Closing odds (Our record). Every odds column is for the fighter in the Pick
+column: prediction odds are the model's fair line, the opening line is BFO's
+validated opener, current odds the latest capture, closing odds the clean
+close. Model picks between 48% and 52% name the side the model leans to,
+marked "Coin flip", and are not counted; a debut bout has no pick. On Our record
+the pick carries ✓ (right), ✗ (wrong) or – (not counted: coin flip, draw, no
+contest); draws and no contests void any bet. Rankings show the last three
+results as ✓ / ✗ / – (win, loss, draw or no contest), shape first, colour as a
+second cue. The "Show the numbers" toggle (Rankings only) adds RD and rating
+minus RD.
 
 ## Deploy
 

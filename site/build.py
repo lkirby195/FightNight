@@ -51,7 +51,6 @@ import names
 import engine
 import signals as sg
 import stage2
-from signals import SKIP_LINE_MAX
 from replay_check import apply_params
 
 BRAND = "SPLIT DECISION"
@@ -74,15 +73,20 @@ NON_DIV = {"Catch Weight", "Open Weight", "Super Heavyweight"}
 METHOD = {"KO/TKO": "KO/TKO", "SUB": "Submission", "U-DEC": "Unanimous decision",
           "S-DEC": "Split decision", "M-DEC": "Majority decision", "DQ": "DQ",
           "Overturned": "Overturned", "CNC": "No contest", "Other": "Other"}
-LEDGER_PUBLIC_DROP = {"units", "pnl_at_open"}      # live stays: 1 = capture-proven row
 
 DATA = ROOT / "data"
 OUT_DEFAULT = SITE / "out"
 STATE = SITE / "state" / "ranks_prev.json"
-# UFC Stats running order of the card cadence.py captured (main event first):
-# {"event_date", "event_name", "mus"}. BFO splits some cards over two pages,
-# so capture order alone can put a prelim at the top of This week.
-CARD_ORDER = SITE / "state" / "card_order.json"
+# What cadence.py report knew about the card it captured, for This week:
+# {"event_date", "event_name", "mus", "opens"}. `mus` is the UFC Stats
+# running order, main event first (BFO splits some cards over two pages, so
+# capture order alone can put a prelim on top). `opens` is each bout's
+# validated BFO opener as card_report read it ({mu: {f1_open, f2_open,
+# f1_open_raw, f2_open_raw, open_suspect}}): bfo_lines has no row for a card
+# not fought yet, so without it the opener would fall back to our first
+# capture, and both the Opening Line column and the signal (classified at the
+# open, like card_report) would be off.
+THIS_WEEK_STATE = SITE / "state" / "this_week.json"
 OVERRIDES = SITE / "division_overrides.csv"
 
 
@@ -469,6 +473,23 @@ def build_rankings(data: Data):
 
 
 # --------------------------------------------------------------- this week --
+def pick_cols(p1, n1: str, n2: str, open_pair=None, now_pair=None):
+    """The shared This week / Our record columns for one bout, all measured on
+    the fighter in the Pick column: (pick name, note, side 1/2 or None,
+    prediction odds, opening line, current/closing odds). p1 = P(fighter 1)
+    from the model, None when the bout was not projected (a debut); a coin
+    flip still names the side the model leans to, marked as a coin flip.
+    open_pair / now_pair are decimal (f1, f2) prices or None."""
+    if p1 is None:
+        return dict(pick=None, note="UFC debut", side=None, pred="—", open="—", now="—")
+    side = 1 if p1 >= .5 else 2
+    p = p1 if side == 1 else 1 - p1
+    line = lambda pr: sline(american(pr[side - 1])) if pr else "—"
+    return dict(pick=n1 if side == 1 else n2,
+                note="Coin flip" if COIN[0] <= p1 <= COIN[1] else None, side=side,
+                pred=sline(fair_line(p)), open=line(open_pair), now=line(now_pair))
+
+
 def pick_of(p1: float, n1: str, n2: str):
     """(text, side, coin) for P(f1) = p1; side is the picked name or None."""
     if COIN[0] <= p1 <= COIN[1]:
@@ -540,10 +561,14 @@ def build_this_week(data: Data, model: Model):
     eng = model.states(d)[0]
     disp = lambda fid, bfo_name: eng.fighters[fid].name if fid else bfo_name
     mus = ev["mus"]
-    order = json.loads(CARD_ORDER.read_text(encoding="utf-8")) if CARD_ORDER.exists() else {}
-    if order.get("event_date") == ev_date:     # UFC Stats order, main event first
-        rank = {int(mu): i for i, mu in enumerate(order["mus"])}
+    st = (json.loads(THIS_WEEK_STATE.read_text(encoding="utf-8"))
+          if THIS_WEEK_STATE.exists() else {})
+    if st.get("event_date") != ev_date:
+        st = {}
+    if st.get("mus"):                          # UFC Stats order, main event first
+        rank = {int(mu): i for i, mu in enumerate(st["mus"])}
         mus = sorted(mus, key=lambda mu: rank.get(mu, len(rank)))
+    opens = {int(mu): o for mu, o in st.get("opens", {}).items()}
     bouts, proj_in = [], []
     for mu in mus:
         first, last = data.captures[mu][0], data.captures[mu][-1]
@@ -565,25 +590,30 @@ def build_this_week(data: Data, model: Model):
                                            american(float(b["first"]["f2_line"]))),
                             now=pair(american(float(b["last"]["f1_line"])),
                                      american(float(b["last"]["f2_line"])))))
+        now_pair = (float(b["last"]["f1_line"]), float(b["last"]["f2_line"]))
         if "proj_idx" not in b:
             row.update(pick_text="No pick · UFC debut", tag=None,
-                       bet_text="No bet", bet_kind="none")
+                       bet_text="No bet", bet_kind="none", bet=False,
+                       cols=pick_cols(None, f1, f2))
             rows.append(row)
             continue
         p1, rd1, rd2 = proj[b["proj_idx"]]
         pick_text, side, coin = pick_of(p1, f1, f2)
         disagreed = side is not None and fav is not None and side != fav
-        bf = data.bfo.get(b["mu"])
+        # the opener: bfo_lines once the card is fought, else the one
+        # card_report read at capture time (this_week.json), else -- an old
+        # capture with neither -- the earliest capture, said out loud
+        bf = data.bfo.get(b["mu"]) or opens.get(b["mu"])
         if bf:
             o1, o2 = float(bf["f1_open"]), float(bf["f2_open"])
         else:
-            print(f"  ! no opening line in bfo_lines.csv for mu {b['mu']} "
-                  f"{f1} vs {f2}: using the earliest capture as open")
+            print(f"  ! no opening line for mu {b['mu']} {f1} vs {f2}: "
+                  f"using the earliest capture as open")
             o1, o2 = float(b["first"]["f1_line"]), float(b["first"]["f2_line"])
         raw = None
         if bf and bf.get("f1_open_raw") not in (None, ""):
             raw = (float(bf["f1_open_raw"]), float(bf["f2_open_raw"]),
-                   str(bf.get("open_suspect", "0")) == "1")
+                   str(bf.get("open_suspect", "0")) in ("1", "True", "true"))
         dec = decide(p1, o1, o2, rd1, rd2, float(b["first"]["f1_line"]),
                      float(b["first"]["f2_line"]), raw)
         rule, stake, line, rd_self, rd_opp = None, 0.0, None, None, None
@@ -599,7 +629,8 @@ def build_this_week(data: Data, model: Model):
         else:
             bet_text, kind = "No bet · we agree", "agree"
         row.update(pick_text=pick_text, tag="Disagreed" if disagreed else None,
-                   bet_text=bet_text, bet_kind=kind)
+                   bet_text=bet_text, bet_kind=kind, bet=stake > 0,
+                   cols=pick_cols(p1, f1, f2, (o1, o2), now_pair))
         row["num"].update(model_line=pair(fair_line(p1), fair_line(1 - p1)),
                           open=pair(american(o1), american(o2)), close="—", clv="—",
                           rule=rule or "", stake_u=f"{stake:.2f}" if rule else "",
@@ -616,15 +647,7 @@ def build_this_week(data: Data, model: Model):
         summary = f"{n_bets} bets this week, {money(sum(stakes))} in play."
     return dict(event=dict(name=event_display(None, ev["slug"], data.titles),
                            date_text=day_text(d), posted_text=short_day(posted.date(), data.as_of),
-                           summary=summary, bouts=rows, n_bets=n_bets),
-                stake_note=stake_note())
-
-
-def stake_note() -> str:
-    return (f"Stakes run from {money(0.5)} to {money(1)} a fight, set by how well "
-            f"the numbers know the fighter we're backing. We pass when the fighter "
-            f"is {SKIP_LINE_MAX:+d} or longer, or when neither fighter has much of "
-            f"a track record.")
+                           summary=summary, bouts=rows, n_bets=n_bets))
 
 
 # ------------------------------------------------------------------ record --
@@ -717,7 +740,21 @@ def build_cards(data: Data, model: Model, year: str, preds: dict, ledger: list):
                         card_clv.append(clv_val)
             if sig:
                 close_txt = sline(sig["clean_close"])
+            # the shared columns, on our pick: bfo_lines' validated open and
+            # clean close (close_of: the same clean close a ledger row carries)
+            open_pair = (ln["a_open"], ln["b_open"]) if ln else None
+            close_pair = cl
+            cols = pick_cols(p_a, a, b, open_pair, close_pair)
+            if f["outcome"] == "A_WIN" and side is not None:
+                pick_mark, pick_mark_kind = mark, mark_kind
+            else:
+                pick_mark, pick_mark_kind = "–", "void"
+            cols["note"] = ("Draw" if f["outcome"] == "DRAW" else
+                            "No contest" if f["outcome"] == "NC" else cols["note"])
+            placed_here = any(r["placed"] == 1 for r in by_fid.get(fid, []))
             fights.append(dict(
+                cols=cols, pick_mark=pick_mark, pick_mark_kind=pick_mark_kind,
+                bet=placed_here,
                 f1=a, f2=b, main=f is bouts[0], pick_text=pick_text,
                 tag="Disagreed" if disagreed else None, odds_text=odds_text,
                 mark=mark, mark_kind=mark_kind,
@@ -791,21 +828,13 @@ def build_record(data: Data, model: Model, out: Path):
     bt25 = [r for r in data.ledger_bt if r["event_date"][:4] == "2025"]
     cards26 = build_cards(data, model, "2026", data.preds, rows26)
     cards25 = build_cards(data, model, "2025", data.preds_bt, bt25)
-    tabs = [dict(key="2026", label="2026 · Live testing",
-                 note="Picks timestamped before each fight since Sep 8, 2026.",
+    tabs = [dict(key="2026", label="2026 · Live testing", note=None,
                  tiles=tiles(rows26), cards=cards26),
             dict(key="2025", label="2025 · Backtesting",
                  note="A backtest of the same rules, settled at opening odds with no money down.",
                  tiles=tiles(bt25), cards=cards25)]
-    # public ledger copy
-    cols = [c for c in (data.ledger or data.ledger_bt)[0].keys() if c not in LEDGER_PUBLIC_DROP]
-    (out / "record").mkdir(parents=True, exist_ok=True)
-    with open(out / "record" / "ledger.csv", "w", encoding="utf-8", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
-        w.writeheader()
-        for r in sorted(rows26 + bt25, key=lambda r: r["event_date"]):
-            # the 2025 backtest ledger predates reason / pm_p_at_capture
-            w.writerow({k: ("" if r.get(k) is None else r[k]) for k in cols})
+    # the public ledger download was retired 2026-11-06 (data/system_ledger.csv
+    # in the repo is the record of truth)
     return dict(tabs=tabs, cards={c["key"]: c for c in cards26 + cards25},
                 n_ledger=len(rows26) + len(bt25))
 
@@ -838,9 +867,11 @@ def main():
     out.mkdir(parents=True)
     record = build_record(data, model, out)
 
-    pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings")),
+    pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings",
+                                                           numbers_toggle=True)),
              "this-week/index.html": ("this_week.html", dict(week, nav="this-week")),
-             "index.html": ("rankings.html", dict(rankings, nav="rankings")),
+             "index.html": ("rankings.html", dict(rankings, nav="rankings",
+                                                  numbers_toggle=True)),
              "record/index.html": ("record.html", dict(record, nav="record"))}
     for rel, (tpl, ctx) in pages.items():
         p = out / rel
@@ -849,7 +880,7 @@ def main():
     shutil.copy(SITE / "static" / "style.css", out / "style.css")
     (out / "vercel.json").write_text(json.dumps(VERCEL_JSON, indent=2) + "\n", encoding="utf-8")
     p4p = ", ".join(r["name"] for r in rankings["lists"][0]["rows"][:8])
-    print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows")
+    print(f"wrote {out}: {len(pages)} pages, {record['n_ledger']} ledger rows on the record")
     print(f"P4P top 8: {p4p}")
     ev = week["event"]
     nx = week.get("next")

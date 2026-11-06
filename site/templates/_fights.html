@@ -1,0 +1,40 @@
+{# The one fight table This week and Our record share. Every odds column is
+   for the fighter in the Pick column. Rows: dicts with f1, f2, main, bet,
+   cols (pick_cols) and, on Our record, pick_mark / pick_mark_kind. #}
+{% macro pick_name(name) -%}
+{%- set parts = name.split(" ") -%}
+{%- if parts | length > 1 -%}
+<span class="first">{{ parts[:-1] | join(" ") }} </span>{{ parts[-1] }}
+{%- else -%}{{ name }}{%- endif -%}
+{%- endmacro %}
+{# last_label: "Current odds" (short "Now") or "Closing odds" (short "Close") #}
+{% macro fights_table(rows, last_label) %}
+<table class="fights">
+  <colgroup><col class="c-fight"><col class="c-pick"><col class="c-bet"><col class="c-odds"><col class="c-odds"><col class="c-odds"></colgroup>
+  <thead><tr>
+    <th>Fight</th><th>Pick</th><th class="c">Bet</th>
+    <th class="r"><span class="long">Prediction odds</span><span class="short">Model</span></th>
+    <th class="r"><span class="long">Opening line</span><span class="short">Open</span></th>
+    <th class="r"><span class="long">{{ last_label }}</span><span class="short">{{ last_label.split(" ")[0] | replace("Current", "Now") | replace("Closing", "Close") }}</span></th>
+  </tr></thead>
+  <tbody>
+  {% for b in rows %}
+  <tr{% if b.main %} class="main"{% endif %}>
+    <td class="bout">{% if b.main %}<span class="tag">Main event</span>{% endif %}
+      <span class="fname">{{ b.f1 }}</span><span class="vs">vs</span><span class="fname">{{ b.f2 }}</span></td>
+    <td class="pick">
+      {%- if b.cols.pick -%}
+      {%- if b.pick_mark %}<b class="mark {{ b.pick_mark_kind }}" aria-label="{{ {'hit': 'right', 'miss': 'wrong'}.get(b.pick_mark_kind, 'not counted') }}">{{ b.pick_mark }}</b> {% endif -%}
+      {{ pick_name(b.cols.pick) }}
+      {%- else -%}<span class="dim">No pick</span>{%- endif -%}
+      {%- if b.cols.note %}<small>{{ b.cols.note }}</small>{% endif -%}
+    </td>
+    <td class="c bet{% if b.bet %} yes{% endif %}">{{ "Yes" if b.bet else "No" }}</td>
+    <td class="r mono">{{ b.cols.pred }}</td>
+    <td class="r mono">{{ b.cols.open }}</td>
+    <td class="r mono">{{ b.cols.now }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endmacro %}
