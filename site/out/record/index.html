@@ -9749,20 +9749,6 @@ coin flips, draws and no contests are shown but not counted.</p>
 
 <script>
 (function () {
-  // "Show the numbers": reveals the .num columns on every table.
-  var btn = document.getElementById('numbers-toggle');
-  function setNumbers(on) {
-    if (!btn) return;
-    document.body.classList.toggle('numbers', on);
-    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-    btn.textContent = on ? 'Hide the numbers' : 'Show the numbers';
-    try { localStorage.setItem('numbers', on ? '1' : '0'); } catch (e) {}
-  }
-  var saved = null;
-  try { saved = localStorage.getItem('numbers'); } catch (e) {}
-  if (saved === '1') setNumbers(true);
-  if (btn) btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
-
   // Tabs and pills: [data-tab="x"] buttons show [data-panel="x"] in the same group.
   document.querySelectorAll('[data-tab]').forEach(function (b) {
     b.addEventListener('click', function () {

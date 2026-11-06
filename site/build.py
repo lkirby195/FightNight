@@ -867,11 +867,9 @@ def main():
     out.mkdir(parents=True)
     record = build_record(data, model, out)
 
-    pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings",
-                                                           numbers_toggle=True)),
+    pages = {"rankings/index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "this-week/index.html": ("this_week.html", dict(week, nav="this-week")),
-             "index.html": ("rankings.html", dict(rankings, nav="rankings",
-                                                  numbers_toggle=True)),
+             "index.html": ("rankings.html", dict(rankings, nav="rankings")),
              "record/index.html": ("record.html", dict(record, nav="record"))}
     for rel, (tpl, ctx) in pages.items():
         p = out / rel

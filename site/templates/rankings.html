@@ -18,7 +18,7 @@
   <table class="rank">
     <thead><tr>
       <th class="r">#</th><th>Fighter</th><th class="r">Gross rating</th><th>Last 3</th><th class="c-last">Last fight</th><th class="r c-move">Move</th>
-      <th class="num r" title="How sure we are of the gross rating: the fighter is probably within this many points of it. Tighter is more confident.">Confidence</th><th class="num r" title="Gross rating minus the confidence band. The rankings are ordered by this.">Net rating</th>
+      <th class="r" title="How sure we are of the gross rating: the fighter is probably within this many points of it. Tighter is more confident.">Confidence</th><th class="r" title="Gross rating minus the confidence band. The rankings are ordered by this.">Net rating</th>
     </tr></thead>
     <tbody>
     {% for r in l.rows %}
@@ -29,8 +29,8 @@
       <td class="form">{% for x in r.last3 %}<span class="res {{ x }}" title="{{ {'W': 'Win', 'L': 'Loss', 'D': 'Draw', 'NC': 'No contest'}.get(x, x) }}">{{ {'W': '✓', 'L': '✗'}.get(x, '–') }}</span>{% endfor %}</td>
       <td class="last c-last">{{ r.last }} <span class="dim">{{ r.last_date }}</span></td>
       <td class="r mono c-move move {% if r.move.startswith('▲') %}up{% elif r.move.startswith('▼') %}down{% endif %}">{{ r.move }}</td>
-      <td class="num r mono">±{{ r.rd_i }}</td>
-      <td class="num r mono">{{ r.rating_i - r.rd_i }}</td>
+      <td class="r mono">±{{ r.rd_i }}</td>
+      <td class="r mono net">{{ r.rating_i - r.rd_i }}</td>
     </tr>
     {% endfor %}
     </tbody>
@@ -68,7 +68,7 @@
     {% for r in rising %}
     <li><span class="fname">{{ r.name }}</span>{% if r.division %} <span class="div">{{ r.division }}</span>{% endif %}
       <span class="mono">{{ r.rating_i }}</span> <span class="dim">{{ r.last }} {{ r.last_date }}</span>
-      <span class="num mono dim">confidence ±{{ r.rd_i }}</span></li>
+      <span class="mono dim">confidence ±{{ r.rd_i }}</span></li>
     {% endfor %}
   </ul>
 </section>
