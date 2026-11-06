@@ -125,6 +125,3 @@ confirm it.
   (blind long side at the close) on 2025-26, read once. Prior is low: break-even
   for 8 years, then 2 good ones. Cheaper option: add it as a shadow track for the
   March 2027 review alongside SHADOW_D61 and leave the holdout alone.
-- **Product angle:** "Betting on finishes costs you 10-16% over a decade"
-  (short side, 2015-24, at the mean price) is a clean, checkable stat for the
-  public site.
