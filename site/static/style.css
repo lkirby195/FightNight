@@ -23,8 +23,6 @@ a{color:inherit}
 .nav{display:flex;gap:18px;flex:1;flex-wrap:wrap}
 .nav a{text-decoration:none;font-weight:600;font-size:14px;color:#C9CDD6;padding:4px 0;border-bottom:2px solid transparent}
 .nav a.on{color:#fff;border-bottom-color:var(--red)}
-.numbers-toggle{font-family:var(--mono);font-size:12px;background:transparent;color:#C9CDD6;border:1.5px solid #4A5060;padding:5px 10px;cursor:pointer}
-.numbers-toggle[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}
 
 /* hero */
 .hero{border-bottom:3px solid var(--ink);padding:30px 0 22px;margin-bottom:22px}
@@ -52,11 +50,6 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr.main td{background:#FCFCFA}
 tfoot td{padding:10px;font-family:var(--mono);font-size:13px;border-top:2px solid var(--ink)}
 table.small{width:auto;min-width:420px}
-.num{display:none}
-body.numbers .num{display:table-cell}
-body.numbers li .num{display:inline}
-body.numbers .prose .num{display:block}
-body.numbers .prose li.num{display:list-item}
 
 .bout{min-width:220px}
 .fname{font-weight:600;font-size:14.5px;display:block}
@@ -126,7 +119,7 @@ table.rank .div{display:block;font-family:var(--mono);font-size:11px;color:var(-
   table.rank .last{font-size:12px;overflow-wrap:anywhere}
 }
 @media(max-width:560px){
-  body.numbers table.rank .c-last,body.numbers table.rank .c-move{display:none}   /* room for Confidence / Net rating */
+  table.rank .c-last,table.rank .c-move{display:none}   /* phones: room for Confidence / Net rating */
   .topbar .wrap{row-gap:6px}
   .nav{flex-basis:100%;order:3;gap:20px}
 }
@@ -136,7 +129,7 @@ table.rank .div{display:block;font-family:var(--mono);font-size:11px;color:var(-
   table.rank tbody td{padding:7px 4px}
   table.rank thead th{padding:7px 4px}
   table.rank .fname{font-size:13.5px}
-  body.numbers table.rank tbody td,body.numbers table.rank thead th{padding-left:3px;padding-right:3px}
+  table.rank tbody td,table.rank thead th{padding-left:3px;padding-right:3px}
 }
 .card{background:var(--soft);border:2px solid var(--ink);padding:16px}
 .card h3{margin-top:0}

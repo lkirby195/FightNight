@@ -70,9 +70,8 @@ as "this week"); it defaults to today.
 
 - `templates/` Jinja2 templates; `base.html` carries the nav, the wordmark
   (`BRAND` in `build.py`, placeholder `SPLIT DECISION`) and the few lines of
-  vanilla JS (year tabs, division pills, card dropdown, "Show the numbers"
-  on Rankings, the only page with hidden columns). `_fights.html` is the one
-  fight table This week and Our record share.
+  vanilla JS (year tabs, division pills, card dropdown). `_fights.html` is the
+  one fight table This week and Our record share.
 - `static/style.css` copied to `out/style.css`.
 - `division_overrides.csv` (`fighter_id,division`): overrides the default
   division (modal weight class of the last three fights).
@@ -103,9 +102,9 @@ marked "Coin flip", and are not counted; a debut bout has no pick. On Our record
 the pick carries ✓ (right), ✗ (wrong) or – (not counted: coin flip, draw, no
 contest); draws and no contests void any bet. Rankings show the last three
 results as ✓ / ✗ / – (win, loss, draw or no contest), shape first, colour as a
-second cue. The "Show the numbers" toggle (Rankings only) adds Confidence (the
-RD, shown as ±RD) and Net rating (rating − RD, the ranking order); the visible
-rating is labelled Gross rating (2026-11-06).
+second cue. Rankings show Gross rating (the rating), Confidence (±RD) and Net rating
+(rating − RD, the ranking order), all visible; the "Show the numbers" toggle
+was removed 2026-11-06. Phones hide Last fight and Move to fit.
 
 ## Deploy
 
