@@ -1,0 +1,120 @@
+{
+ "event_date": "2026-11-07",
+ "event_name": "UFC Fight Night: Cortes Acosta vs. Walker",
+ "mus": [
+  45564,
+  45543,
+  45566,
+  45545,
+  45555,
+  45557,
+  45551,
+  45558,
+  45546,
+  45550,
+  45628,
+  45563,
+  45544,
+  45556
+ ],
+ "opens": {
+  "45564": {
+   "f1_open": 3.47,
+   "f2_open": 1.33333,
+   "f1_open_raw": 3.47,
+   "f2_open_raw": 1.33333,
+   "open_suspect": 0
+  },
+  "45543": {
+   "f1_open": 1.47619,
+   "f2_open": 2.77,
+   "f1_open_raw": 1.47619,
+   "f2_open_raw": 2.77,
+   "open_suspect": 0
+  },
+  "45566": {
+   "f1_open": 3.85,
+   "f2_open": 1.33333,
+   "f1_open_raw": 3.85,
+   "f2_open_raw": 1.33333,
+   "open_suspect": 0
+  },
+  "45545": {
+   "f1_open": 2.89,
+   "f2_open": 1.44444,
+   "f1_open_raw": 2.89,
+   "f2_open_raw": 1.44444,
+   "open_suspect": 0
+  },
+  "45555": {
+   "f1_open": 1.28571,
+   "f2_open": 3.84,
+   "f1_open_raw": 1.28571,
+   "f2_open_raw": 3.84,
+   "open_suspect": 0
+  },
+  "45557": {
+   "f1_open": 1.33333,
+   "f2_open": 3.47,
+   "f1_open_raw": 1.33333,
+   "f2_open_raw": 3.47,
+   "open_suspect": 0
+  },
+  "45551": {
+   "f1_open": 1.30769,
+   "f2_open": 3.65,
+   "f1_open_raw": 1.30769,
+   "f2_open_raw": 3.65,
+   "open_suspect": 0
+  },
+  "45558": {
+   "f1_open": 1.43478,
+   "f2_open": 2.93,
+   "f1_open_raw": 1.43478,
+   "f2_open_raw": 2.93,
+   "open_suspect": 0
+  },
+  "45546": {
+   "f1_open": 3.28,
+   "f2_open": 1.36364,
+   "f1_open_raw": 3.28,
+   "f2_open_raw": 1.36364,
+   "open_suspect": 0
+  },
+  "45550": {
+   "f1_open": 2.28,
+   "f2_open": 1.66667,
+   "f1_open_raw": 2.28,
+   "f2_open_raw": 1.66667,
+   "open_suspect": 0
+  },
+  "45628": {
+   "f1_open": 1.36364,
+   "f2_open": 3.28,
+   "f1_open_raw": 1.36364,
+   "f2_open_raw": 3.28,
+   "open_suspect": 0
+  },
+  "45563": {
+   "f1_open": 1.92593,
+   "f2_open": 1.92593,
+   "f1_open_raw": 1.92593,
+   "f2_open_raw": 1.92593,
+   "open_suspect": 0
+  },
+  "45544": {
+   "f1_open": 1.28571,
+   "f2_open": 3.84,
+   "f1_open_raw": 1.28571,
+   "f2_open_raw": 3.84,
+   "open_suspect": 0
+  },
+  "45556": {
+   "f1_open": 2.32,
+   "f2_open": 1.64516,
+   "f1_open_raw": 2.32,
+   "f2_open_raw": 1.64516,
+   "open_suspect": 0
+  }
+ }
+}

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Our record · {{ brand }}{% endblock %}
 {% block content %}
+{% from "_fights.html" import fights_table %}
 <header class="hero">
   <p class="kicker">Our record</p>
   <h1>Every pick, every bet, on the record</h1>
-  <p class="lede">Pick a year, then a card. Bets are ${{ 100 }} a unit.
-  <a href="/record/ledger.csv">Download the ledger</a>.</p>
+  <p class="lede">Pick a year, then a card. Bets are ${{ 100 }} a unit.</p>
 </header>
 
 <div class="tabs" role="tablist">
@@ -41,69 +41,9 @@
     <p class="stamp">{{ c.date_text }} · {{ c.posted_text }}</p>
   </header>
 
-  <h3>Our bets</h3>
-  {% if c.bets %}
-  <div class="tablewrap">
-  <table class="bets">
-    <thead><tr>
-      <th>Bet</th><th>Our pick</th><th>The odds said</th><th>Result</th>
-      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
-      <th class="num r">CLV pts</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
-    </tr></thead>
-    <tbody>
-    {% for b in c.bets %}
-    <tr>
-      <td class="mono">{{ b.stake }}</td>
-      <td class="pick">{{ b.pick }} <span class="dim">over {{ b.opp }}</span></td>
-      <td class="odds">{{ b.odds_text }}</td>
-      <td class="result {{ 'hit' if b.won else 'miss' }}"><b>{{ b.result }}</b> <span class="dim">· {{ b.how }}</span></td>
-      <td class="num mono">{{ b.num.model_line }}</td>
-      <td class="num mono">{{ b.num.open }}</td>
-      <td class="num mono">{{ b.num.placeable }}</td>
-      <td class="num mono">{{ b.num.close }}</td>
-      <td class="num mono r">{{ b.num.clv }}</td>
-      <td class="num mono">{{ b.num.rule }}</td>
-      <td class="num mono r">{{ b.num.stake_u }}</td>
-      <td class="num mono">{{ b.num.rd }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-    <tfoot><tr><td colspan="12"><b>{{ c.w }}–{{ c.l }}</b> · net <b class="{{ 'pos' if c.net_u >= 0 else 'neg' }}">{{ c.net }}</b></td></tr></tfoot>
-  </table>
-  </div>
-  {% else %}
-  <p class="nobets">No bets on this card.</p>
-  {% endif %}
-
-  <h3>Every fight <span class="dim">picks right {{ c.hits }} of {{ c.total }}{% if c.clv %} · card CLV {{ c.clv }} pts over {{ c.clv_n }} projected{% endif %}</span></h3>
-  <div class="tablewrap">
-  <table class="card-table">
-    <thead><tr>
-      <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Result</th>
-      <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Close</th>
-      <th class="num r" title="Measured on the fighter we price higher than the opening odds, so a positive number means the market moved toward us.">CLV (our side)</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
-    </tr></thead>
-    <tbody>
-    {% for f in c.fights %}
-    <tr{% if f.main %} class="main"{% endif %}>
-      <td class="bout">{% if f.main %}<span class="tag">Main event</span>{% endif %}
-        <span class="fname">{{ f.f1 }}</span><span class="vs">vs</span><span class="fname">{{ f.f2 }}</span></td>
-      <td class="pick">{{ f.pick_text }}{% if f.tag %} <span class="flag">{{ f.tag }}</span>{% endif %}</td>
-      <td class="odds">{{ f.odds_text }}</td>
-      <td class="result {{ f.mark_kind }}"><b class="mark">{{ f.mark }}</b> <span class="dim">{{ f.result }}</span></td>
-      <td class="num mono">{{ f.num.model_line }}</td>
-      <td class="num mono">{{ f.num.open }}</td>
-      <td class="num mono">{{ f.num.placeable }}</td>
-      <td class="num mono">{{ f.num.close }}</td>
-      <td class="num mono r">{{ f.num.clv }}</td>
-      <td class="num mono">{{ f.num.rule }}</td>
-      <td class="num mono r">{{ f.num.stake_u }}</td>
-      <td class="num mono">{{ f.num.rd }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  </div>
+  <h3>Every Fight Modeled <span class="dim">picks right {{ c.hits }} of {{ c.total }}
+    · {% if c.bets %}bets {{ c.w }}–{{ c.l }}, net <b class="{{ 'pos' if c.net_u >= 0 else 'neg' }}">{{ c.net }}</b>{% else %}no bets{% endif %}</span></h3>
+  {{ fights_table(c.fights, "Closing odds") }}
 </article>
 {% endfor %}
 <p class="foot">Picks right counts fights where we named a side and there was a winner:

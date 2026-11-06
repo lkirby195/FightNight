@@ -232,21 +232,28 @@ def finish(commit_msg_path: str | None, subject: str, body: list[str]) -> None:
 
 
 # ----------------------------------------------------------------- report --
-CARD_ORDER = "site/state/card_order.json"
+THIS_WEEK = "site/state/this_week.json"
+OPEN_KEYS = ("f1_open", "f2_open", "f1_open_raw", "f2_open_raw", "open_suspect")
 
 
-def write_card_order(ev, card, on, path=CARD_ORDER) -> list[int]:
-    """The captured bouts' BFO matchup ids in UFC Stats running order, main
-    event first, for site/build.py (This week lists the card in this order
-    and tags the first bout as the main event). -> the ids."""
+def write_this_week(ev, card, on, path=THIS_WEEK) -> list[int]:
+    """What site/build.py needs about the card being captured, beyond the
+    capture itself: the captured bouts' BFO matchup ids in UFC Stats running
+    order, main event first (This week lists the card in this order and tags
+    the first bout as the main event), and each bout's validated BFO opener
+    as card_report reads it (bfo_lines has no row for a card not fought yet;
+    This week shows the opening line and classifies the signal at it, the
+    same way card_report does). -> the ids."""
     import json
     pos = {f["fight_id"]: -int(f["bout_order"]) for f in card}     # N = main event
-    mus = [b["mu"] for b in sorted(on, key=lambda b: pos[b["fight_id"]])]
+    ordered = sorted(on, key=lambda b: pos[b["fight_id"]])
+    opens = {str(b["mu"]): {k: b[k] for k in OPEN_KEYS if k in b} for b in ordered
+             if "f1_open" in b}
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
-        json.dump(dict(event_date=ev["event_date"], event_name=ev["event_name"], mus=mus),
-                  fh, indent=1)
+        json.dump(dict(event_date=ev["event_date"], event_name=ev["event_name"],
+                       mus=[b["mu"] for b in ordered], opens=opens), fh, indent=1)
         fh.write("\n")
-    return mus
+    return [b["mu"] for b in ordered]
 
 
 def cmd_report(a) -> int:
@@ -305,7 +312,7 @@ def cmd_report(a) -> int:
     args = ["card_report.py", slug, ev_date]
     if off:
         args += ["--off", ",".join(str(b["mu"]) for b in off)]
-    write_card_order(ev, card, on)
+    write_this_week(ev, card, on)
     out = run(*args, summary=True)
     m = re.search(r"signals at open .*?: (\d+)\s+placed \(policy v1\): (\d+)", out)
     n_sig, n_placed = (int(m.group(1)), int(m.group(2))) if m else (None, None)

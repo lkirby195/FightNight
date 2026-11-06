@@ -18,7 +18,6 @@
       <a href="/this-week/" class="on">This week</a>
       <a href="/record/" >Our record</a>
     </nav>
-    <button class="numbers-toggle" id="numbers-toggle" type="button" aria-pressed="false">Show the numbers</button>
   </div>
 </div>
 
@@ -30,236 +29,136 @@
   <p class="lede">One bet this week: $50.</p>
 </header>
 
-<div class="tablewrap">
-<table class="card-table">
+<table class="fights">
+  <colgroup><col class="c-fight"><col class="c-pick"><col class="c-bet"><col class="c-odds"><col class="c-odds"><col class="c-odds"></colgroup>
   <thead><tr>
-    <th>Fight</th><th>Our pick</th><th>The odds said</th><th>Our bet</th>
-    <th class="num">Model line</th><th class="num">Open</th><th class="num">Placeable</th><th class="num">Now</th>
-    <th class="num">Close</th><th class="num r" title="Measured on the fighter we price higher than the opening odds, so a positive number means the market moved toward us.">CLV (our side)</th><th class="num">Rule</th><th class="num r">Stake</th><th class="num">RD</th>
+    <th>Fight</th><th>Pick</th><th class="c">Bet</th>
+    <th class="r"><span class="long">Prediction odds</span><span class="short">Model</span></th>
+    <th class="r"><span class="long">Opening line</span><span class="short">Open</span></th>
+    <th class="r"><span class="long">Current odds</span><span class="short">Now</span></th>
   </tr></thead>
   <tbody>
   <tr class="main">
     <td class="bout"><span class="tag">Main event</span>      <span class="fname">Johnny Walker</span><span class="vs">vs</span><span class="fname">Waldo Cortes Acosta</span></td>
-    <td class="pick">Walker 53% <span class="flag">Disagreed</span></td>
-    <td class="odds">Acosta 67%</td>
-    <td class="bet disagree">Disagreed · not enough to bet</td>
-    <td class="num mono">-113 / +113</td>
-    <td class="num mono">+186 / -229</td>
-    <td class="num mono">+186 / -229</td>
-    <td class="num mono">+186 / -229</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">99 / 105</td>
+    <td class="pick"><span class="first">Johnny </span>Walker</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-113</td>
+    <td class="r mono">+247</td>
+    <td class="r mono">+186</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Tatiana Suarez</span><span class="vs">vs</span><span class="fname">Virna Jandiroba</span></td>
-    <td class="pick">Suarez 73%</td>
-    <td class="odds">Suarez 64%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">-267 / +267</td>
-    <td class="num mono">-202 / +167</td>
-    <td class="num mono">-202 / +167</td>
-    <td class="num mono">-202 / +167</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">130 / 108</td>
+    <td class="pick"><span class="first">Tatiana </span>Suarez</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-267</td>
+    <td class="r mono">-210</td>
+    <td class="r mono">-202</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Davey Grant</span><span class="vs">vs</span><span class="fname">Elijah Smith</span></td>
-    <td class="pick">Smith 81%</td>
-    <td class="odds">Smith 73%</td>
-    <td class="bet bet">$50 on Smith</td>
-    <td class="num mono">+419 / -419</td>
-    <td class="num mono">+252 / -313</td>
-    <td class="num mono">+252 / -313</td>
-    <td class="num mono">+252 / -313</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono">GAP</td>
-    <td class="num mono r">0.50</td>
-    <td class="num mono">202 / 111</td>
+    <td class="pick"><span class="first">Elijah </span>Smith</td>
+    <td class="c bet yes">Yes</td>
+    <td class="r mono">-419</td>
+    <td class="r mono">-300</td>
+    <td class="r mono">-313</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Billy Elekana</span><span class="vs">vs</span><span class="fname">Lucas Fernando</span></td>
-    <td class="pick">Coin flip · 50%</td>
-    <td class="odds">Fernando 73%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">-108 / +108</td>
-    <td class="num mono">+261 / -329</td>
-    <td class="num mono">+261 / -329</td>
-    <td class="num mono">+261 / -329</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">196 / 294</td>
+    <td class="pick"><span class="first">Billy </span>Elekana<small>Coin flip</small></td>
+    <td class="c bet">No</td>
+    <td class="r mono">-108</td>
+    <td class="r mono">+189</td>
+    <td class="r mono">+261</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Nina Milosevic</span><span class="vs">vs</span><span class="fname">Priscila Cachoeira</span></td>
-    <td class="pick">Milosevic 79%</td>
-    <td class="odds">Milosevic 79%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">-367 / +367</td>
-    <td class="num mono">-486 / +367</td>
-    <td class="num mono">-486 / +367</td>
-    <td class="num mono">-486 / +367</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">280 / 111</td>
+    <td class="pick"><span class="first">Nina </span>Milosevic</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-367</td>
+    <td class="r mono">-350</td>
+    <td class="r mono">-486</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Marcos Degli</span><span class="vs">vs</span><span class="fname">Mitch Raposo</span></td>
-    <td class="pick">No pick · UFC debut</td>
-    <td class="odds">Degli 67%</td>
-    <td class="bet none">No bet</td>
-    <td class="num mono"></td>
-    <td class="num mono"></td>
-    <td class="num mono">-235 / +192</td>
-    <td class="num mono">-235 / +192</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
+    <td class="pick"><span class="dim">No pick</span><small>UFC debut</small></td>
+    <td class="c bet">No</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Keiichiro Nakamura</span><span class="vs">vs</span><span class="fname">Ollie Schmid</span></td>
-    <td class="pick">Nakamura 54%</td>
-    <td class="odds">Nakamura 74%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">-120 / +120</td>
-    <td class="num mono">-347 / +276</td>
-    <td class="num mono">-347 / +276</td>
-    <td class="num mono">-347 / +276</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">290 / 284</td>
+    <td class="pick"><span class="first">Keiichiro </span>Nakamura</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-120</td>
+    <td class="r mono">-325</td>
+    <td class="r mono">-347</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Gabriel Lorenco</span><span class="vs">vs</span><span class="fname">Thomas Petersen</span></td>
-    <td class="pick">No pick · UFC debut</td>
-    <td class="odds">Petersen 61%</td>
-    <td class="bet none">No bet</td>
-    <td class="num mono"></td>
-    <td class="num mono"></td>
-    <td class="num mono">+144 / -174</td>
-    <td class="num mono">+144 / -174</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
+    <td class="pick"><span class="dim">No pick</span><small>UFC debut</small></td>
+    <td class="c bet">No</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Gabriella Fernandes</span><span class="vs">vs</span><span class="fname">Karine Silva</span></td>
-    <td class="pick">Silva 67%</td>
-    <td class="odds">Silva 66%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">+203 / -203</td>
-    <td class="num mono">+183 / -225</td>
-    <td class="num mono">+183 / -225</td>
-    <td class="num mono">+183 / -225</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">164 / 140</td>
+    <td class="pick"><span class="first">Karine </span>Silva</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-203</td>
+    <td class="r mono">-275</td>
+    <td class="r mono">-225</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Jose Delano</span><span class="vs">vs</span><span class="fname">Murtazali Magomedov</span></td>
-    <td class="pick">Magomedov 63% <span class="flag">Disagreed</span></td>
-    <td class="odds">Delano 51%</td>
-    <td class="bet disagree">Disagreed · not enough to bet</td>
-    <td class="num mono">+172 / -172</td>
-    <td class="num mono">-116 / -103</td>
-    <td class="num mono">-116 / -103</td>
-    <td class="num mono">-116 / -103</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">280 / 265</td>
+    <td class="pick"><span class="first">Murtazali </span>Magomedov</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-172</td>
+    <td class="r mono">-150</td>
+    <td class="r mono">-103</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Austin Bashi</span><span class="vs">vs</span><span class="fname">Carlos Calderon</span></td>
-    <td class="pick">No pick · UFC debut</td>
-    <td class="odds">Bashi 78%</td>
-    <td class="bet none">No bet</td>
-    <td class="num mono"></td>
-    <td class="num mono"></td>
-    <td class="num mono">-449 / +340</td>
-    <td class="num mono">-449 / +340</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono"></td>
+    <td class="pick"><span class="dim">No pick</span><small>UFC debut</small></td>
+    <td class="c bet">No</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
+    <td class="r mono">—</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Andre Petroski</span><span class="vs">vs</span><span class="fname">Mantas Kondratavicius</span></td>
-    <td class="pick">Kondratavicius 66%</td>
-    <td class="odds">Kondratavicius 72%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">+194 / -194</td>
-    <td class="num mono">+242 / -301</td>
-    <td class="num mono">+242 / -301</td>
-    <td class="num mono">+242 / -301</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">119 / 287</td>
+    <td class="pick"><span class="first">Mantas </span>Kondratavicius</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-194</td>
+    <td class="r mono">-108</td>
+    <td class="r mono">-301</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Seokhyeon Ko</span><span class="vs">vs</span><span class="fname">Wellington Turman</span></td>
-    <td class="pick">Ko 76%</td>
-    <td class="odds">Ko 84%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">-322 / +322</td>
-    <td class="num mono">-717 / +511</td>
-    <td class="num mono">-717 / +511</td>
-    <td class="num mono">-717 / +511</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">210 / 138</td>
+    <td class="pick"><span class="first">Seokhyeon </span>Ko</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-322</td>
+    <td class="r mono">-350</td>
+    <td class="r mono">-717</td>
   </tr>
   <tr>
     <td class="bout">      <span class="fname">Jonny Parsons</span><span class="vs">vs</span><span class="fname">Jose Souza</span></td>
-    <td class="pick">Souza 68%</td>
-    <td class="odds">Souza 67%</td>
-    <td class="bet agree">No bet · we agree</td>
-    <td class="num mono">+209 / -209</td>
-    <td class="num mono">+195 / -237</td>
-    <td class="num mono">+195 / -237</td>
-    <td class="num mono">+195 / -237</td>
-    <td class="num mono">—</td>
-    <td class="num mono r">—</td>
-    <td class="num mono"></td>
-    <td class="num mono r"></td>
-    <td class="num mono">258 / 290</td>
+    <td class="pick"><span class="first">Jose </span>Souza</td>
+    <td class="c bet">No</td>
+    <td class="r mono">-209</td>
+    <td class="r mono">-155</td>
+    <td class="r mono">-237</td>
   </tr>
   </tbody>
 </table>
-</div>
-<p class="foot">Stakes run from $50 to $100 a fight, set by how well the numbers know the fighter we&#39;re backing. We pass when the fighter is +250 or longer, or when neither fighter has much of a track record. Odds are the market's numbers with the bookmaker's margin taken out,
-as they stood when this page was built.</p>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <span>SPLIT DECISION · results through Sat Oct 31, 2026 · built Thu Nov 5, 2026</span>
-    <span>Every page is generated from the public ledger and committed with it.</span>
-    <p class="disclaimer">Split Decision publishes model output for entertainment and analysis. It is not betting advice. We don't sell picks and we don't take money to promote anything. Bet only what you can afford to lose, and only where it's legal.</p>
+    <span>SPLIT DECISION · results through Sat Oct 31, 2026</span>
+    <p class="disclaimer">Split Decision publishes model output for entertainment and analysis. It is not betting advice. Bet only what you can afford to lose, and only where it's legal.</p>
   </div>
 </footer>
 
@@ -268,6 +167,7 @@ as they stood when this page was built.</p>
   // "Show the numbers": reveals the .num columns on every table.
   var btn = document.getElementById('numbers-toggle');
   function setNumbers(on) {
+    if (!btn) return;
     document.body.classList.toggle('numbers', on);
     btn.setAttribute('aria-pressed', on ? 'true' : 'false');
     btn.textContent = on ? 'Hide the numbers' : 'Show the numbers';
@@ -276,7 +176,7 @@ as they stood when this page was built.</p>
   var saved = null;
   try { saved = localStorage.getItem('numbers'); } catch (e) {}
   if (saved === '1') setNumbers(true);
-  btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
+  if (btn) btn.addEventListener('click', function () { setNumbers(!document.body.classList.contains('numbers')); });
 
   // Tabs and pills: [data-tab="x"] buttons show [data-panel="x"] in the same group.
   document.querySelectorAll('[data-tab]').forEach(function (b) {
